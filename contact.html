@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | DEEPBYTO | AI & Software Innovation Lab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for contact page */
+        .social-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .social-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.15);
+        }
+        
+        .social-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-card:hover .social-icon {
+            transform: scale(1.1);
+        }
+        
+        .social-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-white);
+        }
+        
+        .social-card p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .social-link {
+            display: inline-block;
+            padding: 10px 25px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 6px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .social-link:hover {
+            background: var(--accent-blue);
+            color: var(--text-white);
+            transform: translateY(-2px);
+        }
+        
+        .contact-email-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(138, 43, 226, 0.05));
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px auto 50px;
+            max-width: 600px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-email-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.1);
+        }
+        
+        .email-icon {
+            font-size: 3.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+        
+        .email-address {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            margin: 20px 0;
+            font-family: 'Source Code Pro', monospace;
+            word-break: break-all;
+        }
+        
+        .email-description {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        /* Platform-specific colors */
+        .github-card { border-color: rgba(255, 255, 255, 0.3); }
+        .github-icon { color: #ffffff; }
+        .github-card:hover { border-color: #ffffff; background: rgba(255, 255, 255, 0.05); }
+        
+        .tiktok-card { border-color: rgba(255, 0, 128, 0.3); }
+        .tiktok-icon { color: #ff0080; }
+        .tiktok-card:hover { border-color: #ff0080; background: rgba(255, 0, 128, 0.05); }
+        
+        .twitter-card { border-color: rgba(29, 155, 240, 0.3); }
+        .twitter-icon { color: #1da1f2; }
+        .twitter-card:hover { border-color: #1da1f2; background: rgba(29, 155, 240, 0.05); }
+        
+        .instagram-card { border-color: rgba(225, 48, 108, 0.3); }
+        .instagram-icon { color: #e1306c; }
+        .instagram-card:hover { border-color: #e1306c; background: rgba(225, 48, 108, 0.05); }
+        
+        .whatsapp-card { border-color: rgba(37, 211, 102, 0.3); }
+        .whatsapp-icon { color: #25d366; }
+        .whatsapp-card:hover { border-color: #25d366; background: rgba(37, 211, 102, 0.05); }
+        
+        .youtube-card { border-color: rgba(255, 0, 0, 0.3); }
+        .youtube-icon { color: #ff0000; }
+        .youtube-card:hover { border-color: #ff0000; background: rgba(255, 0, 0, 0.05); }
+        
+        @media (max-width: 768px) {
+            .social-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-card {
+                padding: 25px;
+                min-height: 200px;
+            }
+            
+            .social-icon {
+                font-size: 2.8rem;
+            }
+            
+            .email-address {
+                font-size: 1.4rem;
+            }
+            
+            .contact-email-card {
+                padding: 30px 20px;
+                margin: 30px 0 40px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .email-address {
+                font-size: 1.2rem;
+            }
+            
+            .social-card {
+                min-height: 180px;
+            }
+            
+            .social-icon {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">DEEPBYTO</a>
+            <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="docs.html">Docs / Learn</a></li>
+                <li><a href="labs.html">Labs / Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In <span class="accent-text">Touch</span></h2>
+            <p style="text-align: center; max-width: 700px; margin: 20px auto 50px; font-size: 1.1rem; color: var(--text-gray);">
+                Connect with us directly through email or follow our journey on social media. We're always open to collaboration, learning partnerships, and sharing knowledge.
+            </p>
+            
+            <!-- Email Contact Card -->
+            <div class="contact-email-card">
+                <div class="email-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 15px; color: var(--text-white);">Email Us</h3>
+                <p class="email-description">
+                    For inquiries, collaboration proposals, or general questions, reach out to us directly via email.
+                </p>
+                <div class="email-address">deepbyto@gmail.com</div>
+                <a href="mailto:deepbyto@gmail.com" class="social-link" style="margin-top: 0;">
+                    <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Email
+                </a>
+            </div>
+            
+            <!-- Social Media Cards -->
+            <h3 style="text-align: center; font-size: 2rem; margin: 60px 0 40px; color: var(--text-white);">Connect With Us</h3>
+            <div class="social-cards">
+                <!-- GitHub Card -->
+                <div class="social-card github-card">
+                    <div class="social-icon github-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>Explore our code repositories, projects, and contributions to open-source AI development.</p>
+                    <a href="https://github.com/DEEPBYTO" target="_blank" class="social-link">
+                        <i class="fab fa-github" style="margin-right: 8px;"></i> Visit GitHub
+                    </a>
+                </div>
+                
+                <!-- TikTok Card -->
+                <div class="social-card tiktok-card">
+                    <div class="social-icon tiktok-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3>TikTok</h3>
+                    <p>Short-form AI insights, tech tips, and behind-the-scenes of our development journey.</p>
+                    <a href="https://www.tiktok.com/@deepbyto" target="_blank" class="social-link">
+                        <i class="fab fa-tiktok" style="margin-right: 8px;"></i> Follow on TikTok
+                    </a>
+                </div>
+                
+                <!-- Twitter/X Card -->
+                <div class="social-card twitter-card">
+                    <div class="social-icon twitter-icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <h3>Twitter / X</h3>
+                    <p>Latest updates, AI news, and thoughts on software development and innovation.</p>
+                    <a href="https://x.com/deepbyto" target="_blank" class="social-link">
+                        <i class="fab fa-twitter" style="margin-right: 8px;"></i> Follow on Twitter
+                    </a>
+                </div>
+                
+                <!-- Instagram Card -->
+                <div class="social-card instagram-card">
+                    <div class="social-icon instagram-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>Visual journey of our projects, team insights, and AI development process.</p>
+                    <a href="https://www.instagram.com/deepbyto/" target="_blank" class="social-link">
+                        <i class="fab fa-instagram" style="margin-right: 8px;"></i> Follow on Instagram
+                    </a>
+                </div>
+                
+                <!-- WhatsApp Card -->
+                <div class="social-card whatsapp-card">
+                    <div class="social-icon whatsapp-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Join our channel for updates, announcements, and community discussions.</p>
+                    <a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank" class="social-link">
+                        <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Join Channel
+                    </a>
+                </div>
+                
+                <!-- YouTube Card -->
+                <div class="social-card youtube-card">
+                    <div class="social-icon youtube-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>YouTube</h3>
+                    <p>Tutorials, project demonstrations, and in-depth AI development content.</p>
+                    <a href="https://www.youtube.com/@DEEPBYTO" target="_blank" class="social-link">
+                        <i class="fab fa-youtube" style="margin-right: 8px;"></i> Subscribe on YouTube
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Collaboration Note -->
+            <div style="text-align: center; margin-top: 60px; padding: 30px; background: rgba(0, 212, 255, 0.05); border-radius: 10px; border-left: 4px solid var(--accent-blue);">
+                <h3 style="color: var(--accent-blue); margin-bottom: 15px; font-size: 1.5rem;">
+                    <i class="fas fa-handshake" style="margin-right: 10px;"></i> Open for Collaboration
+                </h3>
+                <p style="color: var(--text-gray); max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
+                    We're actively seeking learning partnerships, collaborative research opportunities, and knowledge exchange with other developers, researchers, and AI enthusiasts. Reach out to discuss potential collaborations!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DEEPBYTO</h3>
+                    <p>Building intelligent solutions through learning, experimentation, and modern software development.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/DEEPBYTO" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.tiktok.com/@deepbyto" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://x.com/deepbyto" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/deepbyto/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/@DEEPBYTO" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="docs.html">Docs / Learn</a></li>
+                        <li><a href="labs.html">Labs / Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="labs.html">Research</a></li>
+                        <li><a href="labs.html">Projects</a></li>
+                        <li><a href="about.html">Our Approach</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 DEEPBYTO Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
