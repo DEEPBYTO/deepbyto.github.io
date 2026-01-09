@@ -10,6 +10,206 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* PDF Viewer Styles */
+        .pdf-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-container:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+        
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .pdf-title {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pdf-icon {
+            font-size: 1.5rem;
+        }
+        
+        .pdf-preview {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            border: 1px dashed var(--border-color);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pdf-thumbnail {
+            font-size: 5rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+        
+        .pdf-info {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        
+        .pdf-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            color: var(--text-white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .pdf-download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+        }
+        
+        .pdf-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 6px;
+            min-width: 120px;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-top: 5px;
+        }
+        
+        .pdf-description {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-blue);
+        }
+        
+        .learning-roadmap {
+            margin-top: 50px;
+        }
+        
+        .roadmap-title {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .roadmap-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .roadmap-step {
+            background: rgba(18, 18, 26, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .roadmap-step:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--accent-blue);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .step-title {
+            font-size: 1.1rem;
+            color: var(--text-white);
+            margin-bottom: 10px;
+        }
+        
+        .step-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .pdf-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stat-item {
+                min-width: 100%;
+            }
+            
+            .roadmap-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT2L8R1D3C"></script>
     <script>
@@ -41,12 +241,127 @@
     <section class="section-padding" id="docs">
         <div class="container">
             <h2 class="section-title">Docs / <span class="accent-text">Learn</span></h2>
+            
+            <!-- Learning Roadmap PDF Download -->
+            <div class="pdf-container">
+                <div class="pdf-header">
+                    <div class="pdf-title">
+                        <i class="fas fa-road pdf-icon"></i>
+                        Deep AI Learning Roadmap
+                    </div>
+                    <div class="pdf-meta">
+                        <span style="color: var(--text-gray); font-family: 'Source Code Pro', monospace;">
+                            <i class="fas fa-calendar-alt"></i> Updated: 2026
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="pdf-preview">
+                    <div class="pdf-thumbnail">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 style="color: var(--text-white); margin-bottom: 10px;">Deep AI Learning Roadmap by DEEPBYTO</h3>
+                    <p class="pdf-info">
+                        Comprehensive guide for mastering Artificial Intelligence - From foundations to advanced concepts
+                    </p>
+                    <a href="assets/Deep AI Learning Roadmap by DEEPBYTO.pdf" download="Deep AI Learning Roadmap by DEEPBYTO.pdf" class="pdf-download-btn">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+                
+                <div class="pdf-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Pages</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Learning Stages</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">30+</div>
+                        <div class="stat-label">Skills & Concepts</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">20+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                </div>
+                
+                <div class="pdf-description">
+                    <h4 style="color: var(--accent-blue); margin-bottom: 10px;"><i class="fas fa-info-circle"></i> About This Roadmap</h4>
+                    <p style="color: var(--text-gray); margin-bottom: 0;">
+                        This comprehensive learning roadmap guides you through the complete journey of mastering Artificial Intelligence. 
+                        Starting from foundational programming skills to advanced concepts like Generative AI and Reinforcement Learning, 
+                        this PDF provides a structured path with practical projects at each stage.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Roadmap Overview -->
+            <div class="learning-roadmap">
+                <h3 class="roadmap-title">
+                    <i class="fas fa-map-signs"></i> Learning Journey Overview
+                </h3>
+                
+                <div class="roadmap-steps">
+                    <div class="roadmap-step">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Foundation</div>
+                        <div class="step-desc">Python, Mathematics, Data Structures & Basic Algorithms</div>
+                    </div>
+                    
+                    <div class="roadmap-step">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Machine Learning</div>
+                        <div class="step-desc">Supervised & Unsupervised Learning, Model Evaluation</div>
+                    </div>
+                    
+                    <div class="roadmap-step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Deep Learning</div>
+                        <div class="step-desc">Neural Networks, CNNs, RNNs, PyTorch/TensorFlow</div>
+                    </div>
+                    
+                    <div class="roadmap-step">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Computer Vision</div>
+                        <div class="step-desc">Image Processing, Object Detection, Segmentation</div>
+                    </div>
+                    
+                    <div class="roadmap-step">
+                        <div class="step-number">5</div>
+                        <div class="step-title">NLP</div>
+                        <div class="step-desc">Text Processing, Transformers, BERT, GPT</div>
+                    </div>
+                    
+                    <div class="roadmap-step">
+                        <div class="step-number">6</div>
+                        <div class="step-title">Generative AI</div>
+                        <div class="step-desc">GANs, Diffusion Models, Large Language Models</div>
+                    </div>
+                    
+                    <div class="roadmap-step">
+                        <div class="step-number">7</div>
+                        <div class="step-title">Deployment</div>
+                        <div class="step-desc">APIs, Cloud Deployment, Model Serving</div>
+                    </div>
+                    
+                    <div class="roadmap-step">
+                        <div class="step-number">8</div>
+                        <div class="step-title">Research</div>
+                        <div class="step-desc">Advanced Projects, Research Papers, Competitions</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Content Card -->
             <div class="content-card">
                 <div class="status-badge">UNDER DEVELOPMENT</div>
                 <h3 class="card-title">Knowledge Hub & Learning Resources</h3>
                 <p class="card-text">
-                    Our documentation and learning platform is currently in development. We're building a comprehensive resource 
-                    that will include tutorials, research papers, technical documentation, and learning materials focused on AI, 
+                    Beyond the AI Learning Roadmap, we're building a comprehensive resource hub that will include 
+                    tutorials, research papers, technical documentation, and learning materials focused on AI, 
                     machine learning, and software development.
                 </p>
                 
@@ -64,7 +379,7 @@
                 <div style="margin-top: 30px; padding: 20px; background: rgba(0, 212, 255, 0.05); border-radius: 8px; border-left: 4px solid var(--accent-blue);">
                     <p class="card-text" style="margin-bottom: 0;">
                         <i class="fas fa-info-circle accent-text" style="margin-right: 10px;"></i>
-                        <strong>Note:</strong> Content will be added gradually as we develop and learn. We believe in sharing knowledge 
+                        <strong>Note:</strong> More content will be added gradually as we develop and learn. We believe in sharing knowledge 
                         that's been thoroughly tested and validated through our own experimentation.
                     </p>
                 </div>
