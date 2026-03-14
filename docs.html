@@ -966,7 +966,8 @@
                     <p class="pdf-info">
                         Comprehensive guide for mastering Artificial Intelligence - From foundations to advanced concepts
                     </p>
-                    <a href="assets/AI_Roadmap.pdf" 
+                    <!-- Fixed: Removed "assets/" from path and corrected filename -->
+                    <a href="AI_Roadmap.pdf.pdf" 
                        download="Deep AI Learning Roadmap by DEEPBYTO.pdf" 
                        class="pdf-download-btn">
                         <i class="fas fa-download"></i> Download PDF
@@ -1137,7 +1138,7 @@
 
     <script src="script.js"></script>
     <script>
-        // Programming Curriculum Data from PDF (Keep the same data as before)
+        // Programming Curriculum Data from PDF
         const chapters = [
             {
                 number: 1,
@@ -1145,25 +1146,7 @@
                 description: "Understand what programming is, why learn Python, Python versions, and write your first Python program.",
                 level: "beginner",
                 topics: ["What is Programming", "Why Python", "Python 2 vs 3", "First Program", "Setup"],
-                content: `## 1.1 What is Programming?
-Programming is the process of creating a set of instructions that tell a computer how to perform a specific task.
-
-### Real-World Examples:
-- A mobile app performing an action when you tap a button
-- An ATM machine processing transactions
-- A website displaying dynamic content
-
-## 1.2 Why Learn Python?
-Python is one of the most popular and versatile programming languages.
-
-### Advantages of Python:
-- Easy to learn and beginner-friendly
-- Open-source and free to use
-- Large standard library
-- Cross-platform (Windows, Mac, Linux)
-
-## 1.6 Your First Python Program
-print("Hello, DEEPBYTO!")`
+                content: `## 1.1 What is Programming?\nProgramming is the process of creating a set of instructions that tell a computer how to perform a specific task.\n\n### Real-World Examples:\n- A mobile app performing an action when you tap a button\n- An ATM machine processing transactions\n- A website displaying dynamic content\n\n## 1.2 Why Learn Python?\nPython is one of the most popular and versatile programming languages.\n\n### Advantages of Python:\n- Easy to learn and beginner-friendly\n- Open-source and free to use\n- Large standard library\n- Cross-platform (Windows, Mac, Linux)\n\n## 1.6 Your First Python Program\nprint("Hello, DEEPBYTO!")`
             },
             {
                 number: 2,
@@ -1171,27 +1154,7 @@ print("Hello, DEEPBYTO!")`
                 description: "Complete guide to installing Python, setting up development environments, and using virtual environments.",
                 level: "beginner",
                 topics: ["Python Installation", "VS Code", "PyCharm", "Virtual Environments", "Debugging"],
-                content: `## 2.1 Why Setting Up Environment is Important
-A correct setup ensures:
-- Smooth code execution
-- Easy debugging
-- Organized project management
-
-## 2.2 Installing Python
-### Step 1: Download Python
-Visit: https://www.python.org
-
-### Step 2: Run the Installer
-On Windows: Check "Add Python to PATH"
-
-### Step 3: Verify Installation
-python --version
-
-## 2.4 Setting Up VS Code for Python
-1. Install VS Code
-2. Install Python Extension
-3. Create Project Folder
-4. Start coding`
+                content: `## 2.1 Why Setting Up Environment is Important\nA correct setup ensures:\n- Smooth code execution\n- Easy debugging\n- Organized project management\n\n## 2.2 Installing Python\n### Step 1: Download Python\nVisit: https://www.python.org\n\n### Step 2: Run the Installer\nOn Windows: Check "Add Python to PATH"\n\n### Step 3: Verify Installation\npython --version\n\n## 2.4 Setting Up VS Code for Python\n1. Install VS Code\n2. Install Python Extension\n3. Create Project Folder\n4. Start coding`
             },
             {
                 number: 3,
@@ -1199,29 +1162,7 @@ python --version
                 description: "Learn about variables, data types, type casting, arithmetic, comparison, and logical operators.",
                 level: "beginner",
                 topics: ["Variables", "Data Types", "Type Casting", "Operators", "Expressions"],
-                content: `## 3.1 Introduction
-In programming, variables store data, and data types define the kind of data.
-
-### Professional Tip:
-Always use meaningful variable names for readability.
-
-## 3.2 Variables
-A variable is a named location in memory used to store a value.
-
-Syntax: variable_name = value
-
-Examples:
-company_name = "DEEPBYTO"
-employee_count = 50
-is_active = True
-
-## 3.3 Data Types in Python
-| Data Type | Example | Description |
-|-----------|---------|-------------|
-| int | employee_count = 50 | Integer numbers |
-| float | project_budget = 1999.99 | Decimal numbers |
-| str | company_name = "DEEPBYTO" | Text/strings |
-| bool | is_active = True | True/False values |`
+                content: `## 3.1 Introduction\nIn programming, variables store data, and data types define the kind of data.\n\n### Professional Tip:\nAlways use meaningful variable names for readability.\n\n## 3.2 Variables\nA variable is a named location in memory used to store a value.\n\nSyntax: variable_name = value\n\nExamples:\ncompany_name = "DEEPBYTO"\nemployee_count = 50\nis_active = True\n\n## 3.3 Data Types in Python\n| Data Type | Example | Description |\n|-----------|---------|-------------|\n| int | employee_count = 50 | Integer numbers |\n| float | project_budget = 1999.99 | Decimal numbers |\n| str | company_name = "DEEPBYTO" | Text/strings |\n| bool | is_active = True | True/False values |`
             },
             {
                 number: 4,
@@ -1229,28 +1170,7 @@ is_active = True
                 description: "Advanced operators, operator precedence, augmented assignment, bitwise operators, and professional usage.",
                 level: "intermediate",
                 topics: ["Operator Precedence", "Augmented Assignment", "Bitwise", "Membership", "Identity"],
-                content: `## 4.1 Introduction
-Understanding operator precedence ensures your code behaves as expected.
-
-## 4.2 Types of Operators
-Python supports several types of operators:
-- Arithmetic: +, -, *, /, //, %, **
-- Comparison: ==, !=, >, <, >=, <=
-- Logical: and, or, not
-- Assignment: =, +=, -=, *=, /=
-- Bitwise: &, |, ^, ~, <<, >>
-
-## 4.3 Operator Precedence
-Order of evaluation (highest to lowest):
-1. Parentheses ()
-2. Exponentiation **
-3. Multiplication, Division *, /, //, %
-4. Addition & Subtraction +, -
-5. Comparison ==, !=, >, <, >=, <=
-6. Assignment =, +=, -=, etc.
-
-Example:
-total_budget = 1000 + 500 * 2  # Output: 2000`
+                content: `## 4.1 Introduction\nUnderstanding operator precedence ensures your code behaves as expected.\n\n## 4.2 Types of Operators\nPython supports several types of operators:\n- Arithmetic: +, -, *, /, //, %, **\n- Comparison: ==, !=, >, <, >=, <=\n- Logical: and, or, not\n- Assignment: =, +=, -=, *=, /=\n- Bitwise: &, |, ^, ~, <<, >>\n\n## 4.3 Operator Precedence\nOrder of evaluation (highest to lowest):\n1. Parentheses ()\n2. Exponentiation **\n3. Multiplication, Division *, /, //, %\n4. Addition & Subtraction +, -\n5. Comparison ==, !=, >, <, >=, <=\n6. Assignment =, +=, -=, etc.\n\nExample:\ntotal_budget = 1000 + 500 * 2  # Output: 2000`
             },
             {
                 number: 5,
@@ -1258,29 +1178,7 @@ total_budget = 1000 + 500 * 2  # Output: 2000`
                 description: "Master if, if-else, elif statements, logical operators with conditions, and ternary operators.",
                 level: "beginner",
                 topics: ["if statements", "if-else", "elif", "Nested if", "Ternary Operator"],
-                content: `## 5.1 Introduction
-Conditional statements allow a program to make decisions based on conditions.
-
-## 5.2 The if Statement
-Executes code only if condition is True.
-
-Syntax:
-if condition:
-    # code to execute
-
-DEEPBYTO Example:
-employees = 50
-if employees > 0:
-    print("DEEPBYTO has active employees")
-
-## 5.3 The if-else Statement
-Alternative action if condition is False.
-
-Syntax:
-if condition:
-    # code if True
-else:
-    # code if False`
+                content: `## 5.1 Introduction\nConditional statements allow a program to make decisions based on conditions.\n\n## 5.2 The if Statement\nExecutes code only if condition is True.\n\nSyntax:\nif condition:\n    # code to execute\n\nDEEPBYTO Example:\nemployees = 50\nif employees > 0:\n    print("DEEPBYTO has active employees")\n\n## 5.3 The if-else Statement\nAlternative action if condition is False.\n\nSyntax:\nif condition:\n    # code if True\nelse:\n    # code if False`
             },
             {
                 number: 6,
@@ -1288,31 +1186,7 @@ else:
                 description: "Learn for loops, while loops, loop control statements, nested loops, and professional iteration techniques.",
                 level: "beginner",
                 topics: ["for loops", "while loops", "break", "continue", "Nested loops"],
-                content: `## 6.1 Introduction
-Loops allow executing a block of code repeatedly until a condition is met.
-
-Python supports:
-1. for loop – iterates over sequences
-2. while loop – iterates as long as condition is True
-
-## 6.2 The for Loop
-Used to iterate over sequences or ranges.
-
-Syntax:
-for variable in sequence:
-    # code to execute
-
-DEEPBYTO Example:
-departments = ["HR", "Engineering", "Sales"]
-for dept in departments:
-    print("DEEPBYTO department:", dept)
-
-## 6.3 The while Loop
-Repeats while condition is True.
-
-Syntax:
-while condition:
-    # code to execute`
+                content: `## 6.1 Introduction\nLoops allow executing a block of code repeatedly until a condition is met.\n\nPython supports:\n1. for loop – iterates over sequences\n2. while loop – iterates as long as condition is True\n\n## 6.2 The for Loop\nUsed to iterate over sequences or ranges.\n\nSyntax:\nfor variable in sequence:\n    # code to execute\n\nDEEPBYTO Example:\ndepartments = ["HR", "Engineering", "Sales"]\nfor dept in departments:\n    print("DEEPBYTO department:", dept)\n\n## 6.3 The while Loop\nRepeats while condition is True.\n\nSyntax:\nwhile condition:\n    # code to execute`
             },
             {
                 number: 7,
@@ -1320,29 +1194,7 @@ while condition:
                 description: "Comprehensive guide to string manipulation, methods, formatting, slicing, and professional string operations.",
                 level: "beginner",
                 topics: ["String Methods", "Slicing", "Formatting", "f-Strings", "Operations"],
-                content: `## 7.1 Introduction
-Strings are sequences of characters used to store textual data.
-
-Strings are immutable - content cannot be changed after creation.
-
-## 7.2 Creating Strings
-Using single quotes, double quotes, or triple quotes.
-
-Examples:
-company_name = "DEEPBYTO"
-mission = 'Empowering Developers'
-description = """DEEPBYTO provides
-professional Python training"""
-
-## 7.3 Accessing Characters
-company_name = "DEEPBYTO"
-print(company_name[0])  # D
-print(company_name[-1]) # O
-
-## 7.4 Slicing Strings
-string[start:stop:step]
-print(company_name[0:4])  # DEEP
-print(company_name[4:])   # BYTO`
+                content: `## 7.1 Introduction\nStrings are sequences of characters used to store textual data.\n\nStrings are immutable - content cannot be changed after creation.\n\n## 7.2 Creating Strings\nUsing single quotes, double quotes, or triple quotes.\n\nExamples:\ncompany_name = "DEEPBYTO"\nmission = 'Empowering Developers'\ndescription = """DEEPBYTO provides\nprofessional Python training"""\n\n## 7.3 Accessing Characters\ncompany_name = "DEEPBYTO"\nprint(company_name[0])  # D\nprint(company_name[-1]) # O\n\n## 7.4 Slicing Strings\nstring[start:stop:step]\nprint(company_name[0:4])  # DEEP\nprint(company_name[4:])   # BYTO`
             },
             {
                 number: 8,
@@ -1350,26 +1202,7 @@ print(company_name[4:])   # BYTO`
                 description: "Master Python lists - ordered, mutable collections for data organization and manipulation.",
                 level: "beginner",
                 topics: ["List Creation", "Slicing", "Methods", "Nested Lists", "Iteration"],
-                content: `## 8.1 Introduction
-Lists are ordered, mutable collections that store multiple values.
-
-Professional Tip: Essential for data organization and application development.
-
-## 8.2 Creating Lists
-Syntax: list_name = [item1, item2, item3]
-
-DEEPBYTO Example:
-departments = ["HR", "Engineering", "Sales", "Marketing"]
-projects = [101, 102, 103]
-
-## 8.3 Accessing List Items
-print(departments[0])  # HR
-print(departments[2])  # Sales
-print(departments[-1]) # Marketing
-
-## 8.4 Slicing Lists
-print(departments[1:3])  # ['Engineering', 'Sales']
-print(departments[:2])   # ['HR', 'Engineering']`
+                content: `## 8.1 Introduction\nLists are ordered, mutable collections that store multiple values.\n\nProfessional Tip: Essential for data organization and application development.\n\n## 8.2 Creating Lists\nSyntax: list_name = [item1, item2, item3]\n\nDEEPBYTO Example:\ndepartments = ["HR", "Engineering", "Sales", "Marketing"]\nprojects = [101, 102, 103]\n\n## 8.3 Accessing List Items\nprint(departments[0])  # HR\nprint(departments[2])  # Sales\nprint(departments[-1]) # Marketing\n\n## 8.4 Slicing Lists\nprint(departments[1:3])  # ['Engineering', 'Sales']\nprint(departments[:2])   # ['HR', 'Engineering']`
             },
             {
                 number: 9,
@@ -1377,28 +1210,7 @@ print(departments[:2])   # ['HR', 'Engineering']`
                 description: "Understand tuples (immutable sequences) and sets (unique collections) for professional data handling.",
                 level: "intermediate",
                 topics: ["Tuples", "Sets", "Set Operations", "Collection Conversion"],
-                content: `## 9.1 Introduction
-Python provides multiple collection types:
-- Tuples: Ordered, immutable sequences
-- Sets: Unordered, unique collections
-
-## 9.2 Tuples
-Tuples are ordered and immutable.
-
-Syntax: tuple_name = (item1, item2, item3)
-
-DEEPBYTO Example:
-project_codes = (101, 102, 103, 104)
-departments = ("HR", "Engineering", "Sales")
-
-## 9.3 Sets
-Sets are unordered collections of unique elements.
-
-Syntax: set_name = {item1, item2, item3}
-
-DEEPBYTO Example:
-employee_ids = {101, 102, 103, 101, 102}
-print(employee_ids)  # {101, 102, 103}`
+                content: `## 9.1 Introduction\nPython provides multiple collection types:\n- Tuples: Ordered, immutable sequences\n- Sets: Unordered, unique collections\n\n## 9.2 Tuples\nTuples are ordered and immutable.\n\nSyntax: tuple_name = (item1, item2, item3)\n\nDEEPBYTO Example:\nproject_codes = (101, 102, 103, 104)\ndepartments = ("HR", "Engineering", "Sales")\n\n## 9.3 Sets\nSets are unordered collections of unique elements.\n\nSyntax: set_name = {item1, item2, item3}\n\nDEEPBYTO Example:\nemployee_ids = {101, 102, 103, 101, 102}\nprint(employee_ids)  # {101, 102, 103}`
             },
             {
                 number: 10,
@@ -1406,30 +1218,7 @@ print(employee_ids)  # {101, 102, 103}`
                 description: "Master dictionaries for fast lookups, key-value pairs, nested structures, and real-world data modeling.",
                 level: "intermediate",
                 topics: ["Key-Value Pairs", "Dictionary Methods", "Nested Dicts", "Iteration"],
-                content: `## 10.1 Introduction
-Dictionaries are unordered, mutable collections storing data as key-value pairs.
-
-Ideal for fast lookup, mapping, and structured data storage.
-
-## 10.2 Creating Dictionaries
-Syntax: dict_name = {key1: value1, key2: value2}
-
-DEEPBYTO Example:
-departments = {
-    "HR": "Alice",
-    "Engineering": "Bob",
-    "Sales": "Charlie"
-}
-
-## 10.3 Accessing Items
-print(departments["HR"])           # Alice
-print(departments.get("Engineering")) # Bob
-
-Pro Tip: Use .get() to avoid KeyError.
-
-## 10.4 Adding and Updating
-departments["Marketing"] = "Diana"
-departments["HR"] = "Eve"`
+                content: `## 10.1 Introduction\nDictionaries are unordered, mutable collections storing data as key-value pairs.\n\nIdeal for fast lookup, mapping, and structured data storage.\n\n## 10.2 Creating Dictionaries\nSyntax: dict_name = {key1: value1, key2: value2}\n\nDEEPBYTO Example:\ndepartments = {\n    "HR": "Alice",\n    "Engineering": "Bob",\n    "Sales": "Charlie"\n}\n\n## 10.3 Accessing Items\nprint(departments["HR"])           # Alice\nprint(departments.get("Engineering")) # Bob\n\nPro Tip: Use .get() to avoid KeyError.\n\n## 10.4 Adding and Updating\ndepartments["Marketing"] = "Diana"\ndepartments["HR"] = "Eve"`
             },
             {
                 number: 11,
@@ -1437,30 +1226,7 @@ departments["HR"] = "Eve"`
                 description: "Learn to create reusable functions, parameters, return values, lambda functions, and professional function design.",
                 level: "intermediate",
                 topics: ["Function Definition", "Parameters", "Return Values", "Lambda", "Scope"],
-                content: `## 11.1 Introduction
-Functions are blocks of reusable code that perform specific tasks.
-
-They make programs modular, readable, and maintainable.
-
-## 11.2 Defining a Function
-Syntax:
-def function_name(parameters):
-    # code block
-    return value  # optional
-
-DEEPBYTO Example:
-def greet_company():
-    print("Welcome to DEEPBYTO Python Training!")
-
-greet_company()
-
-## 11.3 Function Parameters
-Functions accept parameters for dynamic data.
-
-def greet_department(dept_name):
-    print(f"Welcome to DEEPBYTO {dept_name} Department!")
-
-greet_department("Engineering")`
+                content: `## 11.1 Introduction\nFunctions are blocks of reusable code that perform specific tasks.\n\nThey make programs modular, readable, and maintainable.\n\n## 11.2 Defining a Function\nSyntax:\ndef function_name(parameters):\n    # code block\n    return value  # optional\n\nDEEPBYTO Example:\ndef greet_company():\n    print("Welcome to DEEPBYTO Python Training!")\n\ngreet_company()\n\n## 11.3 Function Parameters\nFunctions accept parameters for dynamic data.\n\ndef greet_department(dept_name):\n    print(f"Welcome to DEEPBYTO {dept_name} Department!")\n\ngreet_department("Engineering")`
             },
             {
                 number: 12,
@@ -1468,34 +1234,7 @@ greet_department("Engineering")`
                 description: "Master try-except blocks, handling multiple exceptions, custom exceptions, and robust error management.",
                 level: "intermediate",
                 topics: ["try-except", "Multiple Exceptions", "Custom Exceptions", "finally"],
-                content: `## 12.1 Introduction
-Errors in Python are called exceptions.
-Exception handling allows programs to respond to errors gracefully.
-
-## 12.2 Common Python Exceptions
-| Exception | Description |
-|-----------|-------------|
-| ZeroDivisionError | Dividing by zero |
-| ValueError | Invalid value for operation |
-| TypeError | Invalid data type operation |
-| IndexError | Index out of range |
-| KeyError | Key not found in dictionary |
-
-## 12.3 The try-except Block
-try block contains code that may raise exception.
-except block handles the exception.
-
-Syntax:
-try:
-    # code that may raise exception
-except ExceptionType:
-    # code to handle exception
-
-DEEPBYTO Example:
-try:
-    result = 10 / 0
-except ZeroDivisionError:
-    print("DEEPBYTO Error: Cannot divide by zero")`
+                content: `## 12.1 Introduction\nErrors in Python are called exceptions.\nException handling allows programs to respond to errors gracefully.\n\n## 12.2 Common Python Exceptions\n| Exception | Description |\n|-----------|-------------|\n| ZeroDivisionError | Dividing by zero |\n| ValueError | Invalid value for operation |\n| TypeError | Invalid data type operation |\n| IndexError | Index out of range |\n| KeyError | Key not found in dictionary |\n\n## 12.3 The try-except Block\ntry block contains code that may raise exception.\nexcept block handles the exception.\n\nSyntax:\ntry:\n    # code that may raise exception\nexcept ExceptionType:\n    # code to handle exception\n\nDEEPBYTO Example:\ntry:\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print("DEEPBYTO Error: Cannot divide by zero")`
             },
             {
                 number: 13,
@@ -1503,33 +1242,7 @@ except ZeroDivisionError:
                 description: "Complete guide to reading, writing, and managing files, working with CSV files, and professional file operations.",
                 level: "intermediate",
                 topics: ["File Reading", "File Writing", "CSV Files", "Context Managers"],
-                content: `## 13.1 Introduction
-File handling allows Python programs to read, write, and manage files.
-
-Essential for storing data, logs, and reports.
-
-## 13.2 Opening Files
-open() function to work with files.
-
-Syntax: file = open("filename", "mode")
-
-Modes:
-- 'r' - Read (default)
-- 'w' - Write (creates new or overwrites)
-- 'a' - Append
-- 'x' - Create new file
-
-DEEPBYTO Example:
-file = open("deepbyto.txt", "w")
-file.write("Welcome to DEEPBYTO Python Training!\\n")
-file.close()
-
-## 13.3 Reading Files
-with open("deepbyto.txt", "r") as file:
-    content = file.read()
-    print(content)
-
-Professional Tip: Using with automatically closes the file.`
+                content: `## 13.1 Introduction\nFile handling allows Python programs to read, write, and manage files.\n\nEssential for storing data, logs, and reports.\n\n## 13.2 Opening Files\nopen() function to work with files.\n\nSyntax: file = open("filename", "mode")\n\nModes:\n- 'r' - Read (default)\n- 'w' - Write (creates new or overwrites)\n- 'a' - Append\n- 'x' - Create new file\n\nDEEPBYTO Example:\nfile = open("deepbyto.txt", "w")\nfile.write("Welcome to DEEPBYTO Python Training!\\n")\nfile.close()\n\n## 13.3 Reading Files\nwith open("deepbyto.txt", "r") as file:\n    content = file.read()\n    print(content)\n\nProfessional Tip: Using with automatically closes the file.`
             },
             {
                 number: 14,
@@ -1537,31 +1250,7 @@ Professional Tip: Using with automatically closes the file.`
                 description: "Master OOP concepts: classes, objects, inheritance, encapsulation, polymorphism for scalable applications.",
                 level: "advanced",
                 topics: ["Classes", "Objects", "Inheritance", "Encapsulation", "Polymorphism"],
-                content: `## 14.1 Introduction
-Object-Oriented Programming (OOP) models real-world entities as objects.
-
-Emphasizes encapsulation, abstraction, inheritance, and polymorphism.
-
-## 14.2 Classes and Objects
-- Class: Blueprint for creating objects
-- Object: Instance of a class
-
-DEEPBYTO Example:
-class Department:
-    def __init__(self, name, head):
-        self.name = name
-        self.head = head
-    
-    def info(self):
-        print(f"DEEPBYTO Department: {self.name}, Head: {self.head}")
-
-hr = Department("HR", "Alice")
-engineering = Department("Engineering", "Bob")
-hr.info()
-engineering.info()
-
-## 14.3 The __init__ Method
-Constructor method executed automatically when object is created.`
+                content: `## 14.1 Introduction\nObject-Oriented Programming (OOP) models real-world entities as objects.\n\nEmphasizes encapsulation, abstraction, inheritance, and polymorphism.\n\n## 14.2 Classes and Objects\n- Class: Blueprint for creating objects\n- Object: Instance of a class\n\nDEEPBYTO Example:\nclass Department:\n    def __init__(self, name, head):\n        self.name = name\n        self.head = head\n    \n    def info(self):\n        print(f"DEEPBYTO Department: {self.name}, Head: {self.head}")\n\nhr = Department("HR", "Alice")\nengineering = Department("Engineering", "Bob")\nhr.info()\nengineering.info()\n\n## 14.3 The __init__ Method\nConstructor method executed automatically when object is created.`
             },
             {
                 number: 15,
@@ -1569,28 +1258,7 @@ Constructor method executed automatically when object is created.`
                 description: "Organize code into reusable modules and packages, import external modules, and create scalable projects.",
                 level: "intermediate",
                 topics: ["Modules", "Packages", "Import", "__name__", "External Modules"],
-                content: `## 15.1 Introduction
-Modules and packages help organize Python code into reusable, maintainable units.
-
-- Module: Single Python file (.py)
-- Package: Directory of modules with __init__.py
-
-## 15.2 Creating and Using Modules
-Module: dept_module.py
-def greet_department(dept_name):
-    print(f"Welcome to DEEPBYTO {dept_name} Department!")
-
-def total_budget(budgets):
-    return sum(budgets)
-
-Using the Module:
-import dept_module
-dept_module.greet_department("Engineering")
-
-## 15.3 Import Variations
-1. Import entire module: import dept_module
-2. Import specific: from dept_module import greet_department
-3. Import with alias: import dept_module as dm`
+                content: `## 15.1 Introduction\nModules and packages help organize Python code into reusable, maintainable units.\n\n- Module: Single Python file (.py)\n- Package: Directory of modules with __init__.py\n\n## 15.2 Creating and Using Modules\nModule: dept_module.py\ndef greet_department(dept_name):\n    print(f"Welcome to DEEPBYTO {dept_name} Department!")\n\ndef total_budget(budgets):\n    return sum(budgets)\n\nUsing the Module:\nimport dept_module\ndept_module.greet_department("Engineering")\n\n## 15.3 Import Variations\n1. Import entire module: import dept_module\n2. Import specific: from dept_module import greet_department\n3. Import with alias: import dept_module as dm`
             },
             {
                 number: 16,
@@ -1598,31 +1266,7 @@ dept_module.greet_department("Engineering")
                 description: "Learn decorators, generators, context managers, functional programming, and type hinting.",
                 level: "advanced",
                 topics: ["Decorators", "Generators", "Context Managers", "Lambda", "Type Hints"],
-                content: `## 16.1 Introduction
-Advanced concepts help write efficient, reusable, and professional code.
-
-Focus on:
-- Decorators – Modify functions dynamically
-- Generators – Memory-efficient iteration
-- Context Managers – Safe resource handling
-
-## 16.2 Decorators
-A decorator wraps another function to extend/modify its behavior.
-
-Uses @decorator_name syntax.
-
-DEEPBYTO Example – Logging Decorator:
-def log_function(func):
-    def wrapper(*args, **kwargs):
-        print(f"DEEPBYTO: Running {func.__name__}")
-        return func(*args, **kwargs)
-    return wrapper
-
-@log_function
-def greet():
-    print("Welcome to DEEPBYTO Python Training!")
-
-greet()`
+                content: `## 16.1 Introduction\nAdvanced concepts help write efficient, reusable, and professional code.\n\nFocus on:\n- Decorators – Modify functions dynamically\n- Generators – Memory-efficient iteration\n- Context Managers – Safe resource handling\n\n## 16.2 Decorators\nA decorator wraps another function to extend/modify its behavior.\n\nUses @decorator_name syntax.\n\nDEEPBYTO Example – Logging Decorator:\ndef log_function(func):\n    def wrapper(*args, **kwargs):\n        print(f"DEEPBYTO: Running {func.__name__}")\n        return func(*args, **kwargs)\n    return wrapper\n\n@log_function\ndef greet():\n    print("Welcome to DEEPBYTO Python Training!")\n\ngreet()`
             },
             {
                 number: 17,
@@ -1630,34 +1274,7 @@ greet()`
                 description: "Master essential Python libraries: NumPy, Pandas, Matplotlib, Seaborn, Requests for professional applications.",
                 level: "advanced",
                 topics: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Requests"],
-                content: `## 17.1 Introduction
-Python's strength lies in powerful libraries for professional applications:
-
-- NumPy – Numerical computations
-- Pandas – Data analysis and manipulation
-- Matplotlib – Data visualization
-- Seaborn – Advanced statistical visualization
-- Requests – Web requests
-
-## 17.2 NumPy – Numerical Python
-Used for arrays, matrices, and mathematical operations.
-
-DEEPBYTO Example:
-import numpy as np
-budgets = np.array([5000, 3000, 4500, 2000])
-print("Total Budget:", budgets.sum())
-print("Average Budget:", budgets.mean())
-
-## 17.3 Pandas – Data Analysis
-Provides DataFrames and Series for structured data.
-
-import pandas as pd
-data = {
-    "Project": ["Website", "App", "Marketing"],
-    "Budget": [5000, 3000, 4500]
-}
-df = pd.DataFrame(data)
-print(df)`
+                content: `## 17.1 Introduction\nPython's strength lies in powerful libraries for professional applications:\n\n- NumPy – Numerical computations\n- Pandas – Data analysis and manipulation\n- Matplotlib – Data visualization\n- Seaborn – Advanced statistical visualization\n- Requests – Web requests\n\n## 17.2 NumPy – Numerical Python\nUsed for arrays, matrices, and mathematical operations.\n\nDEEPBYTO Example:\nimport numpy as np\nbudgets = np.array([5000, 3000, 4500, 2000])\nprint("Total Budget:", budgets.sum())\nprint("Average Budget:", budgets.mean())\n\n## 17.3 Pandas – Data Analysis\nProvides DataFrames and Series for structured data.\n\nimport pandas as pd\ndata = {\n    "Project": ["Website", "App", "Marketing"],\n    "Budget": [5000, 3000, 4500]\n}\ndf = pd.DataFrame(data)\nprint(df)`
             },
             {
                 number: 18,
@@ -1665,33 +1282,7 @@ print(df)`
                 description: "Build web applications with Flask, create APIs with FastAPI, and consume web services with Requests.",
                 level: "advanced",
                 topics: ["Flask", "FastAPI", "REST APIs", "JSON", "Web Integration"],
-                content: `## 18.1 Introduction
-Python is widely used for web development and API integration.
-
-- Flask: Lightweight framework for web apps
-- FastAPI: High-performance API framework
-- Requests: Interacting with web APIs
-
-## 18.2 Flask – Web Development Framework
-Flask allows building simple to complex web applications.
-
-DEEPBYTO Example:
-from flask import Flask
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Welcome to DEEPBYTO Python Web App!"
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-## 18.3 Flask – JSON Responses
-APIs often use JSON format.
-
-@app.route("/api/projects")
-def get_projects():
-    return jsonify({"DEEPBYTO Projects": projects})`
+                content: `## 18.1 Introduction\nPython is widely used for web development and API integration.\n\n- Flask: Lightweight framework for web apps\n- FastAPI: High-performance API framework\n- Requests: Interacting with web APIs\n\n## 18.2 Flask – Web Development Framework\nFlask allows building simple to complex web applications.\n\nDEEPBYTO Example:\nfrom flask import Flask\napp = Flask(__name__)\n\n@app.route("/")\ndef home():\n    return "Welcome to DEEPBYTO Python Web App!"\n\nif __name__ == "__main__":\n    app.run(debug=True)\n\n## 18.3 Flask – JSON Responses\nAPIs often use JSON format.\n\n@app.route("/api/projects")\ndef get_projects():\n    return jsonify({"DEEPBYTO Projects": projects})`
             },
             {
                 number: 19,
@@ -1699,33 +1290,7 @@ def get_projects():
                 description: "Automate file operations, work with Excel/PDFs, web scraping, task scheduling, and email automation.",
                 level: "advanced",
                 topics: ["File Automation", "Web Scraping", "Task Scheduling", "Email Automation", "PDFs"],
-                content: `## 19.1 Introduction
-Python is widely used for automation to reduce repetitive tasks.
-
-Automate:
-- File operations
-- Excel, CSV, and PDFs
-- Web scraping and system tasks
-- Email sending
-
-## 19.2 Automating File Operations
-DEEPBYTO Example – Organize Files by Extension:
-import os, shutil
-source_folder = "deepbyto_files"
-dest_folder = "organized_files"
-
-for file in os.listdir(source_folder):
-    if file.endswith(".txt"):
-        shutil.move(os.path.join(source_folder, file), 
-                   os.path.join(dest_folder, file))
-
-## 19.3 Automating Excel & CSV
-Use Pandas to read, write, and update files.
-
-import pandas as pd
-df = pd.read_csv("deepbyto_projects.csv")
-df["Budget"] = df["Budget"] * 1.10  # Increase by 10%
-df.to_csv("deepbyto_projects_updated.csv", index=False)`
+                content: `## 19.1 Introduction\nPython is widely used for automation to reduce repetitive tasks.\n\nAutomate:\n- File operations\n- Excel, CSV, and PDFs\n- Web scraping and system tasks\n- Email sending\n\n## 19.2 Automating File Operations\nDEEPBYTO Example – Organize Files by Extension:\nimport os, shutil\nsource_folder = "deepbyto_files"\ndest_folder = "organized_files"\n\nfor file in os.listdir(source_folder):\n    if file.endswith(".txt"):\n        shutil.move(os.path.join(source_folder, file), \n                   os.path.join(dest_folder, file))\n\n## 19.3 Automating Excel & CSV\nUse Pandas to read, write, and update files.\n\nimport pandas as pd\ndf = pd.read_csv("deepbyto_projects.csv")\ndf["Budget"] = df["Budget"] * 1.10  # Increase by 10%\ndf.to_csv("deepbyto_projects_updated.csv", index=False)`
             }
         ];
 
