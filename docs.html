@@ -13,187 +13,788 @@
     <style>
         /* PDF Viewer Styles */
         .pdf-container {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
+            background: linear-gradient(145deg, rgba(10, 12, 28, 0.9), rgba(18, 20, 36, 0.9));
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 16px;
+            padding: 35px;
             margin-top: 40px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
         }
         
         .pdf-container:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 212, 255, 0.4);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+            transform: translateY(-8px);
+            border-color: rgba(0, 212, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
         }
         
         .pdf-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+        }
+        
+        .pdf-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), transparent);
         }
         
         .pdf-title {
-            font-size: 1.8rem;
-            color: var(--accent-blue);
+            font-size: 1.9rem;
+            color: var(--text-white);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-weight: 700;
         }
         
         .pdf-icon {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .pdf-preview {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            padding: 30px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(147, 51, 234, 0.1));
+            border-radius: 12px;
+            padding: 40px;
             text-align: center;
-            margin: 20px 0;
-            border: 1px dashed var(--border-color);
-            min-height: 200px;
+            margin: 25px 0;
+            border: 2px dashed rgba(0, 212, 255, 0.3);
+            min-height: 220px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pdf-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
         }
         
         .pdf-thumbnail {
-            font-size: 5rem;
-            color: var(--accent-blue);
-            margin-bottom: 20px;
+            font-size: 5.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 4px 12px rgba(0, 212, 255, 0.3));
         }
         
         .pdf-info {
             color: var(--text-gray);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.6;
         }
         
         .pdf-download-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 30px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            gap: 12px;
+            padding: 14px 35px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             color: var(--text-white);
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
+            border-radius: 10px;
+            font-weight: 700;
             transition: all 0.3s ease;
             margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .pdf-download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+        
+        .pdf-download-btn:hover::before {
+            left: 0;
         }
         
         .pdf-download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
         }
         
         .pdf-stats {
             display: flex;
             gap: 30px;
-            margin-top: 25px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         .stat-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px 20px;
-            background: rgba(0, 212, 255, 0.1);
-            border-radius: 6px;
-            min-width: 120px;
+            padding: 20px 25px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 212, 255, 0.05));
+            border-radius: 12px;
+            min-width: 140px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.1);
         }
         
         .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: 800;
             color: var(--accent-blue);
             font-family: 'Orbitron', monospace;
+            text-shadow: 0 2px 10px rgba(0, 212, 255, 0.3);
         }
         
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-gray);
-            margin-top: 5px;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
         
         .pdf-description {
-            margin-top: 25px;
-            padding: 20px;
-            background: rgba(0, 212, 255, 0.05);
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-blue);
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(147, 51, 234, 0.08));
+            border-radius: 12px;
+            border-left: 5px solid var(--accent-blue);
+            position: relative;
+            overflow: hidden;
         }
         
-        .learning-roadmap {
+        .pdf-description::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, transparent 50%, rgba(0, 212, 255, 0.05) 50%);
+            border-radius: 0 0 0 100%;
+        }
+        
+        /* Programming Curriculum Styles - MODERN UPDATE */
+        .programming-section {
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .programming-section::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+        }
+        
+        .curriculum-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+        }
+        
+        .curriculum-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
+        
+        .curriculum-title {
+            font-size: 2rem;
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+        }
+        
+        .curriculum-title .pdf-icon {
+            background: linear-gradient(135deg, #00d4ff, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+        }
+        
+        .chapters-count {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: var(--primary-dark);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+        
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+            margin-top: 25px;
+        }
+        
+        .chapter-card {
+            background: linear-gradient(145deg, rgba(15, 18, 35, 0.9), rgba(22, 25, 45, 0.9));
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+        }
+        
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .chapter-card:hover::before {
+            opacity: 1;
+        }
+        
+        .chapter-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
+        }
+        
+        .chapter-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: rgba(0, 212, 255, 0.08);
+            font-family: 'Orbitron', monospace;
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .chapter-title {
+            font-size: 1.3rem;
+            color: var(--text-white);
+            margin-bottom: 15px;
+            padding-right: 50px;
+            line-height: 1.4;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .chapter-desc {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .chapter-content {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.07), rgba(147, 51, 234, 0.07));
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 220px;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            position: relative;
+        }
+        
+        .chapter-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+        }
+        
+        .chapter-content pre {
+            margin: 0;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #a0a0d0;
+            line-height: 1.5;
+        }
+        
+        .chapter-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .chapter-content::-webkit-scrollbar-track {
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 4px;
+        }
+        
+        .chapter-content::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 4px;
+        }
+        
+        .chapter-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .topic-tag {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(147, 51, 234, 0.15));
+            color: var(--accent-blue);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-family: 'Source Code Pro', monospace;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .topic-tag:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+        }
+        
+        .chapter-level {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            margin-right: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid transparent;
+        }
+        
+        .level-beginner {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+            color: #4caf50;
+            border-color: rgba(76, 175, 80, 0.3);
+        }
+        
+        .level-intermediate {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.1));
+            color: #ff9800;
+            border-color: rgba(255, 152, 0, 0.3);
+        }
+        
+        .level-advanced {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(244, 67, 54, 0.1));
+            color: #f44336;
+            border-color: rgba(244, 67, 54, 0.3);
+        }
+        
+        .chapter-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+        
+        .chapter-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .chapter-meta i {
+            color: var(--accent-blue);
+            font-size: 1rem;
+        }
+        
+        .chapters-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(147, 51, 234, 0.1));
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            color: var(--text-white);
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(147, 51, 234, 0.2));
+            transition: left 0.4s ease;
+        }
+        
+        .nav-button:hover::before {
+            left: 0;
+        }
+        
+        .nav-button:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+        }
+        
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        .chapters-navigation .page-info {
+            color: var(--text-gray);
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .page-info .current {
+            color: var(--accent-blue);
+            font-weight: 800;
+        }
+        
+        .page-info .total {
+            color: var(--text-white);
+            font-weight: 700;
+        }
+        
+        /* Learning Roadmap Styles */
+        .learning-roadmap {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(145deg, rgba(10, 12, 28, 0.9), rgba(18, 20, 36, 0.9));
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .learning-roadmap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
         }
         
         .roadmap-title {
-            font-size: 1.5rem;
-            color: var(--accent-blue);
-            margin-bottom: 20px;
+            font-size: 1.7rem;
+            color: var(--text-white);
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-weight: 700;
+        }
+        
+        .roadmap-title i {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.8rem;
         }
         
         .roadmap-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
         }
         
         .roadmap-step {
-            background: rgba(18, 18, 26, 0.7);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            transition: all 0.3s ease;
+            background: linear-gradient(145deg, rgba(15, 18, 35, 0.8), rgba(22, 25, 45, 0.8));
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
         
         .roadmap-step:hover {
+            transform: translateY(-8px);
             border-color: var(--accent-blue);
-            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.15);
         }
         
         .step-number {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 30px;
-            height: 30px;
-            background: var(--accent-blue);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             color: var(--primary-dark);
-            border-radius: 50%;
-            font-weight: 700;
-            margin-bottom: 15px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
         }
         
         .step-title {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--text-white);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
         
         .step-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        /* Content Card Styles */
+        .content-card {
+            background: linear-gradient(145deg, rgba(15, 18, 35, 0.9), rgba(22, 25, 45, 0.9));
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 35px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 193, 7, 0.1));
+            color: #ffc107;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            border: 2px solid rgba(255, 193, 7, 0.3);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-text {
+            color: var(--text-gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        
+        .card-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .card-list li {
+            color: var(--text-gray);
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .card-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+        }
+        
+        .card-list strong {
+            color: var(--text-white);
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .chapters-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .chapters-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 20px;
+            }
+            
+            .roadmap-steps {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .pdf-stats {
+                justify-content: space-around;
+            }
+            
+            .stat-item {
+                min-width: calc(50% - 15px);
+                margin-bottom: 15px;
+            }
         }
         
         @media (max-width: 768px) {
             .pdf-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 15px;
+                gap: 20px;
+            }
+            
+            .pdf-preview {
+                padding: 30px 20px;
+            }
+            
+            .pdf-thumbnail {
+                font-size: 4.5rem;
+            }
+            
+            .curriculum-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .chapters-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .chapters-navigation {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .page-info {
+                order: -1;
+                width: 100%;
+                text-align: center;
             }
             
             .pdf-stats {
@@ -208,6 +809,74 @@
             .roadmap-steps {
                 grid-template-columns: 1fr;
             }
+            
+            .learning-roadmap {
+                padding: 30px 20px;
+            }
+            
+            .content-card {
+                padding: 25px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .pdf-container {
+                padding: 25px 20px;
+            }
+            
+            .pdf-title {
+                font-size: 1.6rem;
+            }
+            
+            .curriculum-title {
+                font-size: 1.7rem;
+            }
+            
+            .chapter-card {
+                padding: 25px 20px;
+            }
+            
+            .chapter-content {
+                max-height: 180px;
+                padding: 15px;
+            }
+            
+            .topic-tag {
+                padding: 5px 12px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chapter-card {
+            animation: fadeInUp 0.5s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .chapter-card:nth-child(1) { animation-delay: 0.1s; }
+        .chapter-card:nth-child(2) { animation-delay: 0.2s; }
+        .chapter-card:nth-child(3) { animation-delay: 0.3s; }
+        .chapter-card:nth-child(4) { animation-delay: 0.4s; }
+        .chapter-card:nth-child(5) { animation-delay: 0.5s; }
+        .chapter-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -240,9 +909,42 @@
     <!-- Docs / Learn Section -->
     <section class="section-padding" id="docs">
         <div class="container">
-            <h2 class="section-title">Docs / <span class="accent-text">Learn</span></h2>
+            <h2 class="section-title">Docs / <span class="gradient-text">Learn</span></h2>
             
-            <!-- Learning Roadmap PDF Download -->
+            <!-- Programming Curriculum Section -->
+            <div class="programming-section">
+                <div class="curriculum-header">
+                    <div class="curriculum-title">
+                        <i class="fas fa-code pdf-icon"></i>
+                        Python Programming Curriculum
+                    </div>
+                    <div class="chapters-count">19 Chapters</div>
+                </div>
+                
+                <p style="color: var(--text-gray); margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;">
+                    Master Python programming with our comprehensive 19-chapter curriculum designed by DEEPBYTO. 
+                    This complete guide takes you from absolute beginner to professional Python developer, covering 
+                    everything from basic syntax to advanced concepts like OOP, web development, data analysis, and automation.
+                </p>
+                
+                <div class="chapters-grid" id="chaptersContainer">
+                    <!-- Chapters will be loaded here by JavaScript -->
+                </div>
+                
+                <div class="chapters-navigation">
+                    <a href="#" class="nav-button" id="prevBtn">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </a>
+                    <div class="page-info">
+                        Chapter <span class="current" id="currentPage">1</span> of <span class="total" id="totalPages">19</span>
+                    </div>
+                    <a href="#" class="nav-button" id="nextBtn">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- AI Learning Roadmap PDF Download -->
             <div class="pdf-container">
                 <div class="pdf-header">
                     <div class="pdf-title">
@@ -260,11 +962,10 @@
                     <div class="pdf-thumbnail">
                         <i class="fas fa-file-pdf"></i>
                     </div>
-                    <h3 style="color: var(--text-white); margin-bottom: 10px;">Deep AI Learning Roadmap by DEEPBYTO</h3>
+                    <h3 style="color: var(--text-white); margin-bottom: 10px; font-size: 1.5rem;">Deep AI Learning Roadmap by DEEPBYTO</h3>
                     <p class="pdf-info">
                         Comprehensive guide for mastering Artificial Intelligence - From foundations to advanced concepts
                     </p>
-                    <!-- ✅ ✅ ✅ یہ وہ line ہے جو آپ کو تبدیل کرنی ہے -->
                     <a href="assets/AI_Roadmap.pdf" 
                        download="Deep AI Learning Roadmap by DEEPBYTO.pdf" 
                        class="pdf-download-btn">
@@ -292,8 +993,10 @@
                 </div>
                 
                 <div class="pdf-description">
-                    <h4 style="color: var(--accent-blue); margin-bottom: 10px;"><i class="fas fa-info-circle"></i> About This Roadmap</h4>
-                    <p style="color: var(--text-gray); margin-bottom: 0;">
+                    <h4 style="color: var(--accent-blue); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-info-circle"></i> About This Roadmap
+                    </h4>
+                    <p style="color: var(--text-gray); margin-bottom: 0; line-height: 1.7;">
                         This comprehensive learning roadmap guides you through the complete journey of mastering Artificial Intelligence. 
                         Starting from foundational programming skills to advanced concepts like Generative AI and Reinforcement Learning, 
                         this PDF provides a structured path with practical projects at each stage.
@@ -369,7 +1072,7 @@
                 </p>
                 
                 <div style="margin-top: 30px;">
-                    <h4 class="card-subtitle"><i class="fas fa-book accent-text" style="margin-right: 10px;"></i>What to Expect</h4>
+                    <h4 class="card-subtitle"><i class="fas fa-book" style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-right: 10px;"></i>What to Expect</h4>
                     <ul class="card-list">
                         <li><strong>Learning Paths:</strong> Structured guides for beginners and intermediate learners in AI development</li>
                         <li><strong>Technical Docs:</strong> Comprehensive documentation for our tools and frameworks</li>
@@ -379,10 +1082,10 @@
                     </ul>
                 </div>
                 
-                <div style="margin-top: 30px; padding: 20px; background: rgba(0, 212, 255, 0.05); border-radius: 8px; border-left: 4px solid var(--accent-blue);">
-                    <p class="card-text" style="margin-bottom: 0;">
-                        <i class="fas fa-info-circle accent-text" style="margin-right: 10px;"></i>
-                        <strong>Note:</strong> More content will be added gradually as we develop and learn. We believe in sharing knowledge 
+                <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(147, 51, 234, 0.08)); border-radius: 12px; border-left: 4px solid var(--accent-blue); position: relative;">
+                    <p class="card-text" style="margin-bottom: 0; display: flex; align-items: flex-start; gap: 10px;">
+                        <i class="fas fa-info-circle" style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.2rem; margin-top: 3px;"></i>
+                        <strong style="color: var(--text-white);">Note:</strong> More content will be added gradually as we develop and learn. We believe in sharing knowledge 
                         that's been thoroughly tested and validated through our own experimentation.
                     </p>
                 </div>
@@ -401,7 +1104,7 @@
                         <a href="https://github.com/DEEPBYTO" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.tiktok.com/@deepbyto" target="_blank"><i class="fab fa-tiktok"></i></a>
                         <a href="https://x.com/deepbyto" target="_blank"><i class="fab fa-twitter"></i></a>
-
+                        <a href="https://www.instagram.com/deepbyto/" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.youtube.com/@DEEPBYTO" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
@@ -433,6 +1136,700 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Programming Curriculum Data from PDF (Keep the same data as before)
+        const chapters = [
+            {
+                number: 1,
+                title: "Introduction to Programming & Python",
+                description: "Understand what programming is, why learn Python, Python versions, and write your first Python program.",
+                level: "beginner",
+                topics: ["What is Programming", "Why Python", "Python 2 vs 3", "First Program", "Setup"],
+                content: `## 1.1 What is Programming?
+Programming is the process of creating a set of instructions that tell a computer how to perform a specific task.
+
+### Real-World Examples:
+- A mobile app performing an action when you tap a button
+- An ATM machine processing transactions
+- A website displaying dynamic content
+
+## 1.2 Why Learn Python?
+Python is one of the most popular and versatile programming languages.
+
+### Advantages of Python:
+- Easy to learn and beginner-friendly
+- Open-source and free to use
+- Large standard library
+- Cross-platform (Windows, Mac, Linux)
+
+## 1.6 Your First Python Program
+print("Hello, DEEPBYTO!")`
+            },
+            {
+                number: 2,
+                title: "Setting up Python & IDEs",
+                description: "Complete guide to installing Python, setting up development environments, and using virtual environments.",
+                level: "beginner",
+                topics: ["Python Installation", "VS Code", "PyCharm", "Virtual Environments", "Debugging"],
+                content: `## 2.1 Why Setting Up Environment is Important
+A correct setup ensures:
+- Smooth code execution
+- Easy debugging
+- Organized project management
+
+## 2.2 Installing Python
+### Step 1: Download Python
+Visit: https://www.python.org
+
+### Step 2: Run the Installer
+On Windows: Check "Add Python to PATH"
+
+### Step 3: Verify Installation
+python --version
+
+## 2.4 Setting Up VS Code for Python
+1. Install VS Code
+2. Install Python Extension
+3. Create Project Folder
+4. Start coding`
+            },
+            {
+                number: 3,
+                title: "Variables, Data Types & Expressions",
+                description: "Learn about variables, data types, type casting, arithmetic, comparison, and logical operators.",
+                level: "beginner",
+                topics: ["Variables", "Data Types", "Type Casting", "Operators", "Expressions"],
+                content: `## 3.1 Introduction
+In programming, variables store data, and data types define the kind of data.
+
+### Professional Tip:
+Always use meaningful variable names for readability.
+
+## 3.2 Variables
+A variable is a named location in memory used to store a value.
+
+Syntax: variable_name = value
+
+Examples:
+company_name = "DEEPBYTO"
+employee_count = 50
+is_active = True
+
+## 3.3 Data Types in Python
+| Data Type | Example | Description |
+|-----------|---------|-------------|
+| int | employee_count = 50 | Integer numbers |
+| float | project_budget = 1999.99 | Decimal numbers |
+| str | company_name = "DEEPBYTO" | Text/strings |
+| bool | is_active = True | True/False values |`
+            },
+            {
+                number: 4,
+                title: "Operators & Expressions (Advanced)",
+                description: "Advanced operators, operator precedence, augmented assignment, bitwise operators, and professional usage.",
+                level: "intermediate",
+                topics: ["Operator Precedence", "Augmented Assignment", "Bitwise", "Membership", "Identity"],
+                content: `## 4.1 Introduction
+Understanding operator precedence ensures your code behaves as expected.
+
+## 4.2 Types of Operators
+Python supports several types of operators:
+- Arithmetic: +, -, *, /, //, %, **
+- Comparison: ==, !=, >, <, >=, <=
+- Logical: and, or, not
+- Assignment: =, +=, -=, *=, /=
+- Bitwise: &, |, ^, ~, <<, >>
+
+## 4.3 Operator Precedence
+Order of evaluation (highest to lowest):
+1. Parentheses ()
+2. Exponentiation **
+3. Multiplication, Division *, /, //, %
+4. Addition & Subtraction +, -
+5. Comparison ==, !=, >, <, >=, <=
+6. Assignment =, +=, -=, etc.
+
+Example:
+total_budget = 1000 + 500 * 2  # Output: 2000`
+            },
+            {
+                number: 5,
+                title: "Conditional Statements & Decision Making",
+                description: "Master if, if-else, elif statements, logical operators with conditions, and ternary operators.",
+                level: "beginner",
+                topics: ["if statements", "if-else", "elif", "Nested if", "Ternary Operator"],
+                content: `## 5.1 Introduction
+Conditional statements allow a program to make decisions based on conditions.
+
+## 5.2 The if Statement
+Executes code only if condition is True.
+
+Syntax:
+if condition:
+    # code to execute
+
+DEEPBYTO Example:
+employees = 50
+if employees > 0:
+    print("DEEPBYTO has active employees")
+
+## 5.3 The if-else Statement
+Alternative action if condition is False.
+
+Syntax:
+if condition:
+    # code if True
+else:
+    # code if False`
+            },
+            {
+                number: 6,
+                title: "Loops & Iterations",
+                description: "Learn for loops, while loops, loop control statements, nested loops, and professional iteration techniques.",
+                level: "beginner",
+                topics: ["for loops", "while loops", "break", "continue", "Nested loops"],
+                content: `## 6.1 Introduction
+Loops allow executing a block of code repeatedly until a condition is met.
+
+Python supports:
+1. for loop – iterates over sequences
+2. while loop – iterates as long as condition is True
+
+## 6.2 The for Loop
+Used to iterate over sequences or ranges.
+
+Syntax:
+for variable in sequence:
+    # code to execute
+
+DEEPBYTO Example:
+departments = ["HR", "Engineering", "Sales"]
+for dept in departments:
+    print("DEEPBYTO department:", dept)
+
+## 6.3 The while Loop
+Repeats while condition is True.
+
+Syntax:
+while condition:
+    # code to execute`
+            },
+            {
+                number: 7,
+                title: "Strings in Python",
+                description: "Comprehensive guide to string manipulation, methods, formatting, slicing, and professional string operations.",
+                level: "beginner",
+                topics: ["String Methods", "Slicing", "Formatting", "f-Strings", "Operations"],
+                content: `## 7.1 Introduction
+Strings are sequences of characters used to store textual data.
+
+Strings are immutable - content cannot be changed after creation.
+
+## 7.2 Creating Strings
+Using single quotes, double quotes, or triple quotes.
+
+Examples:
+company_name = "DEEPBYTO"
+mission = 'Empowering Developers'
+description = """DEEPBYTO provides
+professional Python training"""
+
+## 7.3 Accessing Characters
+company_name = "DEEPBYTO"
+print(company_name[0])  # D
+print(company_name[-1]) # O
+
+## 7.4 Slicing Strings
+string[start:stop:step]
+print(company_name[0:4])  # DEEP
+print(company_name[4:])   # BYTO`
+            },
+            {
+                number: 8,
+                title: "Lists in Python",
+                description: "Master Python lists - ordered, mutable collections for data organization and manipulation.",
+                level: "beginner",
+                topics: ["List Creation", "Slicing", "Methods", "Nested Lists", "Iteration"],
+                content: `## 8.1 Introduction
+Lists are ordered, mutable collections that store multiple values.
+
+Professional Tip: Essential for data organization and application development.
+
+## 8.2 Creating Lists
+Syntax: list_name = [item1, item2, item3]
+
+DEEPBYTO Example:
+departments = ["HR", "Engineering", "Sales", "Marketing"]
+projects = [101, 102, 103]
+
+## 8.3 Accessing List Items
+print(departments[0])  # HR
+print(departments[2])  # Sales
+print(departments[-1]) # Marketing
+
+## 8.4 Slicing Lists
+print(departments[1:3])  # ['Engineering', 'Sales']
+print(departments[:2])   # ['HR', 'Engineering']`
+            },
+            {
+                number: 9,
+                title: "Tuples & Sets in Python",
+                description: "Understand tuples (immutable sequences) and sets (unique collections) for professional data handling.",
+                level: "intermediate",
+                topics: ["Tuples", "Sets", "Set Operations", "Collection Conversion"],
+                content: `## 9.1 Introduction
+Python provides multiple collection types:
+- Tuples: Ordered, immutable sequences
+- Sets: Unordered, unique collections
+
+## 9.2 Tuples
+Tuples are ordered and immutable.
+
+Syntax: tuple_name = (item1, item2, item3)
+
+DEEPBYTO Example:
+project_codes = (101, 102, 103, 104)
+departments = ("HR", "Engineering", "Sales")
+
+## 9.3 Sets
+Sets are unordered collections of unique elements.
+
+Syntax: set_name = {item1, item2, item3}
+
+DEEPBYTO Example:
+employee_ids = {101, 102, 103, 101, 102}
+print(employee_ids)  # {101, 102, 103}`
+            },
+            {
+                number: 10,
+                title: "Dictionaries in Python",
+                description: "Master dictionaries for fast lookups, key-value pairs, nested structures, and real-world data modeling.",
+                level: "intermediate",
+                topics: ["Key-Value Pairs", "Dictionary Methods", "Nested Dicts", "Iteration"],
+                content: `## 10.1 Introduction
+Dictionaries are unordered, mutable collections storing data as key-value pairs.
+
+Ideal for fast lookup, mapping, and structured data storage.
+
+## 10.2 Creating Dictionaries
+Syntax: dict_name = {key1: value1, key2: value2}
+
+DEEPBYTO Example:
+departments = {
+    "HR": "Alice",
+    "Engineering": "Bob",
+    "Sales": "Charlie"
+}
+
+## 10.3 Accessing Items
+print(departments["HR"])           # Alice
+print(departments.get("Engineering")) # Bob
+
+Pro Tip: Use .get() to avoid KeyError.
+
+## 10.4 Adding and Updating
+departments["Marketing"] = "Diana"
+departments["HR"] = "Eve"`
+            },
+            {
+                number: 11,
+                title: "Functions in Python",
+                description: "Learn to create reusable functions, parameters, return values, lambda functions, and professional function design.",
+                level: "intermediate",
+                topics: ["Function Definition", "Parameters", "Return Values", "Lambda", "Scope"],
+                content: `## 11.1 Introduction
+Functions are blocks of reusable code that perform specific tasks.
+
+They make programs modular, readable, and maintainable.
+
+## 11.2 Defining a Function
+Syntax:
+def function_name(parameters):
+    # code block
+    return value  # optional
+
+DEEPBYTO Example:
+def greet_company():
+    print("Welcome to DEEPBYTO Python Training!")
+
+greet_company()
+
+## 11.3 Function Parameters
+Functions accept parameters for dynamic data.
+
+def greet_department(dept_name):
+    print(f"Welcome to DEEPBYTO {dept_name} Department!")
+
+greet_department("Engineering")`
+            },
+            {
+                number: 12,
+                title: "Exception Handling in Python",
+                description: "Master try-except blocks, handling multiple exceptions, custom exceptions, and robust error management.",
+                level: "intermediate",
+                topics: ["try-except", "Multiple Exceptions", "Custom Exceptions", "finally"],
+                content: `## 12.1 Introduction
+Errors in Python are called exceptions.
+Exception handling allows programs to respond to errors gracefully.
+
+## 12.2 Common Python Exceptions
+| Exception | Description |
+|-----------|-------------|
+| ZeroDivisionError | Dividing by zero |
+| ValueError | Invalid value for operation |
+| TypeError | Invalid data type operation |
+| IndexError | Index out of range |
+| KeyError | Key not found in dictionary |
+
+## 12.3 The try-except Block
+try block contains code that may raise exception.
+except block handles the exception.
+
+Syntax:
+try:
+    # code that may raise exception
+except ExceptionType:
+    # code to handle exception
+
+DEEPBYTO Example:
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("DEEPBYTO Error: Cannot divide by zero")`
+            },
+            {
+                number: 13,
+                title: "File Handling in Python",
+                description: "Complete guide to reading, writing, and managing files, working with CSV files, and professional file operations.",
+                level: "intermediate",
+                topics: ["File Reading", "File Writing", "CSV Files", "Context Managers"],
+                content: `## 13.1 Introduction
+File handling allows Python programs to read, write, and manage files.
+
+Essential for storing data, logs, and reports.
+
+## 13.2 Opening Files
+open() function to work with files.
+
+Syntax: file = open("filename", "mode")
+
+Modes:
+- 'r' - Read (default)
+- 'w' - Write (creates new or overwrites)
+- 'a' - Append
+- 'x' - Create new file
+
+DEEPBYTO Example:
+file = open("deepbyto.txt", "w")
+file.write("Welcome to DEEPBYTO Python Training!\\n")
+file.close()
+
+## 13.3 Reading Files
+with open("deepbyto.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+Professional Tip: Using with automatically closes the file.`
+            },
+            {
+                number: 14,
+                title: "Object-Oriented Programming (OOP) in Python",
+                description: "Master OOP concepts: classes, objects, inheritance, encapsulation, polymorphism for scalable applications.",
+                level: "advanced",
+                topics: ["Classes", "Objects", "Inheritance", "Encapsulation", "Polymorphism"],
+                content: `## 14.1 Introduction
+Object-Oriented Programming (OOP) models real-world entities as objects.
+
+Emphasizes encapsulation, abstraction, inheritance, and polymorphism.
+
+## 14.2 Classes and Objects
+- Class: Blueprint for creating objects
+- Object: Instance of a class
+
+DEEPBYTO Example:
+class Department:
+    def __init__(self, name, head):
+        self.name = name
+        self.head = head
+    
+    def info(self):
+        print(f"DEEPBYTO Department: {self.name}, Head: {self.head}")
+
+hr = Department("HR", "Alice")
+engineering = Department("Engineering", "Bob")
+hr.info()
+engineering.info()
+
+## 14.3 The __init__ Method
+Constructor method executed automatically when object is created.`
+            },
+            {
+                number: 15,
+                title: "Modules & Packages in Python",
+                description: "Organize code into reusable modules and packages, import external modules, and create scalable projects.",
+                level: "intermediate",
+                topics: ["Modules", "Packages", "Import", "__name__", "External Modules"],
+                content: `## 15.1 Introduction
+Modules and packages help organize Python code into reusable, maintainable units.
+
+- Module: Single Python file (.py)
+- Package: Directory of modules with __init__.py
+
+## 15.2 Creating and Using Modules
+Module: dept_module.py
+def greet_department(dept_name):
+    print(f"Welcome to DEEPBYTO {dept_name} Department!")
+
+def total_budget(budgets):
+    return sum(budgets)
+
+Using the Module:
+import dept_module
+dept_module.greet_department("Engineering")
+
+## 15.3 Import Variations
+1. Import entire module: import dept_module
+2. Import specific: from dept_module import greet_department
+3. Import with alias: import dept_module as dm`
+            },
+            {
+                number: 16,
+                title: "Advanced Python Concepts",
+                description: "Learn decorators, generators, context managers, functional programming, and type hinting.",
+                level: "advanced",
+                topics: ["Decorators", "Generators", "Context Managers", "Lambda", "Type Hints"],
+                content: `## 16.1 Introduction
+Advanced concepts help write efficient, reusable, and professional code.
+
+Focus on:
+- Decorators – Modify functions dynamically
+- Generators – Memory-efficient iteration
+- Context Managers – Safe resource handling
+
+## 16.2 Decorators
+A decorator wraps another function to extend/modify its behavior.
+
+Uses @decorator_name syntax.
+
+DEEPBYTO Example – Logging Decorator:
+def log_function(func):
+    def wrapper(*args, **kwargs):
+        print(f"DEEPBYTO: Running {func.__name__}")
+        return func(*args, **kwargs)
+    return wrapper
+
+@log_function
+def greet():
+    print("Welcome to DEEPBYTO Python Training!")
+
+greet()`
+            },
+            {
+                number: 17,
+                title: "Working with Python Libraries",
+                description: "Master essential Python libraries: NumPy, Pandas, Matplotlib, Seaborn, Requests for professional applications.",
+                level: "advanced",
+                topics: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Requests"],
+                content: `## 17.1 Introduction
+Python's strength lies in powerful libraries for professional applications:
+
+- NumPy – Numerical computations
+- Pandas – Data analysis and manipulation
+- Matplotlib – Data visualization
+- Seaborn – Advanced statistical visualization
+- Requests – Web requests
+
+## 17.2 NumPy – Numerical Python
+Used for arrays, matrices, and mathematical operations.
+
+DEEPBYTO Example:
+import numpy as np
+budgets = np.array([5000, 3000, 4500, 2000])
+print("Total Budget:", budgets.sum())
+print("Average Budget:", budgets.mean())
+
+## 17.3 Pandas – Data Analysis
+Provides DataFrames and Series for structured data.
+
+import pandas as pd
+data = {
+    "Project": ["Website", "App", "Marketing"],
+    "Budget": [5000, 3000, 4500]
+}
+df = pd.DataFrame(data)
+print(df)`
+            },
+            {
+                number: 18,
+                title: "Python for Web & APIs",
+                description: "Build web applications with Flask, create APIs with FastAPI, and consume web services with Requests.",
+                level: "advanced",
+                topics: ["Flask", "FastAPI", "REST APIs", "JSON", "Web Integration"],
+                content: `## 18.1 Introduction
+Python is widely used for web development and API integration.
+
+- Flask: Lightweight framework for web apps
+- FastAPI: High-performance API framework
+- Requests: Interacting with web APIs
+
+## 18.2 Flask – Web Development Framework
+Flask allows building simple to complex web applications.
+
+DEEPBYTO Example:
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Welcome to DEEPBYTO Python Web App!"
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+## 18.3 Flask – JSON Responses
+APIs often use JSON format.
+
+@app.route("/api/projects")
+def get_projects():
+    return jsonify({"DEEPBYTO Projects": projects})`
+            },
+            {
+                number: 19,
+                title: "Python for Automation & Scripting",
+                description: "Automate file operations, work with Excel/PDFs, web scraping, task scheduling, and email automation.",
+                level: "advanced",
+                topics: ["File Automation", "Web Scraping", "Task Scheduling", "Email Automation", "PDFs"],
+                content: `## 19.1 Introduction
+Python is widely used for automation to reduce repetitive tasks.
+
+Automate:
+- File operations
+- Excel, CSV, and PDFs
+- Web scraping and system tasks
+- Email sending
+
+## 19.2 Automating File Operations
+DEEPBYTO Example – Organize Files by Extension:
+import os, shutil
+source_folder = "deepbyto_files"
+dest_folder = "organized_files"
+
+for file in os.listdir(source_folder):
+    if file.endswith(".txt"):
+        shutil.move(os.path.join(source_folder, file), 
+                   os.path.join(dest_folder, file))
+
+## 19.3 Automating Excel & CSV
+Use Pandas to read, write, and update files.
+
+import pandas as pd
+df = pd.read_csv("deepbyto_projects.csv")
+df["Budget"] = df["Budget"] * 1.10  # Increase by 10%
+df.to_csv("deepbyto_projects_updated.csv", index=False)`
+            }
+        ];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderChapters();
+            setupPagination();
+        });
+
+        let currentPage = 1;
+        const chaptersPerPage = 6;
+        const totalPages = Math.ceil(chapters.length / chaptersPerPage);
+
+        function renderChapters() {
+            const container = document.getElementById('chaptersContainer');
+            container.innerHTML = '';
+            
+            const startIndex = (currentPage - 1) * chaptersPerPage;
+            const endIndex = startIndex + chaptersPerPage;
+            const currentChapters = chapters.slice(startIndex, endIndex);
+            
+            currentChapters.forEach(chapter => {
+                const chapterCard = document.createElement('div');
+                chapterCard.className = 'chapter-card';
+                
+                // Determine level class
+                let levelClass = '';
+                switch(chapter.level) {
+                    case 'beginner': levelClass = 'level-beginner'; break;
+                    case 'intermediate': levelClass = 'level-intermediate'; break;
+                    case 'advanced': levelClass = 'level-advanced'; break;
+                }
+                
+                chapterCard.innerHTML = `
+                    <div class="chapter-number">${chapter.number}</div>
+                    <div class="${levelClass} chapter-level">${chapter.level.toUpperCase()}</div>
+                    <h3 class="chapter-title">Chapter ${chapter.number}: ${chapter.title}</h3>
+                    <p class="chapter-desc">${chapter.description}</p>
+                    
+                    <div class="chapter-content">
+                        <pre>${chapter.content}</pre>
+                    </div>
+                    
+                    <div class="chapter-topics">
+                        ${chapter.topics.map(topic => `<span class="topic-tag">${topic}</span>`).join('')}
+                    </div>
+                    
+                    <div class="chapter-meta">
+                        <span><i class="fas fa-code"></i> ${chapter.topics.length} Topics</span>
+                        <span><i class="fas fa-book"></i> Chapter ${chapter.number}</span>
+                    </div>
+                `;
+                
+                container.appendChild(chapterCard);
+            });
+            
+            // Update pagination info
+            document.getElementById('currentPage').textContent = currentPage;
+            document.getElementById('totalPages').textContent = totalPages;
+            
+            // Update button states
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (currentPage === 1) {
+                prevBtn.style.opacity = '0.5';
+                prevBtn.style.pointerEvents = 'none';
+                prevBtn.style.cursor = 'not-allowed';
+            } else {
+                prevBtn.style.opacity = '1';
+                prevBtn.style.pointerEvents = 'all';
+                prevBtn.style.cursor = 'pointer';
+            }
+            
+            if (currentPage === totalPages) {
+                nextBtn.style.opacity = '0.5';
+                nextBtn.style.pointerEvents = 'none';
+                nextBtn.style.cursor = 'not-allowed';
+            } else {
+                nextBtn.style.opacity = '1';
+                nextBtn.style.pointerEvents = 'all';
+                nextBtn.style.cursor = 'pointer';
+            }
+        }
+
+        function setupPagination() {
+            document.getElementById('prevBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderChapters();
+                    window.scrollTo({ top: document.querySelector('.programming-section').offsetTop - 100, behavior: 'smooth' });
+                }
+            });
+            
+            document.getElementById('nextBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderChapters();
+                    window.scrollTo({ top: document.querySelector('.programming-section').offsetTop - 100, behavior: 'smooth' });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
-
