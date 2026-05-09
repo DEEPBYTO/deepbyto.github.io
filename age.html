@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Age Calculator Pro • Exact Calendar Math</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0b0f19 0%, #1a1f2e 100%);
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  max-width: 420px;
+  width: 100%;
+  margin: 20px auto;
+  background: linear-gradient(145deg, #121a2a, #0f1623);
+  padding: 25px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 200, 0.2), 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,255,200,0.1);
+  backdrop-filter: blur(10px);
+}
+
+h2 {
+  color: #00ffcc;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pro-tag {
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  color: #000;
+  font-size: 0.6rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background: #00ffcc;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+  margin-left: 5px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.5); }
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #2a3a5a;
+  background: #0a0f1a;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 15px rgba(0,255,200,0.3);
+}
+
+.section {
+  margin-top: 15px;
+  padding: 15px;
+  background: #1a2438;
+  border-radius: 12px;
+  border: 1px solid #2a3550;
+  text-align: left;
+}
+
+.big {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #00ffcc;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1px solid #2a3550;
+  padding-bottom: 8px;
+}
+
+small { 
+  color: #aaa; 
+  font-size: 0.8rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.label {
+  color: #aaa;
+}
+
+.value {
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #1a2a40;
+  color: #00ffcc;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #2a3a5a;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: #00ffcc;
+  color: #000;
+  border-color: #00ffcc;
+}
+
+.summary {
+  background: #1a2a35;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  border-left: 4px solid #00ffcc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  .card { padding: 15px; }
+  h2 { font-size: 1.5rem; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>⏳ Age Calculator <span class="pro-tag">PRO</span> <span class="live-dot"></span></h2>
+
+<p>📅 Date of Birth</p>
+<input type="date" id="dob" max="">
+<p><small id="tz"></small></p>
+
+<div class="section" id="ageSection">👆 Select your birth date</div>
+
+<div class="section" id="totalSection"></div>
+
+<div class="summary" id="summarySection"></div>
+
+<div class="btn-row">
+  <button class="btn" onclick="copyResult()">📋 Copy</button>
+  <button class="btn" onclick="shareResult()">💬 Share</button>
+</div>
+
+</div>
+
+<script>
+// ---- TIMEZONE DETECTION ----
+const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+document.getElementById("tz").innerText = "🕒 Timezone: " + userTZ;
+
+// Set max date to today
+document.getElementById("dob").setAttribute("max", new Date().toISOString().split('T')[0]);
+
+let timer;
+let lastResult = '';
+
+document.getElementById("dob").addEventListener("change", function(){
+  clearInterval(timer);
+  
+  if(!this.value) {
+    document.getElementById("ageSection").innerHTML = "❌ Please select a valid date";
+    document.getElementById("totalSection").innerHTML = "";
+    document.getElementById("summarySection").innerHTML = "";
+    return;
+  }
+
+  let dob = new Date(this.value + 'T00:00:00');
+  
+  if(dob > new Date()) {
+    document.getElementById("ageSection").innerHTML = "⚠️ Date is in the future!";
+    document.getElementById("totalSection").innerHTML = "";
+    document.getElementById("summarySection").innerHTML = "";
+    return;
+  }
+
+  timer = setInterval(() => {
+    updateAll(dob);
+  }, 200); // Smooth updates every 200ms
+  
+  updateAll(dob); // Immediate first update
+});
+
+function updateAll(dob) {
+  let now = new Date();
+  
+  // ---------- EXACT AGE (calendar-based, no approximation) ----------
+  let years = now.getFullYear() - dob.getFullYear();
+  let months = now.getMonth() - dob.getMonth();
+  let days = now.getDate() - dob.getDate();
+
+  if(days < 0) {
+    months--;
+    let prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
+
+  if(months < 0) {
+    years--;
+    months += 12;
+  }
+
+  // ---------- TOTAL TIME (precise) ----------
+  let diff = now - dob;
+  let seconds = Math.floor(diff / 1000);
+  let minutes = Math.floor(seconds / 60);
+  let hours = Math.floor(minutes / 60);
+  let totalDays = Math.floor(hours / 24);
+  let weeks = Math.floor(totalDays / 7);
+  let exactMonths = years * 12 + months; // exact calendar months
+
+  // Format DOB for display
+  let monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  let monthName = monthNames[dob.getMonth()];
+  let dobFormatted = `${monthName} ${dob.getDate()}, ${dob.getFullYear()}`;
+
+  // ---------- RENDER AGE SECTION ----------
+  document.getElementById("ageSection").innerHTML = `
+    <div class="big">🎂 Exact Age</div>
+    <div class="row"><span class="label">Years:</span><span class="value">${years.toLocaleString()}</span></div>
+    <div class="row"><span class="label">Months:</span><span class="value">${months.toLocaleString()}</span></div>
+    <div class="row"><span class="label">Days:</span><span class="value">${days.toLocaleString()}</span></div>
+    <hr style="border-color:#2a3550; margin:10px 0">
+    <div style="color:#00ffcc; font-size:0.9rem;">⏱ Live Seconds: <strong>${seconds.toLocaleString()}</strong></div>
+  `;
+
+  // ---------- RENDER TOTAL SECTION ----------
+  document.getElementById("totalSection").innerHTML = `
+    <div class="big">📊 Total Time Lived</div>
+    <div class="row"><span class="label">Total Days:</span><span class="value">${totalDays.toLocaleString()}</span></div>
+    <div class="row"><span class="label">Total Weeks:</span><span class="value">${weeks.toLocaleString()}</span></div>
+    <div class="row"><span class="label">Total Months:</span><span class="value">${exactMonths.toLocaleString()} (exact)</span></div>
+    <div class="row"><span class="label">Total Hours:</span><span class="value">${hours.toLocaleString()}</span></div>
+    <div class="row"><span class="label">Total Minutes:</span><span class="value">${minutes.toLocaleString()}</span></div>
+    <div class="row"><span class="label">Total Seconds:</span><span class="value">${seconds.toLocaleString()}</span></div>
+  `;
+
+  // ---------- RENDER SUMMARY ----------
+  document.getElementById("summarySection").innerHTML = `
+    📌 ${dobFormatted} was <strong>${totalDays.toLocaleString()}</strong> days ago.
+  `;
+
+  // Store for copy/share
+  lastResult = `${dobFormatted} | Age: ${years}y ${months}m ${days}d | Total: ${totalDays.toLocaleString()} days | ${userTZ}`;
+}
+
+// ---------- COPY & SHARE FUNCTIONS ----------
+function copyResult() {
+  if(!lastResult) {
+    alert('Please select a date first!');
+    return;
+  }
+  navigator.clipboard.writeText(lastResult).then(() => {
+    alert('📋 Copied to clipboard!');
+  }).catch(() => alert('Copy failed'));
+}
+
+function shareResult() {
+  if(!lastResult) {
+    alert('Please select a date first!');
+    return;
+  }
+  let waURL = `https://wa.me/?text=${encodeURIComponent('🕒 Age Calculator Result:\n' + lastResult)}`;
+  window.open(waURL, '_blank');
+}
+</script>
+
+</body>
+</html>
