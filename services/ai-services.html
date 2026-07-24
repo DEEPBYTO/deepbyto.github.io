@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -398,12 +397,6 @@
             line-height: 1.8;
             max-width: 800px;
         }
-        .page-header .page-intro p {
-            margin-bottom: 14px;
-        }
-        .page-header .page-intro p:last-child {
-            margin-bottom: 0;
-        }
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -422,6 +415,7 @@
             flex-direction: column;
             position: relative;
             overflow: hidden;
+            height: 100%;
         }
         .pricing-card::before {
             content: '';
@@ -485,8 +479,16 @@
             font-size: 1.1rem;
             font-weight: 600;
             letter-spacing: -0.01em;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             color: var(--text-primary);
+        }
+        .pricing-card .plan-best-for {
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
         }
         .pricing-card .plan-price {
             font-family: var(--font-display);
@@ -639,7 +641,7 @@
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-sm);
-            padding: 20px 16px;
+            padding: 20px 14px;
             text-align: center;
             transition: all var(--transition);
             cursor: default;
@@ -651,9 +653,9 @@
             background: rgba(0, 212, 255, 0.03);
         }
         .tech-card .tech-icon {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--accent);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: block;
             transition: transform 0.3s ease;
         }
@@ -661,7 +663,7 @@
             transform: scale(1.15);
         }
         .tech-card span {
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: var(--text-secondary);
             letter-spacing: 0.01em;
@@ -988,14 +990,11 @@
             <span class="section-label reveal">AI Services</span>
             <h1 class="page-title reveal">AI Services</h1>
             <div class="page-intro reveal">
-                <p>DEEPBYTO provides intelligent AI services to help individuals, startups, businesses, and organizations build modern AI-powered applications, automate workflows, and create smarter digital experiences.</p>
-                <p>Our AI services cover a broad spectrum — from conversational AI chatbots that enhance customer engagement, to autonomous AI agents capable of performing complex multi-step tasks. We develop custom AI automation pipelines that eliminate repetitive manual work, freeing your team to focus on higher-value objectives. Whether you need a simple AI integration for your existing website or a fully custom AI application built from the ground up, DEEPBYTO has the expertise to deliver.</p>
-                <p>AI can transform how you operate. It can analyze data faster than any human, generate insights that drive better decisions, automate routine processes, and create personalized experiences for your users. Our team works with you to identify the right AI approach for your specific context — no hype, just practical, results-driven engineering.</p>
-                <p>Customers work directly with the DEEPBYTO team through a structured yet flexible process. You share your vision and requirements, we propose a technical approach, and development begins once everything is aligned. Throughout the project, you receive regular updates and have direct access to the engineers building your solution. Every project is treated as a partnership, with a focus on long-term reliability and measurable outcomes.</p>
+                <p>Build intelligent AI-powered solutions with DEEPBYTO. We develop AI applications, intelligent automation, machine learning systems, AI agents, and custom AI solutions for individuals, startups, businesses, and organizations.</p>
             </div>
         </div>
     </section>
-    <section id="pricing" class="section-padding" aria-label="AI Pricing Plans">
+    <section id="pricing" class="section-padding" aria-label="AI Service Plans">
         <div class="container">
             <span class="section-label reveal">Pricing</span>
             <h2 class="section-title reveal">AI Service <span class="highlight">Plans</span></h2>
@@ -1004,44 +1003,48 @@
                 <div class="pricing-card reveal">
                     <div class="plan-icon"><i class="fas fa-robot"></i></div>
                     <div class="plan-name">AI Starter</div>
+                    <div class="plan-best-for">Best For: Simple AI projects and MVPs</div>
                     <div class="plan-price">Starting at $99</div>
-                    <p class="plan-desc">A suitable starting package for simple AI projects and basic AI integrations.</p>
+                    <p class="plan-desc">Perfect for startups, personal projects, and businesses beginning with AI.</p>
                     <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> Basic AI Chatbot</li>
-                        <li><i class="fas fa-check-circle"></i> AI Integration</li>
-                        <li><i class="fas fa-check-circle"></i> Simple Automation</li>
-                        <li><i class="fas fa-check-circle"></i> Basic AI Features</li>
+                        <li><i class="fas fa-check-circle"></i> AI Chatbots</li>
+                        <li><i class="fas fa-check-circle"></i> AI Automation</li>
+                        <li><i class="fas fa-check-circle"></i> Basic AI Integration</li>
+                        <li><i class="fas fa-check-circle"></i> Custom AI Features</li>
                         <li><i class="fas fa-check-circle"></i> Human Support</li>
                     </ul>
-                    <a href="#" class="plan-btn" onclick="openWhatsApp('AI Starter Plan'); return false;">Get Started <i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="plan-btn" onclick="openWhatsApp('AI Starter'); return false;">Get Started <i class="fab fa-whatsapp"></i></a>
                 </div>
                 <div class="pricing-card featured reveal">
                     <div class="plan-icon"><i class="fas fa-brain"></i></div>
                     <div class="plan-name">AI Professional</div>
-                    <div class="plan-price">Starting at $499</div>
-                    <p class="plan-desc">Designed for advanced AI applications, automation systems, and custom AI features.</p>
+                    <div class="plan-best-for">Best For: Advanced AI applications and growing businesses</div>
+                    <div class="plan-price">Starting at $299</div>
+                    <p class="plan-desc">Ideal for businesses requiring intelligent automation and advanced AI functionality.</p>
                     <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> Advanced AI Chatbot</li>
-                        <li><i class="fas fa-check-circle"></i> AI Agent Development</li>
-                        <li><i class="fas fa-check-circle"></i> AI Automation</li>
-                        <li><i class="fas fa-check-circle"></i> Custom AI Features</li>
-                        <li><i class="fas fa-check-circle"></i> Deployment Support</li>
-                        <li><i class="fas fa-check-circle"></i> Human Support</li>
+                        <li><i class="fas fa-check-circle"></i> Everything in AI Starter</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced AI Models</li>
+                        <li><i class="fas fa-check-circle"></i> Workflow Automation</li>
+                        <li><i class="fas fa-check-circle"></i> API Integration</li>
+                        <li><i class="fas fa-check-circle"></i> Custom AI Development</li>
+                        <li><i class="fas fa-check-circle"></i> Priority Human Support</li>
                     </ul>
-                    <a href="#" class="plan-btn" onclick="openWhatsApp('AI Professional Plan'); return false;">Get Started <i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="plan-btn" onclick="openWhatsApp('AI Professional'); return false;">Get Started <i class="fab fa-whatsapp"></i></a>
                 </div>
                 <div class="pricing-card reveal">
                     <div class="plan-icon"><i class="fas fa-building"></i></div>
                     <div class="plan-name">Enterprise AI</div>
-                    <div class="plan-price">Custom Quote</div>
-                    <p class="plan-desc">Advanced AI solutions for large projects, organizations, and complex requirements.</p>
+                    <div class="plan-best-for">Best For: Large-scale AI systems and enterprise solutions</div>
+                    <div class="plan-price">Starting at $999+</div>
+                    <p class="plan-desc">For complex enterprise AI projects. Final pricing depends on project scope and requirements.</p>
                     <ul class="plan-features">
-                        <li><i class="fas fa-check-circle"></i> Custom AI Systems</li>
-                        <li><i class="fas fa-check-circle"></i> Multi-Agent AI Solutions</li>
-                        <li><i class="fas fa-check-circle"></i> Advanced Automation</li>
-                        <li><i class="fas fa-check-circle"></i> AI Infrastructure</li>
-                        <li><i class="fas fa-check-circle"></i> Long-Term Support</li>
-                        <li><i class="fas fa-check-circle"></i> Dedicated Development Support</li>
+                        <li><i class="fas fa-check-circle"></i> Custom Enterprise AI</li>
+                        <li><i class="fas fa-check-circle"></i> AI Agents</li>
+                        <li><i class="fas fa-check-circle"></i> Large AI Systems</li>
+                        <li><i class="fas fa-check-circle"></i> Enterprise Integrations</li>
+                        <li><i class="fas fa-check-circle"></i> Scalable Architecture</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated Development Team</li>
+                        <li><i class="fas fa-check-circle"></i> Priority Support</li>
                     </ul>
                     <a href="#" class="plan-btn" onclick="openWhatsApp('Enterprise AI'); return false;">Request Quote <i class="fab fa-whatsapp"></i></a>
                 </div>
@@ -1106,26 +1109,26 @@
             </div>
         </div>
     </section>
-    <section id="how-to-start" class="section-padding" style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);" aria-label="How to Get Started">
+    <section id="how-it-works" class="section-padding" style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);" aria-label="How It Works">
         <div class="container">
             <span class="section-label reveal">Process</span>
-            <h2 class="section-title reveal">How to Get <span class="highlight">Started</span></h2>
+            <h2 class="section-title reveal">How It <span class="highlight">Works</span></h2>
             <p class="section-desc reveal">A simple, transparent process designed to move from inquiry to development efficiently.</p>
             <div class="steps-grid">
                 <div class="step-card reveal">
                     <div class="step-number">1</div>
-                    <h4>Choose Your Service</h4>
-                    <p>Understand the AI service that matches your project needs.</p>
+                    <h4>Choose Your Plan</h4>
+                    <p>Select the AI service plan that best matches your project needs.</p>
                 </div>
                 <div class="step-card reveal">
                     <div class="step-number">2</div>
-                    <h4>Select Your Plan</h4>
-                    <p>Choose a suitable pricing plan based on your requirements.</p>
+                    <h4>Click Get Started</h4>
+                    <p>Each pricing card contains its own Get Started button.</p>
                 </div>
                 <div class="step-card reveal">
                     <div class="step-number">3</div>
-                    <h4>Contact DEEPBYTO</h4>
-                    <p>Click Get Started and connect through WhatsApp.</p>
+                    <h4>Connect on WhatsApp</h4>
+                    <p>Clicking Get Started automatically opens WhatsApp with a pre-filled message.</p>
                 </div>
                 <div class="step-card reveal">
                     <div class="step-number">4</div>
@@ -1134,7 +1137,7 @@
                 </div>
                 <div class="step-card reveal">
                     <div class="step-number">5</div>
-                    <h4>Start Development</h4>
+                    <h4>Development Begins</h4>
                     <p>After requirements are finalized, development begins.</p>
                 </div>
             </div>
@@ -1284,22 +1287,22 @@
 
             function openWhatsApp(planType) {
                 let message = '';
-                if (planType === 'AI Starter Plan') {
+                if (planType === 'AI Starter') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI am interested in the AI Starter Plan.%0A%0AProject Type:%0A%0AProject Description:%0A%0AExpected Features:%0A%0ABudget:%0A%0AThank you.';
-                } else if (planType === 'AI Professional Plan') {
+                        'Hello DEEPBYTO,%0A%0AI would like to order the AI Starter Plan.%0A%0AService: AI Services%0ASelected Plan: AI Starter%0APrice: Starting at $99%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
+                } else if (planType === 'AI Professional') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI would like to order the AI Professional Plan.%0A%0AProject Type:%0A%0AProject Description:%0A%0AExpected Features:%0A%0ABudget:%0A%0AThank you.';
+                        'Hello DEEPBYTO,%0A%0AI would like to order the AI Professional Plan.%0A%0AService: AI Services%0ASelected Plan: AI Professional%0APrice: Starting at $299%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
                 } else if (planType === 'Enterprise AI') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI would like to discuss an Enterprise AI project.%0A%0AProject Type:%0A%0AProject Description:%0A%0AExpected Features:%0A%0AEstimated Budget:%0A%0ATimeline:%0A%0AThank you.';
+                        'Hello DEEPBYTO,%0A%0AI would like to discuss an Enterprise AI Project.%0A%0AService: AI Services%0ASelected Plan: Enterprise AI%0APrice: Starting at $999+%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
                 }
                 window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
             }
 
             function openGeneralInquiry() {
                 const message =
-                    'Hello DEEPBYTO,%0A%0AI would like to learn more about your AI Services.%0A%0AI have some questions before choosing a plan.%0A%0AThank you.';
+                    'Hello DEEPBYTO,%0A%0AI would like to learn more about your AI Services.%0A%0AThank you.';
                 window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
             }
             window.openWhatsApp = openWhatsApp;
