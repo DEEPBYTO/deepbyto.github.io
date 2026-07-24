@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEEPBYTO | AI Services</title>
+    <meta name="description" content="Build intelligent AI-powered software, automation systems, AI agents, and custom AI applications designed to solve real-world problems." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://deepbyto.github.io/services/ai-services.html" />
+    <link rel="icon" href="https://deepbyto.github.io/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://deepbyto.github.io/favicon.ico" type="image/x-icon" />
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta property="og:title" content="DEEPBYTO | AI Services" />
+    <meta property="og:description" content="Build intelligent AI-powered software, automation systems, AI agents, and custom AI applications designed to solve real-world problems." />
+    <meta property="og:image" content="https://deepbyto.github.io/image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://deepbyto.github.io/services/ai-services.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DEEPBYTO" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DEEPBYTO | AI Services" />
+    <meta name="twitter:description" content="Build intelligent AI-powered software, automation systems, AI agents, and custom AI applications designed to solve real-world problems." />
+    <meta name="twitter:image" content="https://deepbyto.github.io/image.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;500;600;700;800;900&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: rgba(18, 18, 26, 0.75);
+            --accent: #00d4ff;
+            --accent-dim: rgba(0, 212, 255, 0.15);
+            --accent-glow: rgba(0, 212, 255, 0.25);
+            --text-primary: #f0f4f8;
+            --text-secondary: #a0b4c8;
+            --text-muted: #6a7f94;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --glass-bg: rgba(18, 18, 26, 0.55);
+            --glass-border: rgba(255, 255, 255, 0.07);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Orbitron', 'Inter', sans-serif;
+            --whatsapp-color: #25d366;
+        }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        ::selection {
+            background: var(--accent);
+            color: #0a0a0f;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        a:hover {
+            color: #66e6ff;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .section-padding {
+            padding: 100px 0 80px;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 12px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #66e6ff;
+        }
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(10, 10, 15, 0.55);
+            backdrop-filter: blur(18px) saturate(1.2);
+            -webkit-backdrop-filter: blur(18px) saturate(1.2);
+            border-bottom: 1px solid var(--glass-border);
+            transition: background var(--transition), box-shadow var(--transition);
+        }
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(24px) saturate(1.3);
+            -webkit-backdrop-filter: blur(24px) saturate(1.3);
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 0.06em;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            transition: color var(--transition);
+        }
+        .nav-brand:hover {
+            color: var(--accent);
+        }
+        .nav-brand .brand-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 16px var(--accent-glow);
+            animation: pulse-dot 2.4s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(0.75);
+            }
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+            transition: color var(--transition);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width var(--transition);
+            border-radius: 4px;
+        }
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 6px;
+            transition: background var(--transition);
+        }
+        .nav-toggle:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .nav-toggle span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .page-hero {
+            position: relative;
+            z-index: 1;
+            padding: 140px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .page-hero .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px 6px 8px;
+            border-radius: 50px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 0.04em;
+            margin-bottom: 20px;
+            backdrop-filter: blur(4px);
+        }
+        .page-hero .hero-badge .badge-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        .page-hero .page-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2.4rem, 7vw, 4.5rem);
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+        .page-hero .page-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+            background: var(--accent-dim);
+            padding: 4px 14px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 212, 255, 0.08);
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+        .section-title .highlight {
+            color: var(--accent);
+        }
+        .section-desc {
+            color: var(--text-secondary);
+            max-width: 600px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .pricing-card {
+            position: relative;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 36px 28px 32px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius);
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(88, 101, 242, 0.04), rgba(0, 212, 255, 0.02));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+        .pricing-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .pricing-card.featured {
+            border-color: rgba(0, 212, 255, 0.25);
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(0, 212, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+        .pricing-card:hover::before {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.35), rgba(88, 101, 242, 0.2), rgba(0, 212, 255, 0.15));
+        }
+        .pricing-card:hover::after {
+            opacity: 1;
+        }
+        .pricing-card .plan-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 18px;
+            transition: all 0.4s ease;
+            flex-shrink: 0;
+        }
+        .pricing-card:hover .plan-icon {
+            background: rgba(0, 212, 255, 0.25);
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 0 24px rgba(0, 212, 255, 0.3);
+            transform: scale(1.05);
+        }
+        .pricing-card .plan-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        .pricing-card .plan-price {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .pricing-card .plan-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 22px;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .pricing-card .plan-features {
+            list-style: none;
+            margin-bottom: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .pricing-card .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        .pricing-card .plan-features li i {
+            color: var(--accent);
+            font-size: 0.85rem;
+            width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 28px;
+            border-radius: 50px;
+            background: var(--whatsapp-color);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: 0 4px 24px rgba(37, 211, 102, 0.2);
+            font-family: var(--font-sans);
+            text-decoration: none;
+            margin-top: auto;
+        }
+        .btn-whatsapp:hover {
+            background: #20b858;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px rgba(37, 211, 102, 0.35);
+            color: #fff;
+        }
+        .btn-outline-light {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 28px;
+            border-radius: 50px;
+            background: transparent;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: var(--font-sans);
+            text-decoration: none;
+            margin-top: auto;
+        }
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            color: var(--text-primary);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            padding: 24px 20px;
+            transition: all var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .feature-card:hover {
+            border-color: rgba(0, 212, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+        .feature-card .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            font-size: 1.1rem;
+            color: var(--accent);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover .feature-icon {
+            background: rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+        .feature-card .feature-text h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+        .feature-card .feature-text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 48px;
+        }
+        .tech-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            padding: 20px 18px;
+            text-align: center;
+            transition: all var(--transition);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+        .tech-card:hover {
+            border-color: rgba(0, 212, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+            color: var(--text-primary);
+            background: rgba(0, 212, 255, 0.04);
+        }
+        .cta-box {
+            margin-top: 48px;
+            padding: 48px 40px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(88, 101, 242, 0.06));
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all var(--transition);
+        }
+        .cta-box:hover {
+            border-color: var(--accent);
+            box-shadow: 0 15px 50px rgba(0, 212, 255, 0.08);
+            transform: translateY(-2px);
+        }
+        .cta-box .cta-icon {
+            font-size: 2.4rem;
+            color: var(--accent);
+            margin-bottom: 14px;
+            display: inline-block;
+        }
+        .cta-box h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        .cta-box p {
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 20px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .cta-box .whatsapp-number {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: rgba(0, 212, 255, 0.08);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(0, 212, 255, 0.15);
+        }
+        .footer {
+            padding: 48px 0 32px;
+            border-top: 1px solid var(--border-subtle);
+            background: var(--bg-primary);
+            position: relative;
+            z-index: 1;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+        .footer-brand .fb-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.06em;
+            color: var(--text-primary);
+        }
+        .footer-brand .fb-tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px 28px;
+        }
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: color var(--transition);
+        }
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+        .footer-bottom {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .footer-socials {
+            display: flex;
+            gap: 14px;
+        }
+        .footer-socials a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: color var(--transition);
+        }
+        .footer-socials a:hover {
+            color: var(--text-primary);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(10, 10, 15, 0.97);
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 28px;
+                padding: 40px;
+                transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                border-left: 1px solid var(--glass-border);
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+            .nav-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+            .page-hero {
+                padding: 120px 0 60px;
+            }
+            .section-padding {
+                padding: 64px 0 48px;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .tech-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .cta-box {
+                padding: 32px 24px;
+            }
+            .footer-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .tech-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .cta-box {
+                padding: 24px 16px;
+            }
+            .cta-box h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="../index.html" class="nav-brand" aria-label="DEEPBYTO home">
+                <span class="brand-dot"></span>DEEPBYTO
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="../index.html#about" role="menuitem">About</a></li>
+                <li role="none"><a href="../index.html#services" role="menuitem">Services</a></li>
+                <li role="none"><a href="../index.html#labs" role="menuitem">Labs</a></li>
+                <li role="none"><a href="../index.html#projects" role="menuitem">Projects</a></li>
+                <li role="none"><a href="../index.html#contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-hero" aria-label="AI Services hero">
+        <div class="container">
+            <div class="hero-badge"><span class="badge-dot"></span>AI & Software Innovation</div>
+            <h1 class="page-title">AI Services</h1>
+            <p class="page-desc">Build intelligent AI-powered software, automation systems, AI agents, and custom AI applications designed to solve real-world problems.</p>
+        </div>
+    </section>
+
+    <section class="section-padding" id="pricing" aria-label="Pricing plans">
+        <div class="container">
+            <span class="section-label reveal">Pricing</span>
+            <h2 class="section-title reveal">Choose Your <span class="highlight">AI Plan</span></h2>
+            <p class="section-desc reveal">Select the plan that matches your project requirements. All plans include professional delivery and human support.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <div class="plan-icon"><i class="fas fa-robot"></i></div>
+                    <div class="plan-name">AI Starter</div>
+                    <div class="plan-price">Starting at $99</div>
+                    <p class="plan-desc">Perfect for small AI projects and simple AI integrations.</p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Basic AI Chatbot</li>
+                        <li><i class="fas fa-check-circle"></i> AI Integration</li>
+                        <li><i class="fas fa-check-circle"></i> Basic Automation</li>
+                        <li><i class="fas fa-check-circle"></i> Human Support</li>
+                    </ul>
+                    <a href="https://wa.me/923047467957?text=Hello%20DEEPBYTO%2C%0A%0AI%20am%20interested%20in%20the%20AI%20Starter%20Plan.%0A%0AProject%20Type%3A%0A%0AProject%20Description%3A%0A%0AExpected%20Features%3A%0A%0ABudget%3A%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Get Started</a>
+                </div>
+                <div class="pricing-card featured reveal">
+                    <div class="plan-icon"><i class="fas fa-brain"></i></div>
+                    <div class="plan-name">AI Professional</div>
+                    <div class="plan-price">Starting at $499</div>
+                    <p class="plan-desc">Designed for advanced AI applications and intelligent automation.</p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Advanced AI Chatbot</li>
+                        <li><i class="fas fa-check-circle"></i> AI Agent</li>
+                        <li><i class="fas fa-check-circle"></i> AI Automation</li>
+                        <li><i class="fas fa-check-circle"></i> Custom Features</li>
+                        <li><i class="fas fa-check-circle"></i> Deployment</li>
+                        <li><i class="fas fa-check-circle"></i> Human Support</li>
+                    </ul>
+                    <a href="https://wa.me/923047467957?text=Hello%20DEEPBYTO%2C%0A%0AI%20would%20like%20to%20order%20the%20AI%20Professional%20Plan.%0A%0AProject%20Type%3A%0A%0AProject%20Description%3A%0A%0AExpected%20Features%3A%0A%0ABudget%3A%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Get Started</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <div class="plan-icon"><i class="fas fa-building"></i></div>
+                    <div class="plan-name">Enterprise AI</div>
+                    <div class="plan-price">Custom Quote</div>
+                    <p class="plan-desc">Built for enterprise-grade AI systems and large-scale intelligent solutions.</p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Enterprise AI Solutions</li>
+                        <li><i class="fas fa-check-circle"></i> Multi-Agent Systems</li>
+                        <li><i class="fas fa-check-circle"></i> AI Infrastructure</li>
+                        <li><i class="fas fa-check-circle"></i> Long-Term Support</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated Development Team</li>
+                    </ul>
+                    <a href="https://wa.me/923047467957?text=Hello%20DEEPBYTO%2C%0A%0AI%20would%20like%20to%20discuss%20an%20Enterprise%20AI%20project.%0A%0AProject%20Type%3A%0A%0AProject%20Description%3A%0A%0AExpected%20Features%3A%0A%0AEstimated%20Budget%3A%0A%0ATimeline%3A%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="btn-outline-light"><i class="fab fa-whatsapp"></i> Request Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="what-we-build" aria-label="What we build" style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+        <div class="container">
+            <span class="section-label reveal">Capabilities</span>
+            <h2 class="section-title reveal">What We <span class="highlight">Build</span></h2>
+            <p class="section-desc reveal">Our AI engineering team delivers intelligent solutions across the full spectrum of modern artificial intelligence.</p>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                    <div class="feature-text">
+                        <h4>AI Chatbots</h4>
+                        <p>Intelligent conversational systems designed for websites, customer support, education, and business operations.</p>
+                    </div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-user-astronaut"></i></div>
+                    <div class="feature-text">
+                        <h4>AI Agents</h4>
+                        <p>Autonomous AI agents capable of performing tasks, assisting users, and automating workflows.</p>
+                    </div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                    <div class="feature-text">
+                        <h4>AI Automation</h4>
+                        <p>Automate repetitive tasks and improve efficiency using intelligent AI-powered workflows.</p>
+                    </div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-code"></i></div>
+                    <div class="feature-text">
+                        <h4>Custom AI Applications</h4>
+                        <p>Custom-built AI software developed according to your project requirements.</p>
+                    </div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <div class="feature-text">
+                        <h4>Intelligent Assistants</h4>
+                        <p>AI assistants for productivity, research, learning, and business use.</p>
+                    </div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-plug"></i></div>
+                    <div class="feature-text">
+                        <h4>AI Integration</h4>
+                        <p>Integrate AI capabilities into your existing software, websites, or applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="technologies" aria-label="Technologies we use">
+        <div class="container">
+            <span class="section-label reveal">Technologies</span>
+            <h2 class="section-title reveal">Technologies <span class="highlight">We Use</span></h2>
+            <p class="section-desc reveal">We leverage cutting-edge AI technologies to build robust and intelligent solutions.</p>
+            <div class="tech-grid">
+                <div class="tech-card reveal">Artificial Intelligence</div>
+                <div class="tech-card reveal">Machine Learning</div>
+                <div class="tech-card reveal">Deep Learning</div>
+                <div class="tech-card reveal">Natural Language Processing</div>
+                <div class="tech-card reveal">Large Language Models (LLMs)</div>
+                <div class="tech-card reveal">Computer Vision</div>
+                <div class="tech-card reveal">Neural Networks</div>
+                <div class="tech-card reveal">Retrieval-Augmented Generation (RAG)</div>
+                <div class="tech-card reveal">Prompt Engineering</div>
+                <div class="tech-card reveal">AI Workflows</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="more-info" aria-label="Need more information" style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle);">
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="cta-icon"><i class="fas fa-question-circle"></i></div>
+                <h3>Need More Information About AI Services?</h3>
+                <p>Not sure which plan is the right choice for your project? Our team is here to help. Contact DEEPBYTO on WhatsApp to discuss your project, ask questions, or get guidance before choosing a plan.</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px;">Every conversation is handled by a real team member. No bots. No automated replies.</p>
+                <div class="whatsapp-number">+92 304 7467957</div>
+                <br>
+                <a href="https://wa.me/923047467957?text=Hello%20DEEPBYTO%2C%0A%0AI%20would%20like%20to%20learn%20more%20about%20your%20AI%20Services.%0A%0AI%20have%20a%20few%20questions%20before%20choosing%20a%20plan.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Contact on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="fb-name">DEEPBYTO</div>
+                    <div class="fb-tagline">AI & Software Innovation</div>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/DEEPBYTO" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://x.com/deepbyto" target="_blank" rel="noopener noreferrer">X</a>
+                    <a href="https://youtube.com/@DEEPBYTO" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    <a href="https://discord.gg/HWhBYHjApe" target="_blank" rel="noopener noreferrer">Discord</a>
+                    <a href="mailto:deepbyto@gmail.com">Email</a>
+                    <a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DEEPBYTO. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/DEEPBYTO" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+                    <a href="https://x.com/deepbyto" target="_blank" rel="noopener noreferrer" aria-label="X">X</a>
+                    <a href="https://youtube.com/@DEEPBYTO" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YouTube</a>
+                    <a href="https://discord.gg/HWhBYHjApe" target="_blank" rel="noopener noreferrer" aria-label="Discord">Discord</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            'use strict';
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let particleCount = 70;
+            let mouseX = null;
+            let mouseY = null;
+
+            function resizeCanvas() { canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight; }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.4 + 0.1;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < 0 || this.x > canvas.width) { this.speedX *= -1;
+                        this.x += this.speedX; }
+                    if (this.y < 0 || this.y > canvas.height) { this.speedY *= -1;
+                        this.y += this.speedY; }
+                    if (mouseX !== null && mouseY !== null) {
+                        const dx = this.x - mouseX;
+                        const dy = this.y - mouseY;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 140) { const force = (140 - dist) / 140 * 0.015;
+                            this.x += dx * force;
+                            this.y += dy * force; }
+                    }
+                }
+                draw() { ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
+                    ctx.fill(); }
+            }
+
+            function initParticles() { particles = []; for (let i = 0; i < particleCount; i++) { particles.push(new Particle()); } }
+            initParticles();
+
+            function drawLines() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 130) { const opacity = (1 - dist / 130) * 0.2;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(0, 212, 255, ${opacity})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke(); }
+                    }
+                }
+            }
+
+            function animateParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (const p of particles) { p.update();
+                    p.draw(); } drawLines();
+                requestAnimationFrame(animateParticles); }
+            animateParticles();
+            document.addEventListener('mousemove', (e) => { mouseX = e.clientX;
+                mouseY = e.clientY; });
+            document.addEventListener('mouseleave', () => { mouseX = null;
+                mouseY = null; });
+
+            const navbar = document.getElementById('navbar');
+            const navToggle = document.getElementById('navToggle');
+            const navLinks = document.getElementById('navLinks');
+            window.addEventListener('scroll', () => { if (window.scrollY > 20) { navbar.classList.add('scrolled'); } else { navbar
+                        .classList.remove('scrolled'); } });
+            navToggle.addEventListener('click', () => { const isOpen = navLinks.classList.toggle('open');
+                navToggle.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', isOpen); });
+            navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove(
+                        'open');
+                    navToggle.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false'); }); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    navToggle.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.focus(); } });
+
+            const revealElements = document.querySelectorAll('.reveal');
+
+            function revealOnScroll() { const windowHeight = window.innerHeight;
+                const revealThreshold = 100;
+                revealElements.forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < windowHeight -
+                        revealThreshold) { el.classList.add('visible'); } }); }
+            window.addEventListener('load', () => { setTimeout(revealOnScroll, 150); });
+            window.addEventListener('scroll', revealOnScroll);
+            window.addEventListener('resize', revealOnScroll);
+        })();
+    </script>
+</body>
+</html>
