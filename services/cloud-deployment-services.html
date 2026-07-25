@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -374,35 +373,6 @@
             border-color: rgba(0, 212, 255, 0.2);
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-        .page-header {
-            position: relative;
-            z-index: 1;
-            padding: 140px 0 60px;
-        }
-        .page-header .page-title {
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff 30%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 16px;
-            line-height: 1.15;
-        }
-        .page-header .page-intro {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            line-height: 1.8;
-            max-width: 800px;
-        }
-        .page-header .page-intro p {
-            margin-bottom: 14px;
-        }
-        .page-header .page-intro p:last-child {
-            margin-bottom: 0;
         }
         .pricing-grid {
             display: grid;
@@ -919,9 +889,6 @@
             .steps-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .page-header {
-                padding: 120px 0 40px;
-            }
             .section-padding {
                 padding: 64px 0 48px;
             }
@@ -955,12 +922,6 @@
             .container {
                 padding: 0 16px;
             }
-            .page-header .page-title {
-                font-size: 1.8rem;
-            }
-            .contact-info-card .ci-number {
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -983,18 +944,9 @@
             </button>
         </div>
     </nav>
-    <section class="page-header" aria-label="Cloud & Deployment Services Introduction">
-        <div class="container">
-            <span class="section-label reveal">Cloud & Deployment</span>
-            <h1 class="page-title reveal">Cloud & Deployment Services</h1>
-            <div class="page-intro reveal">
-                <p>Deploy, host, secure, and manage your websites, applications, APIs, and software with DEEPBYTO. Whether you're launching a personal website, business platform, mobile backend, AI application, or enterprise software, DEEPBYTO helps you deploy and manage your project with reliable cloud infrastructure.</p>
-                <p>Our cloud and deployment services cover the entire infrastructure lifecycle. We handle server configuration, domain setup, SSL certificate installation, database deployment, performance optimization, and ongoing monitoring. From simple static sites deployed to GitHub Pages to complex multi-server enterprise architectures with CI/CD pipelines, we ensure your applications are live, secure, and performing at their best. Professional deployment is critical — a well-configured production environment prevents downtime, protects user data, and scales with your audience. Poor deployment practices lead to security vulnerabilities, slow load times, and lost revenue. We eliminate these risks with battle-tested infrastructure patterns.</p>
-                <p>These services are designed for developers launching their first project, startups needing a reliable production environment, businesses migrating to the cloud, and enterprises requiring managed infrastructure. Choosing DEEPBYTO means partnering with engineers who understand Linux systems, containerization, networking, and cloud architecture. We deploy with precision, document every configuration, and provide ongoing support so you can focus on building your product while we keep it running smoothly.</p>
-            </div>
-        </div>
-    </section>
-    <section id="pricing" class="section-padding" aria-label="Cloud & Deployment Plans">
+
+    <!-- ===== PRICING PLANS SHOWN FIRST ===== -->
+    <section id="pricing" class="section-padding" style="padding-top: 140px;" aria-label="Cloud & Deployment Plans">
         <div class="container">
             <span class="section-label reveal">Pricing</span>
             <h2 class="section-title reveal">Cloud & Deployment <span class="highlight">Plans</span></h2>
@@ -1032,7 +984,7 @@
                 <div class="pricing-card reveal">
                     <div class="plan-icon"><i class="fas fa-network-wired"></i></div>
                     <div class="plan-name">Enterprise Cloud</div>
-                    <div class="plan-price">Project-Based Pricing</div>
+                    <div class="plan-price">Starting at $499+</div>
                     <p class="plan-desc">Enterprise deployment solutions for large-scale applications.</p>
                     <ul class="plan-features">
                         <li><i class="fas fa-check-circle"></i> Enterprise Deployment</li>
@@ -1048,6 +1000,7 @@
             </div>
         </div>
     </section>
+
     <section id="what-we-build" class="section-padding" style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);" aria-label="What We Deploy">
         <div class="container">
             <span class="section-label reveal">Capabilities</span>
@@ -1298,20 +1251,20 @@
                 let message = '';
                 if (planType === 'Deployment Starter Plan') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI am interested in the Deployment Starter Plan.%0A%0AProject Type:%0A%0ADeployment Requirements:%0A%0AHosting Provider:%0A%0AThank you.';
+                        'Hello DEEPBYTO,%0A%0AI would like to order the Deployment Starter Plan.%0A%0AService: Cloud & Deployment Services%0ASelected Plan: Deployment Starter%0APrice: Starting at $29%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
                 } else if (planType === 'Cloud Professional Plan') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI would like to order the Cloud Professional Plan.%0A%0AProject Type:%0A%0ADeployment Requirements:%0A%0AHosting Provider:%0A%0ABudget:%0A%0AThank you.';
+                        'Hello DEEPBYTO,%0A%0AI would like to order the Cloud Professional Plan.%0A%0AService: Cloud & Deployment Services%0ASelected Plan: Cloud Professional%0APrice: Starting at $149%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
                 } else if (planType === 'Enterprise Cloud Deployment') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI would like to discuss an Enterprise Cloud Deployment.%0A%0AProject Type:%0A%0ADeployment Requirements:%0A%0AExpected Infrastructure:%0A%0ABudget:%0A%0ATimeline:%0A%0AThank you.';
+                        'Hello DEEPBYTO,%0A%0AI would like to discuss an Enterprise Cloud Project.%0A%0AService: Cloud & Deployment Services%0ASelected Plan: Enterprise Cloud%0APrice: Starting at $499+%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
                 }
                 window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
             }
 
             function openGeneralInquiry() {
                 const message =
-                    'Hello DEEPBYTO,%0A%0AI would like to learn more about your Cloud & Deployment Services.%0A%0AI have a few questions before choosing a plan.%0A%0AThank you.';
+                    'Hello DEEPBYTO,%0A%0AI would like to learn more about your Cloud & Deployment Services.%0A%0AThank you.';
                 window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
             }
             window.openWhatsApp = openWhatsApp;
