@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -391,18 +390,6 @@
             background-clip: text;
             margin-bottom: 16px;
             line-height: 1.15;
-        }
-        .page-header .page-intro {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            line-height: 1.8;
-            max-width: 800px;
-        }
-        .page-header .page-intro p {
-            margin-bottom: 14px;
-        }
-        .page-header .page-intro p:last-child {
-            margin-bottom: 0;
         }
         .pricing-grid-5 {
             display: grid;
@@ -1023,18 +1010,9 @@
             </button>
         </div>
     </nav>
-    <section class="page-header" aria-label="Web Services Introduction">
-        <div class="container">
-            <span class="section-label reveal">Web Services</span>
-            <h1 class="page-title reveal">Web Services</h1>
-            <div class="page-intro reveal">
-                <p>Build modern, responsive, secure, and high-performance websites with DEEPBYTO. Whether you need a personal portfolio, landing page, business website, company website, documentation website, e-commerce website, or a custom web application, DEEPBYTO delivers professional web solutions designed for performance, scalability, and long-term growth.</p>
-                <p>Our web services cover the full spectrum of modern web development. We build everything from simple one-page scrolling sites to complex web applications with databases, authentication, and API integrations. Every project is hand-crafted with clean code, responsive design, and a focus on user experience. We serve individuals who want a free professional online presence, startups launching their first product, freelancers showcasing their work, and enterprises requiring robust web platforms.</p>
-                <p>Choosing DEEPBYTO means working with engineers who prioritize quality over shortcuts. Your website will be fast, accessible, SEO-optimized, and built with technologies that stand the test of time. We handle the technical complexity so you can focus on your goals — whether that means attracting clients, selling products, or sharing your ideas with the world.</p>
-            </div>
-        </div>
-    </section>
-    <section id="pricing" class="section-padding" aria-label="Web Service Plans">
+
+    <!-- ===== PRICING PLANS SHOWN FIRST ===== -->
+    <section id="pricing" class="section-padding" style="padding-top: 140px;" aria-label="Web Service Plans">
         <div class="container">
             <span class="section-label reveal">Pricing</span>
             <h2 class="section-title reveal">Web Service <span class="highlight">Plans</span></h2>
@@ -1101,7 +1079,7 @@
                 <div class="pricing-card reveal">
                     <div class="plan-icon"><i class="fas fa-building"></i></div>
                     <div class="plan-name">Enterprise</div>
-                    <div class="plan-price">Starting at $499+</div>
+                    <div class="plan-price">Starting at $499</div>
                     <p class="plan-desc">Enterprise-grade websites and custom web applications for large projects.</p>
                     <ul class="plan-features">
                         <li><i class="fas fa-check-circle"></i> Unlimited Pages</li>
@@ -1117,6 +1095,7 @@
             </div>
         </div>
     </section>
+
     <section id="what-we-build" class="section-padding" style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);" aria-label="What We Build">
         <div class="container">
             <span class="section-label reveal">Capabilities</span>
@@ -1364,26 +1343,26 @@
                 let message = '';
                 if (planType === 'Free Web Plan') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI would like to request the Free Web Plan.%0A%0AWebsite Type:%0A%0APurpose:%0A%0APreferred Design:%0A%0AThank you.';
+                        'Hello DEEPBYTO,%0A%0AI would like to get the Free Website Plan.%0A%0AService: Web Services%0ASelected Plan: Free%0APrice: Free%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
                 } else if (planType === 'Basic Web Plan') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI would like to order the Basic Web Plan ($5).%0A%0AWebsite Type:%0A%0APurpose:%0A%0APreferred Design:%0A%0AThank you.';
+                        'Hello DEEPBYTO,%0A%0AI would like to order the Basic Website Plan.%0A%0AService: Web Services%0ASelected Plan: Basic%0APrice: Starting at $5%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
                 } else if (planType === 'Starter Web Plan') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI would like to order the Starter Web Plan ($49).%0A%0AWebsite Type:%0A%0APurpose:%0A%0APreferred Design:%0A%0AAdditional Requirements:%0A%0AThank you.';
+                        'Hello DEEPBYTO,%0A%0AI would like to order the Starter Website Plan.%0A%0AService: Web Services%0ASelected Plan: Starter%0APrice: Starting at $49%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
                 } else if (planType === 'Professional Web Plan') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI would like to order the Professional Web Plan ($149).%0A%0AWebsite Type:%0A%0APurpose:%0A%0AAdditional Requirements:%0A%0ABudget:%0A%0AThank you.';
+                        'Hello DEEPBYTO,%0A%0AI would like to order the Professional Website Plan.%0A%0AService: Web Services%0ASelected Plan: Professional%0APrice: Starting at $149%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
                 } else if (planType === 'Enterprise Web Project') {
                     message =
-                        'Hello DEEPBYTO,%0A%0AI would like to discuss an Enterprise Web Project (Starting at $499).%0A%0AProject Type:%0A%0AProject Description:%0A%0AExpected Features:%0A%0AEstimated Budget:%0A%0ATimeline:%0A%0AThank you.';
+                        'Hello DEEPBYTO,%0A%0AI would like to discuss an Enterprise Website Project.%0A%0AService: Web Services%0ASelected Plan: Enterprise%0APrice: Starting at $499+%0A%0AI am interested in this service and would like to discuss my project.%0A%0AThank you.';
                 }
                 window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
             }
 
             function openGeneralInquiry() {
                 const message =
-                    'Hello DEEPBYTO,%0A%0AI would like to learn more about your Web Services.%0A%0AI have a few questions before choosing a plan.%0A%0AThank you.';
+                    'Hello DEEPBYTO,%0A%0AI would like to learn more about your Web Services.%0A%0AThank you.';
                 window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
             }
             window.openWhatsApp = openWhatsApp;
