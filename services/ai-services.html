@@ -377,7 +377,7 @@
         .page-header {
             position: relative;
             z-index: 1;
-            padding: 140px 0 40px;
+            padding: 140px 0 60px;
         }
         .page-header .page-title {
             font-family: var(--font-display);
@@ -388,7 +388,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0;
+            margin-bottom: 16px;
             line-height: 1.15;
         }
         .pricing-grid {
@@ -916,7 +916,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .page-header {
-                padding: 120px 0 30px;
+                padding: 120px 0 40px;
             }
             .section-padding {
                 padding: 64px 0 48px;
@@ -979,13 +979,9 @@
             </button>
         </div>
     </nav>
-    <section class="page-header" aria-label="AI Services">
-        <div class="container">
-            <span class="section-label reveal">AI Services</span>
-            <h1 class="page-title reveal">AI Services</h1>
-        </div>
-    </section>
-    <section id="pricing" class="section-padding" style="padding-top: 20px;" aria-label="AI Service Plans">
+
+    <!-- ===== PRICING PLANS SHOWN FIRST ===== -->
+    <section id="pricing" class="section-padding" style="padding-top: 140px;" aria-label="AI Service Plans">
         <div class="container">
             <span class="section-label reveal">Pricing</span>
             <h2 class="section-title reveal">AI Service <span class="highlight">Plans</span></h2>
@@ -1042,6 +1038,7 @@
             </div>
         </div>
     </section>
+
     <section id="what-we-build" class="section-padding" style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);" aria-label="What We Build">
         <div class="container">
             <span class="section-label reveal">Capabilities</span>
