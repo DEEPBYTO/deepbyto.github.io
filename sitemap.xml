@@ -2,8 +2,34 @@
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+```
 <url>
     <loc>https://deepbyto.github.io/</loc>
 </url>
+
+<url>
+    <loc>https://deepbyto.github.io/services/web-services.html</loc>
+</url>
+
+<url>
+    <loc>https://deepbyto.github.io/services/ai-services.html</loc>
+</url>
+
+<url>
+    <loc>https://deepbyto.github.io/services/software-development-services.html</loc>
+</url>
+
+<url>
+    <loc>https://deepbyto.github.io/services/mobile-app-development-services.html</loc>
+</url>
+
+<url>
+    <loc>https://deepbyto.github.io/services/cloud-deployment-services.html</loc>
+</url>
+
+<url>
+    <loc>https://deepbyto.github.io/services/maintenance-support-services.html</loc>
+</url>
+```
 
 </urlset>
