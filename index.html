@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +60,7 @@
       --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --font-display: 'Orbitron', 'Inter', sans-serif;
+      --whatsapp-color: #25D366;
     }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
@@ -85,7 +87,7 @@
     ::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 12px; }
     ::-webkit-scrollbar-thumb:hover { background: #cccccc; }
 
-    /* ----- FLOATING WHATSAPP BUTTON – BLACK BG, WHITE ICON ----- */
+    /* ----- FLOATING WHATSAPP BUTTON (global) - BLACK BACKGROUND, GREEN ICON ----- */
     .whatsapp-float {
       position: fixed;
       bottom: 28px;
@@ -98,20 +100,20 @@
       height: 60px;
       border-radius: 50%;
       background: #000000;          /* black background */
-      color: #ffffff;              /* WHITE icon */
+      color: #25D366;              /* WhatsApp green icon */
       font-size: 2.2rem;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.15);
       cursor: pointer;
       text-decoration: none;
     }
     .whatsapp-float:hover {
       transform: scale(1.08);
-      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15);
-      background: #1a1a1a;
-      border-color: #ffffff;
-      color: #ffffff;
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.3);
+      background: #111111;
+      border-color: #25D366;
+      color: #25D366;
     }
     .whatsapp-float i {
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
@@ -1172,7 +1174,7 @@
 <body>
   <canvas id="particles-canvas"></canvas>
 
-  <!-- FLOATING WHATSAPP BUTTON – BLACK BACKGROUND, WHITE ICON -->
+  <!-- FLOATING WHATSAPP BUTTON – BLACK BACKGROUND, GREEN ICON -->
   <a href="https://wa.me/1234567890?text=Hello%20DEEPBYTO%2C%20I%27m%20interested%20in%20your%20services." 
      class="whatsapp-float" 
      target="_blank" 
