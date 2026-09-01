@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DEEPBYTO | AI & Software Innovation</title>
+    <title>DEEPBYTO</title>
     <meta name="description" content="Building AI-powered software, intelligent automation, digital products, and open-source technologies." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://deepbyto.github.io/" />
@@ -498,7 +498,7 @@
             line-height: 1.5;
         }
 
-        /* SERVICES GRID */
+        /* SERVICES GRID - IMPROVED CARD DESIGN */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -511,12 +511,13 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius);
-            padding: 36px 28px 28px;
+            padding: 0;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             display: flex;
             flex-direction: column;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         .service-card::before {
             content: '';
@@ -547,13 +548,19 @@
         .service-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 24px 45px rgba(0, 0, 0, 0.7), 0 0 50px rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
         }
         .service-card:hover::before {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
         }
         .service-card:hover::after {
             opacity: 1;
+        }
+        .service-card .card-body {
+            padding: 36px 28px 28px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
         .service-card .card-icon-wrap {
             display: inline-flex;
@@ -637,29 +644,41 @@
             border-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
         }
-        .service-card .card-btn {
+        .service-card .card-footer-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 28px;
+            border-top: 1px solid var(--border-subtle);
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+            border-radius: 0 0 var(--radius) var(--radius);
+        }
+        .service-card:hover .card-footer-link {
+            background: rgba(255, 255, 255, 0.08);
+            border-top-color: rgba(255, 255, 255, 0.3);
+        }
+        .service-card .card-footer-link .footer-text {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: 0.02em;
+        }
+        .service-card .card-footer-link .footer-arrow {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 12px 28px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-            font-weight: 500;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: var(--font-sans);
-            text-decoration: none;
-            align-self: flex-start;
-        }
-        .service-card:hover .card-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
             background: #ffffff;
             color: #000000;
-            border-color: #ffffff;
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover .card-footer-link .footer-arrow {
+            transform: translateX(4px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
         }
 
         #labs {
@@ -1345,49 +1364,79 @@
             <h2 class="section-title reveal">What We <span class="highlight">Build</span></h2>
             <p class="section-desc reveal">We deliver high-impact software and AI solutions across the full stack of modern technology.</p>
             <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="card-icon-wrap"><i class="fas fa-brain"></i></div>
-                    <h3>AI Services</h3>
-                    <p class="card-desc">Build intelligent AI-powered solutions including AI chatbots, AI agents, automation systems, machine learning applications, and custom AI software.</p>
-                    <span class="card-pricing">Starting at $99</span>
-                    <a href="services/ai-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="card-icon-wrap"><i class="fas fa-globe"></i></div>
-                    <span class="card-badge"><i class="fas fa-gift"></i> FREE PLAN OFFER</span>
-                    <h3>Web Services</h3>
-                    <p class="card-desc">Modern, responsive, and high-performance websites for individuals, startups, businesses, and organizations.</p>
-                    <span class="card-pricing">Free & Starting at $5</span>
-                    <a href="services/web-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="card-icon-wrap"><i class="fas fa-desktop"></i></div>
-                    <h3>Software Development Services</h3>
-                    <p class="card-desc">Custom desktop software, business management systems, enterprise software, automation tools, and professional software solutions.</p>
-                    <span class="card-pricing">Starting at $99</span>
-                    <a href="services/software-development-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="card-icon-wrap"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>Mobile App Development Services</h3>
-                    <p class="card-desc">Professional Android, iOS, and cross-platform mobile applications built for performance and scalability.</p>
-                    <span class="card-pricing">Starting at $199</span>
-                    <a href="services/mobile-app-development-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="card-icon-wrap"><i class="fas fa-cloud-upload-alt"></i></div>
-                    <h3>Cloud & Deployment Services</h3>
-                    <p class="card-desc">Professional deployment, cloud configuration, hosting, server setup, infrastructure management, and production deployment services.</p>
-                    <span class="card-pricing">Starting at $29</span>
-                    <a href="services/cloud-deployment-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="card-icon-wrap"><i class="fas fa-tools"></i></div>
-                    <h3>Maintenance & Support Services</h3>
-                    <p class="card-desc">Keep your websites, applications, software, and AI solutions secure, updated, optimized, and running smoothly.</p>
-                    <span class="card-pricing">Starting at $19/month</span>
-                    <a href="services/maintenance-support-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
-                </div>
+                <a href="services/ai-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
+                    <div class="card-body">
+                        <div class="card-icon-wrap"><i class="fas fa-brain"></i></div>
+                        <h3>AI Services</h3>
+                        <p class="card-desc">Build intelligent AI-powered solutions including AI chatbots, AI agents, automation systems, machine learning applications, and custom AI software.</p>
+                        <span class="card-pricing">Starting at $99</span>
+                    </div>
+                    <div class="card-footer-link">
+                        <span class="footer-text">View Details</span>
+                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="services/web-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
+                    <div class="card-body">
+                        <div class="card-icon-wrap"><i class="fas fa-globe"></i></div>
+                        <span class="card-badge"><i class="fas fa-gift"></i> FREE PLAN OFFER</span>
+                        <h3>Web Services</h3>
+                        <p class="card-desc">Modern, responsive, and high-performance websites for individuals, startups, businesses, and organizations.</p>
+                        <span class="card-pricing">Free & Starting at $5</span>
+                    </div>
+                    <div class="card-footer-link">
+                        <span class="footer-text">View Details</span>
+                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="services/software-development-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
+                    <div class="card-body">
+                        <div class="card-icon-wrap"><i class="fas fa-desktop"></i></div>
+                        <h3>Software Development Services</h3>
+                        <p class="card-desc">Custom desktop software, business management systems, enterprise software, automation tools, and professional software solutions.</p>
+                        <span class="card-pricing">Starting at $99</span>
+                    </div>
+                    <div class="card-footer-link">
+                        <span class="footer-text">View Details</span>
+                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="services/mobile-app-development-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
+                    <div class="card-body">
+                        <div class="card-icon-wrap"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Mobile App Development Services</h3>
+                        <p class="card-desc">Professional Android, iOS, and cross-platform mobile applications built for performance and scalability.</p>
+                        <span class="card-pricing">Starting at $199</span>
+                    </div>
+                    <div class="card-footer-link">
+                        <span class="footer-text">View Details</span>
+                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="services/cloud-deployment-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
+                    <div class="card-body">
+                        <div class="card-icon-wrap"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <h3>Cloud & Deployment Services</h3>
+                        <p class="card-desc">Professional deployment, cloud configuration, hosting, server setup, infrastructure management, and production deployment services.</p>
+                        <span class="card-pricing">Starting at $29</span>
+                    </div>
+                    <div class="card-footer-link">
+                        <span class="footer-text">View Details</span>
+                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="services/maintenance-support-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
+                    <div class="card-body">
+                        <div class="card-icon-wrap"><i class="fas fa-tools"></i></div>
+                        <h3>Maintenance & Support Services</h3>
+                        <p class="card-desc">Keep your websites, applications, software, and AI solutions secure, updated, optimized, and running smoothly.</p>
+                        <span class="card-pricing">Starting at $19/month</span>
+                    </div>
+                    <div class="card-footer-link">
+                        <span class="footer-text">View Details</span>
+                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
