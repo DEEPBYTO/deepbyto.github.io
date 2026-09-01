@@ -9,7 +9,7 @@
     <link rel="canonical" href="https://deepbyto.github.io/" />
     <link rel="icon" href="https://deepbyto.github.io/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="https://deepbyto.github.io/favicon.ico" type="image/x-icon" />
-    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="theme-color" content="#000000" />
     <meta property="og:title" content="DEEPBYTO | AI & Software Innovation" />
     <meta property="og:description" content="Building AI-powered software, intelligent automation, digital products, and open-source technologies." />
     <meta property="og:image" content="https://deepbyto.github.io/image.jpg" />
@@ -35,28 +35,28 @@
     </script>
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: rgba(18, 18, 26, 0.75);
-            --accent: #00d4ff;
-            --accent-dim: rgba(0, 212, 255, 0.15);
-            --accent-glow: rgba(0, 212, 255, 0.25);
-            --text-primary: #f0f4f8;
-            --text-secondary: #a0b4c8;
-            --text-muted: #6a7f94;
-            --border-subtle: rgba(255, 255, 255, 0.06);
-            --glass-bg: rgba(18, 18, 26, 0.55);
-            --glass-border: rgba(255, 255, 255, 0.07);
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: rgba(20, 20, 20, 0.85);
+            --accent: #ffffff;
+            --accent-dim: rgba(255, 255, 255, 0.1);
+            --accent-glow: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(10, 10, 10, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
             --radius: 16px;
             --radius-sm: 10px;
             --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --font-display: 'Orbitron', 'Inter', sans-serif;
             --github-color: #ffffff;
-            --x-color: #1da1f2;
-            --youtube-color: #ff0000;
-            --whatsapp-color: #25d366;
-            --discord-color: #5865F2;
+            --x-color: #ffffff;
+            --youtube-color: #ffffff;
+            --whatsapp-color: #ffffff;
+            --discord-color: #ffffff;
         }
         *,
         *::before,
@@ -78,16 +78,16 @@
             overflow-x: hidden;
         }
         ::selection {
-            background: var(--accent);
-            color: #0a0a0f;
+            background: #ffffff;
+            color: #000000;
         }
         a {
-            color: var(--accent);
+            color: #ffffff;
             text-decoration: none;
             transition: color var(--transition);
         }
         a:hover {
-            color: #66e6ff;
+            color: #cccccc;
         }
         img {
             max-width: 100%;
@@ -106,14 +106,14 @@
             height: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
+            background: #000000;
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--accent);
+            background: #ffffff;
             border-radius: 12px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #66e6ff;
+            background: #cccccc;
         }
         #particles-canvas {
             position: fixed;
@@ -131,17 +131,17 @@
             width: 100%;
             z-index: 1000;
             padding: 16px 0;
-            background: rgba(10, 10, 15, 0.55);
+            background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(18px) saturate(1.2);
             -webkit-backdrop-filter: blur(18px) saturate(1.2);
             border-bottom: 1px solid var(--glass-border);
             transition: background var(--transition), box-shadow var(--transition);
         }
         .navbar.scrolled {
-            background: rgba(10, 10, 15, 0.85);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(24px) saturate(1.3);
             -webkit-backdrop-filter: blur(24px) saturate(1.3);
-            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
         }
         .navbar .container {
             display: flex;
@@ -156,20 +156,20 @@
             font-weight: 700;
             font-size: 1.25rem;
             letter-spacing: 0.06em;
-            color: var(--text-primary);
+            color: #ffffff;
             text-transform: uppercase;
             transition: color var(--transition);
         }
         .nav-brand:hover {
-            color: var(--accent);
+            color: #ffffff;
         }
         .nav-brand .brand-dot {
             display: inline-block;
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 16px var(--accent-glow);
+            background: #ffffff;
+            box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
             animation: pulse-dot 2.4s ease-in-out infinite;
         }
         @keyframes pulse-dot {
@@ -204,18 +204,18 @@
             bottom: -4px;
             width: 0;
             height: 2px;
-            background: var(--accent);
+            background: #ffffff;
             transition: width var(--transition);
             border-radius: 4px;
         }
         .nav-links a:hover {
-            color: var(--text-primary);
+            color: #ffffff;
         }
         .nav-links a:hover::after {
             width: 100%;
         }
         .nav-links a.active {
-            color: var(--text-primary);
+            color: #ffffff;
         }
         .nav-links a.active::after {
             width: 100%;
@@ -224,8 +224,8 @@
             display: inline-block;
             padding: 8px 20px;
             border-radius: 50px;
-            background: var(--accent);
-            color: #0a0a0f !important;
+            background: #ffffff;
+            color: #000000 !important;
             font-weight: 600;
             font-size: 0.8rem;
             letter-spacing: 0.03em;
@@ -234,10 +234,10 @@
             cursor: pointer;
         }
         .nav-cta:hover {
-            background: #66e6ff;
-            color: #0a0a0f !important;
+            background: #cccccc;
+            color: #000000 !important;
             transform: translateY(-1px);
-            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
         }
         .nav-cta::after {
             display: none !important;
@@ -254,13 +254,13 @@
             transition: background var(--transition);
         }
         .nav-toggle:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
         }
         .nav-toggle span {
             display: block;
             width: 26px;
             height: 2px;
-            background: var(--text-primary);
+            background: #ffffff;
             border-radius: 4px;
             transition: all 0.3s ease;
             transform-origin: center;
@@ -296,10 +296,10 @@
             padding: 6px 16px 6px 8px;
             border-radius: 50px;
             background: var(--accent-dim);
-            border: 1px solid rgba(0, 212, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             font-size: 0.75rem;
             font-weight: 500;
-            color: var(--accent);
+            color: #ffffff;
             letter-spacing: 0.04em;
             margin-bottom: 28px;
             backdrop-filter: blur(4px);
@@ -309,7 +309,7 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: var(--accent);
+            background: #ffffff;
             animation: pulse-dot 2s ease-in-out infinite;
         }
         .hero-title {
@@ -318,7 +318,7 @@
             font-size: clamp(3rem, 10vw, 6.5rem);
             line-height: 1.05;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff 30%, var(--accent) 100%);
+            background: linear-gradient(135deg, #ffffff 30%, #cccccc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -342,7 +342,7 @@
         }
         .hero-typing {
             font-size: 1.05rem;
-            color: var(--accent);
+            color: #ffffff;
             font-weight: 500;
             min-height: 2.2rem;
             margin-bottom: 28px;
@@ -354,7 +354,7 @@
             display: inline-block;
             width: 2px;
             height: 1.2em;
-            background: var(--accent);
+            background: #ffffff;
             animation: blink 0.9s step-end infinite;
             margin-left: 2px;
         }
@@ -378,21 +378,21 @@
             gap: 10px;
             padding: 14px 36px;
             border-radius: 50px;
-            background: var(--accent);
-            color: #0a0a0f;
+            background: #ffffff;
+            color: #000000;
             font-weight: 600;
             font-size: 0.95rem;
             border: none;
             cursor: pointer;
             transition: all var(--transition);
-            box-shadow: 0 4px 30px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
             font-family: var(--font-sans);
         }
         .btn-primary:hover {
-            background: #66e6ff;
+            background: #cccccc;
             transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.35);
-            color: #0a0a0f;
+            box-shadow: 0 12px 25px rgba(255, 255, 255, 0.25);
+            color: #000000;
         }
         .btn-secondary {
             display: inline-flex;
@@ -401,17 +401,17 @@
             padding: 14px 36px;
             border-radius: 50px;
             background: transparent;
-            color: var(--text-primary);
+            color: #ffffff;
             font-weight: 500;
             font-size: 0.95rem;
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             cursor: pointer;
             transition: all var(--transition);
             font-family: var(--font-sans);
         }
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
             transform: translateY(-2px);
         }
         .section-label {
@@ -421,12 +421,12 @@
             font-size: 0.7rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--accent);
+            color: #ffffff;
             margin-bottom: 12px;
             background: var(--accent-dim);
             padding: 4px 14px;
             border-radius: 50px;
-            border: 1px solid rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .section-title {
             font-family: var(--font-display);
@@ -435,9 +435,10 @@
             letter-spacing: -0.02em;
             margin-bottom: 16px;
             line-height: 1.15;
+            color: #ffffff;
         }
         .section-title .highlight {
-            color: var(--accent);
+            color: #ffffff;
         }
         .section-desc {
             color: var(--text-secondary);
@@ -481,14 +482,14 @@
             transition: all var(--transition);
         }
         .value-card:hover {
-            border-color: rgba(0, 212, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.25);
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
         }
         .value-card h4 {
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text-primary);
+            color: #ffffff;
             margin-bottom: 4px;
         }
         .value-card p {
@@ -497,7 +498,7 @@
             line-height: 1.5;
         }
 
-        /* ===== UPDATED SERVICES GRID ===== */
+        /* SERVICES GRID */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -523,7 +524,7 @@
             inset: 0;
             border-radius: var(--radius);
             padding: 1px;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(88, 101, 242, 0.04), rgba(0, 212, 255, 0.02));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -537,7 +538,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.4s ease;
             pointer-events: none;
@@ -545,11 +546,11 @@
         }
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(0, 212, 255, 0.08);
-            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 24px 45px rgba(0, 0, 0, 0.7), 0 0 50px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
         }
         .service-card:hover::before {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.35), rgba(88, 101, 242, 0.2), rgba(0, 212, 255, 0.15));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
         }
         .service-card:hover::after {
             opacity: 1;
@@ -561,18 +562,18 @@
             width: 52px;
             height: 52px;
             border-radius: 14px;
-            background: var(--accent-dim);
-            border: 1px solid rgba(0, 212, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             font-size: 1.5rem;
-            color: var(--accent);
+            color: #ffffff;
             margin-bottom: 20px;
             transition: all 0.4s ease;
             flex-shrink: 0;
         }
         .service-card:hover .card-icon-wrap {
-            background: rgba(0, 212, 255, 0.25);
-            border-color: rgba(0, 212, 255, 0.5);
-            box-shadow: 0 0 28px rgba(0, 212, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
             transform: scale(1.05);
         }
         .service-card .card-badge {
@@ -581,11 +582,11 @@
             gap: 6px;
             padding: 5px 14px;
             border-radius: 50px;
-            background: rgba(0, 212, 255, 0.08);
-            border: 1px solid rgba(0, 212, 255, 0.12);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             font-size: 0.7rem;
             font-weight: 600;
-            color: var(--accent);
+            color: #ffffff;
             letter-spacing: 0.04em;
             text-transform: uppercase;
             margin-bottom: 12px;
@@ -593,20 +594,20 @@
             transition: all 0.3s ease;
         }
         .service-card:hover .card-badge {
-            background: var(--accent-dim);
-            border-color: rgba(0, 212, 255, 0.35);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
         }
         .service-card h3 {
             font-size: 1.15rem;
             font-weight: 600;
             letter-spacing: -0.01em;
             margin-bottom: 8px;
-            color: var(--text-primary);
+            color: #ffffff;
             transition: color 0.3s ease;
         }
         .service-card:hover h3 {
-            color: #fff;
+            color: #ffffff;
         }
         .service-card .card-desc {
             font-size: 0.9rem;
@@ -621,20 +622,20 @@
             gap: 6px;
             padding: 5px 14px;
             border-radius: 50px;
-            background: rgba(0, 212, 255, 0.08);
-            border: 1px solid rgba(0, 212, 255, 0.12);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             font-size: 0.75rem;
             font-weight: 600;
-            color: var(--accent);
+            color: #ffffff;
             letter-spacing: 0.03em;
             margin-bottom: 18px;
             align-self: flex-start;
             transition: all 0.3s ease;
         }
         .service-card:hover .card-pricing {
-            background: var(--accent-dim);
-            border-color: rgba(0, 212, 255, 0.35);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
         }
         .service-card .card-btn {
             display: inline-flex;
@@ -643,9 +644,9 @@
             gap: 8px;
             padding: 12px 28px;
             border-radius: 50px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
             font-weight: 500;
             font-size: 0.85rem;
             cursor: pointer;
@@ -655,10 +656,10 @@
             align-self: flex-start;
         }
         .service-card:hover .card-btn {
-            background: var(--accent);
-            color: #0a0a0f;
-            border-color: var(--accent);
-            box-shadow: 0 8px 28px rgba(0, 212, 255, 0.3);
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
         }
 
         #labs {
@@ -683,14 +684,15 @@
             transition: all var(--transition);
         }
         .lab-card:hover {
-            border-color: rgba(0, 212, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.25);
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
         }
         .lab-card h4 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 4px;
+            color: #ffffff;
         }
         .lab-card p {
             font-size: 0.8rem;
@@ -729,9 +731,9 @@
             animation: cardFadeIn 0.6s ease forwards;
         }
         .project-card:hover {
-            border-color: rgba(0, 212, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
         .project-card .card-header {
             display: flex;
@@ -740,13 +742,13 @@
             margin-bottom: 8px;
         }
         .project-card .card-header .repo-icon {
-            color: var(--accent);
+            color: #ffffff;
             font-size: 1.1rem;
         }
         .project-card .card-header h4 {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--text-primary);
+            color: #ffffff;
             letter-spacing: -0.01em;
         }
         .project-card .project-desc {
@@ -771,9 +773,9 @@
             gap: 4px;
             padding: 2px 10px;
             border-radius: 50px;
-            background: var(--accent-dim);
-            border: 1px solid rgba(0, 212, 255, 0.1);
-            color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
             font-size: 0.7rem;
             font-weight: 500;
         }
@@ -782,7 +784,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: var(--accent);
+            background: #ffffff;
         }
         .project-card .project-meta span {
             display: flex;
@@ -804,14 +806,14 @@
         .project-card .card-footer .repo-link {
             font-size: 0.75rem;
             font-weight: 500;
-            color: var(--accent);
+            color: #ffffff;
             transition: all var(--transition);
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
         .project-card .card-footer .repo-link:hover {
-            color: #66e6ff;
+            color: #cccccc;
             gap: 10px;
         }
         .project-card .card-footer .star-count {
@@ -847,7 +849,7 @@
         }
         .projects-loading i {
             font-size: 2rem;
-            color: var(--accent);
+            color: #ffffff;
             display: block;
             margin-bottom: 16px;
         }
@@ -894,6 +896,7 @@
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 12px;
+            color: #ffffff;
         }
         .contact-info p {
             color: var(--text-secondary);
@@ -923,13 +926,14 @@
         }
         .contact-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-            background: rgba(0, 212, 255, 0.04);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.05);
         }
         .contact-card .card-icon {
             font-size: 2.6rem;
             margin-bottom: 4px;
             transition: transform var(--transition);
+            color: #ffffff;
         }
         .contact-card:hover .card-icon {
             transform: scale(1.1);
@@ -938,7 +942,7 @@
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: var(--accent);
+            color: #ffffff;
             font-weight: 600;
             font-family: var(--font-display);
             opacity: 0.9;
@@ -950,73 +954,68 @@
             border-radius: 50px;
             font-size: 0.7rem;
             font-weight: 600;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.08);
             border: 1px solid var(--glass-border);
             color: var(--text-secondary);
             transition: all var(--transition);
             text-decoration: none;
         }
         .contact-card .card-btn:hover {
-            background: var(--accent);
-            color: #0a0a0f;
-            border-color: var(--accent);
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
         }
-        .contact-card.github:hover { border-color: var(--github-color); }
-        .contact-card.x:hover { border-color: var(--x-color); }
-        .contact-card.youtube:hover { border-color: var(--youtube-color); }
-        .contact-card.whatsapp:hover { border-color: var(--whatsapp-color); }
-        .contact-card.discord:hover { border-color: var(--discord-color); }
         .contact-card.email {
             grid-column: 1 / -1;
             padding: 28px 20px;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(88, 101, 242, 0.05));
-            border-color: rgba(0, 212, 255, 0.2);
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border-color: rgba(255, 255, 255, 0.2);
         }
         .contact-card.email:hover {
-            border-color: var(--accent);
-            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.15);
+            border-color: #ffffff;
+            box-shadow: 0 12px 25px rgba(255, 255, 255, 0.15);
         }
         .contact-card.email .card-icon {
-            color: var(--accent);
+            color: #ffffff;
         }
         .contact-card.email .card-value {
             font-size: 0.9rem;
             font-family: 'Source Code Pro', monospace;
-            color: var(--text-primary);
+            color: #ffffff;
             margin: 4px 0;
         }
         .contact-card.email .card-btn {
-            background: var(--accent-dim);
-            border-color: var(--accent);
-            color: var(--accent);
+            background: rgba(255,255,255,0.15);
+            border-color: #ffffff;
+            color: #ffffff;
         }
         .contact-card.email .card-btn:hover {
-            background: var(--accent);
-            color: #0a0a0f;
+            background: #ffffff;
+            color: #000000;
         }
         .collaboration-box {
             margin-top: 50px;
             padding: 40px 35px;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(88, 101, 242, 0.06));
-            border: 1px solid rgba(0, 212, 255, 0.15);
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: var(--radius);
             text-align: center;
             transition: all var(--transition);
         }
         .collaboration-box:hover {
-            border-color: var(--accent);
-            box-shadow: 0 15px 50px rgba(0, 212, 255, 0.08);
+            border-color: #ffffff;
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
         }
         .collaboration-box .collab-icon {
             font-size: 2.5rem;
-            color: var(--accent);
+            color: #ffffff;
             margin-bottom: 15px;
             display: inline-block;
         }
         .collaboration-box h3 {
             font-size: 1.5rem;
-            color: var(--accent);
+            color: #ffffff;
             margin-bottom: 12px;
             font-family: var(--font-display);
             font-weight: 600;
@@ -1032,7 +1031,7 @@
         .footer {
             padding: 48px 0 32px;
             border-top: 1px solid var(--border-subtle);
-            background: var(--bg-primary);
+            background: #000000;
         }
         .footer-grid {
             display: flex;
@@ -1046,7 +1045,7 @@
             font-weight: 700;
             font-size: 1.2rem;
             letter-spacing: 0.06em;
-            color: var(--text-primary);
+            color: #ffffff;
         }
         .footer-brand .fb-tagline {
             font-size: 0.8rem;
@@ -1064,7 +1063,7 @@
             transition: color var(--transition);
         }
         .footer-links a:hover {
-            color: var(--text-primary);
+            color: #ffffff;
         }
         .footer-bottom {
             margin-top: 32px;
@@ -1090,7 +1089,7 @@
             transition: color var(--transition);
         }
         .footer-socials a:hover {
-            color: var(--text-primary);
+            color: #ffffff;
         }
         .reveal {
             opacity: 0;
@@ -1133,7 +1132,7 @@
                 right: -100%;
                 width: 280px;
                 height: 100vh;
-                background: rgba(10, 10, 15, 0.97);
+                background: rgba(0, 0, 0, 0.98);
                 backdrop-filter: blur(24px);
                 -webkit-backdrop-filter: blur(24px);
                 flex-direction: column;
@@ -1161,15 +1160,15 @@
                 display: inline-block;
                 padding: 12px 32px;
                 border-radius: 50px;
-                background: var(--accent);
-                color: #0a0a0f;
+                background: #ffffff;
+                color: #000000;
                 font-weight: 600;
                 font-size: 0.9rem;
                 margin-top: 8px;
             }
             .nav-links .nav-cta-mobile:hover {
-                background: #66e6ff;
-                color: #0a0a0f;
+                background: #cccccc;
+                color: #000000;
             }
             .hero {
                 padding: 100px 0 60px;
@@ -1340,14 +1339,12 @@
         </div>
     </section>
 
-    <!-- ===== UPDATED SERVICES SECTION ===== -->
     <section id="services" class="section-padding" aria-label="Services">
         <div class="container">
             <span class="section-label reveal">Services</span>
             <h2 class="section-title reveal">What We <span class="highlight">Build</span></h2>
             <p class="section-desc reveal">We deliver high-impact software and AI solutions across the full stack of modern technology.</p>
             <div class="services-grid">
-                <!-- Card 1: AI Services -->
                 <div class="service-card reveal">
                     <div class="card-icon-wrap"><i class="fas fa-brain"></i></div>
                     <h3>AI Services</h3>
@@ -1355,7 +1352,6 @@
                     <span class="card-pricing">Starting at $99</span>
                     <a href="services/ai-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <!-- Card 2: Web Services -->
                 <div class="service-card reveal">
                     <div class="card-icon-wrap"><i class="fas fa-globe"></i></div>
                     <span class="card-badge"><i class="fas fa-gift"></i> FREE PLAN OFFER</span>
@@ -1364,7 +1360,6 @@
                     <span class="card-pricing">Free & Starting at $5</span>
                     <a href="services/web-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <!-- Card 3: Software Development Services -->
                 <div class="service-card reveal">
                     <div class="card-icon-wrap"><i class="fas fa-desktop"></i></div>
                     <h3>Software Development Services</h3>
@@ -1372,7 +1367,6 @@
                     <span class="card-pricing">Starting at $99</span>
                     <a href="services/software-development-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <!-- Card 4: Mobile App Development Services -->
                 <div class="service-card reveal">
                     <div class="card-icon-wrap"><i class="fas fa-mobile-alt"></i></div>
                     <h3>Mobile App Development Services</h3>
@@ -1380,7 +1374,6 @@
                     <span class="card-pricing">Starting at $199</span>
                     <a href="services/mobile-app-development-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <!-- Card 5: Cloud & Deployment Services -->
                 <div class="service-card reveal">
                     <div class="card-icon-wrap"><i class="fas fa-cloud-upload-alt"></i></div>
                     <h3>Cloud & Deployment Services</h3>
@@ -1388,7 +1381,6 @@
                     <span class="card-pricing">Starting at $29</span>
                     <a href="services/cloud-deployment-services.html" class="card-btn">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <!-- Card 6: Maintenance & Support Services -->
                 <div class="service-card reveal">
                     <div class="card-icon-wrap"><i class="fas fa-tools"></i></div>
                     <h3>Maintenance & Support Services</h3>
@@ -1446,11 +1438,11 @@
                         <div class="card-value">deepbyto@gmail.com</div>
                         <a href="mailto:deepbyto@gmail.com" class="card-btn"><i class="fas fa-paper-plane"></i> Send</a>
                     </div>
-                    <div class="contact-card github"><div class="card-icon" style="color: var(--github-color);"><i class="fab fa-github"></i></div><div class="card-label">GitHub</div><a href="https://github.com/DEEPBYTO" target="_blank" class="card-btn">Visit</a></div>
-                    <div class="contact-card x"><div class="card-icon" style="color: var(--x-color);"><i class="fab fa-twitter"></i></div><div class="card-label">X</div><a href="https://x.com/deepbyto" target="_blank" class="card-btn">Follow</a></div>
-                    <div class="contact-card youtube"><div class="card-icon" style="color: var(--youtube-color);"><i class="fab fa-youtube"></i></div><div class="card-label">YouTube</div><a href="https://youtube.com/@DEEPBYTO" target="_blank" class="card-btn">Subscribe</a></div>
-                    <div class="contact-card whatsapp"><div class="card-icon" style="color: var(--whatsapp-color);"><i class="fab fa-whatsapp"></i></div><div class="card-label">WhatsApp</div><a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank" class="card-btn">Join</a></div>
-                    <div class="contact-card discord"><div class="card-icon" style="color: var(--discord-color);"><i class="fab fa-discord"></i></div><div class="card-label">Discord</div><a href="https://discord.gg/HWhBYHjApe" target="_blank" class="card-btn">Join</a></div>
+                    <div class="contact-card github"><div class="card-icon" style="color: #ffffff;"><i class="fab fa-github"></i></div><div class="card-label">GitHub</div><a href="https://github.com/DEEPBYTO" target="_blank" class="card-btn">Visit</a></div>
+                    <div class="contact-card x"><div class="card-icon" style="color: #ffffff;"><i class="fab fa-twitter"></i></div><div class="card-label">X</div><a href="https://x.com/deepbyto" target="_blank" class="card-btn">Follow</a></div>
+                    <div class="contact-card youtube"><div class="card-icon" style="color: #ffffff;"><i class="fab fa-youtube"></i></div><div class="card-label">YouTube</div><a href="https://youtube.com/@DEEPBYTO" target="_blank" class="card-btn">Subscribe</a></div>
+                    <div class="contact-card whatsapp"><div class="card-icon" style="color: #ffffff;"><i class="fab fa-whatsapp"></i></div><div class="card-label">WhatsApp</div><a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank" class="card-btn">Join</a></div>
+                    <div class="contact-card discord"><div class="card-icon" style="color: #ffffff;"><i class="fab fa-discord"></i></div><div class="card-label">Discord</div><a href="https://discord.gg/HWhBYHjApe" target="_blank" class="card-btn">Join</a></div>
                 </div>
             </div>
             <div class="collaboration-box reveal">
@@ -1490,7 +1482,7 @@
             const canvas = document.getElementById('particles-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
-            let particleCount = 80;
+            let particleCount = 60;
             let mouseX = null;
             let mouseY = null;
 
@@ -1503,10 +1495,10 @@
                 reset() {
                     this.x = Math.random() * canvas.width;
                     this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2.2 + 0.6;
-                    this.speedX = (Math.random() - 0.5) * 0.35;
-                    this.speedY = (Math.random() - 0.5) * 0.35;
-                    this.opacity = Math.random() * 0.5 + 0.15;
+                    this.size = Math.random() * 1.5 + 0.3;
+                    this.speedX = (Math.random() - 0.5) * 0.2;
+                    this.speedY = (Math.random() - 0.5) * 0.2;
+                    this.opacity = Math.random() * 0.3 + 0.05;
                 }
                 update() {
                     this.x += this.speedX;
@@ -1519,14 +1511,14 @@
                         const dx = this.x - mouseX;
                         const dy = this.y - mouseY;
                         const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 150) { const force = (150 - dist) / 150 * 0.02;
+                        if (dist < 100) { const force = (100 - dist) / 100 * 0.01;
                             this.x += dx * force;
                             this.y += dy * force; }
                     }
                 }
                 draw() { ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
                     ctx.fill(); }
             }
 
@@ -1539,12 +1531,12 @@
                         const dx = particles[i].x - particles[j].x;
                         const dy = particles[i].y - particles[j].y;
                         const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 140) { const opacity = (1 - dist / 140) * 0.25;
+                        if (dist < 100) { const opacity = (1 - dist / 100) * 0.15;
                             ctx.beginPath();
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.strokeStyle = `rgba(0, 212, 255, ${opacity})`;
-                            ctx.lineWidth = 0.6;
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                            ctx.lineWidth = 0.4;
                             ctx.stroke(); }
                     }
                 }
@@ -1646,13 +1638,12 @@
                         .updated_at); });
                 projectsGrid.innerHTML = sorted.map((repo, index) => { const description = repo.description ||
                         'No description available.';
-                    const langColor = repo.language ? getLanguageColor(repo.language) : '#00d4ff';
                     const updated = formatDate(repo.updated_at); return `
                         <div class="project-card" style="animation-delay: ${(index * 0.05) + 0.05}s">
                             <div class="card-header"><i class="fas fa-code repo-icon"></i><h4>${repo.name}</h4></div>
                             <div class="project-desc">${description}</div>
                             <div class="project-meta">
-                                ${repo.language ? `<span class="lang-badge"><span class="dot" style="background: ${langColor};"></span>${repo.language}</span>` : ''}
+                                ${repo.language ? `<span class="lang-badge"><span class="dot" style="background: #ffffff;"></span>${repo.language}</span>` : ''}
                                 <span class="updated"><i class="far fa-clock"></i> ${updated}</span>
                             </div>
                             <div class="card-footer">
@@ -1660,12 +1651,6 @@
                                 <span class="star-count"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
                             </div>
                         </div>`; }).join(''); }
-
-            function getLanguageColor(language) { const colors = { 'JavaScript': '#f1e05a', 'TypeScript': '#3178c6',
-                    'Python': '#3572A5', 'Go': '#00ADD8', 'Rust': '#dea584', 'Java': '#b07219', 'C++': '#f34b7d',
-                    'C#': '#178600', 'PHP': '#4F5D95', 'Ruby': '#701516', 'Swift': '#ffac45', 'Kotlin': '#A97BFF',
-                    'HTML': '#e34c26', 'CSS': '#563d7c', 'Shell': '#89e051', 'Dockerfile': '#384d54', 'Vue': '#41b883',
-                    'React': '#61dafb' }; return colors[language] || '#00d4ff'; }
 
             function fetchGitHubRepos() { const cached = getCachedRepos(); if (cached) { renderProjects(cached);
                     fetchFreshRepos(); return; }
