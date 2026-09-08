@@ -162,11 +162,10 @@
       align-items: center;
       justify-content: space-between;
     }
-    /* --- brand: wordmark image (no dot) --- */
+    /* --- brand: only text "DEEPBYTO" — no dot, no image --- */
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
       font-family: var(--font-display);
       font-weight: 700;
       font-size: 1.25rem;
@@ -175,18 +174,11 @@
       text-transform: uppercase;
     }
     .nav-brand:hover { color: #ffffff; }
-    .nav-brand .brand-logo {
-      display: block;
-      height: 40px;        /* adjust to your wordmark height */
-      width: auto;
-      filter: brightness(1) invert(0); /* white logo on dark bg */
-    }
-    /* remove the dot entirely */
-    .brand-dot {
+    /* remove dot */
+    .nav-brand .brand-dot {
       display: none !important;
     }
 
-    /* keep other nav styles */
     .nav-links {
       display: flex;
       align-items: center;
@@ -302,27 +294,17 @@
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(0.75); }
     }
-    /* Hero title – replace DEEPBYTO text with wordmark image */
     .hero-title {
       font-family: var(--font-display);
       font-weight: 800;
       font-size: clamp(3rem, 10vw, 6.5rem);
       line-height: 1.05;
       letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 30%, #cccccc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-    .hero-title .wordmark-hero {
-      display: block;
-      max-width: 90%;
-      height: auto;
-      filter: brightness(1) invert(0); /* white logo */
-    }
-    /* hide the old text */
-    .hero-title .old-text {
-      display: none;
     }
     .hero-subtitle {
       font-family: var(--font-display);
@@ -1198,10 +1180,7 @@
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <a href="#hero" class="nav-brand" aria-label="DEEPBYTO home">
-        <!-- WORDMARK LOGO: replace with your own wordmark.png -->
-        <img src="wordmark.png" alt="DEEPBYTO" class="brand-logo" />
-        <!-- dot is removed via CSS display:none -->
-        <span class="brand-dot"></span>
+        DEEPBYTO
       </a>
       <ul class="nav-links" id="navLinks" role="menubar">
         <li role="none"><a href="#about" role="menuitem">About</a></li>
@@ -1224,11 +1203,7 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge"><span class="badge-dot"></span>AI & Software Innovation</div>
-        <!-- HERO TITLE: wordmark image instead of text -->
-        <h1 class="hero-title">
-          <img src="wordmark.png" alt="DEEPBYTO" class="wordmark-hero" />
-          <span class="old-text">DEEPBYTO</span>
-        </h1>
+        <h1 class="hero-title">DEEPBYTO</h1>
         <p class="hero-subtitle">AI & Software Innovation</p>
         <p class="hero-description">Building AI-powered software, intelligent automation, digital products, and open-source technologies.</p>
         <div class="hero-typing"><span id="typing-text"></span><span class="cursor"></span></div>
