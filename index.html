@@ -85,6 +85,8 @@
             --step-card-bg: var(--bg-card);
             --project-card-bg: var(--bg-card);
             --value-card-bg: var(--bg-card);
+            /* wordmark filter - white by default */
+            --wordmark-filter: brightness(0) invert(1);
         }
 
         /* ----- LIGHT THEME ----- */
@@ -127,6 +129,8 @@
             --step-card-bg: rgba(255,255,255,0.85);
             --project-card-bg: rgba(255,255,255,0.85);
             --value-card-bg: rgba(255,255,255,0.85);
+            /* wordmark filter - black for light theme */
+            --wordmark-filter: brightness(0) invert(0);
         }
 
         html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -409,10 +413,8 @@
             width: auto;
             height: auto;
             max-height: clamp(4rem, 14vw, 8rem);
-            filter: brightness(1) invert(0);
-        }
-        [data-theme="light"] .hero-title .wordmark-hero {
-            filter: brightness(0) invert(1);
+            filter: var(--wordmark-filter);
+            transition: filter 0.4s ease;
         }
         .hero-title .old-text {
             display: none;
