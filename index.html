@@ -162,6 +162,7 @@
       align-items: center;
       justify-content: space-between;
     }
+    /* --- brand: wordmark image (no dot) --- */
     .nav-brand {
       display: flex;
       align-items: center;
@@ -174,19 +175,18 @@
       text-transform: uppercase;
     }
     .nav-brand:hover { color: #ffffff; }
-    .nav-brand .brand-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ffffff;
-      box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
-      animation: pulse-dot 2.4s ease-in-out infinite;
+    .nav-brand .brand-logo {
+      display: block;
+      height: 40px;        /* adjust to your wordmark height */
+      width: auto;
+      filter: brightness(1) invert(0); /* white logo on dark bg */
     }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.75); }
+    /* remove the dot entirely */
+    .brand-dot {
+      display: none !important;
     }
+
+    /* keep other nav styles */
     .nav-links {
       display: flex;
       align-items: center;
@@ -298,17 +298,31 @@
       background: #ffffff;
       animation: pulse-dot 2s ease-in-out infinite;
     }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.75); }
+    }
+    /* Hero title – replace DEEPBYTO text with wordmark image */
     .hero-title {
       font-family: var(--font-display);
       font-weight: 800;
       font-size: clamp(3rem, 10vw, 6.5rem);
       line-height: 1.05;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #ffffff 30%, #cccccc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
       margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .hero-title .wordmark-hero {
+      display: block;
+      max-width: 90%;
+      height: auto;
+      filter: brightness(1) invert(0); /* white logo */
+    }
+    /* hide the old text */
+    .hero-title .old-text {
+      display: none;
     }
     .hero-subtitle {
       font-family: var(--font-display);
@@ -1171,7 +1185,7 @@
 <body>
   <canvas id="particles-canvas"></canvas>
 
-  <!-- FLOATING WHATSAPP BUTTON – BLACK BACKGROUND, WHITE ICON, with phone + auto message -->
+  <!-- FLOATING WHATSAPP BUTTON -->
   <a href="https://wa.me/923047467957?text=Hi%20DEEPBYTO!" 
      class="whatsapp-float" 
      target="_blank" 
@@ -1184,7 +1198,10 @@
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <a href="#hero" class="nav-brand" aria-label="DEEPBYTO home">
-        <span class="brand-dot"></span>DEEPBYTO
+        <!-- WORDMARK LOGO: replace with your own wordmark.png -->
+        <img src="wordmark.png" alt="DEEPBYTO" class="brand-logo" />
+        <!-- dot is removed via CSS display:none -->
+        <span class="brand-dot"></span>
       </a>
       <ul class="nav-links" id="navLinks" role="menubar">
         <li role="none"><a href="#about" role="menuitem">About</a></li>
@@ -1207,7 +1224,11 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge"><span class="badge-dot"></span>AI & Software Innovation</div>
-        <h1 class="hero-title">DEEPBYTO</h1>
+        <!-- HERO TITLE: wordmark image instead of text -->
+        <h1 class="hero-title">
+          <img src="wordmark.png" alt="DEEPBYTO" class="wordmark-hero" />
+          <span class="old-text">DEEPBYTO</span>
+        </h1>
         <p class="hero-subtitle">AI & Software Innovation</p>
         <p class="hero-description">Building AI-powered software, intelligent automation, digital products, and open-source technologies.</p>
         <div class="hero-typing"><span id="typing-text"></span><span class="cursor"></span></div>
