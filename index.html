@@ -67,7 +67,6 @@
             --btn-secondary-hover-bg: rgba(255,255,255,0.1);
             --badge-bg: rgba(255,255,255,0.08);
             --badge-border: rgba(255,255,255,0.15);
-            --hero-title-gradient: linear-gradient(135deg, #ffffff 30%, #cccccc 100%);
             --footer-border: var(--border-subtle);
             --collab-border: rgba(255,255,255,0.15);
             --collab-hover-border: #ffffff;
@@ -77,15 +76,12 @@
             --nav-bg: rgba(0,0,0,0.7);
             --nav-scrolled: rgba(0,0,0,0.95);
             --whatsapp-border: rgba(255,255,255,0.2);
-            --pricing-card-border: var(--glass-border);
-            --pricing-card-bg: var(--bg-card);
-            --service-card-bg: var(--bg-card);
-            --tech-card-bg: var(--bg-card);
             --lab-card-bg: var(--bg-card);
-            --step-card-bg: var(--bg-card);
             --project-card-bg: var(--bg-card);
             --value-card-bg: var(--bg-card);
             --wordmark-filter: brightness(0) invert(1);
+            --overlay-color: rgba(0, 0, 0, 0.75);
+            --overlay-color-2: rgba(0, 0, 0, 0.45);
         }
 
         /* ----- LIGHT THEME ----- */
@@ -110,7 +106,6 @@
             --btn-secondary-hover-bg: rgba(0,0,0,0.08);
             --badge-bg: rgba(0,0,0,0.06);
             --badge-border: rgba(0,0,0,0.12);
-            --hero-title-gradient: linear-gradient(135deg, #000000 30%, #444444 100%);
             --footer-border: rgba(0,0,0,0.1);
             --collab-border: rgba(0,0,0,0.12);
             --collab-hover-border: #000000;
@@ -120,15 +115,12 @@
             --nav-bg: rgba(255,255,255,0.85);
             --nav-scrolled: rgba(255,255,255,0.95);
             --whatsapp-border: rgba(0,0,0,0.2);
-            --pricing-card-border: rgba(0,0,0,0.12);
-            --pricing-card-bg: rgba(255,255,255,0.85);
-            --service-card-bg: rgba(255,255,255,0.85);
-            --tech-card-bg: rgba(255,255,255,0.85);
             --lab-card-bg: rgba(255,255,255,0.85);
-            --step-card-bg: rgba(255,255,255,0.85);
             --project-card-bg: rgba(255,255,255,0.85);
             --value-card-bg: rgba(255,255,255,0.85);
             --wordmark-filter: brightness(0) invert(0);
+            --overlay-color: rgba(255, 255, 255, 0.85);
+            --overlay-color-2: rgba(255, 255, 255, 0.5);
         }
 
         html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -276,9 +268,6 @@
             text-transform: uppercase;
         }
         .nav-brand:hover { color: var(--text-primary); }
-        .nav-brand .brand-dot {
-            display: none !important;
-        }
         .nav-links {
             display: flex;
             align-items: center;
@@ -585,192 +574,266 @@
             line-height: 1.5;
         }
 
-        /* ----- SERVICES (image cards) ----- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
-        .service-card {
-            background: var(--service-card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius);
-            padding: 0;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius);
-            padding: 1px;
-            background: linear-gradient(135deg, var(--glass-border), transparent, transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            transition: all 0.4s ease;
-            z-index: 2;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 45px var(--shadow-color), 0 0 50px var(--accent-dim);
-            border-color: var(--accent);
-        }
-        .service-card:hover::before {
-            background: linear-gradient(135deg, var(--accent), var(--glass-border), transparent);
+        /* ============================================
+           SERVICES — FULL-SCREEN BACKGROUND IMAGE SECTIONS
+           ============================================ */
+        #services {
+            background: var(--bg-primary);
         }
 
-        /* --- service card image --- */
-        .service-card .card-image {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            background: var(--bg-secondary);
-            position: relative;
-            border-radius: var(--radius) var(--radius) 0 0;
+        .services-stack {
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
         }
-        .service-card .card-image img {
+
+        .service-bg {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-decoration: none;
+            color: #ffffff;
+            isolation: isolate;
+            cursor: pointer;
+        }
+
+        /* background image layer */
+        .service-bg .bg-image {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
-            filter: brightness(0.88) contrast(1.05) saturate(1.05);
+            z-index: -2;
+            transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
+            filter: brightness(0.7) contrast(1.05) saturate(1.05);
         }
-        .service-card:hover .card-image img {
-            transform: scale(1.07);
-            filter: brightness(1) contrast(1.05) saturate(1.1);
+        .service-bg:hover .bg-image {
+            transform: scale(1.06);
+            filter: brightness(0.8) contrast(1.05) saturate(1.1);
         }
-        .service-card .card-image::after {
-            content: '';
+
+        /* dark gradient overlay for readability */
+        .service-bg .bg-overlay {
             position: absolute;
             inset: 0;
+            z-index: -1;
             background: linear-gradient(
-                to bottom,
-                rgba(0,0,0,0) 45%,
-                rgba(0,0,0,0.35) 100%
+                110deg,
+                rgba(0, 0, 0, 0.88) 0%,
+                rgba(0, 0, 0, 0.7) 45%,
+                rgba(0, 0, 0, 0.4) 75%,
+                rgba(0, 0, 0, 0.65) 100%
             );
-            pointer-events: none;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s ease;
         }
-        [data-theme="light"] .service-card .card-image::after {
-            background: linear-gradient(
-                to bottom,
-                rgba(255,255,255,0) 45%,
-                rgba(255,255,255,0.35) 100%
-            );
+        .service-bg:hover .bg-overlay {
+            opacity: 0.9;
         }
 
-        /* --- service card body --- */
-        .service-card .card-body {
-            padding: 26px 28px 22px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
+        /* light theme overlay — softer */
+        [data-theme="light"] .service-bg .bg-overlay {
+            background: linear-gradient(
+                110deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.72) 45%,
+                rgba(255, 255, 255, 0.45) 75%,
+                rgba(255, 255, 255, 0.7) 100%
+            );
         }
-        .service-card .card-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 5px 14px;
-            border-radius: 50px;
-            background: var(--badge-bg);
-            border: 1px solid var(--badge-border);
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            align-self: flex-start;
-            transition: all 0.3s ease;
+        [data-theme="light"] .service-bg {
+            color: #111;
         }
-        .service-card:hover .card-badge {
-            background: var(--accent-dim);
-            border-color: var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow);
+
+        /* content */
+        .service-bg .service-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            padding: 80px 48px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
         }
-        .service-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-            transition: color 0.3s ease;
-        }
-        .service-card .card-desc {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 16px;
-            flex: 1;
-        }
-        .service-card .card-pricing {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 5px 14px;
-            border-radius: 50px;
-            background: var(--badge-bg);
-            border: 1px solid var(--badge-border);
+
+        .service-bg .service-num {
+            font-family: var(--font-display);
             font-size: 0.75rem;
             font-weight: 600;
-            color: var(--text-primary);
-            letter-spacing: 0.03em;
-            align-self: flex-start;
-            transition: all 0.3s ease;
+            letter-spacing: 0.28em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            display: inline-block;
         }
-        .service-card:hover .card-pricing {
-            background: var(--accent-dim);
-            border-color: var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow);
+        [data-theme="light"] .service-bg .service-num {
+            color: rgba(0, 0, 0, 0.6);
         }
 
-        /* --- service card footer link --- */
-        .service-card .card-footer-link {
-            display: flex;
+        .service-bg .service-badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 16px 28px;
-            border-top: 1px solid var(--border-subtle);
-            background: var(--accent-dim);
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        [data-theme="light"] .service-bg .service-badge {
+            background: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.2);
+            color: #111;
+        }
+
+        .service-bg h3 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 22px;
+            color: #ffffff;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            max-width: 700px;
+        }
+        [data-theme="light"] .service-bg h3 {
+            color: #111;
+            text-shadow: 0 4px 30px rgba(255, 255, 255, 0.5);
+        }
+
+        .service-bg .service-desc {
+            font-size: clamp(1rem, 1.3vw, 1.15rem);
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 620px;
+            margin-bottom: 32px;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+        }
+        [data-theme="light"] .service-bg .service-desc {
+            color: rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .service-bg .service-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .service-bg .service-pricing {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 0.03em;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-            border-radius: 0 0 var(--radius) var(--radius);
         }
-        .service-card:hover .card-footer-link {
-            background: var(--accent-dim);
-            border-top-color: var(--accent);
+        .service-bg:hover .service-pricing {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
         }
-        .service-card .card-footer-link .footer-text {
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            letter-spacing: 0.02em;
+        [data-theme="light"] .service-bg .service-pricing {
+            background: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.25);
+            color: #111;
         }
-        .service-card .card-footer-link .footer-arrow {
+        [data-theme="light"] .service-bg:hover .service-pricing {
+            background: rgba(0, 0, 0, 0.14);
+            border-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .service-bg .service-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+            transition: gap 0.3s ease;
+        }
+        [data-theme="light"] .service-bg .service-cta {
+            color: #111;
+        }
+        .service-bg .service-cta .cta-arrow {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            background: var(--btn-primary-bg);
-            color: var(--btn-primary-color);
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
+            background: #ffffff;
+            color: #000000;
+            font-size: 0.85rem;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
-        .service-card:hover .card-footer-link .footer-arrow {
-            transform: translateX(4px);
-            box-shadow: 0 0 20px var(--accent-glow);
+        .service-bg:hover .service-cta {
+            gap: 18px;
+        }
+        .service-bg:hover .service-cta .cta-arrow {
+            transform: translateX(6px) rotate(-45deg);
+            box-shadow: 0 6px 30px rgba(255, 255, 255, 0.4);
+        }
+        [data-theme="light"] .service-bg .service-cta .cta-arrow {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        /* vertical accent line on hover */
+        .service-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, transparent, #ffffff, transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 3;
+        }
+        .service-bg:hover::before {
+            opacity: 0.8;
+        }
+        [data-theme="light"] .service-bg::before {
+            background: linear-gradient(to bottom, transparent, #000000, transparent);
+        }
+
+        /* alternate alignment for even rows */
+        .service-bg.right .service-inner {
+            text-align: right;
+            justify-items: end;
+        }
+        .service-bg.right .service-desc {
+            margin-left: auto;
+        }
+        .service-bg.right .service-bottom {
+            justify-content: flex-end;
+        }
+        .service-bg.right h3 {
+            margin-left: auto;
         }
 
         /* LABS */
@@ -1213,7 +1276,9 @@
             .about-grid { grid-template-columns: 1fr; gap: 40px; }
             .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
             .contact-cards { grid-template-columns: repeat(3, 1fr); }
+            .service-bg .service-inner { padding: 70px 36px; }
         }
+
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -1258,7 +1323,6 @@
             .hero-buttons .btn-primary,
             .hero-buttons .btn-secondary { justify-content: center; }
             .about-values { grid-template-columns: 1fr 1fr; }
-            .services-grid { grid-template-columns: 1fr 1fr; }
             .labs-grid { grid-template-columns: 1fr 1fr; }
             .footer-grid { flex-direction: column; text-align: center; }
             .footer-bottom { flex-direction: column; text-align: center; }
@@ -1269,9 +1333,17 @@
             .collaboration-box { padding: 30px 20px; margin-top: 35px; }
             .collaboration-box h3 { font-size: 1.2rem; }
             .collaboration-box p { font-size: 0.95rem; }
+
+            .service-bg { min-height: 70vh; }
+            .service-bg .service-inner { padding: 60px 24px; }
+            .service-bg h3 { font-size: 2rem; }
+            .service-bg.right .service-inner { text-align: left; justify-items: start; }
+            .service-bg.right h3 { margin-left: 0; }
+            .service-bg.right .service-desc { margin-left: 0; }
+            .service-bg.right .service-bottom { justify-content: flex-start; }
         }
+
         @media (max-width: 480px) {
-            .services-grid { grid-template-columns: 1fr; }
             .labs-grid { grid-template-columns: 1fr 1fr; }
             .about-values { grid-template-columns: 1fr; }
             .projects-grid { grid-template-columns: 1fr; }
@@ -1286,6 +1358,13 @@
             .collaboration-box { padding: 25px 16px; }
             .collaboration-box h3 { font-size: 1rem; }
             .collaboration-box p { font-size: 0.85rem; }
+
+            .service-bg { min-height: 65vh; }
+            .service-bg .service-inner { padding: 50px 20px; }
+            .service-bg h3 { font-size: 1.6rem; }
+            .service-bg .service-desc { font-size: 0.9rem; }
+            .service-bg .service-bottom { gap: 14px; }
+            .service-bg .service-cta .cta-arrow { width: 36px; height: 36px; }
         }
     </style>
 </head>
@@ -1373,112 +1452,121 @@
         </div>
     </section>
 
-    <!-- SERVICES (updated with images) -->
-    <section id="services" class="section-padding" aria-label="Services">
-        <div class="container">
+    <!-- ============================================
+         SERVICES — FULL-SCREEN BACKGROUND IMAGE SECTIONS
+         ============================================ -->
+    <section id="services" aria-label="Services">
+        <div class="container section-padding" style="padding-bottom: 0;">
             <span class="section-label reveal">Services</span>
             <h2 class="section-title reveal">What We <span class="highlight">Build</span></h2>
             <p class="section-desc reveal">We deliver high-impact software and AI solutions across the full stack of modern technology.</p>
-            <div class="services-grid">
+        </div>
 
-                <!-- AI Services -->
-                <a href="services/ai-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format&fit=crop" alt="AI Services" loading="lazy" />
-                    </div>
-                    <div class="card-body">
-                        <h3>AI Services</h3>
-                        <p class="card-desc">Build intelligent AI-powered solutions including AI chatbots, AI agents, automation systems, machine learning applications, and custom AI software.</p>
-                        <span class="card-pricing">Starting at $99</span>
-                    </div>
-                    <div class="card-footer-link">
-                        <span class="footer-text">View Details</span>
-                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
+        <div class="services-stack">
 
-                <!-- Web Services -->
-                <a href="services/web-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80&auto=format&fit=crop" alt="Web Services" loading="lazy" />
+            <!-- 01 · AI Services -->
+            <a href="services/ai-services.html" class="service-bg reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1920&q=85&auto=format&fit=crop"
+                     alt="AI Services background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="service-inner">
+                    <span class="service-num">01 / 06</span>
+                    <h3>AI Services</h3>
+                    <p class="service-desc">Build intelligent AI-powered solutions including AI chatbots, AI agents, automation systems, machine learning applications, and custom AI software.</p>
+                    <div class="service-bottom">
+                        <span class="service-pricing">Starting at $99</span>
+                        <span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span>
                     </div>
-                    <div class="card-body">
-                        <span class="card-badge"><i class="fas fa-gift"></i> FREE PLAN OFFER</span>
-                        <h3>Web Services</h3>
-                        <p class="card-desc">Modern, responsive, and high-performance websites for individuals, startups, businesses, and organizations.</p>
-                        <span class="card-pricing">Free &amp; Starting at $5</span>
-                    </div>
-                    <div class="card-footer-link">
-                        <span class="footer-text">View Details</span>
-                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
+                </div>
+            </a>
 
-                <!-- Software Development Services -->
-                <a href="services/software-development-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80&auto=format&fit=crop" alt="Software Development Services" loading="lazy" />
+            <!-- 02 · Web Services (right aligned) -->
+            <a href="services/web-services.html" class="service-bg right reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&q=85&auto=format&fit=crop"
+                     alt="Web Services background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="service-inner">
+                    <span class="service-num">02 / 06</span>
+                    <span class="service-badge"><i class="fas fa-gift"></i> FREE PLAN OFFER</span>
+                    <h3>Web Services</h3>
+                    <p class="service-desc">Modern, responsive, and high-performance websites for individuals, startups, businesses, and organizations.</p>
+                    <div class="service-bottom">
+                        <span class="service-pricing">Free &amp; Starting at $5</span>
+                        <span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span>
                     </div>
-                    <div class="card-body">
-                        <h3>Software Development Services</h3>
-                        <p class="card-desc">Custom desktop software, business management systems, enterprise software, automation tools, and professional software solutions.</p>
-                        <span class="card-pricing">Starting at $99</span>
-                    </div>
-                    <div class="card-footer-link">
-                        <span class="footer-text">View Details</span>
-                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
+                </div>
+            </a>
 
-                <!-- Mobile App Development Services -->
-                <a href="services/mobile-app-development-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80&auto=format&fit=crop" alt="Mobile App Development Services" loading="lazy" />
+            <!-- 03 · Software Development -->
+            <a href="services/software-development-services.html" class="service-bg reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1920&q=85&auto=format&fit=crop"
+                     alt="Software Development background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="service-inner">
+                    <span class="service-num">03 / 06</span>
+                    <h3>Software Development Services</h3>
+                    <p class="service-desc">Custom desktop software, business management systems, enterprise software, automation tools, and professional software solutions.</p>
+                    <div class="service-bottom">
+                        <span class="service-pricing">Starting at $99</span>
+                        <span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span>
                     </div>
-                    <div class="card-body">
-                        <h3>Mobile App Development Services</h3>
-                        <p class="card-desc">Professional Android, iOS, and cross-platform mobile applications built for performance and scalability.</p>
-                        <span class="card-pricing">Starting at $199</span>
-                    </div>
-                    <div class="card-footer-link">
-                        <span class="footer-text">View Details</span>
-                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
+                </div>
+            </a>
 
-                <!-- Cloud & Deployment Services -->
-                <a href="services/cloud-deployment-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&q=80&auto=format&fit=crop" alt="Cloud & Deployment Services" loading="lazy" />
+            <!-- 04 · Mobile App Development (right aligned) -->
+            <a href="services/mobile-app-development-services.html" class="service-bg right reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=1920&q=85&auto=format&fit=crop"
+                     alt="Mobile App Development background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="service-inner">
+                    <span class="service-num">04 / 06</span>
+                    <h3>Mobile App Development Services</h3>
+                    <p class="service-desc">Professional Android, iOS, and cross-platform mobile applications built for performance and scalability.</p>
+                    <div class="service-bottom">
+                        <span class="service-pricing">Starting at $199</span>
+                        <span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span>
                     </div>
-                    <div class="card-body">
-                        <h3>Cloud &amp; Deployment Services</h3>
-                        <p class="card-desc">Professional deployment, cloud configuration, hosting, server setup, infrastructure management, and production deployment services.</p>
-                        <span class="card-pricing">Starting at $29</span>
-                    </div>
-                    <div class="card-footer-link">
-                        <span class="footer-text">View Details</span>
-                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
+                </div>
+            </a>
 
-                <!-- Maintenance & Support Services -->
-                <a href="services/maintenance-support-services.html" class="service-card reveal" style="text-decoration: none; color: inherit;">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80&auto=format&fit=crop" alt="Maintenance & Support Services" loading="lazy" />
+            <!-- 05 · Cloud & Deployment -->
+            <a href="services/cloud-deployment-services.html" class="service-bg reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85&auto=format&fit=crop"
+                     alt="Cloud & Deployment background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="service-inner">
+                    <span class="service-num">05 / 06</span>
+                    <h3>Cloud &amp; Deployment Services</h3>
+                    <p class="service-desc">Professional deployment, cloud configuration, hosting, server setup, infrastructure management, and production deployment services.</p>
+                    <div class="service-bottom">
+                        <span class="service-pricing">Starting at $29</span>
+                        <span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span>
                     </div>
-                    <div class="card-body">
-                        <h3>Maintenance &amp; Support Services</h3>
-                        <p class="card-desc">Keep your websites, applications, software, and AI solutions secure, updated, optimized, and running smoothly.</p>
-                        <span class="card-pricing">Starting at $19/month</span>
-                    </div>
-                    <div class="card-footer-link">
-                        <span class="footer-text">View Details</span>
-                        <span class="footer-arrow"><i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
+                </div>
+            </a>
 
-            </div>
+            <!-- 06 · Maintenance & Support (right aligned) -->
+            <a href="services/maintenance-support-services.html" class="service-bg right reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=85&auto=format&fit=crop"
+                     alt="Maintenance & Support background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="service-inner">
+                    <span class="service-num">06 / 06</span>
+                    <h3>Maintenance &amp; Support Services</h3>
+                    <p class="service-desc">Keep your websites, applications, software, and AI solutions secure, updated, optimized, and running smoothly.</p>
+                    <div class="service-bottom">
+                        <span class="service-pricing">Starting at $19/month</span>
+                        <span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span>
+                    </div>
+                </div>
+            </a>
+
         </div>
     </section>
 
