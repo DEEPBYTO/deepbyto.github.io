@@ -80,8 +80,6 @@
             --project-card-bg: var(--bg-card);
             --value-card-bg: var(--bg-card);
             --wordmark-filter: brightness(0) invert(1);
-            --overlay-color: rgba(0, 0, 0, 0.75);
-            --overlay-color-2: rgba(0, 0, 0, 0.45);
         }
 
         /* ----- LIGHT THEME ----- */
@@ -119,8 +117,6 @@
             --project-card-bg: rgba(255,255,255,0.85);
             --value-card-bg: rgba(255,255,255,0.85);
             --wordmark-filter: brightness(0) invert(0);
-            --overlay-color: rgba(255, 255, 255, 0.85);
-            --overlay-color-2: rgba(255, 255, 255, 0.5);
         }
 
         html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -601,7 +597,6 @@
             cursor: pointer;
         }
 
-        /* background image layer */
         .service-bg .bg-image {
             position: absolute;
             inset: 0;
@@ -617,7 +612,6 @@
             filter: brightness(0.8) contrast(1.05) saturate(1.1);
         }
 
-        /* dark gradient overlay for readability */
         .service-bg .bg-overlay {
             position: absolute;
             inset: 0;
@@ -635,7 +629,6 @@
             opacity: 0.9;
         }
 
-        /* light theme overlay — softer */
         [data-theme="light"] .service-bg .bg-overlay {
             background: linear-gradient(
                 110deg,
@@ -649,7 +642,6 @@
             color: #111;
         }
 
-        /* content */
         .service-bg .service-inner {
             position: relative;
             z-index: 2;
@@ -801,7 +793,6 @@
             color: #ffffff;
         }
 
-        /* vertical accent line on hover */
         .service-bg::before {
             content: '';
             position: absolute;
@@ -821,7 +812,6 @@
             background: linear-gradient(to bottom, transparent, #000000, transparent);
         }
 
-        /* alternate alignment for even rows */
         .service-bg.right .service-inner {
             text-align: right;
             justify-items: end;
@@ -836,46 +826,155 @@
             margin-left: auto;
         }
 
-        /* LABS */
+        /* ============================================
+           LABS — FULL-SCREEN BACKGROUND IMAGE SECTIONS
+           ============================================ */
         #labs {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             border-top: 1px solid var(--border-subtle);
             border-bottom: 1px solid var(--border-subtle);
-            transition: background 0.4s ease, border-color 0.3s ease;
         }
-        .labs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 48px;
+
+        .labs-stack {
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
         }
-        .lab-card {
-            background: var(--lab-card-bg);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-sm);
-            padding: 28px 24px;
-            text-align: center;
-            transition: all var(--transition);
+
+        .lab-bg {
+            position: relative;
+            width: 100%;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: #ffffff;
+            isolation: isolate;
         }
-        .lab-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 25px var(--shadow-color);
+
+        .lab-bg .bg-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
+            filter: brightness(0.65) contrast(1.05) saturate(1.05);
         }
-        .lab-card h4 {
-            font-size: 1rem;
+        .lab-bg:hover .bg-image {
+            transform: scale(1.05);
+            filter: brightness(0.75) contrast(1.05) saturate(1.1);
+        }
+
+        .lab-bg .bg-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(
+                120deg,
+                rgba(0, 0, 0, 0.88) 0%,
+                rgba(0, 0, 0, 0.65) 50%,
+                rgba(0, 0, 0, 0.45) 100%
+            );
+            transition: opacity 0.5s ease;
+        }
+        [data-theme="light"] .lab-bg .bg-overlay {
+            background: linear-gradient(
+                120deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.5) 100%
+            );
+        }
+        [data-theme="light"] .lab-bg {
+            color: #111;
+        }
+
+        .lab-bg .lab-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            padding: 60px 48px;
+        }
+
+        .lab-bg .lab-num {
+            font-family: var(--font-display);
+            font-size: 0.7rem;
             font-weight: 600;
-            margin-bottom: 4px;
-            color: var(--text-primary);
+            letter-spacing: 0.28em;
+            color: rgba(255, 255, 255, 0.65);
+            margin-bottom: 16px;
+            display: inline-block;
         }
-        .lab-card p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        [data-theme="light"] .lab-bg .lab-num {
+            color: rgba(0, 0, 0, 0.55);
         }
+
+        .lab-bg h4 {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 4vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            color: #ffffff;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            max-width: 700px;
+        }
+        [data-theme="light"] .lab-bg h4 {
+            color: #111;
+            text-shadow: 0 4px 30px rgba(255, 255, 255, 0.5);
+        }
+
+        .lab-bg .lab-desc {
+            font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 560px;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+        }
+        [data-theme="light"] .lab-bg .lab-desc {
+            color: rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        /* lab vertical accent line */
+        .lab-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, transparent, #ffffff, transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 3;
+        }
+        .lab-bg:hover::before {
+            opacity: 0.8;
+        }
+        [data-theme="light"] .lab-bg::before {
+            background: linear-gradient(to bottom, transparent, #000000, transparent);
+        }
+
+        /* alternate lab alignment */
+        .lab-bg.right .lab-inner {
+            text-align: right;
+        }
+        .lab-bg.right h4 {
+            margin-left: auto;
+        }
+        .lab-bg.right .lab-desc {
+            margin-left: auto;
+        }
+
         .labs-note {
-            margin-top: 32px;
+            max-width: 1200px;
+            margin: 40px auto 0;
             padding: 20px 28px;
             background: var(--bg-card);
             border: 1px solid var(--glass-border);
@@ -1277,6 +1376,7 @@
             .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
             .contact-cards { grid-template-columns: repeat(3, 1fr); }
             .service-bg .service-inner { padding: 70px 36px; }
+            .lab-bg .lab-inner { padding: 55px 36px; }
         }
 
         @media (max-width: 768px) {
@@ -1323,7 +1423,6 @@
             .hero-buttons .btn-primary,
             .hero-buttons .btn-secondary { justify-content: center; }
             .about-values { grid-template-columns: 1fr 1fr; }
-            .labs-grid { grid-template-columns: 1fr 1fr; }
             .footer-grid { flex-direction: column; text-align: center; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .section-padding { padding: 64px 0 48px; }
@@ -1341,10 +1440,16 @@
             .service-bg.right h3 { margin-left: 0; }
             .service-bg.right .service-desc { margin-left: 0; }
             .service-bg.right .service-bottom { justify-content: flex-start; }
+
+            .lab-bg { min-height: 50vh; }
+            .lab-bg .lab-inner { padding: 50px 24px; }
+            .lab-bg h4 { font-size: 1.8rem; }
+            .lab-bg.right .lab-inner { text-align: left; }
+            .lab-bg.right h4 { margin-left: 0; }
+            .lab-bg.right .lab-desc { margin-left: 0; }
         }
 
         @media (max-width: 480px) {
-            .labs-grid { grid-template-columns: 1fr 1fr; }
             .about-values { grid-template-columns: 1fr; }
             .projects-grid { grid-template-columns: 1fr; }
             .footer-links { justify-content: center; }
@@ -1365,6 +1470,11 @@
             .service-bg .service-desc { font-size: 0.9rem; }
             .service-bg .service-bottom { gap: 14px; }
             .service-bg .service-cta .cta-arrow { width: 36px; height: 36px; }
+
+            .lab-bg { min-height: 45vh; }
+            .lab-bg .lab-inner { padding: 40px 20px; }
+            .lab-bg h4 { font-size: 1.4rem; }
+            .lab-bg .lab-desc { font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -1570,20 +1680,99 @@
         </div>
     </section>
 
-    <!-- LABS -->
-    <section id="labs" class="section-padding" aria-label="Research & Development Labs">
-        <div class="container">
+    <!-- ============================================
+         LABS — FULL-SCREEN BACKGROUND IMAGE SECTIONS
+         ============================================ -->
+    <section id="labs" aria-label="Research & Development Labs">
+        <div class="container section-padding" style="padding-bottom: 0;">
             <span class="section-label reveal">Labs</span>
             <h2 class="section-title reveal">Research & <span class="highlight">Development</span></h2>
             <p class="section-desc reveal">Exploring the frontiers of AI, automation, and software engineering.</p>
-            <div class="labs-grid">
-                <div class="lab-card reveal"><h4>AI Agents</h4><p>Autonomous systems that reason, plan, and act.</p></div>
-                <div class="lab-card reveal"><h4>Automation</h4><p>Intelligent process orchestration at scale.</p></div>
-                <div class="lab-card reveal"><h4>Developer Tools</h4><p>Next-generation tooling for engineers.</p></div>
-                <div class="lab-card reveal"><h4>Machine Learning</h4><p>Advanced models and training pipelines.</p></div>
-                <div class="lab-card reveal"><h4>Internal Platforms</h4><p>Scalable infrastructure and internal systems.</p></div>
-                <div class="lab-card reveal"><h4>Digital Products</h4><p>Building impactful digital products for the future.</p></div>
+        </div>
+
+        <div class="labs-stack">
+
+            <!-- 01 · AI Agents -->
+            <div class="lab-bg reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1676299081847-824916de030a?w=1920&q=85&auto=format&fit=crop"
+                     alt="AI Agents background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="lab-inner">
+                    <span class="lab-num">01 / 06</span>
+                    <h4>AI Agents</h4>
+                    <p class="lab-desc">Autonomous systems that reason, plan, and act.</p>
+                </div>
             </div>
+
+            <!-- 02 · Automation (right) -->
+            <div class="lab-bg right reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=85&auto=format&fit=crop"
+                     alt="Automation background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="lab-inner">
+                    <span class="lab-num">02 / 06</span>
+                    <h4>Automation</h4>
+                    <p class="lab-desc">Intelligent process orchestration at scale.</p>
+                </div>
+            </div>
+
+            <!-- 03 · Developer Tools -->
+            <div class="lab-bg reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1550439062-609e1531270e?w=1920&q=85&auto=format&fit=crop"
+                     alt="Developer Tools background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="lab-inner">
+                    <span class="lab-num">03 / 06</span>
+                    <h4>Developer Tools</h4>
+                    <p class="lab-desc">Next-generation tooling for engineers.</p>
+                </div>
+            </div>
+
+            <!-- 04 · Machine Learning (right) -->
+            <div class="lab-bg right reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=85&auto=format&fit=crop"
+                     alt="Machine Learning background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="lab-inner">
+                    <span class="lab-num">04 / 06</span>
+                    <h4>Machine Learning</h4>
+                    <p class="lab-desc">Advanced models and training pipelines.</p>
+                </div>
+            </div>
+
+            <!-- 05 · Internal Platforms -->
+            <div class="lab-bg reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=85&auto=format&fit=crop"
+                     alt="Internal Platforms background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="lab-inner">
+                    <span class="lab-num">05 / 06</span>
+                    <h4>Internal Platforms</h4>
+                    <p class="lab-desc">Scalable infrastructure and internal systems.</p>
+                </div>
+            </div>
+
+            <!-- 06 · Digital Products (right) -->
+            <div class="lab-bg right reveal">
+                <img class="bg-image"
+                     src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85&auto=format&fit=crop"
+                     alt="Digital Products background" loading="lazy" />
+                <div class="bg-overlay"></div>
+                <div class="lab-inner">
+                    <span class="lab-num">06 / 06</span>
+                    <h4>Digital Products</h4>
+                    <p class="lab-desc">Building impactful digital products for the future.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
             <div class="labs-note reveal">Public releases and technical case studies will be published as projects are completed.</div>
         </div>
     </section>
