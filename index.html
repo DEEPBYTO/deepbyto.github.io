@@ -82,6 +82,10 @@
             --wordmark-filter: brightness(0) invert(1);
             --overlay-color: rgba(0, 0, 0, 0.75);
             --overlay-color-2: rgba(0, 0, 0, 0.45);
+            --wave-blue: #3b82f6;
+            --wave-green: #10b981;
+            --wave-blue-soft: rgba(59, 130, 246, 0.35);
+            --wave-green-soft: rgba(16, 185, 129, 0.35);
         }
 
         /* ----- LIGHT THEME ----- */
@@ -121,6 +125,10 @@
             --wordmark-filter: brightness(0) invert(0);
             --overlay-color: rgba(255, 255, 255, 0.85);
             --overlay-color-2: rgba(255, 255, 255, 0.5);
+            --wave-blue: #2563eb;
+            --wave-green: #059669;
+            --wave-blue-soft: rgba(37, 99, 235, 0.28);
+            --wave-green-soft: rgba(5, 150, 105, 0.28);
         }
 
         html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -140,6 +148,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
+            position: relative;
+            z-index: 2;
         }
         .section-padding {
             padding: 100px 0 80px;
@@ -522,19 +532,89 @@
             line-height: 1.7;
         }
 
-        /* ABOUT */
+        /* ============================================
+           ABOUT — WITH ANIMATED BLUE/GREEN WAVES
+           ============================================ */
         #about {
+            position: relative;
             background: var(--bg-secondary);
             border-top: 1px solid var(--border-subtle);
             border-bottom: 1px solid var(--border-subtle);
             transition: background 0.4s ease, border-color 0.3s ease;
+            overflow: hidden;
+            isolation: isolate;
         }
+
+        /* wave container */
+        .about-waves {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .about-waves svg {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .about-waves svg.wave-blue {
+            animation: waveSlide 18s linear infinite;
+        }
+        .about-waves svg.wave-green {
+            animation: waveSlide 24s linear infinite reverse;
+            opacity: 0.85;
+        }
+        .about-waves svg.wave-blue-2 {
+            animation: waveSlide 30s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes waveSlide {
+            0%   { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* glow orbs behind text for extra depth */
+        .about-waves .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            opacity: 0.35;
+        }
+        .about-waves .glow-orb.blue {
+            width: 420px;
+            height: 420px;
+            background: var(--wave-blue);
+            top: -100px;
+            left: -100px;
+            animation: floatOrb 14s ease-in-out infinite;
+        }
+        .about-waves .glow-orb.green {
+            width: 480px;
+            height: 480px;
+            background: var(--wave-green);
+            bottom: -140px;
+            right: -120px;
+            animation: floatOrb 18s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatOrb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50%      { transform: translate(40px, -30px) scale(1.1); }
+        }
+
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             margin-top: 48px;
             align-items: start;
+            position: relative;
+            z-index: 2;
         }
         .about-text p {
             color: var(--text-secondary);
@@ -550,8 +630,8 @@
         }
         .value-card {
             background: var(--value-card-bg);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-sm);
             padding: 20px 18px;
@@ -575,7 +655,7 @@
         }
 
         /* ============================================
-           SERVICES — FULL-SCREEN BACKGROUND IMAGE SECTIONS
+           SERVICES
            ============================================ */
         #services {
             background: var(--bg-primary);
@@ -831,7 +911,7 @@
         }
 
         /* ============================================
-           LABS — IMAGE CARDS
+           LABS
            ============================================ */
         #labs {
             background: var(--bg-secondary);
@@ -865,7 +945,6 @@
             box-shadow: 0 24px 45px var(--shadow-color), 0 0 50px var(--accent-dim);
         }
 
-        /* image top half */
         .lab-card .lab-image {
             position: relative;
             width: 100%;
@@ -886,7 +965,6 @@
             transform: scale(1.08);
             filter: brightness(1) contrast(1.05) saturate(1.15);
         }
-        /* bottom gradient on image */
         .lab-card .lab-image::after {
             content: '';
             position: absolute;
@@ -910,7 +988,6 @@
             opacity: 0.6;
         }
 
-        /* number badge overlay top-left */
         .lab-card .lab-num {
             position: absolute;
             top: 16px;
@@ -934,7 +1011,6 @@
             color: #111;
         }
 
-        /* body */
         .lab-card .lab-body {
             padding: 22px 22px 24px;
             display: flex;
@@ -951,9 +1027,6 @@
             margin-bottom: 2px;
             transition: color 0.3s ease;
         }
-        .lab-card:hover h4 {
-            color: var(--text-primary);
-        }
         .lab-card p {
             font-size: 0.85rem;
             color: var(--text-secondary);
@@ -961,7 +1034,6 @@
             margin-bottom: 0;
         }
 
-        /* accent line bottom */
         .lab-card::after {
             content: '';
             position: absolute;
@@ -1445,6 +1517,9 @@
             .service-bg.right h3 { margin-left: 0; }
             .service-bg.right .service-desc { margin-left: 0; }
             .service-bg.right .service-bottom { justify-content: flex-start; }
+
+            .about-waves .glow-orb.blue { width: 260px; height: 260px; }
+            .about-waves .glow-orb.green { width: 300px; height: 300px; }
         }
 
         @media (max-width: 480px) {
@@ -1473,6 +1548,12 @@
             .lab-card .lab-body { padding: 18px 18px 20px; }
             .lab-card h4 { font-size: 1rem; }
             .lab-card p { font-size: 0.8rem; }
+        }
+
+        /* reduce motion */
+        @media (prefers-reduced-motion: reduce) {
+            .about-waves svg { animation: none; }
+            .about-waves .glow-orb { animation: none; }
         }
     </style>
 </head>
@@ -1538,8 +1619,56 @@
         </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ============================================
+         ABOUT — WITH ANIMATED BLUE/GREEN WAVES
+         ============================================ -->
     <section id="about" class="section-padding" aria-label="About DEEPBYTO">
+        <!-- wave background layer -->
+        <div class="about-waves" aria-hidden="true">
+            <div class="glow-orb blue"></div>
+            <div class="glow-orb green"></div>
+
+            <!-- blue wave -->
+            <svg class="wave-blue" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="var(--wave-blue)" stop-opacity="0.9"/>
+                        <stop offset="50%" stop-color="var(--wave-blue)" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="var(--wave-blue)" stop-opacity="0.9"/>
+                    </linearGradient>
+                </defs>
+                <path fill="none" stroke="url(#blueGrad)" stroke-width="2"
+                      d="M0,200 C240,120 480,280 720,200 C960,120 1200,280 1440,200" />
+                <path fill="none" stroke="url(#blueGrad)" stroke-width="1.5" opacity="0.7"
+                      d="M0,220 C240,140 480,300 720,220 C960,140 1200,300 1440,220" />
+                <path fill="none" stroke="url(#blueGrad)" stroke-width="1" opacity="0.5"
+                      d="M0,180 C240,100 480,260 720,180 C960,100 1200,260 1440,180" />
+            </svg>
+
+            <!-- green wave -->
+            <svg class="wave-green" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="var(--wave-green)" stop-opacity="0.9"/>
+                        <stop offset="50%" stop-color="var(--wave-green)" stop-opacity="0.4"/>
+                        <stop offset="100%" stop-color="var(--wave-green)" stop-opacity="0.9"/>
+                    </linearGradient>
+                </defs>
+                <path fill="none" stroke="url(#greenGrad)" stroke-width="2"
+                      d="M0,280 C240,200 480,360 720,280 C960,200 1200,360 1440,280" />
+                <path fill="none" stroke="url(#greenGrad)" stroke-width="1.5" opacity="0.7"
+                      d="M0,300 C240,220 480,380 720,300 C960,220 1200,380 1440,300" />
+                <path fill="none" stroke="url(#greenGrad)" stroke-width="1" opacity="0.5"
+                      d="M0,260 C240,180 480,340 720,260 C960,180 1200,340 1440,260" />
+            </svg>
+
+            <!-- extra blue wave behind (slower) -->
+            <svg class="wave-blue-2" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="none" stroke="url(#blueGrad)" stroke-width="1.5" opacity="0.6"
+                      d="M0,120 C240,240 480,40 720,120 C960,240 1200,40 1440,120" />
+            </svg>
+        </div>
+
         <div class="container">
             <span class="section-label reveal">About</span>
             <h2 class="section-title reveal">Who is <span class="highlight">DEEPBYTO</span></h2>
@@ -1676,9 +1805,7 @@
         </div>
     </section>
 
-    <!-- ============================================
-         LABS — NOW WITH IMAGES
-         ============================================ -->
+    <!-- LABS -->
     <section id="labs" class="section-padding" aria-label="Research & Development Labs">
         <div class="container">
             <span class="section-label reveal">Labs</span>
@@ -1687,7 +1814,6 @@
 
             <div class="labs-grid">
 
-                <!-- AI Agents -->
                 <div class="lab-card reveal">
                     <div class="lab-image">
                         <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80&auto=format&fit=crop" alt="AI Agents" loading="lazy" />
@@ -1699,7 +1825,6 @@
                     </div>
                 </div>
 
-                <!-- Automation -->
                 <div class="lab-card reveal">
                     <div class="lab-image">
                         <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&auto=format&fit=crop" alt="Automation" loading="lazy" />
@@ -1711,7 +1836,6 @@
                     </div>
                 </div>
 
-                <!-- Developer Tools -->
                 <div class="lab-card reveal">
                     <div class="lab-image">
                         <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80&auto=format&fit=crop" alt="Developer Tools" loading="lazy" />
@@ -1723,7 +1847,6 @@
                     </div>
                 </div>
 
-                <!-- Machine Learning -->
                 <div class="lab-card reveal">
                     <div class="lab-image">
                         <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80&auto=format&fit=crop" alt="Machine Learning" loading="lazy" />
@@ -1735,7 +1858,6 @@
                     </div>
                 </div>
 
-                <!-- Internal Platforms -->
                 <div class="lab-card reveal">
                     <div class="lab-image">
                         <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&auto=format&fit=crop" alt="Internal Platforms" loading="lazy" />
@@ -1747,7 +1869,6 @@
                     </div>
                 </div>
 
-                <!-- Digital Products -->
                 <div class="lab-card reveal">
                     <div class="lab-image">
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format&fit=crop" alt="Digital Products" loading="lazy" />
