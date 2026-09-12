@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Careers | DEEPBYTO</title>
+  <meta name="description" content="Join DEEPBYTO. Start as a contributor, work on real projects, grow through project-based opportunities, and become part of Team DEEPBYTO.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #111111;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e9e9e9;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: #555;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #000;
+    }
+
+    .nav-button {
+      background: #111;
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 8px;
+    }
+
+    .nav-button:hover {
+      background: #333;
+    }
+
+    .menu {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 105px 0 95px;
+      background:
+        radial-gradient(circle at 80% 20%, #eeeeee 0, transparent 30%),
+        linear-gradient(135deg, #fafafa, #ffffff);
+      border-bottom: 1px solid #eee;
+    }
+
+    .hero-content {
+      max-width: 820px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #555;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 19px;
+      color: #555;
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn-dark {
+      background: #111;
+      color: #fff;
+    }
+
+    .btn-dark:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+
+    .btn-light {
+      border: 1px solid #ddd;
+      color: #111;
+      background: #fff;
+    }
+
+    .btn-light:hover {
+      border-color: #aaa;
+      transform: translateY(-1px);
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 12px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 15px;
+    }
+
+    .section-header p {
+      color: #666;
+      font-size: 17px;
+    }
+
+    /* HOW IT WORKS */
+
+    .process {
+      background: #fafafa;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .process-card {
+      background: white;
+      border: 1px solid #e7e7e7;
+      border-radius: 12px;
+      padding: 25px;
+      min-height: 235px;
+    }
+
+    .number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #111;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .process-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* OPPORTUNITIES */
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .role {
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 27px;
+      transition: 0.2s;
+      background: #fff;
+    }
+
+    .role:hover {
+      border-color: #aaa;
+      transform: translateY(-3px);
+    }
+
+    .role h3 {
+      font-size: 18px;
+      margin-bottom: 9px;
+    }
+
+    .role p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* GROWTH */
+
+    .growth {
+      background: #111;
+      color: #fff;
+    }
+
+    .growth .section-label {
+      color: #aaa;
+    }
+
+    .growth .section-header p {
+      color: #aaa;
+    }
+
+    .growth-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .growth h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -1.8px;
+      margin-bottom: 20px;
+    }
+
+    .growth-text {
+      color: #bbb;
+      font-size: 17px;
+    }
+
+    .growth-box {
+      border: 1px solid #333;
+      border-radius: 14px;
+      padding: 35px;
+      background: #171717;
+    }
+
+    .growth-box h3 {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .growth-box p {
+      color: #bbb;
+      margin-bottom: 18px;
+    }
+
+    .growth-quote {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.35;
+      padding-top: 18px;
+      border-top: 1px solid #333;
+    }
+
+    /* VALUES */
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .value {
+      padding: 30px;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+    }
+
+    .value h3 {
+      margin-bottom: 9px;
+      font-size: 19px;
+    }
+
+    .value p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* IMPORTANT */
+
+    .important {
+      background: #f7f7f7;
+    }
+
+    .important-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .important-card {
+      background: white;
+      border: 1px solid #e3e3e3;
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    .important-card h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .important-card ul {
+      list-style: none;
+    }
+
+    .important-card li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 11px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .important-card li::before {
+      content: "•";
+      position: absolute;
+      left: 3px;
+      font-weight: bold;
+      color: #111;
+    }
+
+    /* APPLY */
+
+    .apply {
+      text-align: center;
+      background: #fff;
+    }
+
+    .apply-content {
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .apply h2 {
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .apply p {
+      color: #666;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .application-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      text-align: left;
+    }
+
+    .application-list div {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 12px 15px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 45px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .footer-text {
+      color: #999;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .roles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .growth-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: white;
+        border-bottom: 1px solid #eee;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .hero {
+        padding: 75px 0 70px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .process-grid,
+      .roles-grid,
+      .values-grid,
+      .important-grid,
+      .application-list {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="../index.html" class="logo">DEEPBYTO</a>
+
+      <div class="menu" onclick="toggleMenu()">☰</div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../services/web-services.html">Services</a></li>
+        <li><a href="#opportunities">Opportunities</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#apply" class="nav-button">Apply</a></li>
+      </ul>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">Careers at DEEPBYTO</div>
+
+        <h1>
+          Build With Us.<br>
+          <span>Grow With Us.</span>
+        </h1>
+
+        <p>
+          DEEPBYTO is building a growing digital solutions team focused on
+          AI, software, SaaS, automation, and modern digital products.
+          Start as a contributor, work on real projects, and grow through
+          your contribution.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#apply" class="btn btn-dark">Apply to Contribute</a>
+          <a href="#how-it-works" class="btn btn-light">How It Works</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- INTRO -->
+
+  <section>
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-label">Our Approach</div>
+
+        <h2>You don't simply apply for a job.</h2>
+
+        <p>
+          At DEEPBYTO, people first have the opportunity to contribute to
+          projects. Those who consistently deliver quality work, demonstrate
+          reliability, and show long-term potential can grow into Team DEEPBYTO.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+
+  <section class="process" id="how-it-works">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-label">The Journey</div>
+
+        <h2>From contributor to Team DEEPBYTO.</h2>
+
+        <p>
+          Our model is built around real work, contribution, performance,
+          and long-term growth.
+        </p>
+
+      </div>
+
+      <div class="process-grid">
+
+        <div class="process-card">
+          <div class="number">01</div>
+          <h3>Apply to Contribute</h3>
+          <p>
+            Tell us about your skills, experience, interests, and how you
+            can contribute to DEEPBYTO.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="number">02</div>
+          <h3>Work With DEEPBYTO</h3>
+          <p>
+            Selected contributors may be invited to work on suitable client
+            or internal projects.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="number">03</div>
+          <h3>Project Profit Share</h3>
+          <p>
+            Eligible contributors may receive an agreed share of project
+            profit based on their role and contribution.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="number">04</div>
+          <h3>Prove Yourself</h3>
+          <p>
+            We evaluate quality, reliability, communication, teamwork,
+            problem-solving, and commitment.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="number">05</div>
+          <h3>Join Team DEEPBYTO</h3>
+          <p>
+            Strong contributors may be selected to become part of
+            Team DEEPBYTO for long-term growth.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- OPPORTUNITIES -->
+
+  <section id="opportunities">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-label">Opportunities</div>
+
+        <h2>Areas we may be looking for contributors.</h2>
+
+        <p>
+          Opportunities can vary depending on our current projects and
+          business needs.
+        </p>
+
+      </div>
+
+      <div class="roles-grid">
+
+        <div class="role">
+          <h3>Full-Stack Development</h3>
+          <p>
+            Websites, web applications, SaaS platforms, APIs, and digital systems.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>AI Engineering</h3>
+          <p>
+            AI solutions, automation, intelligent systems, and AI-powered products.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Software Development</h3>
+          <p>
+            Custom software solutions and digital products for real-world needs.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Mobile App Development</h3>
+          <p>
+            Modern mobile applications and connected digital experiences.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>UI/UX Design</h3>
+          <p>
+            User interfaces, user experiences, visual systems, and digital design.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Cloud & DevOps</h3>
+          <p>
+            Deployment, hosting, infrastructure, performance, and technical operations.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Sales & Business Development</h3>
+          <p>
+            Discover opportunities, connect with potential clients, and build relationships.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Digital Marketing</h3>
+          <p>
+            Organic content, social media, campaigns, visibility, and digital growth.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Project & Product Management</h3>
+          <p>
+            Plan, coordinate, organize, and help deliver projects effectively.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GROW WITH US -->
+
+  <section class="growth">
+
+    <div class="container">
+
+      <div class="growth-content">
+
+        <div>
+
+          <div class="section-label">Grow Together</div>
+
+          <h2>Build DEEPBYTO. Build your future with us.</h2>
+
+          <p class="growth-text">
+            When you work with DEEPBYTO, you are not simply completing
+            projects. You are helping build a growing digital solutions
+            team from the ground up.
+          </p>
+
+        </div>
+
+        <div class="growth-box">
+
+          <h3>Show Your Work. Share DEEPBYTO.</h3>
+
+          <p>
+            We encourage contributors to professionally showcase their
+            contributions and share DEEPBYTO with their network.
+          </p>
+
+          <p>
+            You may use DEEPBYTO in your professional profile and social
+            media posts when accurately representing your relationship with us.
+          </p>
+
+          <div class="growth-quote">
+            "The more DEEPBYTO grows, the more opportunities we can create together."
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VALUES -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-label">What We Look For</div>
+
+        <h2>Skills matter. Character matters too.</h2>
+
+        <p>
+          We are looking for people who want to learn, contribute,
+          take responsibility, and grow with a team.
+        </p>
+
+      </div>
+
+      <div class="values-grid">
+
+        <div class="value">
+          <h3>Skills & Learning</h3>
+          <p>
+            Bring your existing skills and remain willing to learn and improve.
+          </p>
+        </div>
+
+        <div class="value">
+          <h3>Reliability</h3>
+          <p>
+            Take responsibility for your work and respect agreed deadlines.
+          </p>
+        </div>
+
+        <div class="value">
+          <h3>Communication</h3>
+          <p>
+            Communicate clearly and keep the team informed throughout projects.
+          </p>
+        </div>
+
+        <div class="value">
+          <h3>Problem Solving</h3>
+          <p>
+            Think independently, identify problems, and work toward practical solutions.
+          </p>
+        </div>
+
+        <div class="value">
+          <h3>Teamwork</h3>
+          <p>
+            Work respectfully with developers, designers, business contributors,
+            and other team members.
+          </p>
+        </div>
+
+        <div class="value">
+          <h3>Long-Term Mindset</h3>
+          <p>
+            We value people who want to grow beyond a single project.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- IMPORTANT INFORMATION -->
+
+  <section class="important">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-label">Before You Apply</div>
+
+        <h2>Know how our contributor model works.</h2>
+
+      </div>
+
+      <div class="important-grid">
+
+        <div class="important-card">
+
+          <h3>Project-Based Opportunities</h3>
+
+          <ul>
+            <li>Current contributor opportunities are project-based.</li>
+            <li>They are not traditional fixed-salary employment positions.</li>
+            <li>Profit-sharing depends on the specific project and contribution.</li>
+            <li>Terms will be discussed and agreed before project work begins.</li>
+          </ul>
+
+        </div>
+
+        <div class="important-card">
+
+          <h3>Professional Responsibility</h3>
+
+          <ul>
+            <li>Being accepted as a contributor does not guarantee Team DEEPBYTO membership.</li>
+            <li>Team membership is based on performance and long-term potential.</li>
+            <li>Confidential project and client information must be protected.</li>
+            <li>Publicly sharing confidential project information requires appropriate permission.</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY DEEPBYTO -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-label">Why DEEPBYTO?</div>
+
+        <h2>More than a project.</h2>
+
+        <p>
+          We want contributors to gain practical experience while helping
+          build something that can create bigger opportunities over time.
+        </p>
+
+      </div>
+
+      <div class="roles-grid">
+
+        <div class="role">
+          <h3>Real-World Experience</h3>
+          <p>
+            Work on practical digital solutions and real project requirements.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Build Your Portfolio</h3>
+          <p>
+            Gain experience that you can professionally showcase where appropriate.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Work With a Team</h3>
+          <p>
+            Collaborate with people across technology, design, business, and digital growth.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Project-Based Earnings</h3>
+          <p>
+            Participate in agreed profit-sharing opportunities on eligible projects.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Long-Term Opportunity</h3>
+          <p>
+            Strong contributors may have the opportunity to grow into Team DEEPBYTO.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Build From the Ground Up</h3>
+          <p>
+            Be part of DEEPBYTO's journey as we build and grow together.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- APPLY -->
+
+  <section class="apply" id="apply">
+
+    <div class="container">
+
+      <div class="apply-content">
+
+        <div class="section-label">Join DEEPBYTO</div>
+
+        <h2>Ready to build with us?</h2>
+
+        <p>
+          If you have the skills, mindset, and willingness to contribute,
+          we'd like to hear from you.
+        </p>
+
+        <div class="application-list">
+
+          <div>Your Name</div>
+          <div>Area of Expertise</div>
+          <div>Your Skills</div>
+          <div>Experience / Portfolio</div>
+          <div>Preferred Role</div>
+          <div>How You Can Contribute</div>
+          <div>Contact Information</div>
+          <div>Any Relevant Links</div>
+
+        </div>
+
+        <!-- Replace this email with your preferred application email -->
+        <a
+          href="mailto:deepbyto@gmail.com?subject=DEEPBYTO%20Contributor%20Application"
+          class="btn btn-dark"
+        >
+          Apply to DEEPBYTO
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-content">
+
+      <div>
+        <div class="footer-logo">DEEPBYTO</div>
+        <div class="footer-text">
+          All Digital Solutions in One Place.
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../services/web-services.html">Services</a>
+        <a href="#apply">Careers</a>
+        <a href="mailto:deepbyto@gmail.com">Contact</a>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("active");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
