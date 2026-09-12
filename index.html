@@ -1273,6 +1273,18 @@
     }
     .projects-cta { margin-top: 40px; text-align: center; position: relative; z-index: 2; }
 
+    /* ============================================
+       DEMOS (simple CTA section)
+       ============================================ */
+    #demos {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.4s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
     /* CONTACT */
     #contact {
       background: var(--bg-secondary);
@@ -1648,6 +1660,7 @@
         <li role="none"><a href="#services" role="menuitem">Services</a></li>
         <li role="none"><a href="#labs" role="menuitem">Labs</a></li>
         <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#demos" role="menuitem">Demos</a></li>
         <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
         <li role="none">
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -1955,6 +1968,18 @@
       <div class="projects-cta reveal">
         <a href="https://github.com/DEEPBYTO" target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fab fa-github"></i> View All on GitHub</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DEMOS (simple CTA section - after Projects)
+       ============================================ -->
+  <section id="demos" class="section-padding" aria-label="Demos">
+    <div class="container" style="position: relative; z-index: 2; text-align: center;">
+      <span class="section-label reveal">Demos</span>
+      <h2 class="section-title reveal">Digital <span class="highlight">Experiences</span></h2>
+      <p class="section-desc reveal" style="margin: 0 auto 40px; max-width: 700px;">Explore professional website concepts and digital experiences developed by DEEPBYTO. Each demo demonstrates modern design, responsive development, and practical business-focused solutions.</p>
+      <a href="https://deepbyto.github.io/demos/" target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fas fa-eye"></i> View Demos</a>
     </div>
   </section>
 
