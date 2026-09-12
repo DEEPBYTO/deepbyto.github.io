@@ -1,2538 +1,947 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Demos | DEEPBYTO</title>
-
-  <meta
-    name="description"
-    content="Explore professional website demos and digital experiences developed by DEEPBYTO."
-  >
-
+  <meta name="description" content="Explore professional website demos and digital experiences developed by DEEPBYTO.">
   <meta name="robots" content="index, follow">
-
-  <link
-    rel="canonical"
-    href="https://deepbyto.github.io/demos/"
-  >
-
-  <link
-    rel="icon"
-    href="https://deepbyto.github.io/favicon.ico"
-    type="image/x-icon"
-  >
-
-  <link
-    rel="shortcut icon"
-    href="https://deepbyto.github.io/favicon.ico"
-    type="image/x-icon"
-  >
-
+  <link rel="canonical" href="https://deepbyto.github.io/demos/">
+  <link rel="icon" href="https://deepbyto.github.io/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="https://deepbyto.github.io/favicon.ico" type="image/x-icon">
   <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Website Demos | DEEPBYTO">
+  <meta property="og:description" content="Explore professional website demos and digital experiences developed by DEEPBYTO.">
+  <meta property="og:image" content="https://deepbyto.github.io/image.jpg">
+  <meta property="og:url" content="https://deepbyto.github.io/demos/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DEEPBYTO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Website Demos | DEEPBYTO">
+  <meta name="twitter:description" content="Explore professional website demos and digital experiences developed by DEEPBYTO.">
+  <meta name="twitter:image" content="https://deepbyto.github.io/image.jpg">
 
-  <meta
-    property="og:title"
-    content="Website Demos | DEEPBYTO"
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <meta
-    property="og:description"
-    content="Explore professional website demos and digital experiences developed by DEEPBYTO."
-  >
-
-  <meta
-    property="og:image"
-    content="https://deepbyto.github.io/image.jpg"
-  >
-
-  <meta
-    property="og:url"
-    content="https://deepbyto.github.io/demos/"
-  >
-
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:site_name"
-    content="DEEPBYTO"
-  >
-
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
-
-  <meta
-    name="twitter:title"
-    content="Website Demos | DEEPBYTO"
-  >
-
-  <meta
-    name="twitter:description"
-    content="Explore professional website demos and digital experiences developed by DEEPBYTO."
-  >
-
-  <meta
-    name="twitter:image"
-    content="https://deepbyto.github.io/image.jpg"
-  >
-
-
-  <!-- Fonts -->
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  >
-
-
-  <!-- Font Awesome -->
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  >
-
-
-  <!-- Google Analytics -->
-
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-TLW2YM03KC">
-  </script>
-
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TLW2YM03KC"></script>
   <script>
-
     window.dataLayer = window.dataLayer || [];
-
-    function gtag(){
-      dataLayer.push(arguments);
-    }
-
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag(
-      'config',
-      'G-TLW2YM03KC'
-    );
-
+    gtag('config', 'G-TLW2YM03KC');
   </script>
-
 
   <style>
-
     /* =========================================
        RESET
        ========================================= */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-
       --bg-primary: #000000;
-
       --bg-secondary: #080808;
-
       --bg-card: rgba(18,18,18,0.86);
-
       --text-primary: #ffffff;
-
       --text-secondary: #dddddd;
-
       --text-muted: #999999;
-
       --accent: #ffffff;
-
       --accent-dim: rgba(255,255,255,0.08);
-
       --accent-glow: rgba(255,255,255,0.18);
-
       --border: rgba(255,255,255,0.10);
-
       --border-hover: rgba(255,255,255,0.45);
-
       --nav-bg: rgba(0,0,0,0.72);
-
       --nav-scrolled: rgba(0,0,0,0.96);
-
       --shadow: rgba(0,0,0,0.65);
-
       --radius: 18px;
-
-      --transition:
-        0.35s cubic-bezier(0.25,0.46,0.45,0.94);
-
-      --font-sans:
-        'Inter',
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
-
-      --font-display:
-        'Orbitron',
-        'Inter',
-        sans-serif;
+      --transition: 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'Orbitron', 'Inter', sans-serif;
     }
 
-
-    /* =========================================
-       LIGHT MODE
-       ========================================= */
-
     [data-theme="light"] {
-
       --bg-primary: #f5f5f5;
-
       --bg-secondary: #eeeeee;
-
       --bg-card: rgba(255,255,255,0.88);
-
       --text-primary: #111111;
-
       --text-secondary: #333333;
-
       --text-muted: #666666;
-
       --accent: #000000;
-
       --accent-dim: rgba(0,0,0,0.06);
-
       --accent-glow: rgba(0,0,0,0.12);
-
       --border: rgba(0,0,0,0.10);
-
       --border-hover: rgba(0,0,0,0.35);
-
       --nav-bg: rgba(255,255,255,0.82);
-
       --nav-scrolled: rgba(255,255,255,0.96);
-
       --shadow: rgba(0,0,0,0.15);
     }
 
-
-    /* =========================================
-       BASE
-       ========================================= */
-
-    html {
-
-      scroll-behavior: smooth;
-
-      -webkit-font-smoothing: antialiased;
-    }
-
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
     body {
-
       font-family: var(--font-sans);
-
       background: var(--bg-primary);
-
       color: var(--text-primary);
-
       line-height: 1.6;
-
       overflow-x: hidden;
-
-      transition:
-        background 0.4s ease,
-        color 0.3s ease;
+      transition: background 0.4s ease, color 0.3s ease;
     }
 
-
-    ::selection {
-
-      background: var(--accent);
-
-      color: var(--bg-primary);
-    }
-
-
-    a {
-
-      color: var(--text-primary);
-
-      text-decoration: none;
-    }
-
-
-    button {
-
-      font-family: inherit;
-    }
-
+    ::selection { background: var(--accent); color: var(--bg-primary); }
+    a { color: var(--text-primary); text-decoration: none; }
+    button { font-family: inherit; }
 
     /* =========================================
        BACKGROUND GRID
        ========================================= */
-
     .background-grid {
-
       position: fixed;
-
       inset: 0;
-
       pointer-events: none;
-
       z-index: 0;
-
       opacity: 0.25;
-
       background-image:
-
-        linear-gradient(
-          rgba(255,255,255,0.025) 1px,
-          transparent 1px
-        ),
-
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0.025) 1px,
-          transparent 1px
-        );
-
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
       background-size: 60px 60px;
     }
-
-
     [data-theme="light"] .background-grid {
-
       opacity: 0.18;
-
       background-image:
-
-        linear-gradient(
-          rgba(0,0,0,0.035) 1px,
-          transparent 1px
-        ),
-
-        linear-gradient(
-          90deg,
-          rgba(0,0,0,0.035) 1px,
-          transparent 1px
-        );
+        linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px);
     }
-
 
     /* =========================================
        CONTAINER
        ========================================= */
-
     .container {
-
       width: 100%;
-
       max-width: 1240px;
-
       margin: 0 auto;
-
       padding-left: 24px;
-
       padding-right: 24px;
-
       position: relative;
-
       z-index: 2;
     }
-
 
     /* =========================================
        NAVBAR
        ========================================= */
-
     .navbar {
-
       position: fixed;
-
       top: 0;
-
       left: 0;
-
       width: 100%;
-
       z-index: 1000;
-
       padding: 16px 0;
-
       background: var(--nav-bg);
-
       backdrop-filter: blur(18px);
-
       -webkit-backdrop-filter: blur(18px);
-
       border-bottom: 1px solid var(--border);
-
-      transition:
-        background var(--transition),
-        box-shadow var(--transition);
+      transition: background var(--transition), box-shadow var(--transition);
     }
-
-
-    .navbar.scrolled {
-
-      background: var(--nav-scrolled);
-
-      box-shadow:
-        0 8px 30px var(--shadow);
-    }
-
-
-    .navbar .container {
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-    }
-
-
-    /* BRAND */
-
+    .navbar.scrolled { background: var(--nav-scrolled); box-shadow: 0 8px 30px var(--shadow); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
     .nav-brand {
-
       font-family: var(--font-display);
-
       font-size: 1.15rem;
-
       font-weight: 800;
-
       letter-spacing: 0.08em;
-
       color: var(--text-primary);
-
       transition: opacity 0.3s ease;
     }
-
-
-    .nav-brand:hover {
-
-      opacity: 0.7;
-    }
-
-
-    /* NAV LINKS */
+    .nav-brand:hover { opacity: 0.7; }
 
     .nav-links {
-
       display: flex;
-
       align-items: center;
-
       gap: 30px;
-
       list-style: none;
     }
-
-
     .nav-links a {
-
       position: relative;
-
       font-size: 0.85rem;
-
       font-weight: 500;
-
       color: var(--text-secondary);
-
       transition: color 0.3s ease;
     }
-
-
     .nav-links a::after {
-
       content: '';
-
       position: absolute;
-
       left: 0;
-
       bottom: -6px;
-
       width: 0;
-
       height: 2px;
-
       background: var(--accent);
-
       border-radius: 4px;
-
       transition: width 0.3s ease;
     }
-
-
-    .nav-links a:hover,
-    .nav-links a.active {
-
-      color: var(--text-primary);
-    }
-
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-
-      width: 100%;
-    }
-
-
-    /* =========================================
-       THEME BUTTON
-       ========================================= */
+    .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
     .theme-toggle {
-
       display: flex;
-
       align-items: center;
-
       gap: 7px;
-
       padding: 7px 13px;
-
       border-radius: 50px;
-
       background: var(--accent-dim);
-
       border: 1px solid var(--border);
-
       color: var(--text-secondary);
-
       cursor: pointer;
-
       font-size: 0.75rem;
-
       transition: all 0.3s ease;
     }
-
-
-    .theme-toggle:hover {
-
-      border-color: var(--accent);
-
-      color: var(--text-primary);
-    }
-
-
-    /* =========================================
-       MOBILE BUTTON
-       ========================================= */
+    .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
 
     .nav-toggle {
-
       display: none;
-
       width: 42px;
-
       height: 42px;
-
       align-items: center;
-
       justify-content: center;
-
       flex-direction: column;
-
       gap: 5px;
-
       background: transparent;
-
       border: 1px solid var(--border);
-
       border-radius: 10px;
-
       cursor: pointer;
     }
-
-
     .nav-toggle span {
-
       width: 22px;
-
       height: 2px;
-
       background: var(--text-primary);
-
       border-radius: 5px;
-
       transition: all 0.3s ease;
     }
-
-
-    .nav-toggle.active span:nth-child(1) {
-
-      transform:
-        rotate(45deg)
-        translate(5px,5px);
-    }
-
-
-    .nav-toggle.active span:nth-child(2) {
-
-      opacity: 0;
-    }
-
-
-    .nav-toggle.active span:nth-child(3) {
-
-      transform:
-        rotate(-45deg)
-        translate(5px,-5px);
-    }
-
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
 
     /* =========================================
        DEMOS SECTION
        ========================================= */
-
     .demos-section {
-
       padding: 145px 0 110px;
-
       position: relative;
-
       z-index: 2;
     }
 
+    /* =========================================
+       LOADING STATE
+       ========================================= */
+    .loading-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      gap: 20px;
+      color: var(--text-muted);
+    }
+    .loading-spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-state p { font-size: 0.9rem; letter-spacing: 0.05em; }
+
+    /* =========================================
+       ERROR STATE
+       ========================================= */
+    .error-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      gap: 16px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .error-state i { font-size: 2.5rem; color: var(--text-muted); }
+    .error-state p { font-size: 0.9rem; max-width: 400px; }
+    .error-state button {
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      background: var(--accent-dim);
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+    .error-state button:hover { border-color: var(--accent); }
 
     /* =========================================
        DEMOS GRID
        ========================================= */
-
     .demos-grid {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(
-          2,
-          minmax(0,1fr)
-        );
-
+      grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 28px;
     }
-
 
     /* =========================================
        DEMO CARD
        ========================================= */
-
     .demo-card {
-
       background: var(--bg-card);
-
       border: 1px solid var(--border);
-
       border-radius: var(--radius);
-
       overflow: hidden;
-
       backdrop-filter: blur(12px);
-
       -webkit-backdrop-filter: blur(12px);
-
-      box-shadow:
-        0 15px 45px var(--shadow);
-
-      transition:
-        transform 0.45s ease,
-        border-color 0.45s ease,
-        box-shadow 0.45s ease;
-
+      box-shadow: 0 15px 45px var(--shadow);
+      transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
       opacity: 0;
-
       transform: translateY(35px);
-
-      animation:
-        cardReveal 0.7s ease forwards;
+      animation: cardReveal 0.7s ease forwards;
     }
-
-
     .demo-card:hover {
-
       transform: translateY(-8px);
-
       border-color: var(--border-hover);
-
-      box-shadow:
-        0 28px 60px var(--shadow),
-        0 0 45px var(--accent-glow);
+      box-shadow: 0 28px 60px var(--shadow), 0 0 45px var(--accent-glow);
     }
-
-
     @keyframes cardReveal {
-
-      to {
-
-        opacity: 1;
-
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
-
-
-    .demo-card:nth-child(1) {
-      animation-delay: 0.05s;
-    }
-
-    .demo-card:nth-child(2) {
-      animation-delay: 0.12s;
-    }
-
-    .demo-card:nth-child(3) {
-      animation-delay: 0.19s;
-    }
-
-    .demo-card:nth-child(4) {
-      animation-delay: 0.26s;
-    }
-
-    .demo-card:nth-child(5) {
-      animation-delay: 0.33s;
-    }
-
-    .demo-card:nth-child(6) {
-      animation-delay: 0.40s;
-    }
-
+    .demo-card:nth-child(1) { animation-delay: 0.05s; }
+    .demo-card:nth-child(2) { animation-delay: 0.10s; }
+    .demo-card:nth-child(3) { animation-delay: 0.15s; }
+    .demo-card:nth-child(4) { animation-delay: 0.20s; }
+    .demo-card:nth-child(5) { animation-delay: 0.25s; }
+    .demo-card:nth-child(6) { animation-delay: 0.30s; }
+    .demo-card:nth-child(7) { animation-delay: 0.35s; }
+    .demo-card:nth-child(8) { animation-delay: 0.40s; }
+    .demo-card:nth-child(9) { animation-delay: 0.45s; }
+    .demo-card:nth-child(10) { animation-delay: 0.50s; }
 
     /* =========================================
        LIVE WEBSITE PREVIEW
        ========================================= */
-
     .demo-preview {
-
       position: relative;
-
       width: 100%;
-
       aspect-ratio: 16 / 10;
-
       overflow: hidden;
-
       background: #111;
-
       border-bottom: 1px solid var(--border);
     }
-
-
     .demo-preview iframe {
-
       position: absolute;
-
       top: 0;
-
       left: 0;
-
       width: 200%;
-
       height: 200%;
-
       border: 0;
-
       transform: scale(0.5);
-
       transform-origin: top left;
-
       background: #000;
     }
-
 
     /* =========================================
        PREVIEW BAR
        ========================================= */
-
     .preview-bar {
-
       position: absolute;
-
       top: 0;
-
       left: 0;
-
       width: 100%;
-
       height: 34px;
-
       display: flex;
-
       align-items: center;
-
       gap: 6px;
-
       padding: 0 12px;
-
       background: rgba(0,0,0,0.82);
-
       backdrop-filter: blur(10px);
-
       z-index: 5;
-
-      border-bottom:
-        1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
-
-
     .preview-dot {
-
       width: 7px;
-
       height: 7px;
-
       border-radius: 50%;
-
       background: rgba(255,255,255,0.65);
     }
-
-
     .preview-url {
-
       margin-left: 7px;
-
       font-size: 0.58rem;
-
       color: rgba(255,255,255,0.55);
-
       white-space: nowrap;
-
       overflow: hidden;
-
       text-overflow: ellipsis;
     }
-
 
     /* =========================================
        PREVIEW OVERLAY
        ========================================= */
-
     .preview-overlay {
-
       position: absolute;
-
       inset: 0;
-
       z-index: 4;
-
       pointer-events: none;
-
-      background:
-        linear-gradient(
-          to top,
-          rgba(0,0,0,0.25),
-          transparent 30%
-        );
+      background: linear-gradient(to top, rgba(0,0,0,0.25), transparent 30%);
     }
-
 
     /* =========================================
        CARD BODY
        ========================================= */
-
     .demo-body {
-
       padding: 24px;
-
       display: flex;
-
       flex-direction: column;
-
       gap: 13px;
     }
-
-
     .demo-top {
-
       display: flex;
-
       align-items: flex-start;
-
       justify-content: space-between;
-
       gap: 15px;
     }
-
-
     .demo-number {
-
       font-family: var(--font-display);
-
       font-size: 0.62rem;
-
       letter-spacing: 0.15em;
-
       color: var(--text-muted);
-
       margin-bottom: 5px;
     }
-
-
     .demo-title {
-
       font-family: var(--font-display);
-
       font-size: 1.2rem;
-
       font-weight: 700;
-
       line-height: 1.25;
     }
-
-
     .demo-category {
-
       display: inline-flex;
-
       align-items: center;
-
       padding: 5px 10px;
-
       border-radius: 50px;
-
       background: var(--accent-dim);
-
       border: 1px solid var(--border);
-
       color: var(--text-secondary);
-
       font-size: 0.65rem;
-
       font-weight: 600;
-
       white-space: nowrap;
     }
-
-
     .demo-description {
-
       color: var(--text-secondary);
-
       font-size: 0.84rem;
-
       line-height: 1.7;
     }
-
 
     /* =========================================
        BUTTONS
        ========================================= */
-
     .demo-actions {
-
       display: flex;
-
       gap: 10px;
-
       margin-top: 5px;
     }
-
-
     .demo-button {
-
       display: inline-flex;
-
       align-items: center;
-
       justify-content: center;
-
       gap: 8px;
-
       min-height: 42px;
-
       padding: 10px 18px;
-
       border-radius: 50px;
-
       font-size: 0.78rem;
-
       font-weight: 600;
-
       transition: all 0.3s ease;
     }
-
-
     .demo-button.primary {
-
       background: var(--accent);
-
       color: var(--bg-primary);
-
       flex: 1;
     }
-
-
     .demo-button.primary:hover {
-
       transform: translateY(-2px);
-
       opacity: 0.82;
-
-      box-shadow:
-        0 8px 20px var(--accent-glow);
+      box-shadow: 0 8px 20px var(--accent-glow);
     }
-
-
     .demo-button.secondary {
-
       border: 1px solid var(--border);
-
       color: var(--text-primary);
-
       background: transparent;
     }
-
-
     .demo-button.secondary:hover {
-
       border-color: var(--accent);
-
       background: var(--accent-dim);
     }
-
 
     /* =========================================
        COMING SOON CARD PREVIEW
        ========================================= */
-
     .coming-preview {
-
       width: 100%;
-
       height: 100%;
-
       min-height: 100%;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       flex-direction: column;
-
       gap: 12px;
-
       background:
-
-        radial-gradient(
-          circle at center,
-          rgba(255,255,255,0.08),
-          transparent 55%
-        ),
-
+        radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 55%),
         #090909;
     }
-
-
     .coming-preview i {
-
       font-size: 30px;
-
       color: rgba(255,255,255,0.5);
     }
-
-
     .coming-preview span {
-
       font-family: var(--font-display);
-
       font-size: 0.75rem;
-
       letter-spacing: 0.14em;
-
       color: rgba(255,255,255,0.55);
-
       text-transform: uppercase;
     }
-
 
     /* =========================================
        CTA
        ========================================= */
-
     .bottom-cta {
-
       margin-top: 70px;
-
       padding: 55px 35px;
-
       text-align: center;
-
       background: var(--accent-dim);
-
       border: 1px solid var(--border);
-
       border-radius: var(--radius);
-
       backdrop-filter: blur(10px);
     }
-
-
     .bottom-cta h2 {
-
       font-family: var(--font-display);
-
-      font-size:
-        clamp(
-          1.5rem,
-          3vw,
-          2.3rem
-        );
-
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
       margin-bottom: 12px;
     }
-
-
     .bottom-cta p {
-
       max-width: 650px;
-
-      margin:
-        0 auto 24px;
-
+      margin: 0 auto 24px;
       color: var(--text-secondary);
-
       font-size: 0.95rem;
     }
-
-
     .cta-button {
-
       display: inline-flex;
-
       align-items: center;
-
       gap: 9px;
-
       padding: 13px 25px;
-
       border-radius: 50px;
-
       background: var(--accent);
-
       color: var(--bg-primary);
-
       font-size: 0.85rem;
-
       font-weight: 600;
-
       transition: all 0.3s ease;
     }
-
-
     .cta-button:hover {
-
       transform: translateY(-2px);
-
       opacity: 0.85;
-
-      box-shadow:
-        0 12px 30px var(--accent-glow);
+      box-shadow: 0 12px 30px var(--accent-glow);
     }
-
 
     /* =========================================
        FOOTER
        ========================================= */
-
     .footer {
-
       padding: 45px 0 30px;
-
       border-top: 1px solid var(--border);
-
       background: var(--bg-secondary);
-
       position: relative;
-
       z-index: 2;
     }
-
-
     .footer-main {
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       gap: 30px;
-
       padding-bottom: 28px;
-
       border-bottom: 1px solid var(--border);
     }
-
-
     .footer-brand {
-
       font-family: var(--font-display);
-
       font-weight: 800;
-
       font-size: 1.1rem;
-
       letter-spacing: 0.07em;
     }
-
-
     .footer-tagline {
-
       color: var(--text-muted);
-
       font-size: 0.75rem;
-
       margin-top: 4px;
     }
-
-
     .footer-links {
-
       display: flex;
-
       flex-wrap: wrap;
-
       gap: 20px;
     }
-
-
     .footer-links a {
-
       font-size: 0.75rem;
-
       color: var(--text-secondary);
-
       transition: color 0.3s ease;
     }
-
-
-    .footer-links a:hover {
-
-      color: var(--text-primary);
-    }
-
-
+    .footer-links a:hover { color: var(--text-primary); }
     .footer-bottom {
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 20px;
-
       padding-top: 20px;
     }
-
-
     .footer-bottom p {
-
       color: var(--text-muted);
-
       font-size: 0.7rem;
     }
-
 
     /* =========================================
        RESPONSIVE
        ========================================= */
-
     @media (max-width: 900px) {
-
-      .demos-grid {
-
-        grid-template-columns: 1fr;
-      }
+      .demos-grid { grid-template-columns: 1fr; }
     }
-
-
     @media (max-width: 768px) {
-
       .nav-links {
-
         position: fixed;
-
         top: 0;
-
         right: -100%;
-
         width: 280px;
-
         height: 100vh;
-
         flex-direction: column;
-
         justify-content: center;
-
         gap: 28px;
-
         background: var(--bg-primary);
-
         border-left: 1px solid var(--border);
-
         transition: right 0.4s ease;
       }
-
-
-      .nav-links.open {
-
-        right: 0;
-      }
-
-
-      .nav-links a {
-
-        font-size: 1rem;
-      }
-
-
-      .theme-toggle {
-
-        margin-top: 10px;
-      }
-
-
-      .nav-toggle {
-
-        display: flex;
-
-        position: relative;
-
-        z-index: 1001;
-      }
-
-
-      .footer-main {
-
-        flex-direction: column;
-
-        text-align: center;
-      }
-
-
-      .footer-bottom {
-
-        flex-direction: column;
-
-        text-align: center;
-      }
+      .nav-links.open { right: 0; }
+      .nav-links a { font-size: 1rem; }
+      .theme-toggle { margin-top: 10px; }
+      .nav-toggle { display: flex; position: relative; z-index: 1001; }
+      .footer-main { flex-direction: column; text-align: center; }
+      .footer-bottom { flex-direction: column; text-align: center; }
     }
-
-
     @media (max-width: 480px) {
-
-      .container {
-
-        padding-left: 16px;
-
-        padding-right: 16px;
-      }
-
-
-      .demos-section {
-
-        padding-top: 125px;
-      }
-
-
-      .demo-body {
-
-        padding: 20px;
-      }
-
-
-      .demo-top {
-
-        flex-direction: column;
-
-        gap: 8px;
-      }
-
-
-      .demo-category {
-
-        align-self: flex-start;
-      }
-
-
-      .demo-actions {
-
-        flex-direction: column;
-      }
-
-
-      .demo-button.secondary {
-
-        width: 100%;
-      }
-
-
-      .bottom-cta {
-
-        padding: 40px 20px;
-      }
+      .container { padding-left: 16px; padding-right: 16px; }
+      .demos-section { padding-top: 125px; }
+      .demo-body { padding: 20px; }
+      .demo-top { flex-direction: column; gap: 8px; }
+      .demo-category { align-self: flex-start; }
+      .demo-actions { flex-direction: column; }
+      .demo-button.secondary { width: 100%; }
+      .bottom-cta { padding: 40px 20px; }
     }
-
-
-    /* =========================================
-       REDUCED MOTION
-       ========================================= */
 
     @media (prefers-reduced-motion: reduce) {
-
-      html {
-
-        scroll-behavior: auto;
-      }
-
-
-      *,
-
-      *::before,
-
-      *::after {
-
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
         animation-duration: 0.01ms !important;
-
         animation-iteration-count: 1 !important;
-
         transition-duration: 0.01ms !important;
       }
     }
-
   </style>
-
 </head>
 
-
 <body>
-
-
   <div class="background-grid"></div>
 
-
-  <!-- =========================================
-       NAVBAR
-       ========================================= -->
-
+  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-
     <div class="container">
-
-      <a
-        href="https://deepbyto.github.io/"
-        class="nav-brand"
-        aria-label="DEEPBYTO Home"
-      >
-        DEEPBYTO
-      </a>
-
-
+      <a href="https://deepbyto.github.io/" class="nav-brand" aria-label="DEEPBYTO Home">DEEPBYTO</a>
       <ul class="nav-links" id="navLinks">
-
+        <li><a href="https://deepbyto.github.io/">Home</a></li>
+        <li><a href="https://deepbyto.github.io/#about">About</a></li>
+        <li><a href="https://deepbyto.github.io/#services">Services</a></li>
+        <li><a href="https://deepbyto.github.io/#projects">Projects</a></li>
+        <li><a href="https://deepbyto.github.io/demos/" class="active">Demos</a></li>
+        <li><a href="https://deepbyto.github.io/#contact">Contact</a></li>
         <li>
-          <a href="https://deepbyto.github.io/">
-            Home
-          </a>
-        </li>
-
-        <li>
-          <a href="https://deepbyto.github.io/#about">
-            About
-          </a>
-        </li>
-
-        <li>
-          <a href="https://deepbyto.github.io/#services">
-            Services
-          </a>
-        </li>
-
-        <li>
-          <a href="https://deepbyto.github.io/#projects">
-            Projects
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="https://deepbyto.github.io/demos/"
-            class="active"
-          >
-            Demos
-          </a>
-        </li>
-
-        <li>
-          <a href="https://deepbyto.github.io/#contact">
-            Contact
-          </a>
-        </li>
-
-        <li>
-
-          <button
-            class="theme-toggle"
-            id="themeToggle"
-            aria-label="Toggle theme"
-          >
-
-            <i
-              class="fas fa-moon"
-              id="themeIcon"
-            ></i>
-
-            <span id="themeText">
-              Dark
-            </span>
-
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fas fa-moon" id="themeIcon"></i>
+            <span id="themeText">Dark</span>
           </button>
-
         </li>
-
       </ul>
-
-
-      <button
-        class="nav-toggle"
-        id="navToggle"
-        aria-label="Open navigation"
-        aria-expanded="false"
-      >
-
-        <span></span>
-
-        <span></span>
-
-        <span></span>
-
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
-
     </div>
-
   </nav>
 
-
-  <!-- =========================================
-       DEMOS
-       ========================================= -->
-
+  <!-- DEMOS -->
   <main>
-
     <section class="demos-section">
-
       <div class="container">
 
-
-        <div class="demos-grid">
-
-
-          <!-- =================================
-               01 — GYM
-               ================================= -->
-
-          <article class="demo-card">
-
-            <div class="demo-preview">
-
-              <div class="preview-bar">
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-url">
-                  deepbyto.github.io/demo-websites/gym/
-                </span>
-
-              </div>
-
-
-              <iframe
-                src="https://deepbyto.github.io/demo-websites/gym/"
-                title="Gym Website Demo"
-                loading="lazy"
-                scrolling="no"
-              ></iframe>
-
-
-              <div class="preview-overlay"></div>
-
-            </div>
-
-
-            <div class="demo-body">
-
-              <div class="demo-top">
-
-                <div>
-
-                  <div class="demo-number">
-                    01 / 06
-                  </div>
-
-                  <h3 class="demo-title">
-                    Gym & Fitness
-                  </h3>
-
-                </div>
-
-
-                <span class="demo-category">
-                  Business
-                </span>
-
-              </div>
-
-
-              <p class="demo-description">
-
-                A modern fitness website designed for
-                gyms, fitness centers, personal trainers,
-                and wellness businesses.
-
-              </p>
-
-
-              <div class="demo-actions">
-
-                <a
-                  href="https://deepbyto.github.io/demo-websites/gym/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="demo-button primary"
-                >
-
-                  View Live Demo
-
-                  <i
-                    class="fas fa-arrow-up-right-from-square"
-                  ></i>
-
-                </a>
-
-
-                <a
-                  href="https://wa.me/923047467957?text=Hi%20DEEPBYTO%2C%20I'm%20interested%20in%20the%20Gym%20Website%20Demo."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="demo-button secondary"
-                >
-
-                  <i class="fab fa-whatsapp"></i>
-
-                  Inquire
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- =================================
-               02 — RESTAURANT
-               ================================= -->
-
-          <article class="demo-card">
-
-            <div class="demo-preview">
-
-              <div class="preview-bar">
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-url">
-                  deepbyto.github.io/demo-websites/restaurant/
-                </span>
-
-              </div>
-
-
-              <iframe
-                src="https://deepbyto.github.io/demo-websites/restaurant/"
-                title="Restaurant Website Demo"
-                loading="lazy"
-                scrolling="no"
-              ></iframe>
-
-
-              <div class="preview-overlay"></div>
-
-            </div>
-
-
-            <div class="demo-body">
-
-              <div class="demo-top">
-
-                <div>
-
-                  <div class="demo-number">
-                    02 / 06
-                  </div>
-
-                  <h3 class="demo-title">
-                    Restaurant
-                  </h3>
-
-                </div>
-
-
-                <span class="demo-category">
-                  Food & Dining
-                </span>
-
-              </div>
-
-
-              <p class="demo-description">
-
-                A premium restaurant website focused on
-                menu presentation, brand identity,
-                reservations, and customer conversion.
-
-              </p>
-
-
-              <div class="demo-actions">
-
-                <a
-                  href="https://deepbyto.github.io/demo-websites/restaurant/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="demo-button primary"
-                >
-
-                  View Live Demo
-
-                  <i
-                    class="fas fa-arrow-up-right-from-square"
-                  ></i>
-
-                </a>
-
-
-                <a
-                  href="https://wa.me/923047467957?text=Hi%20DEEPBYTO%2C%20I'm%20interested%20in%20the%20Restaurant%20Website."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="demo-button secondary"
-                >
-
-                  <i class="fab fa-whatsapp"></i>
-
-                  Inquire
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- =================================
-               03 — ECOMMERCE
-               ================================= -->
-
-          <article class="demo-card">
-
-            <div class="demo-preview">
-
-              <div class="preview-bar">
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-url">
-                  E-Commerce Website
-                </span>
-
-              </div>
-
-
-              <div class="coming-preview">
-
-                <i class="fas fa-bag-shopping"></i>
-
-                <span>
-                  Coming Soon
-                </span>
-
-              </div>
-
-            </div>
-
-
-            <div class="demo-body">
-
-              <div class="demo-top">
-
-                <div>
-
-                  <div class="demo-number">
-                    03 / 06
-                  </div>
-
-                  <h3 class="demo-title">
-                    E-Commerce
-                  </h3>
-
-                </div>
-
-
-                <span class="demo-category">
-                  Online Store
-                </span>
-
-              </div>
-
-
-              <p class="demo-description">
-
-                A modern online store experience designed
-                for product discovery, mobile shopping,
-                and digital commerce.
-
-              </p>
-
-
-              <div class="demo-actions">
-
-                <a
-                  href="#"
-                  class="demo-button primary"
-                  onclick="comingSoon(event)"
-                >
-
-                  Coming Soon
-
-                  <i class="fas fa-arrow-right"></i>
-
-                </a>
-
-
-                <a
-                  href="https://wa.me/923047467957?text=Hi%20DEEPBYTO%2C%20I'm%20interested%20in%20the%20E-Commerce%20Website."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="demo-button secondary"
-                >
-
-                  <i class="fab fa-whatsapp"></i>
-
-                  Inquire
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- =================================
-               04 — PORTFOLIO
-               ================================= -->
-
-          <article class="demo-card">
-
-            <div class="demo-preview">
-
-              <div class="preview-bar">
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-url">
-                  Portfolio Website
-                </span>
-
-              </div>
-
-
-              <div class="coming-preview">
-
-                <i class="fas fa-user"></i>
-
-                <span>
-                  Coming Soon
-                </span>
-
-              </div>
-
-            </div>
-
-
-            <div class="demo-body">
-
-              <div class="demo-top">
-
-                <div>
-
-                  <div class="demo-number">
-                    04 / 06
-                  </div>
-
-                  <h3 class="demo-title">
-                    Personal Portfolio
-                  </h3>
-
-                </div>
-
-
-                <span class="demo-category">
-                  Portfolio
-                </span>
-
-              </div>
-
-
-              <p class="demo-description">
-
-                A professional portfolio experience for
-                developers, designers, creators,
-                freelancers, and professionals.
-
-              </p>
-
-
-              <div class="demo-actions">
-
-                <a
-                  href="#"
-                  class="demo-button primary"
-                  onclick="comingSoon(event)"
-                >
-
-                  Coming Soon
-
-                  <i class="fas fa-arrow-right"></i>
-
-                </a>
-
-
-                <a
-                  href="https://wa.me/923047467957?text=Hi%20DEEPBYTO%2C%20I'm%20interested%20in%20the%20Portfolio%20Website."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="demo-button secondary"
-                >
-
-                  <i class="fab fa-whatsapp"></i>
-
-                  Inquire
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- =================================
-               05 — REAL ESTATE
-               ================================= -->
-
-          <article class="demo-card">
-
-            <div class="demo-preview">
-
-              <div class="preview-bar">
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-url">
-                  Real Estate Website
-                </span>
-
-              </div>
-
-
-              <div class="coming-preview">
-
-                <i class="fas fa-building"></i>
-
-                <span>
-                  Coming Soon
-                </span>
-
-              </div>
-
-            </div>
-
-
-            <div class="demo-body">
-
-              <div class="demo-top">
-
-                <div>
-
-                  <div class="demo-number">
-                    05 / 06
-                  </div>
-
-                  <h3 class="demo-title">
-                    Real Estate
-                  </h3>
-
-                </div>
-
-
-                <span class="demo-category">
-                  Property
-                </span>
-
-              </div>
-
-
-              <p class="demo-description">
-
-                A professional property website concept
-                designed for agencies, property listings,
-                and real estate businesses.
-
-              </p>
-
-
-              <div class="demo-actions">
-
-                <a
-                  href="#"
-                  class="demo-button primary"
-                  onclick="comingSoon(event)"
-                >
-
-                  Coming Soon
-
-                  <i class="fas fa-arrow-right"></i>
-
-                </a>
-
-
-                <a
-                  href="https://wa.me/923047467957?text=Hi%20DEEPBYTO%2C%20I'm%20interested%20in%20the%20Real%20Estate%20Website."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="demo-button secondary"
-                >
-
-                  <i class="fab fa-whatsapp"></i>
-
-                  Inquire
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- =================================
-               06 — BUSINESS
-               ================================= -->
-
-          <article class="demo-card">
-
-            <div class="demo-preview">
-
-              <div class="preview-bar">
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-dot"></span>
-
-                <span class="preview-url">
-                  Business Website
-                </span>
-
-              </div>
-
-
-              <div class="coming-preview">
-
-                <i class="fas fa-building-circle-check"></i>
-
-                <span>
-                  Coming Soon
-                </span>
-
-              </div>
-
-            </div>
-
-
-            <div class="demo-body">
-
-              <div class="demo-top">
-
-                <div>
-
-                  <div class="demo-number">
-                    06 / 06
-                  </div>
-
-                  <h3 class="demo-title">
-                    Business Website
-                  </h3>
-
-                </div>
-
-
-                <span class="demo-category">
-                  Corporate
-                </span>
-
-              </div>
-
-
-              <p class="demo-description">
-
-                A flexible professional website concept
-                for companies, agencies, startups,
-                organizations, and service businesses.
-
-              </p>
-
-
-              <div class="demo-actions">
-
-                <a
-                  href="#"
-                  class="demo-button primary"
-                  onclick="comingSoon(event)"
-                >
-
-                  Coming Soon
-
-                  <i class="fas fa-arrow-right"></i>
-
-                </a>
-
-
-                <a
-                  href="https://wa.me/923047467957?text=Hi%20DEEPBYTO%2C%20I'm%20interested%20in%20the%20Business%20Website."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="demo-button secondary"
-                >
-
-                  <i class="fab fa-whatsapp"></i>
-
-                  Inquire
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
+        <!-- Loading State -->
+        <div class="loading-state" id="loadingState">
+          <div class="loading-spinner"></div>
+          <p>Loading demos from GitHub...</p>
         </div>
 
+        <!-- Error State -->
+        <div class="error-state" id="errorState">
+          <i class="fas fa-triangle-exclamation"></i>
+          <p>Unable to load demos right now. Please check your connection or try again later.</p>
+          <button onclick="loadDemos()">Try Again</button>
+        </div>
 
-        <!-- =================================
-             CTA
-             ================================= -->
+        <!-- Demos Grid (auto-populated) -->
+        <div class="demos-grid" id="demosGrid"></div>
 
+        <!-- CTA -->
         <div class="bottom-cta">
-
-          <h2>
-            Need a Website Like These?
-          </h2>
-
-
-          <p>
-
-            DEEPBYTO builds modern, responsive,
-            professional websites for businesses,
-            startups, individuals, and organizations.
-
-          </p>
-
-
-          <a
-            href="https://wa.me/923047467957?text=Hi%20DEEPBYTO%2C%20I'm%20interested%20in%20a%20professional%20website."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cta-button"
-          >
-
-            <i class="fab fa-whatsapp"></i>
-
-            Contact DEEPBYTO
-
+          <h2>Need a Website Like These?</h2>
+          <p>DEEPBYTO builds modern, responsive, professional websites for businesses, startups, individuals, and organizations.</p>
+          <a href="https://wa.me/923047467957?text=Hi%20DEEPBYTO%2C%20I'm%20interested%20in%20a%20professional%20website."
+             target="_blank" rel="noopener noreferrer" class="cta-button">
+            <i class="fab fa-whatsapp"></i> Contact DEEPBYTO
           </a>
-
         </div>
 
       </div>
-
     </section>
-
   </main>
 
-
-  <!-- =========================================
-       FOOTER
-       ========================================= -->
-
+  <!-- FOOTER -->
   <footer class="footer">
-
     <div class="container">
-
-
       <div class="footer-main">
-
         <div>
-
-          <div class="footer-brand">
-            DEEPBYTO
-          </div>
-
-          <div class="footer-tagline">
-            AI & Software Innovation
-          </div>
-
+          <div class="footer-brand">DEEPBYTO</div>
+          <div class="footer-tagline">AI & Software Innovation</div>
         </div>
-
-
         <div class="footer-links">
-
-          <a href="https://deepbyto.github.io/">
-            Home
-          </a>
-
-          <a href="https://deepbyto.github.io/#services">
-            Services
-          </a>
-
-          <a href="https://deepbyto.github.io/#projects">
-            Projects
-          </a>
-
-          <a href="https://deepbyto.github.io/demos/">
-            Demos
-          </a>
-
-          <a href="https://deepbyto.github.io/#contact">
-            Contact
-          </a>
-
+          <a href="https://deepbyto.github.io/">Home</a>
+          <a href="https://deepbyto.github.io/#services">Services</a>
+          <a href="https://deepbyto.github.io/#projects">Projects</a>
+          <a href="https://deepbyto.github.io/demos/">Demos</a>
+          <a href="https://deepbyto.github.io/#contact">Contact</a>
         </div>
-
       </div>
-
-
       <div class="footer-bottom">
-
-        <p>
-          © 2026 DEEPBYTO. All rights reserved.
-        </p>
-
-        <p>
-          Developed by DEEPBYTO
-        </p>
-
+        <p>© 2026 DEEPBYTO. All rights reserved.</p>
+        <p>Developed by DEEPBYTO</p>
       </div>
-
     </div>
-
   </footer>
 
-
-  <!-- =========================================
-       JAVASCRIPT
-       ========================================= -->
-
   <script>
-
     'use strict';
 
+    /* =========================================
+       CONFIGURATION
+       ========================================= */
+    const GITHUB_USER = 'DEEPBYTO';
+    const GITHUB_REPO = 'demo-websites';
+    const GITHUB_BRANCH = 'main'; // ya 'master' agar aapki branch 'main' nahi hai
+    const LIVE_BASE_URL = `https://${GITHUB_USER.toLowerCase()}.github.io/${GITHUB_REPO}/`;
+
+    // Folder name ke hisaab se metadata mapping
+    // Jab naya folder add karen, yahan entry add kar dein
+    const CATEGORY_MAP = {
+      'gym':         { title: 'Gym & Fitness',      category: 'Business',       icon: 'fa-dumbbell',          description: 'A modern fitness website designed for gyms, fitness centers, personal trainers, and wellness businesses.' },
+      'restaurant':  { title: 'Restaurant',          category: 'Food & Dining',  icon: 'fa-utensils',          description: 'A premium restaurant website focused on menu presentation, brand identity, reservations, and customer conversion.' },
+      'ecommerce':   { title: 'E-Commerce',          category: 'Online Store',   icon: 'fa-bag-shopping',      description: 'A modern online store experience designed for product discovery, mobile shopping, and digital commerce.' },
+      'portfolio':   { title: 'Personal Portfolio',  category: 'Portfolio',      icon: 'fa-user',              description: 'A professional portfolio experience for developers, designers, creators, freelancers, and professionals.' },
+      'realestate':  { title: 'Real Estate',         category: 'Property',       icon: 'fa-building',          description: 'A professional property website concept designed for agencies, property listings, and real estate businesses.' },
+      'business':    { title: 'Business Website',    category: 'Corporate',      icon: 'fa-building-circle-check', description: 'A flexible professional website concept for companies, agencies, startups, organizations, and service businesses.' }
+    };
+
+    // Fallback agar kisi folder ka metadata na mile
+    function getFallbackMeta(folderName, index) {
+      const formatted = folderName
+        .replace(/[-_]/g, ' ')
+        .replace(/\b\w/g, c => c.toUpperCase());
+      return {
+        title: formatted,
+        category: 'Website',
+        icon: 'fa-globe',
+        description: `A professional ${formatted} website demo developed by DEEPBYTO.`
+      };
+    }
+
+    /* =========================================
+       GITHUB API
+       ========================================= */
+    async function fetchRepoContents() {
+      const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/?ref=${GITHUB_BRANCH}`;
+      const response = await fetch(apiUrl, {
+        headers: { 'Accept': 'application/vnd.github.v3+json' }
+      });
+      if (!response.ok) {
+        throw new Error(`GitHub API error: ${response.status}`);
+      }
+      return await response.json();
+    }
+
+    /* =========================================
+       RENDER CARDS
+       ========================================= */
+    function renderCards(folders) {
+      const grid = document.getElementById('demosGrid');
+      grid.innerHTML = '';
+
+      // Sirf directories filter karo
+      const dirs = folders.filter(item => item.type === 'dir');
+
+      if (dirs.length === 0) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:40px;">No demos found yet. Check back soon!</p>';
+        return;
+      }
+
+      dirs.forEach((dir, index) => {
+        const folderName = dir.name;
+        const meta = CATEGORY_MAP[folderName] || getFallbackMeta(folderName, index);
+        const liveUrl = `${LIVE_BASE_URL}${folderName}/`;
+        const displayUrl = `deepbyto.github.io/demo-websites/${folderName}/`;
+        const number = String(index + 1).padStart(2, '0');
+        const total = String(dirs.length).padStart(2, '0');
+        const isComingSoon = !CATEGORY_MAP[folderName]; // agar mapping nahi to coming soon treat karo? Nahi, agar folder exist karta hai to live treat karo
+
+        // Folder exist karta hai to live preview use karo
+        const card = document.createElement('article');
+        card.className = 'demo-card';
+        card.innerHTML = `
+          <div class="demo-preview">
+            <div class="preview-bar">
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+              <span class="preview-dot"></span>
+              <span class="preview-url">${displayUrl}</span>
+            </div>
+            <iframe
+              src="${liveUrl}"
+              title="${meta.title} Website Demo"
+              loading="lazy"
+              scrolling="no"
+            ></iframe>
+            <div class="preview-overlay"></div>
+          </div>
+          <div class="demo-body">
+            <div class="demo-top">
+              <div>
+                <div class="demo-number">${number} / ${total}</div>
+                <h3 class="demo-title">${meta.title}</h3>
+              </div>
+              <span class="demo-category">${meta.category}</span>
+            </div>
+            <p class="demo-description">${meta.description}</p>
+            <div class="demo-actions">
+              <a href="${liveUrl}" target="_blank" rel="noopener noreferrer" class="demo-button primary">
+                View Live Demo <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+              <a href="https://wa.me/923047467957?text=Hi%20DEEPBYTO%2C%20I'm%20interested%20in%20the%20${encodeURIComponent(meta.title)}%20Website."
+                 target="_blank" rel="noopener noreferrer" class="demo-button secondary">
+                <i class="fab fa-whatsapp"></i> Inquire
+              </a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    /* =========================================
+       LOAD DEMOS
+       ========================================= */
+    async function loadDemos() {
+      const loadingState = document.getElementById('loadingState');
+      const errorState = document.getElementById('errorState');
+      const grid = document.getElementById('demosGrid');
+
+      loadingState.style.display = 'flex';
+      errorState.style.display = 'none';
+      grid.innerHTML = '';
+
+      try {
+        const contents = await fetchRepoContents();
+        loadingState.style.display = 'none';
+        renderCards(contents);
+      } catch (err) {
+        console.error('Failed to load demos:', err);
+        loadingState.style.display = 'none';
+        errorState.style.display = 'flex';
+      }
+    }
 
     /* =========================================
        NAVBAR
        ========================================= */
-
-    const navbar =
-      document.getElementById('navbar');
-
-
-    window.addEventListener(
-      'scroll',
-      () => {
-
-        if (window.scrollY > 20) {
-
-          navbar.classList.add('scrolled');
-
-        } else {
-
-          navbar.classList.remove('scrolled');
-
-        }
-
-      }
-    );
-
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
 
     /* =========================================
        MOBILE NAVIGATION
        ========================================= */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
 
-    const navToggle =
-      document.getElementById('navToggle');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', open);
+    });
 
-    const navLinks =
-      document.getElementById('navLinks');
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-
-    navToggle.addEventListener(
-      'click',
-      () => {
-
-        const open =
-          navLinks.classList.toggle('open');
-
-
-        navToggle.classList.toggle(
-          'active'
-        );
-
-
-        navToggle.setAttribute(
-          'aria-expanded',
-          open
-        );
-
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
       }
-    );
-
-
-    navLinks
-      .querySelectorAll('a')
-      .forEach(
-        link => {
-
-          link.addEventListener(
-            'click',
-            () => {
-
-              navLinks.classList.remove(
-                'open'
-              );
-
-              navToggle.classList.remove(
-                'active'
-              );
-
-              navToggle.setAttribute(
-                'aria-expanded',
-                'false'
-              );
-
-            }
-          );
-
-        }
-      );
-
-
-    document.addEventListener(
-      'keydown',
-      event => {
-
-        if (
-          event.key === 'Escape' &&
-          navLinks.classList.contains('open')
-        ) {
-
-          navLinks.classList.remove(
-            'open'
-          );
-
-          navToggle.classList.remove(
-            'active'
-          );
-
-          navToggle.setAttribute(
-            'aria-expanded',
-            'false'
-          );
-
-        }
-
-      }
-    );
-
+    });
 
     /* =========================================
        THEME
        ========================================= */
-
-    const themeToggle =
-      document.getElementById('themeToggle');
-
-    const themeIcon =
-      document.getElementById('themeIcon');
-
-    const themeText =
-      document.getElementById('themeText');
-
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
 
     function setTheme(theme) {
-
-      document.documentElement
-        .setAttribute(
-          'data-theme',
-          theme
-        );
-
-
-      localStorage.setItem(
-        'deepbyto-theme',
-        theme
-      );
-
-
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('deepbyto-theme', theme);
       if (theme === 'light') {
-
-        themeIcon.className =
-          'fas fa-sun';
-
-        themeText.textContent =
-          'Light';
-
+        themeIcon.className = 'fas fa-sun';
+        themeText.textContent = 'Light';
       } else {
-
-        themeIcon.className =
-          'fas fa-moon';
-
-        themeText.textContent =
-          'Dark';
-
+        themeIcon.className = 'fas fa-moon';
+        themeText.textContent = 'Dark';
       }
-
-
-      const meta =
-        document.querySelector(
-          'meta[name="theme-color"]'
-        );
-
-
+      const meta = document.querySelector('meta[name="theme-color"]');
       if (meta) {
-
-        meta.content =
-          theme === 'light'
-            ? '#f5f5f5'
-            : '#000000';
-
+        meta.content = theme === 'light' ? '#f5f5f5' : '#000000';
       }
-
     }
 
-
-    const savedTheme =
-      localStorage.getItem(
-        'deepbyto-theme'
-      ) || 'dark';
-
-
+    const savedTheme = localStorage.getItem('deepbyto-theme') || 'dark';
     setTheme(savedTheme);
 
-
-    themeToggle.addEventListener(
-      'click',
-      () => {
-
-        const current =
-          document.documentElement
-            .getAttribute(
-              'data-theme'
-            );
-
-
-        setTheme(
-          current === 'light'
-            ? 'dark'
-            : 'light'
-        );
-
-      }
-    );
-
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      setTheme(current === 'light' ? 'dark' : 'light');
+    });
 
     /* =========================================
-       COMING SOON
+       INIT
        ========================================= */
-
-    function comingSoon(event) {
-
-      event.preventDefault();
-
-      alert(
-        'This demo is currently being developed by DEEPBYTO.'
-      );
-
-    }
-
+    loadDemos();
   </script>
-
-
 </body>
 </html>
-```
