@@ -77,9 +77,7 @@
       --nav-scrolled: rgba(0,0,0,0.95);
       --whatsapp-border: rgba(255,255,255,0.2);
       --lab-card-bg: var(--bg-card);
-      --project-card-bg: var(--bg-card);
       --value-card-bg: var(--bg-card);
-      --tool-card-bg: var(--bg-card);
       --wordmark-filter: brightness(0) invert(1);
       --overlay-color: rgba(0, 0, 0, 0.75);
       --overlay-color-2: rgba(0, 0, 0, 0.45);
@@ -123,9 +121,7 @@
       --nav-scrolled: rgba(255,255,255,0.95);
       --whatsapp-border: rgba(0,0,0,0.2);
       --lab-card-bg: rgba(255,255,255,0.85);
-      --project-card-bg: rgba(255,255,255,0.85);
       --value-card-bg: rgba(255,255,255,0.85);
-      --tool-card-bg: rgba(255,255,255,0.85);
       --wordmark-filter: brightness(0) invert(0);
       --overlay-color: rgba(255, 255, 255, 0.85);
       --overlay-color-2: rgba(255, 255, 255, 0.5);
@@ -334,6 +330,100 @@
       box-shadow: 0 8px 20px var(--accent-glow);
     }
     .nav-cta::after { display: none !important; }
+
+    /* ----- NAV DROPDOWN (MORE) ----- */
+    .nav-dropdown {
+      position: relative;
+      list-style: none;
+    }
+    .nav-dropdown-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-dropdown-toggle::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width var(--transition);
+      border-radius: 4px;
+    }
+    .nav-dropdown-toggle:hover { color: var(--text-primary); }
+    .nav-dropdown-toggle:hover::after { width: 100%; }
+    .nav-dropdown-toggle .dd-chevron {
+      font-size: 0.6rem;
+      transition: transform 0.3s ease;
+    }
+    .nav-dropdown.open .nav-dropdown-toggle { color: var(--text-primary); }
+    .nav-dropdown.open .nav-dropdown-toggle::after { width: 100%; }
+    .nav-dropdown.open .nav-dropdown-toggle .dd-chevron { transform: rotate(180deg); }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 16px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      min-width: 210px;
+      list-style: none;
+      margin: 0;
+      padding: 8px;
+      background: var(--nav-scrolled);
+      backdrop-filter: blur(22px) saturate(1.3);
+      -webkit-backdrop-filter: blur(22px) saturate(1.3);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      box-shadow: 0 18px 45px var(--shadow-color);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      z-index: 1002;
+    }
+    .nav-dropdown.open .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu li { list-style: none; }
+    .nav-dropdown-menu a {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 10px 14px;
+      border-radius: 9px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      transition: background var(--transition), color var(--transition);
+    }
+    .nav-dropdown-menu a::after { display: none !important; }
+    .nav-dropdown-menu a:hover,
+    .nav-dropdown-menu a:focus-visible {
+      background: var(--accent-dim);
+      color: var(--text-primary);
+      outline: none;
+    }
+    .nav-dropdown-menu a i {
+      width: 16px;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
     .nav-toggle {
       display: none;
       flex-direction: column;
@@ -1105,329 +1195,6 @@
       z-index: 2;
     }
 
-    /* PROJECTS */
-    #projects {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
-      position: relative;
-      z-index: 2;
-    }
-    .project-card {
-      background: var(--project-card-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      padding: 28px 26px;
-      transition: all var(--transition);
-      display: flex;
-      flex-direction: column;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: cardFadeIn 0.6s ease forwards;
-    }
-    .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px var(--shadow-color);
-    }
-    .project-card .card-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-    .project-card .card-header .repo-icon {
-      color: var(--text-primary);
-      font-size: 1.1rem;
-    }
-    .project-card .card-header h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      letter-spacing: -0.01em;
-    }
-    .project-card .project-desc {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-      flex: 1;
-      line-height: 1.6;
-    }
-    .project-card .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 14px;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-    .project-card .project-meta .lang-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 2px 10px;
-      border-radius: 50px;
-      background: var(--badge-bg);
-      border: 1px solid var(--badge-border);
-      color: var(--text-primary);
-      font-size: 0.7rem;
-      font-weight: 500;
-    }
-    .project-card .project-meta .lang-badge .dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-    .project-card .project-meta span {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .project-card .project-meta .updated {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
-    .project-card .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 4px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border-subtle);
-    }
-    .project-card .card-footer .repo-link {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      transition: all var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .project-card .card-footer .repo-link:hover {
-      color: var(--text-secondary);
-      gap: 10px;
-    }
-    .project-card .card-footer .star-count {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .project-card .card-footer .star-count i { color: #f1c40f; }
-    @keyframes cardFadeIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .project-card:nth-child(1) { animation-delay: 0.05s; }
-    .project-card:nth-child(2) { animation-delay: 0.10s; }
-    .project-card:nth-child(3) { animation-delay: 0.15s; }
-    .project-card:nth-child(4) { animation-delay: 0.20s; }
-    .project-card:nth-child(5) { animation-delay: 0.25s; }
-    .project-card:nth-child(6) { animation-delay: 0.30s; }
-    .project-card:nth-child(7) { animation-delay: 0.35s; }
-    .project-card:nth-child(8) { animation-delay: 0.40s; }
-    .projects-loading {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-secondary);
-      font-size: 1rem;
-      grid-column: 1 / -1;
-    }
-    .projects-loading i {
-      font-size: 2rem;
-      color: var(--text-primary);
-      display: block;
-      margin-bottom: 16px;
-    }
-    .projects-error {
-      text-align: center;
-      padding: 40px;
-      color: #ff6b6b;
-      grid-column: 1 / -1;
-    }
-    .projects-error i {
-      font-size: 2.5rem;
-      color: #ff6b6b;
-      display: block;
-      margin-bottom: 16px;
-    }
-    .projects-empty {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-secondary);
-      grid-column: 1 / -1;
-    }
-    .projects-empty i {
-      font-size: 2.5rem;
-      color: var(--text-muted);
-      display: block;
-      margin-bottom: 16px;
-    }
-    .projects-cta { margin-top: 40px; text-align: center; position: relative; z-index: 2; }
-
-    /* ============================================
-       TOOLS (dynamic from GitHub)
-       ============================================ */
-    #tools {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-      transition: background 0.4s ease, border-color 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .tool-card {
-      position: relative;
-      background: var(--tool-card-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      padding: 28px 26px;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      min-height: 240px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: cardFadeIn 0.6s ease forwards;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-    .tool-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-6px);
-      box-shadow: 0 24px 45px var(--shadow-color), 0 0 50px var(--accent-dim);
-    }
-    .tool-card .tool-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: var(--accent-dim);
-      border: 1px solid var(--glass-border);
-      color: var(--text-primary);
-      font-size: 1.4rem;
-      margin-bottom: 18px;
-      transition: all var(--transition);
-    }
-    .tool-card:hover .tool-icon {
-      background: var(--accent);
-      color: var(--bg-primary);
-      border-color: var(--accent);
-      transform: scale(1.05);
-    }
-    .tool-card h4 {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.01em;
-      margin-bottom: 8px;
-    }
-    .tool-card p {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 18px;
-      flex: 1;
-    }
-    .tool-card .tool-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      transition: gap 0.3s ease;
-    }
-    .tool-card .tool-link .arrow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--badge-bg);
-      border: 1px solid var(--badge-border);
-      font-size: 0.7rem;
-      transition: all 0.35s ease;
-    }
-    .tool-card:hover .tool-link {
-      gap: 14px;
-    }
-    .tool-card:hover .tool-link .arrow {
-      transform: rotate(-45deg);
-      background: var(--accent);
-      color: var(--bg-primary);
-      border-color: var(--accent);
-    }
-
-    /* Special "Suggest a Tool" card */
-    .tool-card.suggest-card {
-      background: var(--accent-dim);
-      border: 1px dashed var(--accent);
-      cursor: pointer;
-    }
-    .tool-card.suggest-card:hover {
-      background: var(--accent-dim);
-      border-style: solid;
-    }
-    .tool-card.suggest-card .tool-icon {
-      background: transparent;
-      border-style: dashed;
-    }
-    .tool-card.suggest-card:hover .tool-icon {
-      background: var(--accent);
-      border-style: solid;
-    }
-
-    .tools-loading,
-    .tools-empty,
-    .tools-error {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-secondary);
-      font-size: 1rem;
-      grid-column: 1 / -1;
-    }
-    .tools-loading i,
-    .tools-empty i,
-    .tools-error i {
-      font-size: 2rem;
-      color: var(--text-primary);
-      display: block;
-      margin-bottom: 16px;
-    }
-    .tools-error i { color: #ff6b6b; }
-    .tools-error { color: #ff6b6b; }
-
     /* ============================================
        SUGGEST MODAL
        ============================================ */
@@ -1600,18 +1367,8 @@
     }
 
     /* ============================================
-       DEMOS (simple CTA section)
+       CONTACT
        ============================================ */
-    #demos {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-      transition: background 0.4s ease, border-color 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* CONTACT */
     #contact {
       background: var(--bg-secondary);
       border-top: 1px solid var(--border-subtle);
@@ -1850,7 +1607,6 @@
       .contact-cards { grid-template-columns: repeat(3, 1fr); }
       .service-bg .service-inner { padding: 70px 36px; }
       .labs-grid { grid-template-columns: repeat(2, 1fr); }
-      .tools-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
@@ -1868,6 +1624,7 @@
         align-items: center;
         gap: 28px;
         padding: 40px;
+        overflow-y: auto;
         transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         border-left: 1px solid var(--glass-border);
       }
@@ -1890,8 +1647,51 @@
         color: var(--btn-primary-color);
       }
       .theme-toggle .toggle-text { display: none; }
-      .hero { 
-        padding: 120px 0 80px; 
+
+      /* Mobile dropdown (accordion) */
+      .nav-dropdown {
+        width: 100%;
+        text-align: center;
+      }
+      .nav-dropdown-toggle {
+        width: 100%;
+        justify-content: center;
+        font-size: 1.1rem;
+      }
+      .nav-dropdown-toggle::after { display: none; }
+      .nav-dropdown-menu {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        min-width: 0;
+        width: 100%;
+        padding: 0;
+        margin-top: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        opacity: 1;
+        visibility: visible;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+      }
+      .nav-dropdown.open .nav-dropdown-menu {
+        transform: none;
+        max-height: 320px;
+        padding: 10px 0 0;
+      }
+      .nav-dropdown-menu a {
+        justify-content: center;
+        font-size: 1rem;
+        padding: 10px 12px;
+      }
+
+      .hero {
+        padding: 120px 0 80px;
         min-height: 100vh;
       }
       .hero-title { font-size: clamp(2.4rem, 12vw, 4rem); }
@@ -1901,7 +1701,6 @@
       .hero-buttons .btn-secondary { justify-content: center; }
       .about-values { grid-template-columns: 1fr 1fr; }
       .labs-grid { grid-template-columns: 1fr 1fr; }
-      .tools-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { flex-direction: column; text-align: center; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .section-padding { padding: 64px 0 48px; }
@@ -1926,9 +1725,7 @@
 
     @media (max-width: 480px) {
       .labs-grid { grid-template-columns: 1fr; }
-      .tools-grid { grid-template-columns: 1fr; }
       .about-values { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
       .footer-links { justify-content: center; }
       .hero-title { font-size: 2.2rem; }
       .hero-typing { font-size: 0.9rem; flex-wrap: wrap; }
@@ -1988,9 +1785,31 @@
         <li role="none"><a href="#about" role="menuitem">About</a></li>
         <li role="none"><a href="#services" role="menuitem">Services</a></li>
         <li role="none"><a href="#labs" role="menuitem">Labs</a></li>
-        <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
-        <li role="none"><a href="#tools" role="menuitem">Tools</a></li>
-        <li role="none"><a href="#demos" role="menuitem">Demos</a></li>
+
+        <!-- MORE DROPDOWN -->
+        <li class="nav-dropdown" id="moreDropdown" role="none">
+          <button class="nav-dropdown-toggle" id="moreToggle" aria-haspopup="true" aria-expanded="false" aria-controls="moreMenu">
+            More <i class="fas fa-chevron-down dd-chevron" aria-hidden="true"></i>
+          </button>
+          <ul class="nav-dropdown-menu" id="moreMenu" role="menu" aria-label="More pages">
+            <li role="none">
+              <a href="https://deepbyto.github.io/demos/" target="_blank" rel="noopener noreferrer" role="menuitem">
+                <i class="fas fa-eye" aria-hidden="true"></i> Demos
+              </a>
+            </li>
+            <li role="none">
+              <a href="https://deepbyto.github.io/Tools/" target="_blank" rel="noopener noreferrer" role="menuitem">
+                <i class="fas fa-toolbox" aria-hidden="true"></i> Tools
+              </a>
+            </li>
+            <li role="none">
+              <a href="#" id="suggestFromMore" role="menuitem">
+                <i class="fas fa-lightbulb" aria-hidden="true"></i> Suggest a Tool
+              </a>
+            </li>
+          </ul>
+        </li>
+
         <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
         <li role="none">
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -2286,48 +2105,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section-padding" aria-label="Projects">
-    <div class="container" style="position: relative; z-index: 2;">
-      <span class="section-label reveal">Projects</span>
-      <h2 class="section-title reveal">Our <span class="highlight">Projects</span></h2>
-      <p class="section-desc reveal">DEEPBYTO develops open-source software. Our repositories are built with transparency, quality, and community in mind.</p>
-      <div class="projects-grid" id="projectsGrid">
-        <div class="projects-loading"><i class="fas fa-spinner fa-spin"></i>Loading repositories...</div>
-      </div>
-      <div class="projects-cta reveal">
-        <a href="https://github.com/DEEPBYTO" target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fab fa-github"></i> View All on GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       TOOLS (dynamic — fetches folders from DEEPBYTO/Tools repo)
-       ============================================ -->
-  <section id="tools" class="section-padding" aria-label="Tools">
-    <div class="container" style="position: relative; z-index: 2;">
-      <span class="section-label reveal">Tools</span>
-      <h2 class="section-title reveal">Free <span class="highlight">Tools</span></h2>
-      <p class="section-desc reveal">Useful utilities built by DEEPBYTO to make everyday tasks easier. All tools are free, fast, and privacy-friendly.</p>
-
-      <div class="tools-grid" id="toolsGrid">
-        <div class="tools-loading"><i class="fas fa-spinner fa-spin"></i>Loading tools...</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       DEMOS (simple CTA section - after Tools)
-       ============================================ -->
-  <section id="demos" class="section-padding" aria-label="Demos">
-    <div class="container" style="position: relative; z-index: 2; text-align: center;">
-      <span class="section-label reveal">Demos</span>
-      <h2 class="section-title reveal">Digital <span class="highlight">Experiences</span></h2>
-      <p class="section-desc reveal" style="margin: 0 auto 40px; max-width: 700px;">Explore professional website concepts and digital experiences developed by DEEPBYTO. Each demo demonstrates modern design, responsive development, and practical business-focused solutions.</p>
-      <a href="https://deepbyto.github.io/demos/" target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fas fa-eye"></i> View Demos</a>
-    </div>
-  </section>
-
   <!-- CONTACT -->
   <section id="contact" class="section-padding" aria-label="Contact">
     <div class="container" style="position: relative; z-index: 2;">
@@ -2454,10 +2231,10 @@
         'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1920&q=85&auto=format&fit=crop',
         'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&q=85&auto=format&fit=crop'
       ];
-      
+
       const rotator = document.getElementById('heroBgRotator');
       let currentIndex = 0;
-      let slides = [];
+      const slides = [];
 
       heroImages.forEach((url, i) => {
         const div = document.createElement('div');
@@ -2600,7 +2377,7 @@
       const taglines = ['Welcome to DEEPBYTO', 'Engineering Intelligent Systems', 'Creating Digital Products', 'AI Automation Solutions', 'Open Source Innovation', 'Building the Future', 'Transforming Ideas into Software', 'Intelligent Engineering', 'Research. Build. Innovate.', 'Building AI-Powered Software'];
       const typingEl = document.getElementById('typing-text');
       let taglineIndex = 0, charIndex = 0, isDeleting = false;
-      let typingSpeed = 80;
+      const typingSpeed = 80;
 
       function typeEffect() {
         const currentText = taglines[taglineIndex];
@@ -2641,6 +2418,7 @@
         const isOpen = navLinks.classList.toggle('open');
         navToggle.classList.toggle('active');
         navToggle.setAttribute('aria-expanded', isOpen);
+        if (!isOpen) closeAllDropdowns();
       });
 
       navLinks.querySelectorAll('a').forEach(link => {
@@ -2651,8 +2429,49 @@
         });
       });
 
+      // ----- MORE DROPDOWN -----
+      const navDropdowns = document.querySelectorAll('.nav-dropdown');
+
+      function closeAllDropdowns() {
+        navDropdowns.forEach(dd => {
+          dd.classList.remove('open');
+          const t = dd.querySelector('.nav-dropdown-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      navDropdowns.forEach(dd => {
+        const toggle = dd.querySelector('.nav-dropdown-toggle');
+        if (!toggle) return;
+
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const willOpen = !dd.classList.contains('open');
+          closeAllDropdowns();
+          if (willOpen) {
+            dd.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
+          }
+        });
+
+        dd.querySelectorAll('.nav-dropdown-menu a').forEach(a => {
+          a.addEventListener('click', () => {
+            closeAllDropdowns();
+          });
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-dropdown')) closeAllDropdowns();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAllDropdowns();
+      });
+
       const sections = document.querySelectorAll('section[id]');
-      const navAnchors = navLinks.querySelectorAll('a:not(.theme-toggle)');
+      const navAnchors = navLinks.querySelectorAll('a[href^="#"]');
       function updateActiveLink() {
         let current = '';
         const scrollPos = window.scrollY + 120;
@@ -2687,223 +2506,12 @@
       window.addEventListener('scroll', revealOnScroll);
       window.addEventListener('resize', revealOnScroll);
 
-      // ----- GITHUB PROJECTS -----
-      const GITHUB_USERNAME = 'DEEPBYTO';
-      const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
-      const CACHE_KEY = 'deepbyto_github_repos_filtered';
-      const CACHE_DURATION = 5 * 60 * 1000;
-      const EXCLUDED_REPOS = ['deepbyto.github.io'];
-      const projectsGrid = document.getElementById('projectsGrid');
-
-      function getCachedRepos() {
-        try {
-          const cached = localStorage.getItem(CACHE_KEY);
-          if (cached) {
-            const data = JSON.parse(cached);
-            if (data.timestamp && (Date.now() - data.timestamp) < CACHE_DURATION) {
-              return data.repos;
-            }
-          }
-        } catch (e) {}
-        return null;
-      }
-
-      function setCachedRepos(repos) {
-        try {
-          localStorage.setItem(CACHE_KEY, JSON.stringify({ repos, timestamp: Date.now() }));
-        } catch (e) {}
-      }
-
-      function formatDate(dateString) {
-        const date = new Date(dateString);
-        const now = new Date();
-        const diff = now - date;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        if (days === 0) return 'today';
-        if (days === 1) return 'yesterday';
-        if (days < 7) return `${days} days ago`;
-        if (days < 30) return `${Math.floor(days / 7)} weeks ago`;
-        if (days < 365) return `${Math.floor(days / 30)} months ago`;
-        return `${Math.floor(days / 365)} years ago`;
-      }
-
-      function shouldExcludeRepo(repo) {
-        if (EXCLUDED_REPOS.includes(repo.name)) return true;
-        if (repo.archived || repo.disabled || repo.fork) return true;
-        return false;
-      }
-
-      function renderProjects(repos) {
-        const filteredRepos = repos.filter(repo => !shouldExcludeRepo(repo));
-        if (!filteredRepos || filteredRepos.length === 0) {
-          projectsGrid.innerHTML = `<div class="projects-empty"><i class="fas fa-code"></i><p>Our open-source projects will appear here as they become public.</p></div>`;
-          return;
-        }
-        const sorted = [...filteredRepos].sort((a, b) => {
-          if (a.stargazers_count !== b.stargazers_count) return b.stargazers_count - a.stargazers_count;
-          return new Date(b.updated_at) - new Date(a.updated_at);
-        });
-        projectsGrid.innerHTML = sorted.map((repo, index) => {
-          const description = repo.description || 'No description available.';
-          const updated = formatDate(repo.updated_at);
-          return `
-            <div class="project-card" style="animation-delay: ${(index * 0.05) + 0.05}s">
-              <div class="card-header"><i class="fas fa-code repo-icon"></i><h4>${repo.name}</h4></div>
-              <div class="project-desc">${description}</div>
-              <div class="project-meta">
-                ${repo.language ? `<span class="lang-badge"><span class="dot" style="background: var(--accent);"></span>${repo.language}</span>` : ''}
-                <span class="updated"><i class="far fa-clock"></i> ${updated}</span>
-              </div>
-              <div class="card-footer">
-                <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="fab fa-github"></i> View Repository</a>
-                <span class="star-count"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
-              </div>
-            </div>`;
-        }).join('');
-      }
-
-      function fetchGitHubRepos() {
-        const cached = getCachedRepos();
-        if (cached) {
-          renderProjects(cached);
-          fetchFreshRepos();
-          return;
-        }
-        projectsGrid.innerHTML = `<div class="projects-loading"><i class="fas fa-spinner fa-spin"></i>Loading repositories...</div>`;
-        fetchFreshRepos();
-      }
-
-      function fetchFreshRepos() {
-        fetch(GITHUB_API_URL, { headers: { 'Accept': 'application/vnd.github.v3+json' } })
-          .then(response => {
-            if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
-            return response.json();
-          })
-          .then(data => {
-            if (data.message && data.message.includes('API rate limit')) {
-              const cached = getCachedRepos();
-              if (cached) { renderProjects(cached); return; }
-              throw new Error('GitHub API rate limit exceeded. Please try again later.');
-            }
-            setCachedRepos(data);
-            renderProjects(data);
-          })
-          .catch(error => {
-            console.error('Error fetching GitHub repos:', error);
-            const cached = getCachedRepos();
-            if (cached) { renderProjects(cached); return; }
-            projectsGrid.innerHTML = `<div class="projects-error"><i class="fas fa-exclamation-triangle"></i><p>Unable to load repositories. Please try again later.</p></div>`;
-          });
-      }
-
       // ============================================
-      // TOOLS — DYNAMIC FROM GITHUB + SUGGEST CARD
+      // SUGGEST A TOOL — MODAL
       // ============================================
-      const TOOLS_REPO = 'DEEPBYTO/Tools';
-      const TOOLS_API_URL = `https://api.github.com/repos/${TOOLS_REPO}/contents/`;
-      const TOOLS_BASE_URL = 'https://deepbyto.github.io/Tools/';
-      const TOOLS_CACHE_KEY = 'deepbyto_tools_folders';
-      const TOOLS_CACHE_DURATION = 5 * 60 * 1000;
-      const toolsGrid = document.getElementById('toolsGrid');
-
-      // The Suggest card HTML — always appended at the end
-      const SUGGEST_CARD_HTML = `
-        <div class="tool-card suggest-card" id="suggestToolCard" role="button" tabindex="0" aria-label="Suggest a new tool">
-          <span class="tool-icon"><i class="fas fa-lightbulb"></i></span>
-          <h4>Suggest a Tool</h4>
-          <p>Have an idea for a tool that would be useful? We'd love to hear it — share your suggestion with the DEEPBYTO team.</p>
-          <span class="tool-link">Share Idea <span class="arrow"><i class="fas fa-arrow-right"></i></span></span>
-        </div>`;
-
-      function getCachedTools() {
-        try {
-          const cached = localStorage.getItem(TOOLS_CACHE_KEY);
-          if (cached) {
-            const data = JSON.parse(cached);
-            if (data.timestamp && (Date.now() - data.timestamp) < TOOLS_CACHE_DURATION) {
-              return data.folders;
-            }
-          }
-        } catch (e) {}
-        return null;
-      }
-
-      function setCachedTools(folders) {
-        try {
-          localStorage.setItem(TOOLS_CACHE_KEY, JSON.stringify({ folders, timestamp: Date.now() }));
-        } catch (e) {}
-      }
-
-      function slugToTitle(slug) {
-        return slug
-          .replace(/[-_]+/g, ' ')
-          .replace(/\b\w/g, c => c.toUpperCase());
-      }
-
-      function renderTools(folders) {
-        let cardsHTML = '';
-
-        if (folders && folders.length > 0) {
-          cardsHTML = folders.map((folder, index) => {
-            const name = folder.name;
-            const title = slugToTitle(name);
-            const url = TOOLS_BASE_URL + name + '/';
-            return `
-              <a href="${url}" class="tool-card" style="animation-delay: ${(index * 0.05) + 0.05}s">
-                <span class="tool-icon"><i class="fas fa-toolbox"></i></span>
-                <h4>${title}</h4>
-                <p>Open the ${title} tool — free, fast, and privacy-friendly.</p>
-                <span class="tool-link">Open Tool <span class="arrow"><i class="fas fa-arrow-right"></i></span></span>
-              </a>`;
-          }).join('');
-        }
-
-        // Always append the Suggest card
-        toolsGrid.innerHTML = cardsHTML + SUGGEST_CARD_HTML;
-        bindSuggestCard();
-      }
-
-      function fetchTools() {
-        const cached = getCachedTools();
-        if (cached) {
-          renderTools(cached);
-          fetchFreshTools();
-          return;
-        }
-        toolsGrid.innerHTML = `<div class="tools-loading"><i class="fas fa-spinner fa-spin"></i>Loading tools...</div>`;
-        fetchFreshTools();
-      }
-
-      function fetchFreshTools() {
-        fetch(TOOLS_API_URL, { headers: { 'Accept': 'application/vnd.github.v3+json' } })
-          .then(response => {
-            if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
-            return response.json();
-          })
-          .then(data => {
-            if (!Array.isArray(data)) {
-              throw new Error('Unexpected response from GitHub API');
-            }
-            const folders = data
-              .filter(item => item.type === 'dir')
-              .map(item => ({ name: item.name, path: item.path }));
-
-            setCachedTools(folders);
-            renderTools(folders);
-          })
-          .catch(error => {
-            console.error('Error fetching tools from GitHub:', error);
-            const cached = getCachedTools();
-            if (cached) { renderTools(cached); return; }
-            // Even on error, show the Suggest card
-            toolsGrid.innerHTML = SUGGEST_CARD_HTML;
-            bindSuggestCard();
-          });
-      }
-
-      // ----- SUGGEST MODAL LOGIC -----
       const suggestModal = document.getElementById('suggestModal');
       const suggestModalClose = document.getElementById('suggestModalClose');
+      const suggestFromMore = document.getElementById('suggestFromMore');
 
       function openSuggestModal() {
         suggestModal.classList.add('open');
@@ -2918,16 +2526,11 @@
         document.body.style.overflow = '';
       }
 
-      function bindSuggestCard() {
-        const card = document.getElementById('suggestToolCard');
-        if (!card) return;
-
-        card.addEventListener('click', openSuggestModal);
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openSuggestModal();
-          }
+      if (suggestFromMore) {
+        suggestFromMore.addEventListener('click', (e) => {
+          e.preventDefault();
+          closeAllDropdowns();
+          openSuggestModal();
         });
       }
 
@@ -2968,8 +2571,6 @@
 
       // Load everything on page load
       function loadAll() {
-        fetchGitHubRepos();
-        fetchTools();
         setTimeout(revealOnScroll, 400);
       }
       if (document.readyState === 'complete') {
