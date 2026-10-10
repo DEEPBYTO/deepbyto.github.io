@@ -1397,92 +1397,111 @@
       margin-bottom: 28px;
       line-height: 1.7;
     }
+
+    /* ----- NEW CONTACT CARD STYLE ----- */
     .contact-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
     .contact-card {
-      background: var(--contact-card-bg);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-sm);
-      padding: 24px 16px 20px;
-      text-align: center;
-      transition: all var(--transition);
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      min-height: 180px;
+      gap: 10px;
+      padding: 26px 16px 22px;
+      border-radius: var(--radius);
+      background: var(--contact-card-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition),
+                  box-shadow var(--transition), background var(--transition);
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 0 0 4px 4px;
+      transition: width 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     .contact-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 25px var(--shadow-color);
-      background: var(--accent-dim);
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 18px 35px var(--shadow-color);
     }
+    .contact-card:hover::before {
+      width: 100%;
+    }
+
     .contact-card .card-icon {
-      font-size: 2.6rem;
-      margin-bottom: 4px;
-      transition: transform var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      font-size: 1.35rem;
       color: var(--text-primary);
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      transition: all var(--transition);
     }
-    .contact-card:hover .card-icon { transform: scale(1.1); }
+    .contact-card:hover .card-icon {
+      background: var(--accent);
+      color: var(--bg-primary);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px var(--accent-glow);
+    }
+
     .contact-card .card-label {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-primary);
-      font-weight: 600;
       font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-primary);
       opacity: 0.9;
     }
+    .contact-card .card-value {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.4;
+      word-break: break-all;
+    }
     .contact-card .card-btn {
-      display: inline-block;
-      margin-top: 6px;
-      padding: 6px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      padding: 7px 20px;
       border-radius: 50px;
       font-size: 0.7rem;
       font-weight: 600;
-      background: var(--badge-bg);
-      border: 1px solid var(--badge-border);
-      color: var(--text-secondary);
-      transition: all var(--transition);
+      letter-spacing: 0.04em;
       text-decoration: none;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid var(--badge-border);
+      transition: all var(--transition);
     }
     .contact-card .card-btn:hover {
       background: var(--btn-primary-bg);
       color: var(--btn-primary-color);
       border-color: var(--accent);
+      transform: translateY(-1px);
     }
-    .contact-card.email {
-      grid-column: 1 / -1;
-      padding: 28px 20px;
-      background: var(--accent-dim);
-      border-color: var(--glass-border);
-    }
-    .contact-card.email:hover {
-      border-color: var(--accent);
-      box-shadow: 0 12px 25px var(--accent-glow);
-    }
-    .contact-card.email .card-icon { color: var(--text-primary); }
-    .contact-card.email .card-value {
-      font-size: 0.9rem;
-      font-family: 'Source Code Pro', monospace;
-      color: var(--text-primary);
-      margin: 4px 0;
-    }
-    .contact-card.email .card-btn {
-      background: var(--accent-dim);
-      border-color: var(--accent);
-      color: var(--text-primary);
-    }
-    .contact-card.email .card-btn:hover {
-      background: var(--btn-primary-bg);
-      color: var(--btn-primary-color);
-    }
+
     .collaboration-box {
       margin-top: 50px;
       padding: 40px 35px;
@@ -1705,8 +1724,8 @@
       .footer-bottom { flex-direction: column; text-align: center; }
       .section-padding { padding: 64px 0 48px; }
       .contact-cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .contact-card { padding: 18px 12px 16px; min-height: 150px; }
-      .contact-card .card-icon { font-size: 2rem; }
+      .contact-card { padding: 22px 12px 18px; }
+      .contact-card .card-icon { width: 46px; height: 46px; font-size: 1.15rem; }
       .collaboration-box { padding: 30px 20px; margin-top: 35px; }
       .collaboration-box h3 { font-size: 1.2rem; }
       .collaboration-box p { font-size: 0.95rem; }
@@ -1731,9 +1750,10 @@
       .hero-typing { font-size: 0.9rem; flex-wrap: wrap; }
       .container { padding: 0 16px; }
       .contact-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .contact-card { padding: 20px 10px 16px; gap: 8px; }
       .contact-card .card-label { font-size: 0.6rem; }
-      .contact-card .card-icon { font-size: 1.8rem; }
-      .contact-card.email .card-value { font-size: 0.75rem; }
+      .contact-card .card-icon { width: 42px; height: 42px; font-size: 1rem; }
+      .contact-card .card-value { font-size: 0.62rem; }
       .collaboration-box { padding: 25px 16px; }
       .collaboration-box h3 { font-size: 1rem; }
       .collaboration-box p { font-size: 0.85rem; }
@@ -2121,13 +2141,33 @@
             <div class="card-icon"><i class="fas fa-envelope"></i></div>
             <div class="card-label">Email</div>
             <div class="card-value">deepbyto@gmail.com</div>
-            <a href="mailto:deepbyto@gmail.com" class="card-btn"><i class="fas fa-paper-plane"></i> Send</a>
+            <a href="mailto:deepbyto@gmail.com" class="card-btn">Send</a>
           </div>
-          <div class="contact-card github"><div class="card-icon" style="color: var(--text-primary);"><i class="fab fa-github"></i></div><div class="card-label">GitHub</div><a href="https://github.com/DEEPBYTO" target="_blank" class="card-btn">Visit</a></div>
-          <div class="contact-card x"><div class="card-icon" style="color: var(--text-primary);"><i class="fab fa-twitter"></i></div><div class="card-label">X</div><a href="https://x.com/deepbyto" target="_blank" class="card-btn">Follow</a></div>
-          <div class="contact-card youtube"><div class="card-icon" style="color: var(--text-primary);"><i class="fab fa-youtube"></i></div><div class="card-label">YouTube</div><a href="https://youtube.com/@DEEPBYTO" target="_blank" class="card-btn">Subscribe</a></div>
-          <div class="contact-card whatsapp"><div class="card-icon" style="color: var(--text-primary);"><i class="fab fa-whatsapp"></i></div><div class="card-label">WhatsApp</div><a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank" class="card-btn">Join</a></div>
-          <div class="contact-card discord"><div class="card-icon" style="color: var(--text-primary);"><i class="fab fa-discord"></i></div><div class="card-label">Discord</div><a href="https://discord.gg/HWhBYHjApe" target="_blank" class="card-btn">Join</a></div>
+          <div class="contact-card github">
+            <div class="card-icon"><i class="fab fa-github"></i></div>
+            <div class="card-label">GitHub</div>
+            <a href="https://github.com/DEEPBYTO" target="_blank" rel="noopener noreferrer" class="card-btn">Visit</a>
+          </div>
+          <div class="contact-card x">
+            <div class="card-icon"><i class="fab fa-twitter"></i></div>
+            <div class="card-label">X</div>
+            <a href="https://x.com/deepbyto" target="_blank" rel="noopener noreferrer" class="card-btn">Follow</a>
+          </div>
+          <div class="contact-card youtube">
+            <div class="card-icon"><i class="fab fa-youtube"></i></div>
+            <div class="card-label">YouTube</div>
+            <a href="https://youtube.com/@DEEPBYTO" target="_blank" rel="noopener noreferrer" class="card-btn">Subscribe</a>
+          </div>
+          <div class="contact-card whatsapp">
+            <div class="card-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="card-label">WhatsApp</div>
+            <a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank" rel="noopener noreferrer" class="card-btn">Join</a>
+          </div>
+          <div class="contact-card discord">
+            <div class="card-icon"><i class="fab fa-discord"></i></div>
+            <div class="card-label">Discord</div>
+            <a href="https://discord.gg/HWhBYHjApe" target="_blank" rel="noopener noreferrer" class="card-btn">Join</a>
+          </div>
         </div>
       </div>
       <div class="collaboration-box reveal">
@@ -2165,7 +2205,7 @@
   </footer>
 
   <!-- ============================================
-       SUGGEST A TOOL — MODAL
+       SUGGEST A TOOL MODAL
        ============================================ -->
   <div class="suggest-modal" id="suggestModal" role="dialog" aria-modal="true" aria-labelledby="suggestModalTitle" aria-hidden="true">
     <div class="suggest-modal-inner">
@@ -2189,7 +2229,7 @@
           <span class="suggest-option-icon"><i class="fab fa-github"></i></span>
           <span class="suggest-option-text">
             <span class="suggest-option-title">Open a GitHub Issue</span>
-            <span class="suggest-option-desc">Best for developers — track progress publicly in the Tools repo.</span>
+            <span class="suggest-option-desc">Best for developers. Track progress publicly in the Tools repo.</span>
           </span>
           <span class="suggest-option-arrow"><i class="fas fa-arrow-right"></i></span>
         </a>
@@ -2222,7 +2262,7 @@
     (function() {
       'use strict';
 
-      // ----- HERO BACKGROUND ROTATOR -----
+      // HERO BACKGROUND ROTATOR
       const heroImages = [
         'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85&auto=format&fit=crop',
         'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1920&q=85&auto=format&fit=crop',
@@ -2251,7 +2291,7 @@
         currentIndex = nextIndex;
       }, 5000);
 
-      // ----- THEME TOGGLE -----
+      // THEME TOGGLE
       const themeToggle = document.getElementById('themeToggle');
       const themeIcon = document.getElementById('themeIcon');
       const themeLabel = document.getElementById('themeLabel');
@@ -2282,7 +2322,7 @@
       setTheme(savedTheme);
       themeToggle.addEventListener('click', toggleTheme);
 
-      // ----- PARTICLES -----
+      // PARTICLES
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
       let particles = [];
@@ -2373,7 +2413,7 @@
       document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
       document.addEventListener('mouseleave', () => { mouseX = null; mouseY = null; });
 
-      // ----- TYPING -----
+      // TYPING
       const taglines = ['Welcome to DEEPBYTO', 'Engineering Intelligent Systems', 'Creating Digital Products', 'AI Automation Solutions', 'Open Source Innovation', 'Building the Future', 'Transforming Ideas into Software', 'Intelligent Engineering', 'Research. Build. Innovate.', 'Building AI-Powered Software'];
       const typingEl = document.getElementById('typing-text');
       let taglineIndex = 0, charIndex = 0, isDeleting = false;
@@ -2404,7 +2444,7 @@
       }
       setTimeout(typeEffect, 600);
 
-      // ----- NAVBAR SCROLL / TOGGLE / ACTIVE LINK -----
+      // NAVBAR SCROLL / TOGGLE / ACTIVE LINK
       const navbar = document.getElementById('navbar');
       const navToggle = document.getElementById('navToggle');
       const navLinks = document.getElementById('navLinks');
@@ -2429,7 +2469,7 @@
         });
       });
 
-      // ----- MORE DROPDOWN -----
+      // MORE DROPDOWN
       const navDropdowns = document.querySelectorAll('.nav-dropdown');
 
       function closeAllDropdowns() {
@@ -2490,7 +2530,7 @@
       window.addEventListener('scroll', updateActiveLink);
       updateActiveLink();
 
-      // ----- REVEAL ON SCROLL -----
+      // REVEAL ON SCROLL
       const revealElements = document.querySelectorAll('.reveal');
       function revealOnScroll() {
         const windowHeight = window.innerHeight;
@@ -2506,9 +2546,7 @@
       window.addEventListener('scroll', revealOnScroll);
       window.addEventListener('resize', revealOnScroll);
 
-      // ============================================
-      // SUGGEST A TOOL — MODAL
-      // ============================================
+      // SUGGEST A TOOL MODAL
       const suggestModal = document.getElementById('suggestModal');
       const suggestModalClose = document.getElementById('suggestModalClose');
       const suggestFromMore = document.getElementById('suggestFromMore');
@@ -2579,7 +2617,7 @@
         window.addEventListener('load', loadAll);
       }
 
-      console.log('DEEPBYTO — AI & Software Innovation');
+      console.log('DEEPBYTO | AI & Software Innovation');
     })();
   </script>
 </body>
