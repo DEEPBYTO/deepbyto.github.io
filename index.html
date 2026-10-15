@@ -80,6 +80,8 @@
       --wave-blue: #3b82f6;
       --wave-green: #10b981;
       --modal-backdrop: rgba(0, 0, 0, 0.75);
+      --biz-gold: #f59e0b;
+      --biz-gold-soft: rgba(245, 158, 11, 0.15);
     }
 
     [data-theme="light"] {
@@ -118,6 +120,8 @@
       --wave-blue: #2563eb;
       --wave-green: #059669;
       --modal-backdrop: rgba(0, 0, 0, 0.4);
+      --biz-gold: #d97706;
+      --biz-gold-soft: rgba(217, 119, 6, 0.12);
     }
 
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -175,9 +179,7 @@
       border-color: var(--accent);
       color: var(--text-primary);
     }
-    .whatsapp-float i {
-      filter: drop-shadow(0 2px 4px var(--shadow-color));
-    }
+    .whatsapp-float i { filter: drop-shadow(0 2px 4px var(--shadow-color)); }
     @media (max-width: 480px) {
       .whatsapp-float {
         width: 52px;
@@ -226,7 +228,6 @@
       gap: 4px;
     }
 
-    /* ----- NAVBAR ----- */
     .navbar {
       position: fixed;
       top: 0;
@@ -313,7 +314,6 @@
     }
     .nav-cta::after { display: none !important; }
 
-    /* MORE DROPDOWN and SERVICES DROPDOWN */
     .nav-dropdown {
       position: relative;
       list-style: none;
@@ -430,7 +430,6 @@
     .nav-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-    /* ----- HERO ----- */
     .hero {
       position: relative;
       z-index: 1;
@@ -638,7 +637,6 @@
       line-height: 1.7;
     }
 
-    /* ----- ABOUT ----- */
     #about {
       position: relative;
       background: var(--bg-secondary);
@@ -745,7 +743,6 @@
       line-height: 1.5;
     }
 
-    /* ----- SERVICES ----- */
     #services {
       background: var(--bg-primary);
       position: relative;
@@ -986,236 +983,301 @@
     .service-bg.right h3 { margin-left: auto; }
 
     /* ============================================
-       BUSINESS CARD (full screen, like service cards)
+       BUSINESS SECTION (separate, bigger, premium)
        ============================================ */
     #business-card {
-      background: var(--bg-primary);
+      background: var(--bg-secondary);
       position: relative;
       overflow: hidden;
+      isolation: isolate;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .business-glow {
+      position: absolute;
+      top: -180px;
+      left: -140px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: var(--biz-gold);
+      opacity: 0.08;
+      filter: blur(130px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    [data-theme="light"] .business-glow { opacity: 0.1; }
+
+    .business-header {
+      max-width: 760px;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 2;
+    }
+    .business-header .section-label {
+      background: var(--biz-gold-soft);
+      border-color: var(--biz-gold);
+      color: var(--text-primary);
     }
 
     .business-full {
       position: relative;
-      width: 100%;
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      border-radius: var(--radius);
       overflow: hidden;
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 2;
       text-decoration: none;
-      color: #ffffff;
-      isolation: isolate;
-      cursor: pointer;
+      color: inherit;
+      min-height: 520px;
+    }
+    .business-full:hover {
+      border-color: var(--biz-gold);
+      box-shadow: 0 30px 60px var(--shadow-color), 0 0 70px var(--biz-gold-soft);
+      transform: translateY(-6px);
     }
 
-    .business-full .bg-image {
+    .business-media {
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+    }
+    .business-media img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -2;
       transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
-      filter: brightness(0.65) contrast(1.05) saturate(1.05);
+      filter: brightness(0.7) contrast(1.05) saturate(1.05);
     }
-    .business-full:hover .bg-image {
+    .business-full:hover .business-media img {
       transform: scale(1.06);
-      filter: brightness(0.78) contrast(1.05) saturate(1.1);
+      filter: brightness(0.82) contrast(1.05) saturate(1.1);
     }
-
-    .business-full .bg-overlay {
+    .business-media::after {
+      content: '';
       position: absolute;
       inset: 0;
-      z-index: -1;
       background: linear-gradient(
         110deg,
-        rgba(0, 0, 0, 0.9) 0%,
-        rgba(0, 0, 0, 0.72) 45%,
-        rgba(0, 0, 0, 0.45) 75%,
-        rgba(0, 0, 0, 0.7) 100%
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.2) 60%,
+        rgba(0,0,0,0.5) 100%
       );
+      pointer-events: none;
       transition: opacity 0.5s ease;
     }
-    .business-full:hover .bg-overlay { opacity: 0.9; }
-
-    [data-theme="light"] .business-full .bg-overlay {
+    [data-theme="light"] .business-media::after {
       background: linear-gradient(
         110deg,
-        rgba(255, 255, 255, 0.92) 0%,
-        rgba(255, 255, 255, 0.75) 45%,
-        rgba(255, 255, 255, 0.5) 75%,
-        rgba(255, 255, 255, 0.75) 100%
+        rgba(255,255,255,0.55) 0%,
+        rgba(255,255,255,0.2) 60%,
+        rgba(255,255,255,0.5) 100%
       );
     }
-    [data-theme="light"] .business-full { color: #111; }
+    .business-full:hover .business-media::after { opacity: 0.85; }
 
-    .business-full .business-inner {
-      position: relative;
+    .business-media .business-flag {
+      position: absolute;
+      top: 24px;
+      left: 24px;
       z-index: 2;
-      max-width: 1200px;
-      width: 100%;
-      padding: 80px 48px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-
-    .business-full .business-num {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 20px;
-      display: inline-block;
-    }
-    [data-theme="light"] .business-full .business-num { color: rgba(0, 0, 0, 0.6); }
-
-    .business-full .business-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 16px;
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #ffffff;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    [data-theme="light"] .business-full .business-badge {
-      background: rgba(0, 0, 0, 0.08);
-      border-color: rgba(0, 0, 0, 0.2);
-      color: #111;
-    }
-
-    .business-full h3 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 22px;
-      color: #ffffff;
-      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-      max-width: 760px;
-    }
-    [data-theme="light"] .business-full h3 {
-      color: #111;
-      text-shadow: 0 4px 30px rgba(255, 255, 255, 0.5);
-    }
-
-    .business-full .business-desc {
-      font-size: clamp(1rem, 1.3vw, 1.15rem);
-      line-height: 1.75;
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 640px;
-      margin-bottom: 32px;
-      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-    }
-    [data-theme="light"] .business-full .business-desc {
-      color: rgba(0, 0, 0, 0.8);
-      text-shadow: 0 2px 15px rgba(255, 255, 255, 0.4);
-    }
-
-    .business-full .business-bottom {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 22px;
-    }
-
-    .business-full .business-tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 22px;
+      padding: 8px 18px;
       border-radius: 50px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #ffffff;
-      letter-spacing: 0.03em;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-    .business-full:hover .business-tag {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.5);
-    }
-    [data-theme="light"] .business-full .business-tag {
-      background: rgba(0, 0, 0, 0.08);
-      border-color: rgba(0, 0, 0, 0.25);
-      color: #111;
-    }
-    [data-theme="light"] .business-full:hover .business-tag {
-      background: rgba(0, 0, 0, 0.14);
-      border-color: rgba(0, 0, 0, 0.4);
-    }
-
-    .business-full .business-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: #ffffff;
-      transition: gap 0.3s ease;
-    }
-    [data-theme="light"] .business-full .business-cta { color: #111; }
-    .business-full .business-cta .cta-arrow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #ffffff;
+      background: var(--biz-gold);
       color: #000000;
-      font-size: 0.85rem;
-      transition: all 0.35s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     }
-    .business-full:hover .business-cta { gap: 18px; }
-    .business-full:hover .business-cta .cta-arrow {
-      transform: translateX(6px) rotate(-45deg);
-      box-shadow: 0 6px 30px rgba(255, 255, 255, 0.4);
+    .business-media .business-flag i { font-size: 0.8rem; }
+
+    .business-media .business-stat {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
-    [data-theme="light"] .business-full .business-cta .cta-arrow {
-      background: #000000;
+    .business-media .business-stat .stat-item {
+      padding: 14px 10px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.35);
+    }
+    [data-theme="light"] .business-media .business-stat .stat-item {
+      background: rgba(255, 255, 255, 0.6);
+    }
+    .business-media .business-stat .stat-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 800;
       color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    [data-theme="light"] .business-media .business-stat .stat-num { color: #111; }
+    .business-media .business-stat .stat-label {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 4px;
+    }
+    [data-theme="light"] .business-media .business-stat .stat-label { color: rgba(0,0,0,0.6); }
+
+    .business-body {
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .business-full::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 4px;
-      background: linear-gradient(to bottom, transparent, #ffffff, transparent);
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      z-index: 3;
+    .business-body .business-kicker {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--biz-gold);
     }
-    .business-full:hover::before { opacity: 0.8; }
-    [data-theme="light"] .business-full::before {
-      background: linear-gradient(to bottom, transparent, #000000, transparent);
+
+    .business-body h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      color: var(--text-primary);
+    }
+    .business-body h3 .biz-accent {
+      background: linear-gradient(135deg, var(--biz-gold), var(--wave-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .business-body > p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+
+    .business-points {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 22px;
+      margin: 4px 0;
+    }
+    .business-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+    .business-points li i {
+      color: var(--biz-gold);
+      font-size: 0.75rem;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .business-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      margin-top: 8px;
+    }
+    .business-actions .btn-business {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 34px;
+      border-radius: 50px;
+      background: var(--biz-gold);
+      color: #000000;
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+    }
+    .business-actions .btn-business:hover {
+      background: #fbbf24;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(245, 158, 11, 0.45);
+      color: #000000;
+    }
+    .business-actions .business-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .business-actions .business-meta i { color: var(--biz-gold); }
+
+    @media (max-width: 1024px) {
+      .business-full { grid-template-columns: 1fr; min-height: 0; }
+      .business-media { min-height: 320px; }
+      .business-body { padding: 44px 36px; }
+    }
+
+    @media (max-width: 768px) {
+      .business-header { margin-bottom: 32px; }
+      .business-body { padding: 36px 26px; }
+      .business-points { grid-template-columns: 1fr; }
+      .business-actions { flex-direction: column; align-items: stretch; }
+      .business-actions .btn-business { justify-content: center; }
+      .business-media .business-stat { grid-template-columns: repeat(3, 1fr); }
+      .business-media .business-stat .stat-num { font-size: 0.85rem; }
+    }
+
+    @media (max-width: 480px) {
+      .business-media { min-height: 240px; }
+      .business-media .business-flag { top: 16px; left: 16px; padding: 6px 14px; font-size: 0.6rem; }
+      .business-media .business-stat { bottom: 16px; left: 16px; right: 16px; }
+      .business-media .business-stat .stat-item { padding: 10px 6px; }
+      .business-media .business-stat .stat-num { font-size: 0.78rem; }
+      .business-media .business-stat .stat-label { font-size: 0.52rem; }
+      .business-body { padding: 30px 20px; }
     }
 
     /* ============================================
        LABS
        ============================================ */
     #labs {
-      background: var(--bg-secondary);
+      background: var(--bg-primary);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
       transition: background 0.4s ease, border-color 0.3s ease;
@@ -1781,7 +1843,6 @@
       .contact-cards { grid-template-columns: repeat(3, 1fr); }
       .service-bg .service-inner { padding: 70px 36px; }
       .labs-grid { grid-template-columns: repeat(2, 1fr); }
-      .business-full .business-inner { padding: 70px 36px; }
     }
 
     @media (max-width: 768px) {
@@ -1886,10 +1947,6 @@
       .service-bg.right .service-desc { margin-left: 0; }
       .service-bg.right .service-bottom { justify-content: flex-start; }
 
-      .business-full { min-height: 70vh; }
-      .business-full .business-inner { padding: 60px 24px; }
-      .business-full h3 { font-size: 2rem; }
-
       .about-waves .glow-orb.blue { width: 260px; height: 260px; }
       .about-waves .glow-orb.green { width: 300px; height: 300px; }
     }
@@ -1916,13 +1973,6 @@
       .service-bg .service-desc { font-size: 0.9rem; }
       .service-bg .service-bottom { gap: 14px; }
       .service-bg .service-cta .cta-arrow { width: 36px; height: 36px; }
-
-      .business-full { min-height: 65vh; }
-      .business-full .business-inner { padding: 50px 20px; }
-      .business-full h3 { font-size: 1.6rem; }
-      .business-full .business-desc { font-size: 0.9rem; }
-      .business-full .business-bottom { gap: 14px; }
-      .business-full .business-cta .cta-arrow { width: 36px; height: 36px; }
 
       .lab-card .lab-body { padding: 18px 18px 20px; }
       .lab-card h4 { font-size: 1rem; }
@@ -1962,7 +2012,6 @@
       <ul class="nav-links" id="navLinks" role="menubar">
         <li role="none"><a href="#about" role="menuitem">About</a></li>
 
-        <!-- SERVICES DROPDOWN (new) -->
         <li class="nav-dropdown" id="servicesDropdown" role="none">
           <button class="nav-dropdown-toggle" id="servicesToggle" aria-haspopup="true" aria-expanded="false" aria-controls="servicesMenu">
             Services <i class="fas fa-chevron-down dd-chevron" aria-hidden="true"></i>
@@ -2238,25 +2287,66 @@
     </div>
   </section>
 
-  <section id="business-card" aria-label="DEEPBYTO for Business">
-    <a href="business/index.html" class="business-full reveal">
-      <img class="bg-image"
-           src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85&auto=format&fit=crop"
-           alt="DEEPBYTO for Business workspace" loading="lazy" />
-      <div class="bg-overlay"></div>
-      <div class="business-inner">
-        <span class="business-num">07 / 07</span>
-        <span class="business-badge"><i class="fas fa-briefcase"></i> Business Solutions</span>
-        <h3>DEEPBYTO for Business</h3>
-        <p class="business-desc">
-          We partner with startups, SMEs, and enterprises to design, build, and maintain AI powered software, automation, and digital products. From internal tools to customer-facing platforms, we focus on real outcomes that help your business grow.
-        </p>
-        <div class="business-bottom">
-          <span class="business-tag">Enterprise AI &amp; Custom Software</span>
-          <span class="business-cta">View More <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span>
-        </div>
+  <!-- ============================================
+       BUSINESS SECTION (separate from Services, bigger, premium)
+       ============================================ -->
+  <section id="business-card" class="section-padding" aria-label="DEEPBYTO for Business">
+    <div class="business-glow" aria-hidden="true"></div>
+    <div class="container">
+
+      <div class="business-header">
+        <span class="section-label reveal">Business</span>
+        <h2 class="section-title reveal">DEEPBYTO for <span class="highlight">Business</span></h2>
+        <p class="section-desc reveal">A separate track from our individual services. Built for companies that want a long term technology partner, not just a one time project.</p>
       </div>
-    </a>
+
+      <a href="business/index.html" class="business-full reveal">
+
+        <div class="business-media">
+          <span class="business-flag"><i class="fas fa-briefcase"></i> Enterprise Track</span>
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=85&auto=format&fit=crop"
+            alt="DEEPBYTO for Business office workspace"
+            loading="lazy"
+          >
+          <div class="business-stat">
+            <div class="stat-item">
+              <span class="stat-num">6+</span>
+              <span class="stat-label">Service Lines</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">SLA</span>
+              <span class="stat-label">Support</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Ownership</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="business-body">
+          <span class="business-kicker">Enterprise &amp; SME Solutions</span>
+          <h3>Build smarter. <span class="biz-accent">Scale faster.</span></h3>
+          <p>
+            We partner with startups, SMEs, and enterprises to design, build, and maintain AI powered software, automation, and digital products. From internal tools to customer facing platforms, we focus on real outcomes that help your business grow.
+          </p>
+
+          <ul class="business-points">
+            <li><i class="fas fa-check"></i><span>Enterprise AI &amp; custom software</span></li>
+            <li><i class="fas fa-check"></i><span>Process automation &amp; analytics</span></li>
+            <li><i class="fas fa-check"></i><span>Cloud infrastructure &amp; deployment</span></li>
+            <li><i class="fas fa-check"></i><span>Dedicated long term support</span></li>
+          </ul>
+
+          <div class="business-actions">
+            <span class="btn-business">View Business Page <i class="fas fa-arrow-right"></i></span>
+            <span class="business-meta"><i class="fas fa-circle-check"></i> Separate from individual services</span>
+          </div>
+        </div>
+
+      </a>
+    </div>
   </section>
 
   <section id="labs" class="section-padding" aria-label="Research & Development Labs">
