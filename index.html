@@ -26,7 +26,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TLW2YM03KC"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -35,7 +34,6 @@
     gtag('config', 'G-TLW2YM03KC');
   </script>
   <style>
-    /* ----- RESET & ROOT ----- */
     * {
       margin: 0;
       padding: 0;
@@ -150,7 +148,6 @@
     ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 12px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-    /* ----- FLOATING WHATSAPP BUTTON ----- */
     .whatsapp-float {
       position: fixed;
       bottom: 28px;
@@ -191,7 +188,6 @@
       }
     }
 
-    /* ----- PARTICLES CANVAS ----- */
     #particles-canvas {
       position: fixed;
       top: 0;
@@ -202,7 +198,6 @@
       pointer-events: none;
     }
 
-    /* ----- THEME TOGGLE ----- */
     .theme-toggle {
       display: flex;
       align-items: center;
@@ -224,9 +219,7 @@
       color: var(--text-primary);
       background: var(--accent-dim);
     }
-    .theme-toggle i {
-      font-size: 0.9rem;
-    }
+    .theme-toggle i { font-size: 0.9rem; }
     .theme-toggle .toggle-icon {
       display: flex;
       align-items: center;
@@ -320,7 +313,7 @@
     }
     .nav-cta::after { display: none !important; }
 
-    /* MORE DROPDOWN */
+    /* MORE DROPDOWN and SERVICES DROPDOWN */
     .nav-dropdown {
       position: relative;
       list-style: none;
@@ -367,7 +360,7 @@
       top: calc(100% + 16px);
       left: 50%;
       transform: translateX(-50%) translateY(-8px);
-      min-width: 210px;
+      min-width: 250px;
       list-style: none;
       margin: 0;
       padding: 8px;
@@ -463,9 +456,7 @@
       transition: opacity 1.2s ease-in-out;
       will-change: opacity;
     }
-    .hero-bg-rotator .bg-slide.active {
-      opacity: 1;
-    }
+    .hero-bg-rotator .bg-slide.active { opacity: 1; }
     .hero-bg-rotator::after {
       content: '';
       position: absolute;
@@ -530,9 +521,7 @@
       filter: var(--wordmark-filter);
       transition: filter 0.4s ease;
     }
-    .hero-title .old-text {
-      display: none;
-    }
+    .hero-title .old-text { display: none; }
     .hero-subtitle {
       font-family: var(--font-display);
       font-weight: 500;
@@ -674,17 +663,9 @@
       top: 0;
       left: 0;
     }
-    .about-waves svg.wave-blue {
-      animation: waveSlide 18s linear infinite;
-    }
-    .about-waves svg.wave-green {
-      animation: waveSlide 24s linear infinite reverse;
-      opacity: 0.85;
-    }
-    .about-waves svg.wave-blue-2 {
-      animation: waveSlide 30s linear infinite;
-      opacity: 0.6;
-    }
+    .about-waves svg.wave-blue { animation: waveSlide 18s linear infinite; }
+    .about-waves svg.wave-green { animation: waveSlide 24s linear infinite reverse; opacity: 0.85; }
+    .about-waves svg.wave-blue-2 { animation: waveSlide 30s linear infinite; opacity: 0.6; }
     @keyframes waveSlide {
       0%   { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
@@ -821,9 +802,7 @@
       );
       transition: opacity 0.5s ease;
     }
-    .service-bg:hover .bg-overlay {
-      opacity: 0.9;
-    }
+    .service-bg:hover .bg-overlay { opacity: 0.9; }
 
     [data-theme="light"] .service-bg .bg-overlay {
       background: linear-gradient(
@@ -834,9 +813,7 @@
         rgba(255, 255, 255, 0.7) 100%
       );
     }
-    [data-theme="light"] .service-bg {
-      color: #111;
-    }
+    [data-theme="light"] .service-bg { color: #111; }
 
     .service-bg .service-inner {
       position: relative;
@@ -858,9 +835,7 @@
       margin-bottom: 20px;
       display: inline-block;
     }
-    [data-theme="light"] .service-bg .service-num {
-      color: rgba(0, 0, 0, 0.6);
-    }
+    [data-theme="light"] .service-bg .service-num { color: rgba(0, 0, 0, 0.6); }
 
     .service-bg .service-badge {
       display: inline-flex;
@@ -961,9 +936,7 @@
       color: #ffffff;
       transition: gap 0.3s ease;
     }
-    [data-theme="light"] .service-bg .service-cta {
-      color: #111;
-    }
+    [data-theme="light"] .service-bg .service-cta { color: #111; }
     .service-bg .service-cta .cta-arrow {
       display: inline-flex;
       align-items: center;
@@ -977,9 +950,7 @@
       transition: all 0.35s ease;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
-    .service-bg:hover .service-cta {
-      gap: 18px;
-    }
+    .service-bg:hover .service-cta { gap: 18px; }
     .service-bg:hover .service-cta .cta-arrow {
       transform: translateX(6px) rotate(-45deg);
       box-shadow: 0 6px 30px rgba(255, 255, 255, 0.4);
@@ -1001,9 +972,7 @@
       transition: opacity 0.5s ease;
       z-index: 3;
     }
-    .service-bg:hover::before {
-      opacity: 0.8;
-    }
+    .service-bg:hover::before { opacity: 0.8; }
     [data-theme="light"] .service-bg::before {
       background: linear-gradient(to bottom, transparent, #000000, transparent);
     }
@@ -1012,199 +981,241 @@
       text-align: right;
       justify-items: end;
     }
-    .service-bg.right .service-desc {
-      margin-left: auto;
-    }
-    .service-bg.right .service-bottom {
-      justify-content: flex-end;
-    }
-    .service-bg.right h3 {
-      margin-left: auto;
-    }
+    .service-bg.right .service-desc { margin-left: auto; }
+    .service-bg.right .service-bottom { justify-content: flex-end; }
+    .service-bg.right h3 { margin-left: auto; }
 
     /* ============================================
-       BUSINESS PREVIEW (home page)
+       BUSINESS CARD (full screen, like service cards)
        ============================================ */
-    #business-preview {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
+    #business-card {
+      background: var(--bg-primary);
       position: relative;
       overflow: hidden;
+    }
+
+    .business-full {
+      position: relative;
+      width: 100%;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-decoration: none;
+      color: #ffffff;
       isolation: isolate;
-    }
-    .biz-preview-glow {
-      position: absolute;
-      top: -140px;
-      right: -120px;
-      width: 460px;
-      height: 460px;
-      border-radius: 50%;
-      background: var(--wave-blue);
-      opacity: 0.10;
-      filter: blur(110px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    [data-theme="light"] .biz-preview-glow { opacity: 0.08; }
-
-    .biz-preview-header {
-      max-width: 720px;
-      margin-bottom: 40px;
-      position: relative;
-      z-index: 2;
+      cursor: pointer;
     }
 
-    .biz-preview-card {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--bg-card);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      transition: all var(--transition);
-      z-index: 2;
-    }
-    .biz-preview-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 24px 50px var(--shadow-color), 0 0 45px var(--accent-dim);
-    }
-
-    .biz-preview-image {
-      position: relative;
-      min-height: 380px;
-      overflow: hidden;
-    }
-    .biz-preview-image img {
+    .business-full .bg-image {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      filter: brightness(0.85) contrast(1.05) saturate(1.05);
+      z-index: -2;
+      transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
+      filter: brightness(0.65) contrast(1.05) saturate(1.05);
     }
-    .biz-preview-card:hover .biz-preview-image img {
-      transform: scale(1.05);
-      filter: brightness(0.95) contrast(1.05) saturate(1.1);
+    .business-full:hover .bg-image {
+      transform: scale(1.06);
+      filter: brightness(0.78) contrast(1.05) saturate(1.1);
     }
-    .biz-preview-image::after {
-      content: '';
+
+    .business-full .bg-overlay {
       position: absolute;
       inset: 0;
+      z-index: -1;
       background: linear-gradient(
-        to right,
-        rgba(0,0,0,0) 50%,
-        rgba(0,0,0,0.35) 100%
+        110deg,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.72) 45%,
+        rgba(0, 0, 0, 0.45) 75%,
+        rgba(0, 0, 0, 0.7) 100%
       );
-      pointer-events: none;
+      transition: opacity 0.5s ease;
     }
-    [data-theme="light"] .biz-preview-image::after {
+    .business-full:hover .bg-overlay { opacity: 0.9; }
+
+    [data-theme="light"] .business-full .bg-overlay {
       background: linear-gradient(
-        to right,
-        rgba(255,255,255,0) 50%,
-        rgba(255,255,255,0.35) 100%
+        110deg,
+        rgba(255, 255, 255, 0.92) 0%,
+        rgba(255, 255, 255, 0.75) 45%,
+        rgba(255, 255, 255, 0.5) 75%,
+        rgba(255, 255, 255, 0.75) 100%
       );
     }
-    .biz-preview-image .biz-preview-tag {
-      position: absolute;
-      top: 20px;
-      left: 20px;
+    [data-theme="light"] .business-full { color: #111; }
+
+    .business-full .business-inner {
+      position: relative;
       z-index: 2;
+      max-width: 1200px;
+      width: 100%;
+      padding: 80px 48px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .business-full .business-num {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    [data-theme="light"] .business-full .business-num { color: rgba(0, 0, 0, 0.6); }
+
+    .business-full .business-badge {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       padding: 6px 16px;
       border-radius: 50px;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 0.7rem;
+      font-weight: 600;
       color: #ffffff;
-      font-family: var(--font-display);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      margin-bottom: 20px;
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
-    .biz-preview-image .biz-preview-tag .badge-dot {
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #ffffff;
-      animation: pulse-dot 2s ease-in-out infinite;
+    [data-theme="light"] .business-full .business-badge {
+      background: rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 0, 0, 0.2);
+      color: #111;
     }
 
-    .biz-preview-body {
-      padding: 48px 44px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 18px;
-    }
-    .biz-preview-body h3 {
+    .business-full h3 {
       font-family: var(--font-display);
-      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      font-size: clamp(2rem, 5vw, 3.6rem);
       font-weight: 800;
       letter-spacing: -0.02em;
-      line-height: 1.15;
-      color: var(--text-primary);
+      line-height: 1.1;
+      margin-bottom: 22px;
+      color: #ffffff;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      max-width: 760px;
     }
-    .biz-preview-body h3 .gradient-text {
-      background: linear-gradient(135deg, var(--wave-blue), var(--wave-green));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    [data-theme="light"] .business-full h3 {
+      color: #111;
+      text-shadow: 0 4px 30px rgba(255, 255, 255, 0.5);
     }
-    .biz-preview-body > p {
-      font-size: 0.98rem;
+
+    .business-full .business-desc {
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
       line-height: 1.75;
-      color: var(--text-secondary);
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 640px;
+      margin-bottom: 32px;
+      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+    }
+    [data-theme="light"] .business-full .business-desc {
+      color: rgba(0, 0, 0, 0.8);
+      text-shadow: 0 2px 15px rgba(255, 255, 255, 0.4);
     }
 
-    .biz-preview-points {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px 20px;
-      margin: 4px 0 6px;
-    }
-    .biz-preview-points li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-    }
-    .biz-preview-points li i {
-      color: var(--text-primary);
-      font-size: 0.7rem;
-      margin-top: 4px;
-      flex-shrink: 0;
-    }
-
-    .biz-preview-actions {
+    .business-full .business-bottom {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 6px;
+      align-items: center;
+      gap: 22px;
     }
-    .biz-preview-actions .btn-primary,
-    .biz-preview-actions .btn-secondary {
-      padding: 12px 30px;
-      font-size: 0.88rem;
+
+    .business-full .business-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.03em;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .business-full:hover .business-tag {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    [data-theme="light"] .business-full .business-tag {
+      background: rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 0, 0, 0.25);
+      color: #111;
+    }
+    [data-theme="light"] .business-full:hover .business-tag {
+      background: rgba(0, 0, 0, 0.14);
+      border-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .business-full .business-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      transition: gap 0.3s ease;
+    }
+    [data-theme="light"] .business-full .business-cta { color: #111; }
+    .business-full .business-cta .cta-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #000000;
+      font-size: 0.85rem;
+      transition: all 0.35s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .business-full:hover .business-cta { gap: 18px; }
+    .business-full:hover .business-cta .cta-arrow {
+      transform: translateX(6px) rotate(-45deg);
+      box-shadow: 0 6px 30px rgba(255, 255, 255, 0.4);
+    }
+    [data-theme="light"] .business-full .business-cta .cta-arrow {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .business-full::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 4px;
+      background: linear-gradient(to bottom, transparent, #ffffff, transparent);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 3;
+    }
+    .business-full:hover::before { opacity: 0.8; }
+    [data-theme="light"] .business-full::before {
+      background: linear-gradient(to bottom, transparent, #000000, transparent);
     }
 
     /* ============================================
        LABS
        ============================================ */
     #labs {
-      background: var(--bg-primary);
+      background: var(--bg-secondary);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
       transition: background 0.4s ease, border-color 0.3s ease;
@@ -1278,9 +1289,7 @@
         rgba(255, 255, 255, 0.4) 100%
       );
     }
-    .lab-card:hover .lab-image::after {
-      opacity: 0.6;
-    }
+    .lab-card:hover .lab-image::after { opacity: 0.6; }
 
     .lab-card .lab-num {
       position: absolute;
@@ -1339,9 +1348,7 @@
       transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       border-radius: 0 0 var(--radius) var(--radius);
     }
-    .lab-card:hover::after {
-      width: 100%;
-    }
+    .lab-card:hover::after { width: 100%; }
 
     .labs-note {
       margin-top: 32px;
@@ -1520,9 +1527,7 @@
     }
 
     @media (max-width: 480px) {
-      .suggest-modal-inner {
-        padding: 28px 20px 24px;
-      }
+      .suggest-modal-inner { padding: 28px 20px 24px; }
       .suggest-modal h3 { font-size: 1.2rem; }
       .suggest-modal .suggest-intro { font-size: 0.9rem; }
       .suggest-option { padding: 14px; gap: 12px; }
@@ -1600,9 +1605,7 @@
       border-color: var(--accent);
       box-shadow: 0 18px 35px var(--shadow-color);
     }
-    .contact-card:hover::before {
-      width: 100%;
-    }
+    .contact-card:hover::before { width: 100%; }
 
     .contact-card .card-icon {
       display: flex;
@@ -1702,7 +1705,6 @@
       line-height: 1.8;
     }
 
-    /* FOOTER */
     .footer {
       padding: 48px 0 32px;
       border-top: 1px solid var(--footer-border);
@@ -1763,7 +1765,6 @@
       color: var(--text-muted);
     }
 
-    /* REVEAL */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -1774,15 +1775,13 @@
       transform: translateY(0);
     }
 
-    /* RESPONSIVE */
     @media (max-width: 1024px) {
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
       .contact-cards { grid-template-columns: repeat(3, 1fr); }
       .service-bg .service-inner { padding: 70px 36px; }
       .labs-grid { grid-template-columns: repeat(2, 1fr); }
-      .biz-preview-card { grid-template-columns: 1fr; }
-      .biz-preview-image { min-height: 280px; }
+      .business-full .business-inner { padding: 70px 36px; }
     }
 
     @media (max-width: 768px) {
@@ -1824,15 +1823,8 @@
       }
       .theme-toggle .toggle-text { display: none; }
 
-      .nav-dropdown {
-        width: 100%;
-        text-align: center;
-      }
-      .nav-dropdown-toggle {
-        width: 100%;
-        justify-content: center;
-        font-size: 1.1rem;
-      }
+      .nav-dropdown { width: 100%; text-align: center; }
+      .nav-dropdown-toggle { width: 100%; justify-content: center; font-size: 1.1rem; }
       .nav-dropdown-toggle::after { display: none; }
       .nav-dropdown-menu {
         position: static;
@@ -1856,7 +1848,7 @@
       }
       .nav-dropdown.open .nav-dropdown-menu {
         transform: none;
-        max-height: 320px;
+        max-height: 520px;
         padding: 10px 0 0;
       }
       .nav-dropdown-menu a {
@@ -1894,14 +1886,12 @@
       .service-bg.right .service-desc { margin-left: 0; }
       .service-bg.right .service-bottom { justify-content: flex-start; }
 
+      .business-full { min-height: 70vh; }
+      .business-full .business-inner { padding: 60px 24px; }
+      .business-full h3 { font-size: 2rem; }
+
       .about-waves .glow-orb.blue { width: 260px; height: 260px; }
       .about-waves .glow-orb.green { width: 300px; height: 300px; }
-
-      .biz-preview-body { padding: 36px 28px; }
-      .biz-preview-points { grid-template-columns: 1fr; }
-      .biz-preview-actions { flex-direction: column; align-items: stretch; }
-      .biz-preview-actions .btn-primary,
-      .biz-preview-actions .btn-secondary { justify-content: center; }
     }
 
     @media (max-width: 480px) {
@@ -1927,18 +1917,19 @@
       .service-bg .service-bottom { gap: 14px; }
       .service-bg .service-cta .cta-arrow { width: 36px; height: 36px; }
 
+      .business-full { min-height: 65vh; }
+      .business-full .business-inner { padding: 50px 20px; }
+      .business-full h3 { font-size: 1.6rem; }
+      .business-full .business-desc { font-size: 0.9rem; }
+      .business-full .business-bottom { gap: 14px; }
+      .business-full .business-cta .cta-arrow { width: 36px; height: 36px; }
+
       .lab-card .lab-body { padding: 18px 18px 20px; }
       .lab-card h4 { font-size: 1rem; }
       .lab-card p { font-size: 0.8rem; }
 
-      .hero {
-        min-height: 100vh;
-        padding: 100px 0 60px;
-      }
+      .hero { min-height: 100vh; padding: 100px 0 60px; }
       .nav-brand .wordmark { height: 22px; }
-
-      .biz-preview-body { padding: 28px 20px; }
-      .biz-preview-image { min-height: 220px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1970,8 +1961,47 @@
       </a>
       <ul class="nav-links" id="navLinks" role="menubar">
         <li role="none"><a href="#about" role="menuitem">About</a></li>
-        <li role="none"><a href="#services" role="menuitem">Services</a></li>
-        <li role="none"><a href="#business-preview" role="menuitem">Business</a></li>
+
+        <!-- SERVICES DROPDOWN (new) -->
+        <li class="nav-dropdown" id="servicesDropdown" role="none">
+          <button class="nav-dropdown-toggle" id="servicesToggle" aria-haspopup="true" aria-expanded="false" aria-controls="servicesMenu">
+            Services <i class="fas fa-chevron-down dd-chevron" aria-hidden="true"></i>
+          </button>
+          <ul class="nav-dropdown-menu" id="servicesMenu" role="menu" aria-label="Services">
+            <li role="none">
+              <a href="services/ai-services.html" role="menuitem">
+                <i class="fas fa-robot" aria-hidden="true"></i> AI Services
+              </a>
+            </li>
+            <li role="none">
+              <a href="services/web-services.html" role="menuitem">
+                <i class="fas fa-globe" aria-hidden="true"></i> Web Services
+              </a>
+            </li>
+            <li role="none">
+              <a href="services/software-development-services.html" role="menuitem">
+                <i class="fas fa-code" aria-hidden="true"></i> Software Development
+              </a>
+            </li>
+            <li role="none">
+              <a href="services/mobile-app-development-services.html" role="menuitem">
+                <i class="fas fa-mobile-screen" aria-hidden="true"></i> Mobile App Development
+              </a>
+            </li>
+            <li role="none">
+              <a href="services/cloud-deployment-services.html" role="menuitem">
+                <i class="fas fa-cloud" aria-hidden="true"></i> Cloud &amp; Deployment
+              </a>
+            </li>
+            <li role="none">
+              <a href="services/maintenance-support-services.html" role="menuitem">
+                <i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Maintenance &amp; Support
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li role="none"><a href="#business-card" role="menuitem">Business</a></li>
         <li role="none"><a href="#labs" role="menuitem">Labs</a></li>
 
         <li class="nav-dropdown" id="moreDropdown" role="none">
@@ -2208,55 +2238,25 @@
     </div>
   </section>
 
-  <!-- ============================================
-       BUSINESS PREVIEW (home page)
-       ============================================ -->
-  <section id="business-preview" class="section-padding" aria-label="DEEPBYTO for Business">
-    <div class="biz-preview-glow" aria-hidden="true"></div>
-    <div class="container">
-      <div class="biz-preview-header">
-        <span class="section-label reveal">For Business</span>
-        <h2 class="section-title reveal">DEEPBYTO for <span class="highlight">Business</span></h2>
-        <p class="section-desc reveal">Built for companies that want to move faster, work smarter, and stay ahead with AI and modern software.</p>
-      </div>
-
-      <div class="biz-preview-card reveal">
-
-        <div class="biz-preview-image">
-          <span class="biz-preview-tag"><span class="badge-dot"></span> Business Solutions</span>
-          <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=85&auto=format&fit=crop"
-            alt="DEEPBYTO for Business team and office workspace"
-            loading="lazy"
-          >
+  <section id="business-card" aria-label="DEEPBYTO for Business">
+    <a href="business/index.html" class="business-full reveal">
+      <img class="bg-image"
+           src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85&auto=format&fit=crop"
+           alt="DEEPBYTO for Business workspace" loading="lazy" />
+      <div class="bg-overlay"></div>
+      <div class="business-inner">
+        <span class="business-num">07 / 07</span>
+        <span class="business-badge"><i class="fas fa-briefcase"></i> Business Solutions</span>
+        <h3>DEEPBYTO for Business</h3>
+        <p class="business-desc">
+          We partner with startups, SMEs, and enterprises to design, build, and maintain AI powered software, automation, and digital products. From internal tools to customer-facing platforms, we focus on real outcomes that help your business grow.
+        </p>
+        <div class="business-bottom">
+          <span class="business-tag">Enterprise AI &amp; Custom Software</span>
+          <span class="business-cta">View More <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span>
         </div>
-
-        <div class="biz-preview-body">
-          <h3>Technology that <span class="gradient-text">works for your business</span></h3>
-          <p>
-            We partner with startups, SMEs, and enterprises to design, build, and maintain AI-powered software, automation, and digital products. From internal tools to customer-facing platforms, we focus on real outcomes that help your business grow.
-          </p>
-
-          <ul class="biz-preview-points">
-            <li><i class="fas fa-check"></i><span>Enterprise AI and custom software</span></li>
-            <li><i class="fas fa-check"></i><span>Process automation and analytics</span></li>
-            <li><i class="fas fa-check"></i><span>Cloud infrastructure and deployment</span></li>
-            <li><i class="fas fa-check"></i><span>Dedicated long-term support</span></li>
-          </ul>
-
-          <div class="biz-preview-actions">
-            <a href="business/index.html" class="btn-primary">View More <i class="fas fa-arrow-right"></i></a>
-            <a href="https://wa.me/923047467957?text=Hi%20DEEPBYTO%2C%20I%27d%20like%20to%20discuss%20a%20business%20project." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn-secondary">
-              Start a Project <i class="fab fa-whatsapp"></i>
-            </a>
-          </div>
-        </div>
-
       </div>
-    </div>
+    </a>
   </section>
 
   <section id="labs" class="section-padding" aria-label="Research & Development Labs">
@@ -2474,7 +2474,6 @@
     (function() {
       'use strict';
 
-      // HERO BACKGROUND ROTATOR
       const heroImages = [
         'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85&auto=format&fit=crop',
         'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1920&q=85&auto=format&fit=crop',
@@ -2503,7 +2502,6 @@
         currentIndex = nextIndex;
       }, 5000);
 
-      // THEME TOGGLE
       const themeToggle = document.getElementById('themeToggle');
       const themeIcon = document.getElementById('themeIcon');
       const themeLabel = document.getElementById('themeLabel');
@@ -2534,7 +2532,6 @@
       setTheme(savedTheme);
       themeToggle.addEventListener('click', toggleTheme);
 
-      // PARTICLES
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
       let particles = [];
@@ -2619,13 +2616,9 @@
       }
       animateParticles();
 
-      const observer = new MutationObserver(() => {});
-      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-
       document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
       document.addEventListener('mouseleave', () => { mouseX = null; mouseY = null; });
 
-      // TYPING
       const taglines = ['Welcome to DEEPBYTO', 'Engineering Intelligent Systems', 'Creating Digital Products', 'AI Automation Solutions', 'Open Source Innovation', 'Building the Future', 'Transforming Ideas into Software', 'Intelligent Engineering', 'Research. Build. Innovate.', 'Building AI-Powered Software'];
       const typingEl = document.getElementById('typing-text');
       let taglineIndex = 0, charIndex = 0, isDeleting = false;
@@ -2656,7 +2649,6 @@
       }
       setTimeout(typeEffect, 600);
 
-      // NAVBAR SCROLL / TOGGLE / ACTIVE LINK
       const navbar = document.getElementById('navbar');
       const navToggle = document.getElementById('navToggle');
       const navLinks = document.getElementById('navLinks');
@@ -2681,7 +2673,6 @@
         });
       });
 
-      // MORE DROPDOWN
       const navDropdowns = document.querySelectorAll('.nav-dropdown');
 
       function closeAllDropdowns() {
@@ -2742,7 +2733,6 @@
       window.addEventListener('scroll', updateActiveLink);
       updateActiveLink();
 
-      // REVEAL ON SCROLL
       const revealElements = document.querySelectorAll('.reveal');
       function revealOnScroll() {
         const windowHeight = window.innerHeight;
@@ -2758,7 +2748,6 @@
       window.addEventListener('scroll', revealOnScroll);
       window.addEventListener('resize', revealOnScroll);
 
-      // SUGGEST A TOOL MODAL
       const suggestModal = document.getElementById('suggestModal');
       const suggestModalClose = document.getElementById('suggestModalClose');
       const suggestFromMore = document.getElementById('suggestFromMore');
@@ -2794,7 +2783,6 @@
         }
       });
 
-      // smooth anchor scroll
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           const targetId = this.getAttribute('href');
@@ -2809,7 +2797,6 @@
         });
       });
 
-      // ESC close mobile nav
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && navLinks.classList.contains('open')) {
           navLinks.classList.remove('open');
