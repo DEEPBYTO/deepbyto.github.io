@@ -1,4 +1,117 @@
+# ============================================================
+# DEEPBYTO — AI & Search Crawler Policy
+# Policy: Allow All Crawlers
+# Last updated: 2026-10-16
+# ============================================================
+
+# Default: Allow all public website content
 User-agent: *
 Allow: /
 
+# OpenAI — ChatGPT
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Anthropic — Claude
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google — Search & AI
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+# Microsoft — Bing & Copilot
+User-agent: bingbot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# ByteDance
+User-agent: Bytespider
+Allow: /
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Mistral
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: MistralAI-Index
+Allow: /
+
+User-agent: MistralAI-Training
+Allow: /
+
+# DeepSeek
+User-agent: DeepSeekBot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckAssistBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+# Sitemap
 Sitemap: https://deepbyto.github.io/sitemap.xml
