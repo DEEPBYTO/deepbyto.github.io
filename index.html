@@ -334,7 +334,10 @@
       transition: color var(--transition);
       position: relative;
     }
-    .nav-dropdown-toggle::after {
+    .nav-dropdown-toggle .dd-text {
+      position: relative;
+    }
+    .nav-dropdown-toggle .dd-text::after {
       content: '';
       position: absolute;
       left: 0;
@@ -345,15 +348,27 @@
       transition: width var(--transition);
       border-radius: 4px;
     }
-    .nav-dropdown-toggle:hover { color: var(--text-primary); }
-    .nav-dropdown-toggle:hover::after { width: 100%; }
-    .nav-dropdown-toggle .dd-chevron {
+    .nav-dropdown-toggle:hover .dd-text { color: var(--text-primary); }
+    .nav-dropdown-toggle:hover .dd-text::after { width: 100%; }
+    .nav-dropdown-toggle .dd-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       font-size: 0.6rem;
       transition: transform 0.3s ease;
+      padding: 4px;
+      border-radius: 4px;
+      cursor: pointer;
     }
-    .nav-dropdown.open .nav-dropdown-toggle { color: var(--text-primary); }
-    .nav-dropdown.open .nav-dropdown-toggle::after { width: 100%; }
-    .nav-dropdown.open .nav-dropdown-toggle .dd-chevron { transform: rotate(180deg); }
+    .nav-dropdown-toggle .dd-arrow:hover {
+      background: var(--accent-dim);
+    }
+    .nav-dropdown.open .nav-dropdown-toggle .dd-text { color: var(--text-primary); }
+    .nav-dropdown.open .nav-dropdown-toggle .dd-text::after { width: 100%; }
+    .nav-dropdown.open .nav-dropdown-toggle .dd-arrow { transform: rotate(180deg); }
+
+    .nav-dropdown-toggle.active .dd-text { color: var(--text-primary); }
+    .nav-dropdown-toggle.active .dd-text::after { width: 100%; }
 
     .nav-dropdown-menu {
       position: absolute;
@@ -637,6 +652,9 @@
       line-height: 1.7;
     }
 
+    /* ============================================
+       ABOUT
+       ============================================ */
     #about {
       position: relative;
       background: var(--bg-secondary);
@@ -743,6 +761,33 @@
       line-height: 1.5;
     }
 
+    /* ============================================
+       VISION
+       ============================================ */
+    #vision {
+      position: relative;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.4s ease, border-color 0.3s ease;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* ============================================
+       MISSION
+       ============================================ */
+    #mission {
+      position: relative;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.4s ease, border-color 0.3s ease;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* ============================================
+       SERVICES
+       ============================================ */
     #services {
       background: var(--bg-primary);
       position: relative;
@@ -982,9 +1027,6 @@
     .service-bg.right .service-bottom { justify-content: flex-end; }
     .service-bg.right h3 { margin-left: auto; }
 
-    /* ============================================
-       BUSINESS SECTION (separate, bigger, premium)
-       ============================================ */
     #business-card {
       background: var(--bg-secondary);
       position: relative;
@@ -1274,7 +1316,7 @@
     }
 
     /* ============================================
-       LABS
+       TECHNOLOGIES
        ============================================ */
     #labs {
       background: var(--bg-primary);
@@ -1305,6 +1347,8 @@
       display: flex;
       flex-direction: column;
       min-height: 320px;
+      text-decoration: none;
+      color: inherit;
     }
     .lab-card:hover {
       border-color: var(--accent);
@@ -1427,9 +1471,6 @@
       z-index: 2;
     }
 
-    /* ============================================
-       SUGGEST MODAL
-       ============================================ */
     .suggest-modal {
       position: fixed;
       inset: 0;
@@ -1596,9 +1637,6 @@
       .suggest-option .suggest-option-icon { width: 36px; height: 36px; font-size: 1rem; }
     }
 
-    /* ============================================
-       CONTACT
-       ============================================ */
     #contact {
       background: var(--bg-secondary);
       border-top: 1px solid var(--border-subtle);
@@ -1886,7 +1924,6 @@
 
       .nav-dropdown { width: 100%; text-align: center; }
       .nav-dropdown-toggle { width: 100%; justify-content: center; font-size: 1.1rem; }
-      .nav-dropdown-toggle::after { display: none; }
       .nav-dropdown-menu {
         position: static;
         left: auto;
@@ -2010,11 +2047,37 @@
         >
       </a>
       <ul class="nav-links" id="navLinks" role="menubar">
-        <li role="none"><a href="#about" role="menuitem">About</a></li>
 
-        <li class="nav-dropdown" id="servicesDropdown" role="none">
+        <!-- COMPANY DROPDOWN -->
+        <li class="nav-dropdown" id="companyDropdown" role="none" data-section="about,vision,mission">
+          <button class="nav-dropdown-toggle" id="companyToggle" aria-haspopup="true" aria-expanded="false" aria-controls="companyMenu">
+            <span class="dd-text" data-scroll="about">Company</span>
+            <span class="dd-arrow" data-toggle="dropdown"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+          </button>
+          <ul class="nav-dropdown-menu" id="companyMenu" role="menu" aria-label="Company">
+            <li role="none">
+              <a href="#about" role="menuitem">
+                <i class="fas fa-info-circle" aria-hidden="true"></i> About
+              </a>
+            </li>
+            <li role="none">
+              <a href="#vision" role="menuitem">
+                <i class="fas fa-eye" aria-hidden="true"></i> Our Vision
+              </a>
+            </li>
+            <li role="none">
+              <a href="#mission" role="menuitem">
+                <i class="fas fa-bullseye" aria-hidden="true"></i> Our Mission
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- SERVICES DROPDOWN -->
+        <li class="nav-dropdown" id="servicesDropdown" role="none" data-section="services">
           <button class="nav-dropdown-toggle" id="servicesToggle" aria-haspopup="true" aria-expanded="false" aria-controls="servicesMenu">
-            Services <i class="fas fa-chevron-down dd-chevron" aria-hidden="true"></i>
+            <span class="dd-text" data-scroll="services">Services</span>
+            <span class="dd-arrow" data-toggle="dropdown"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
           </button>
           <ul class="nav-dropdown-menu" id="servicesMenu" role="menu" aria-label="Services">
             <li role="none">
@@ -2050,9 +2113,50 @@
           </ul>
         </li>
 
+        <!-- BUSINESS (single link) -->
         <li role="none"><a href="#business-card" role="menuitem">Business</a></li>
-        <li role="none"><a href="#labs" role="menuitem">Labs</a></li>
 
+        <!-- TECHNOLOGIES DROPDOWN -->
+        <li class="nav-dropdown" id="techDropdown" role="none" data-section="labs">
+          <button class="nav-dropdown-toggle" id="techToggle" aria-haspopup="true" aria-expanded="false" aria-controls="techMenu">
+            <span class="dd-text" data-scroll="labs">Technologies</span>
+            <span class="dd-arrow" data-toggle="dropdown"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+          </button>
+          <ul class="nav-dropdown-menu" id="techMenu" role="menu" aria-label="Technologies">
+            <li role="none">
+              <a href="technologies/ai-agents.html" role="menuitem">
+                <i class="fas fa-robot" aria-hidden="true"></i> AI Agents
+              </a>
+            </li>
+            <li role="none">
+              <a href="technologies/automation.html" role="menuitem">
+                <i class="fas fa-gears" aria-hidden="true"></i> Automation
+              </a>
+            </li>
+            <li role="none">
+              <a href="technologies/developer-tools.html" role="menuitem">
+                <i class="fas fa-toolbox" aria-hidden="true"></i> Developer Tools
+              </a>
+            </li>
+            <li role="none">
+              <a href="technologies/machine-learning.html" role="menuitem">
+                <i class="fas fa-brain" aria-hidden="true"></i> Machine Learning
+              </a>
+            </li>
+            <li role="none">
+              <a href="technologies/internal-platforms.html" role="menuitem">
+                <i class="fas fa-server" aria-hidden="true"></i> Internal Platforms
+              </a>
+            </li>
+            <li role="none">
+              <a href="technologies/digital-products.html" role="menuitem">
+                <i class="fas fa-cube" aria-hidden="true"></i> Digital Products
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- MORE DROPDOWN (unchanged) -->
         <li class="nav-dropdown" id="moreDropdown" role="none">
           <button class="nav-dropdown-toggle" id="moreToggle" aria-haspopup="true" aria-expanded="false" aria-controls="moreMenu">
             More <i class="fas fa-chevron-down dd-chevron" aria-hidden="true"></i>
@@ -2076,7 +2180,9 @@
           </ul>
         </li>
 
+        <!-- CONTACT (single link, no dropdown) -->
         <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+
         <li role="none">
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
             <span class="toggle-icon">
@@ -2115,6 +2221,9 @@
     </div>
   </section>
 
+  <!-- ============================================
+       ABOUT
+       ============================================ -->
   <section id="about" class="section-padding" aria-label="About DEEPBYTO">
     <div class="about-waves" aria-hidden="true">
       <div class="glow-orb blue"></div>
@@ -2178,6 +2287,113 @@
     </div>
   </section>
 
+  <!-- ============================================
+       VISION
+       ============================================ -->
+  <section id="vision" class="section-padding" aria-label="Our Vision">
+    <div class="about-waves" aria-hidden="true">
+      <div class="glow-orb blue"></div>
+      <div class="glow-orb green"></div>
+
+      <svg class="wave-blue" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke="url(#blueGrad)" stroke-width="2"
+              d="M0,200 C240,120 480,280 720,200 C960,120 1200,280 1440,200" />
+        <path fill="none" stroke="url(#blueGrad)" stroke-width="1.5" opacity="0.7"
+              d="M0,220 C240,140 480,300 720,220 C960,140 1200,300 1440,220" />
+        <path fill="none" stroke="url(#blueGrad)" stroke-width="1" opacity="0.5"
+              d="M0,180 C240,100 480,260 720,180 C960,100 1200,260 1440,180" />
+      </svg>
+
+      <svg class="wave-green" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke="url(#greenGrad)" stroke-width="2"
+              d="M0,280 C240,200 480,360 720,280 C960,200 1200,360 1440,280" />
+        <path fill="none" stroke="url(#greenGrad)" stroke-width="1.5" opacity="0.7"
+              d="M0,300 C240,220 480,380 720,300 C960,220 1200,380 1440,300" />
+        <path fill="none" stroke="url(#greenGrad)" stroke-width="1" opacity="0.5"
+              d="M0,260 C240,180 480,340 720,260 C960,180 1200,340 1440,260" />
+      </svg>
+
+      <svg class="wave-blue-2" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke="url(#blueGrad)" stroke-width="1.5" opacity="0.6"
+              d="M0,120 C240,240 480,40 720,120 C960,240 1200,40 1440,120" />
+      </svg>
+    </div>
+
+    <div class="container">
+      <span class="section-label reveal">Our Vision</span>
+      <h2 class="section-title reveal">The Future We <span class="highlight">Envision</span></h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>To become a global leader in intelligent software and AI innovation. We envision a future where AI and software work seamlessly together to solve real-world problems, empowering individuals, businesses, and communities to achieve more with less effort.</p>
+          <p>Our vision is to build technology that is not only powerful but also practical, accessible, and built to last.</p>
+          <p>We aim to shape the next generation of intelligent systems that drive progress across industries.</p>
+        </div>
+        <div class="about-values reveal">
+          <div class="value-card"><h4>Practical AI</h4><p>Solutions that solve real problems, not just demos.</p></div>
+          <div class="value-card"><h4>Accessible Tech</h4><p>Technology that everyone can benefit from.</p></div>
+          <div class="value-card"><h4>Built to Last</h4><p>Systems designed for long-term reliability.</p></div>
+          <div class="value-card"><h4>Global Impact</h4><p>Technology that drives progress across industries.</p></div>
+          <div class="value-card" style="grid-column: span 2;"><h4>Seamless Integration</h4><p>AI and software working together effortlessly.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       MISSION
+       ============================================ -->
+  <section id="mission" class="section-padding" aria-label="Our Mission">
+    <div class="about-waves" aria-hidden="true">
+      <div class="glow-orb blue"></div>
+      <div class="glow-orb green"></div>
+
+      <svg class="wave-blue" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke="url(#blueGrad)" stroke-width="2"
+              d="M0,200 C240,120 480,280 720,200 C960,120 1200,280 1440,200" />
+        <path fill="none" stroke="url(#blueGrad)" stroke-width="1.5" opacity="0.7"
+              d="M0,220 C240,140 480,300 720,220 C960,140 1200,300 1440,220" />
+        <path fill="none" stroke="url(#blueGrad)" stroke-width="1" opacity="0.5"
+              d="M0,180 C240,100 480,260 720,180 C960,100 1200,260 1440,180" />
+      </svg>
+
+      <svg class="wave-green" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke="url(#greenGrad)" stroke-width="2"
+              d="M0,280 C240,200 480,360 720,280 C960,200 1200,360 1440,280" />
+        <path fill="none" stroke="url(#greenGrad)" stroke-width="1.5" opacity="0.7"
+              d="M0,300 C240,220 480,380 720,300 C960,220 1200,380 1440,300" />
+        <path fill="none" stroke="url(#greenGrad)" stroke-width="1" opacity="0.5"
+              d="M0,260 C240,180 480,340 720,260 C960,180 1200,340 1440,260" />
+      </svg>
+
+      <svg class="wave-blue-2" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke="url(#blueGrad)" stroke-width="1.5" opacity="0.6"
+              d="M0,120 C240,240 480,40 720,120 C960,240 1200,40 1440,120" />
+      </svg>
+    </div>
+
+    <div class="container">
+      <span class="section-label reveal">Our Mission</span>
+      <h2 class="section-title reveal">What Drives <span class="highlight">Us</span></h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>To engineer intelligent systems that solve real problems with precision and purpose. Our mission is to create practical AI solutions and modern software while building a global technology company.</p>
+          <p>We focus on delivering real value through clean engineering, thoughtful design, and long-term thinking.</p>
+          <p>We are committed to transparency, quality, and continuous innovation, building products and services that empower our clients and contribute to the open-source community.</p>
+        </div>
+        <div class="about-values reveal">
+          <div class="value-card"><h4>Precision</h4><p>Every solution engineered with exactness.</p></div>
+          <div class="value-card"><h4>Purpose</h4><p>Building with clear intent and direction.</p></div>
+          <div class="value-card"><h4>Real Value</h4><p>Delivering outcomes that matter.</p></div>
+          <div class="value-card"><h4>Clean Engineering</h4><p>Thoughtful design in every detail.</p></div>
+          <div class="value-card" style="grid-column: span 2;"><h4>Open Source</h4><p>Contributing back to the community.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SERVICES
+       ============================================ -->
   <section id="services" aria-label="Services">
     <div class="container section-padding" style="padding-bottom: 0; position: relative; z-index: 2;">
       <span class="section-label reveal">Services</span>
@@ -2288,7 +2504,7 @@
   </section>
 
   <!-- ============================================
-       BUSINESS SECTION (separate from Services, bigger, premium)
+       BUSINESS
        ============================================ -->
   <section id="business-card" class="section-padding" aria-label="DEEPBYTO for Business">
     <div class="business-glow" aria-hidden="true"></div>
@@ -2349,15 +2565,18 @@
     </div>
   </section>
 
-  <section id="labs" class="section-padding" aria-label="Research & Development Labs">
+  <!-- ============================================
+       TECHNOLOGIES
+       ============================================ -->
+  <section id="labs" class="section-padding" aria-label="Technologies">
     <div class="container" style="position: relative; z-index: 2;">
-      <span class="section-label reveal">Labs</span>
+      <span class="section-label reveal">Technologies</span>
       <h2 class="section-title reveal">Research & <span class="highlight">Development</span></h2>
       <p class="section-desc reveal">Exploring the frontiers of AI, automation, and software engineering.</p>
 
       <div class="labs-grid">
 
-        <div class="lab-card reveal">
+        <a href="technologies/ai-agents.html" class="lab-card reveal">
           <div class="lab-image">
             <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80&auto=format&fit=crop" alt="AI Agents" loading="lazy" />
             <span class="lab-num">01</span>
@@ -2366,9 +2585,9 @@
             <h4>AI Agents</h4>
             <p>Autonomous systems that reason, plan, and act.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="lab-card reveal">
+        <a href="technologies/automation.html" class="lab-card reveal">
           <div class="lab-image">
             <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&auto=format&fit=crop" alt="Automation" loading="lazy" />
             <span class="lab-num">02</span>
@@ -2377,9 +2596,9 @@
             <h4>Automation</h4>
             <p>Intelligent process orchestration at scale.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="lab-card reveal">
+        <a href="technologies/developer-tools.html" class="lab-card reveal">
           <div class="lab-image">
             <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80&auto=format&fit=crop" alt="Developer Tools" loading="lazy" />
             <span class="lab-num">03</span>
@@ -2388,9 +2607,9 @@
             <h4>Developer Tools</h4>
             <p>Next-generation tooling for engineers.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="lab-card reveal">
+        <a href="technologies/machine-learning.html" class="lab-card reveal">
           <div class="lab-image">
             <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80&auto=format&fit=crop" alt="Machine Learning" loading="lazy" />
             <span class="lab-num">04</span>
@@ -2399,9 +2618,9 @@
             <h4>Machine Learning</h4>
             <p>Advanced models and training pipelines.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="lab-card reveal">
+        <a href="technologies/internal-platforms.html" class="lab-card reveal">
           <div class="lab-image">
             <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&auto=format&fit=crop" alt="Internal Platforms" loading="lazy" />
             <span class="lab-num">05</span>
@@ -2410,9 +2629,9 @@
             <h4>Internal Platforms</h4>
             <p>Scalable infrastructure and internal systems.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="lab-card reveal">
+        <a href="technologies/digital-products.html" class="lab-card reveal">
           <div class="lab-image">
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format&fit=crop" alt="Digital Products" loading="lazy" />
             <span class="lab-num">06</span>
@@ -2421,7 +2640,7 @@
             <h4>Digital Products</h4>
             <p>Building impactful digital products for the future.</p>
           </div>
-        </div>
+        </a>
 
       </div>
 
@@ -2429,6 +2648,9 @@
     </div>
   </section>
 
+  <!-- ============================================
+       CONTACT
+       ============================================ -->
   <section id="contact" class="section-padding" aria-label="Contact">
     <div class="container" style="position: relative; z-index: 2;">
       <span class="section-label reveal">Contact</span>
@@ -2777,16 +2999,49 @@
         const toggle = dd.querySelector('.nav-dropdown-toggle');
         if (!toggle) return;
 
-        toggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const willOpen = !dd.classList.contains('open');
-          closeAllDropdowns();
-          if (willOpen) {
-            dd.classList.add('open');
-            toggle.setAttribute('aria-expanded', 'true');
-          }
-        });
+        const ddText = toggle.querySelector('.dd-text');
+        const ddArrow = toggle.querySelector('.dd-arrow');
+
+        if (ddText && ddText.dataset.scroll) {
+          ddText.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const sectionId = ddText.dataset.scroll;
+            const target = document.getElementById(sectionId);
+            if (target) {
+              const offset = 80;
+              const top = target.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top, behavior: 'smooth' });
+            }
+            closeAllDropdowns();
+          });
+        }
+
+        if (ddArrow) {
+          ddArrow.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const willOpen = !dd.classList.contains('open');
+            closeAllDropdowns();
+            if (willOpen) {
+              dd.classList.add('open');
+              toggle.setAttribute('aria-expanded', 'true');
+            }
+          });
+        }
+
+        if (!ddText && !ddArrow) {
+          toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const willOpen = !dd.classList.contains('open');
+            closeAllDropdowns();
+            if (willOpen) {
+              dd.classList.add('open');
+              toggle.setAttribute('aria-expanded', 'true');
+            }
+          });
+        }
 
         dd.querySelectorAll('.nav-dropdown-menu a').forEach(a => {
           a.addEventListener('click', () => {
@@ -2805,9 +3060,12 @@
 
       const sections = document.querySelectorAll('section[id]');
       const navAnchors = navLinks.querySelectorAll('a[href^="#"]');
+      const dropdownSections = document.querySelectorAll('.nav-dropdown[data-section]');
+
       function updateActiveLink() {
         let current = '';
         const scrollPos = window.scrollY + 120;
+
         sections.forEach(section => {
           const top = section.offsetTop;
           const height = section.offsetHeight;
@@ -2815,10 +3073,35 @@
             current = section.getAttribute('id');
           }
         });
+
         navAnchors.forEach(a => {
           a.classList.remove('active');
           if (a.getAttribute('href') === `#${current}`) a.classList.add('active');
         });
+
+        dropdownSections.forEach(dd => {
+          const ddSection = dd.getAttribute('data-section');
+          const toggle = dd.querySelector('.nav-dropdown-toggle');
+          if (toggle) {
+            toggle.classList.remove('active');
+            const ddSections = ddSection.split(',').map(s => s.trim());
+            if (ddSections.includes(current)) {
+              toggle.classList.add('active');
+            }
+          }
+        });
+
+        const businessLink = navLinks.querySelector('a[href="#business-card"]');
+        if (businessLink) {
+          businessLink.classList.remove('active');
+          if (current === 'business-card') businessLink.classList.add('active');
+        }
+
+        const contactLink = navLinks.querySelector('a[href="#contact"]');
+        if (contactLink) {
+          contactLink.classList.remove('active');
+          if (current === 'contact') contactLink.classList.add('active');
+        }
       }
       window.addEventListener('scroll', updateActiveLink);
       updateActiveLink();
