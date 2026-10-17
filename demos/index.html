@@ -128,100 +128,6 @@
     }
 
     /* =========================================
-       NAVBAR
-       ========================================= */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 16px 0;
-      background: var(--nav-bg);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-      transition: background var(--transition), box-shadow var(--transition);
-    }
-    .navbar.scrolled { background: var(--nav-scrolled); box-shadow: 0 8px 30px var(--shadow); }
-    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
-    .nav-brand {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      color: var(--text-primary);
-      transition: opacity 0.3s ease;
-    }
-    .nav-brand:hover { opacity: 0.7; }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      list-style: none;
-    }
-    .nav-links a {
-      position: relative;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: color 0.3s ease;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 4px;
-      transition: width 0.3s ease;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
-    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-
-    .theme-toggle {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 13px;
-      border-radius: 50px;
-      background: var(--accent-dim);
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      cursor: pointer;
-      font-size: 0.75rem;
-      transition: all 0.3s ease;
-    }
-    .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
-
-    .nav-toggle {
-      display: none;
-      width: 42px;
-      height: 42px;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 5px;
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .nav-toggle span {
-      width: 22px;
-      height: 2px;
-      background: var(--text-primary);
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
-    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-    .nav-toggle.active span:nth-child(2) { opacity: 0; }
-    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-
-    /* =========================================
        DEMOS SECTION
        ========================================= */
     .demos-section {
@@ -547,83 +453,10 @@
     }
 
     /* =========================================
-       FOOTER
-       ========================================= */
-    .footer {
-      padding: 45px 0 30px;
-      border-top: 1px solid var(--border);
-      background: var(--bg-secondary);
-      position: relative;
-      z-index: 2;
-    }
-    .footer-main {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--border);
-    }
-    .footer-brand {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: 0.07em;
-    }
-    .footer-tagline {
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      margin-top: 4px;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .footer-links a {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      transition: color 0.3s ease;
-    }
-    .footer-links a:hover { color: var(--text-primary); }
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding-top: 20px;
-    }
-    .footer-bottom p {
-      color: var(--text-muted);
-      font-size: 0.7rem;
-    }
-
-    /* =========================================
        RESPONSIVE
        ========================================= */
     @media (max-width: 900px) {
       .demos-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 280px;
-        height: 100vh;
-        flex-direction: column;
-        justify-content: center;
-        gap: 28px;
-        background: var(--bg-primary);
-        border-left: 1px solid var(--border);
-        transition: right 0.4s ease;
-      }
-      .nav-links.open { right: 0; }
-      .nav-links a { font-size: 1rem; }
-      .theme-toggle { margin-top: 10px; }
-      .nav-toggle { display: flex; position: relative; z-index: 1001; }
-      .footer-main { flex-direction: column; text-align: center; }
-      .footer-bottom { flex-direction: column; text-align: center; }
     }
     @media (max-width: 480px) {
       .container { padding-left: 16px; padding-right: 16px; }
@@ -650,29 +483,8 @@
 <body>
   <div class="background-grid"></div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="https://deepbyto.github.io/" class="nav-brand" aria-label="DEEPBYTO Home">DEEPBYTO</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="https://deepbyto.github.io/">Home</a></li>
-        <li><a href="https://deepbyto.github.io/#about">About</a></li>
-        <li><a href="https://deepbyto.github.io/#services">Services</a></li>
-        <li><a href="https://deepbyto.github.io/#projects">Projects</a></li>
-        <li><a href="https://deepbyto.github.io/demos/" class="active">Demos</a></li>
-        <li><a href="https://deepbyto.github.io/#contact">Contact</a></li>
-        <li>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <i class="fas fa-moon" id="themeIcon"></i>
-            <span id="themeText">Dark</span>
-          </button>
-        </li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <!-- HEADER — index.html se auto load -->
+  <div id="site-header"></div>
 
   <!-- DEMOS -->
   <main>
@@ -709,42 +521,165 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-main">
-        <div>
-          <div class="footer-brand">DEEPBYTO</div>
-          <div class="footer-tagline">AI & Software Innovation</div>
-        </div>
-        <div class="footer-links">
-          <a href="https://deepbyto.github.io/">Home</a>
-          <a href="https://deepbyto.github.io/#services">Services</a>
-          <a href="https://deepbyto.github.io/#projects">Projects</a>
-          <a href="https://deepbyto.github.io/demos/">Demos</a>
-          <a href="https://deepbyto.github.io/#contact">Contact</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 DEEPBYTO. All rights reserved.</p>
-        <p>Developed by DEEPBYTO</p>
-      </div>
-    </div>
-  </footer>
+  <!-- FOOTER — index.html se auto load -->
+  <div id="site-footer"></div>
 
   <script>
     'use strict';
 
     /* =========================================
-       CONFIGURATION
+       THEME (shared with header)
+       ========================================= */
+    function applyThemeUI(theme) {
+      const themeIcon = document.getElementById('themeIcon');
+      const themeLabel = document.getElementById('themeLabel');
+      if (themeIcon && themeLabel) {
+        if (theme === 'light') {
+          themeIcon.className = 'fas fa-sun';
+          themeLabel.textContent = 'Light';
+        } else {
+          themeIcon.className = 'fas fa-moon';
+          themeLabel.textContent = 'Dark';
+        }
+      }
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.content = theme === 'light' ? '#f5f5f5' : '#000000';
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('deepbyto-theme', theme);
+      applyThemeUI(theme);
+    }
+
+    const savedTheme = localStorage.getItem('deepbyto-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    /* =========================================
+       HEADER / FOOTER LOADER
+       ========================================= */
+    async function loadComponent(templateId, targetSelector, sourcePage) {
+      const target = document.querySelector(targetSelector);
+      if (!target) return;
+      const tpl = document.getElementById(templateId);
+      if (tpl) { target.innerHTML = tpl.innerHTML; return; }
+      try {
+        const res = await fetch(sourcePage, { cache: 'no-store' });
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const remote = doc.getElementById(templateId);
+        if (remote) target.innerHTML = remote.innerHTML;
+      } catch (e) { console.error('Component load failed:', templateId, e); }
+    }
+
+    /* =========================================
+       HEADER EVENTS
+       ========================================= */
+    function initHeaderEvents() {
+      const navbar = document.getElementById('navbar');
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
+      const themeToggle = document.getElementById('themeToggle');
+      const navDropdowns = document.querySelectorAll('.nav-dropdown');
+
+      applyThemeUI(document.documentElement.getAttribute('data-theme') || 'dark');
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const cur = document.documentElement.getAttribute('data-theme');
+          setTheme(cur === 'light' ? 'dark' : 'light');
+        });
+      }
+
+      if (navbar) {
+        const onScroll = () => {
+          if (window.scrollY > 20) navbar.classList.add('scrolled');
+          else navbar.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', onScroll);
+        onScroll();
+      }
+
+      function closeAllDropdowns() {
+        navDropdowns.forEach(dd => {
+          dd.classList.remove('open');
+          const t = dd.querySelector('.nav-dropdown-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          const open = navLinks.classList.toggle('open');
+          navToggle.classList.toggle('active');
+          navToggle.setAttribute('aria-expanded', open);
+          if (!open) closeAllDropdowns();
+        });
+        navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          navToggle.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }));
+      }
+
+      navDropdowns.forEach(dd => {
+        const toggle = dd.querySelector('.nav-dropdown-toggle');
+        if (!toggle) return;
+        const ddText = toggle.querySelector('.dd-text');
+        const ddArrow = toggle.querySelector('.dd-arrow');
+
+        if (ddText && ddText.dataset.scroll) {
+          ddText.addEventListener('click', (e) => {
+            e.preventDefault(); e.stopPropagation();
+            const sec = ddText.dataset.scroll;
+            const t = document.getElementById(sec);
+            if (t) {
+              const top = t.getBoundingClientRect().top + window.scrollY - 80;
+              window.scrollTo({ top, behavior: 'smooth' });
+            } else {
+              window.location.href = '../index.html#' + sec;
+            }
+            closeAllDropdowns();
+          });
+        }
+
+        if (ddArrow) {
+          ddArrow.addEventListener('click', (e) => {
+            e.preventDefault(); e.stopPropagation();
+            const willOpen = !dd.classList.contains('open');
+            closeAllDropdowns();
+            if (willOpen) { dd.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); }
+          });
+        }
+
+        if (!ddText && !ddArrow) {
+          toggle.addEventListener('click', (e) => {
+            e.preventDefault(); e.stopPropagation();
+            const willOpen = !dd.classList.contains('open');
+            closeAllDropdowns();
+            if (willOpen) { dd.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); }
+          });
+        }
+
+        dd.querySelectorAll('.nav-dropdown-menu a').forEach(a => a.addEventListener('click', closeAllDropdowns));
+      });
+
+      document.addEventListener('click', e => {
+        if (!e.target.closest('.nav-dropdown')) closeAllDropdowns();
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeAllDropdowns();
+      });
+    }
+
+    /* =========================================
+       GITHUB DEMOS CONFIG
        ========================================= */
     const GITHUB_USER = 'DEEPBYTO';
     const GITHUB_REPO = 'demo-websites';
-    const GITHUB_BRANCH = 'main'; // ya 'master' agar aapki branch 'main' nahi hai
+    const GITHUB_BRANCH = 'main';
     const LIVE_BASE_URL = `https://${GITHUB_USER.toLowerCase()}.github.io/${GITHUB_REPO}/`;
 
-    // Folder name ke hisaab se metadata mapping
-    // Jab naya folder add karen, yahan entry add kar dein
     const CATEGORY_MAP = {
       'gym':         { title: 'Gym & Fitness',      category: 'Business',       icon: 'fa-dumbbell',          description: 'A modern fitness website designed for gyms, fitness centers, personal trainers, and wellness businesses.' },
       'restaurant':  { title: 'Restaurant',          category: 'Food & Dining',  icon: 'fa-utensils',          description: 'A premium restaurant website focused on menu presentation, brand identity, reservations, and customer conversion.' },
@@ -754,8 +689,7 @@
       'business':    { title: 'Business Website',    category: 'Corporate',      icon: 'fa-building-circle-check', description: 'A flexible professional website concept for companies, agencies, startups, organizations, and service businesses.' }
     };
 
-    // Fallback agar kisi folder ka metadata na mile
-    function getFallbackMeta(folderName, index) {
+    function getFallbackMeta(folderName) {
       const formatted = folderName
         .replace(/[-_]/g, ' ')
         .replace(/\b\w/g, c => c.toUpperCase());
@@ -767,28 +701,16 @@
       };
     }
 
-    /* =========================================
-       GITHUB API
-       ========================================= */
     async function fetchRepoContents() {
       const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/?ref=${GITHUB_BRANCH}`;
-      const response = await fetch(apiUrl, {
-        headers: { 'Accept': 'application/vnd.github.v3+json' }
-      });
-      if (!response.ok) {
-        throw new Error(`GitHub API error: ${response.status}`);
-      }
+      const response = await fetch(apiUrl, { headers: { 'Accept': 'application/vnd.github.v3+json' } });
+      if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
       return await response.json();
     }
 
-    /* =========================================
-       RENDER CARDS
-       ========================================= */
     function renderCards(folders) {
       const grid = document.getElementById('demosGrid');
       grid.innerHTML = '';
-
-      // Sirf directories filter karo
       const dirs = folders.filter(item => item.type === 'dir');
 
       if (dirs.length === 0) {
@@ -798,14 +720,12 @@
 
       dirs.forEach((dir, index) => {
         const folderName = dir.name;
-        const meta = CATEGORY_MAP[folderName] || getFallbackMeta(folderName, index);
+        const meta = CATEGORY_MAP[folderName] || getFallbackMeta(folderName);
         const liveUrl = `${LIVE_BASE_URL}${folderName}/`;
         const displayUrl = `deepbyto.github.io/demo-websites/${folderName}/`;
         const number = String(index + 1).padStart(2, '0');
         const total = String(dirs.length).padStart(2, '0');
-        const isComingSoon = !CATEGORY_MAP[folderName]; // agar mapping nahi to coming soon treat karo? Nahi, agar folder exist karta hai to live treat karo
 
-        // Folder exist karta hai to live preview use karo
         const card = document.createElement('article');
         card.className = 'demo-card';
         card.innerHTML = `
@@ -848,9 +768,6 @@
       });
     }
 
-    /* =========================================
-       LOAD DEMOS
-       ========================================= */
     async function loadDemos() {
       const loadingState = document.getElementById('loadingState');
       const errorState = document.getElementById('errorState');
@@ -872,76 +789,17 @@
     }
 
     /* =========================================
-       NAVBAR
+       BOOT
        ========================================= */
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    /* =========================================
-       MOBILE NAVIGATION
-       ========================================= */
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      navToggle.classList.toggle('active');
-      navToggle.setAttribute('aria-expanded', open);
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    /* =========================================
-       THEME
-       ========================================= */
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const themeText = document.getElementById('themeText');
-
-    function setTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('deepbyto-theme', theme);
-      if (theme === 'light') {
-        themeIcon.className = 'fas fa-sun';
-        themeText.textContent = 'Light';
-      } else {
-        themeIcon.className = 'fas fa-moon';
-        themeText.textContent = 'Dark';
-      }
-      const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) {
-        meta.content = theme === 'light' ? '#f5f5f5' : '#000000';
-      }
-    }
-
-    const savedTheme = localStorage.getItem('deepbyto-theme') || 'dark';
-    setTheme(savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      setTheme(current === 'light' ? 'dark' : 'light');
-    });
-
-    /* =========================================
-       INIT
-       ========================================= */
-    loadDemos();
+    (async function boot() {
+      await Promise.all([
+        loadComponent('header-template', '#site-header', '../index.html'),
+        loadComponent('footer-template', '#site-footer', '../index.html')
+      ]);
+      initHeaderEvents();
+      loadDemos();
+      console.log('DEEPBYTO | Demos initialized');
+    })();
   </script>
 </body>
 </html>
