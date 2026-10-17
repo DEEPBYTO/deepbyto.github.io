@@ -246,15 +246,24 @@
     .nav-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
+    /* ===== HERO — FULL SCREEN ===== */
     .page-hero {
-      position: relative; min-height: 70vh;
-      display: flex; align-items: center;
-      padding: 160px 0 100px; overflow: hidden;
-      background-color: #0a0a0a; isolation: isolate;
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 160px 0 100px;
+      overflow: hidden;
+      background-color: #0a0a0a;
+      isolation: isolate;
     }
     .page-hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background-size: cover; background-position: center;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-size: cover;
+      background-position: center center;
       background-repeat: no-repeat;
       filter: brightness(0.55) contrast(1.05) saturate(1.05);
     }
@@ -608,7 +617,7 @@
       }
       .nav-dropdown.open .nav-dropdown-menu { transform: none; max-height: 520px; padding: 10px 0 0; }
       .nav-dropdown-menu a { justify-content: center; font-size: 1rem; padding: 10px 12px; }
-      .page-hero { padding: 140px 0 80px; min-height: 60vh; }
+      .page-hero { padding: 140px 0 80px; min-height: 100svh; }
       .page-hero-title { font-size: clamp(2rem, 9vw, 3rem); }
       .page-hero-desc { font-size: 1rem; }
       .page-hero-buttons { flex-direction: column; align-items: stretch; }
@@ -626,7 +635,7 @@
     }
     @media (max-width: 480px) {
       .container { padding: 0 16px; }
-      .page-hero { padding: 120px 0 60px; min-height: 55vh; }
+      .page-hero { padding: 120px 0 60px; min-height: 100svh; }
       .page-hero-title { font-size: 1.9rem; }
       .page-hero-desc { font-size: 0.95rem; }
       .overview-stats { grid-template-columns: 1fr; }
@@ -650,14 +659,10 @@
 <body>
   <canvas id="particles-canvas"></canvas>
 
-  <!-- ============================================================
-       HEADER — index.html se automatically load hoga
-       ============================================================ -->
+  <!-- HEADER — index.html se auto load -->
   <div id="site-header"></div>
 
-  <!-- ============================================================
-       PAGE HERO
-       ============================================================ -->
+  <!-- ===== PAGE HERO (FULL SCREEN) ===== -->
   <section class="page-hero" aria-label="Web Services">
     <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&q=85&auto=format&fit=crop');"></div>
     <div class="page-hero-overlay"></div>
@@ -852,9 +857,7 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       FOOTER — index.html se automatically load hoga
-       ============================================================ -->
+  <!-- FOOTER — index.html se auto load -->
   <div id="site-footer"></div>
 
   <script>
