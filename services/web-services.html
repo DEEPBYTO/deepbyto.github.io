@@ -126,24 +126,6 @@
     ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 12px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-    .whatsapp-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
-      display: flex; align-items: center; justify-content: center;
-      width: 60px; height: 60px; border-radius: 50%;
-      background: var(--bg-primary); color: var(--text-primary);
-      font-size: 2.2rem; box-shadow: 0 8px 30px var(--shadow-color);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-      border: 2px solid var(--whatsapp-border); cursor: pointer; text-decoration: none;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.08); box-shadow: 0 12px 40px var(--accent-glow);
-      background: var(--bg-secondary); border-color: var(--accent); color: var(--text-primary);
-    }
-    .whatsapp-float i { filter: drop-shadow(0 2px 4px var(--shadow-color)); }
-    @media (max-width: 480px) {
-      .whatsapp-float { width: 52px; height: 52px; font-size: 1.8rem; bottom: 18px; right: 18px; }
-    }
-
     #particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 
     .theme-toggle {
@@ -670,165 +652,8 @@
 <body>
   <canvas id="particles-canvas"></canvas>
 
-  <a href="https://wa.me/923047467957?text=Hi%20DEEPBYTO!" 
-     class="whatsapp-float" 
-     target="_blank" 
-     rel="noopener noreferrer" 
-     aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="container">
-      <a href="../index.html" class="nav-brand" aria-label="DEEPBYTO home">
-        <img src="https://deepbyto.github.io/wordmark.png" alt="DEEPBYTO" class="wordmark">
-      </a>
-      <ul class="nav-links" id="navLinks" role="menubar">
-
-        <li class="nav-dropdown" id="companyDropdown" role="none">
-          <button class="nav-dropdown-toggle" id="companyToggle" aria-haspopup="true" aria-expanded="false" aria-controls="companyMenu">
-            <span class="dd-text">Company</span>
-            <span class="dd-arrow" data-toggle="dropdown"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
-          </button>
-          <ul class="nav-dropdown-menu" id="companyMenu" role="menu" aria-label="Company">
-            <li role="none">
-              <a href="../index.html#about" role="menuitem">
-                <i class="fas fa-info-circle" aria-hidden="true"></i> About
-              </a>
-            </li>
-            <li role="none">
-              <a href="../index.html#vision" role="menuitem">
-                <i class="fas fa-eye" aria-hidden="true"></i> Our Vision
-              </a>
-            </li>
-            <li role="none">
-              <a href="../index.html#mission" role="menuitem">
-                <i class="fas fa-bullseye" aria-hidden="true"></i> Our Mission
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="nav-dropdown" id="servicesDropdown" role="none">
-          <button class="nav-dropdown-toggle" id="servicesToggle" aria-haspopup="true" aria-expanded="false" aria-controls="servicesMenu">
-            <span class="dd-text">Services</span>
-            <span class="dd-arrow" data-toggle="dropdown"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
-          </button>
-          <ul class="nav-dropdown-menu" id="servicesMenu" role="menu" aria-label="Services">
-            <li role="none">
-              <a href="ai-services.html" role="menuitem">
-                <i class="fas fa-robot" aria-hidden="true"></i> AI Services
-              </a>
-            </li>
-            <li role="none">
-              <a href="web-services.html" role="menuitem">
-                <i class="fas fa-globe" aria-hidden="true"></i> Web Services
-              </a>
-            </li>
-            <li role="none">
-              <a href="software-development-services.html" role="menuitem">
-                <i class="fas fa-code" aria-hidden="true"></i> Software Development
-              </a>
-            </li>
-            <li role="none">
-              <a href="mobile-app-development-services.html" role="menuitem">
-                <i class="fas fa-mobile-screen" aria-hidden="true"></i> Mobile App Development
-              </a>
-            </li>
-            <li role="none">
-              <a href="cloud-deployment-services.html" role="menuitem">
-                <i class="fas fa-cloud" aria-hidden="true"></i> Cloud &amp; Deployment
-              </a>
-            </li>
-            <li role="none">
-              <a href="maintenance-support-services.html" role="menuitem">
-                <i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Maintenance &amp; Support
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li role="none"><a href="../index.html#business-card" role="menuitem">Business</a></li>
-
-        <li class="nav-dropdown" id="techDropdown" role="none">
-          <button class="nav-dropdown-toggle" id="techToggle" aria-haspopup="true" aria-expanded="false" aria-controls="techMenu">
-            <span class="dd-text">Technologies</span>
-            <span class="dd-arrow" data-toggle="dropdown"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
-          </button>
-          <ul class="nav-dropdown-menu" id="techMenu" role="menu" aria-label="Technologies">
-            <li role="none">
-              <a href="../technologies/ai-agents.html" role="menuitem">
-                <i class="fas fa-robot" aria-hidden="true"></i> AI Agents
-              </a>
-            </li>
-            <li role="none">
-              <a href="../technologies/automation.html" role="menuitem">
-                <i class="fas fa-gears" aria-hidden="true"></i> Automation
-              </a>
-            </li>
-            <li role="none">
-              <a href="../technologies/developer-tools.html" role="menuitem">
-                <i class="fas fa-toolbox" aria-hidden="true"></i> Developer Tools
-              </a>
-            </li>
-            <li role="none">
-              <a href="../technologies/machine-learning.html" role="menuitem">
-                <i class="fas fa-brain" aria-hidden="true"></i> Machine Learning
-              </a>
-            </li>
-            <li role="none">
-              <a href="../technologies/internal-platforms.html" role="menuitem">
-                <i class="fas fa-server" aria-hidden="true"></i> Internal Platforms
-              </a>
-            </li>
-            <li role="none">
-              <a href="../technologies/digital-products.html" role="menuitem">
-                <i class="fas fa-cube" aria-hidden="true"></i> Digital Products
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="nav-dropdown" id="moreDropdown" role="none">
-          <button class="nav-dropdown-toggle" id="moreToggle" aria-haspopup="true" aria-expanded="false" aria-controls="moreMenu">
-            More <i class="fas fa-chevron-down dd-chevron" aria-hidden="true"></i>
-          </button>
-          <ul class="nav-dropdown-menu" id="moreMenu" role="menu" aria-label="More pages">
-            <li role="none">
-              <a href="https://deepbyto.github.io/demos/" target="_blank" rel="noopener noreferrer" role="menuitem">
-                <i class="fas fa-eye" aria-hidden="true"></i> Demos
-              </a>
-            </li>
-            <li role="none">
-              <a href="https://deepbyto.github.io/Tools/" target="_blank" rel="noopener noreferrer" role="menuitem">
-                <i class="fas fa-toolbox" aria-hidden="true"></i> Tools
-              </a>
-            </li>
-            <li role="none">
-              <a href="#" id="suggestFromMore" role="menuitem">
-                <i class="fas fa-lightbulb" aria-hidden="true"></i> Suggest a Tool
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li role="none"><a href="../index.html#contact" role="menuitem">Contact</a></li>
-
-        <li role="none">
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <span class="toggle-icon"><i class="fas fa-moon" id="themeIcon"></i></span>
-            <span class="toggle-text" id="themeLabel">Dark</span>
-          </button>
-        </li>
-        <li role="none" class="nav-cta-mobile" style="display:none;">
-          <a href="../index.html#contact" class="nav-cta" style="display:inline-block;">Contact</a>
-        </li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <!-- ===== HEADER INJECTION POINT ===== -->
+  <div id="site-header"></div>
 
   <section class="page-hero" aria-label="Web Services">
     <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&q=85&auto=format&fit=crop');"></div>
@@ -1024,264 +849,278 @@
     </div>
   </section>
 
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="fb-name">
-            <img src="https://deepbyto.github.io/wordmark.png" alt="DEEPBYTO">
-          </div>
-          <div class="fb-tagline">AI &amp; Software Innovation</div>
-        </div>
-        <div class="footer-links">
-          <a href="../business/index.html">Business</a>
-          <a href="https://github.com/DEEPBYTO" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://x.com/deepbyto" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="https://youtube.com/@DEEPBYTO" target="_blank" rel="noopener noreferrer">YouTube</a>
-          <a href="https://discord.gg/HWhBYHjApe" target="_blank" rel="noopener noreferrer">Discord</a>
-          <a href="mailto:deepbyto@gmail.com">Email</a>
-          <a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 DEEPBYTO. All rights reserved.</p>
+  <!-- ===== FOOTER INJECTION POINT ===== -->
+  <div id="site-footer"></div>
+
+  <!-- ===== SUGGEST MODAL (header template se trigger hota hai) ===== -->
+  <div class="suggest-modal" id="suggestModal" role="dialog" aria-modal="true" aria-labelledby="suggestModalTitle" aria-hidden="true">
+    <div class="suggest-modal-inner">
+      <button class="suggest-modal-close" id="suggestModalClose" aria-label="Close suggestion dialog"><i class="fas fa-times"></i></button>
+      <div class="suggest-modal-icon"><i class="fas fa-lightbulb"></i></div>
+      <h3 id="suggestModalTitle">Suggest a Tool</h3>
+      <p class="suggest-intro">Have an idea for a tool that would be useful? We'd love to hear it. Choose a channel below to share your suggestion with the DEEPBYTO team.</p>
+      <div class="suggest-options">
+        <a class="suggest-option" href="https://github.com/DEEPBYTO/Tools/issues/new?title=Tool%20Suggestion%3A%20&body=%23%23%20Tool%20Idea%0A%0A**What%20should%20it%20do%3F**%0A%0A%0A**Who%20is%20it%20for%3F**%0A%0A%0A**Any%20examples%3F**%0A" target="_blank" rel="noopener noreferrer"><span class="suggest-option-icon"><i class="fab fa-github"></i></span><span class="suggest-option-text"><span class="suggest-option-title">Open a GitHub Issue</span><span class="suggest-option-desc">Best for developers. Track progress publicly in the Tools repo.</span></span><span class="suggest-option-arrow"><i class="fas fa-arrow-right"></i></span></a>
+        <a class="suggest-option" href="mailto:deepbyto@gmail.com?subject=Tool%20Suggestion&body=Hi%20DEEPBYTO%20team%2C%0A%0AI%20have%20an%20idea%20for%20a%20tool%3A%0A%0A**What%20should%20it%20do%3F**%0A%0A%0A**Who%20is%20it%20for%3F**%0A%0A%0A**Any%20examples%3F**%0A%0AThanks!"><span class="suggest-option-icon"><i class="fas fa-envelope"></i></span><span class="suggest-option-text"><span class="suggest-option-title">Send an Email</span><span class="suggest-option-desc">Email deepbyto@gmail.com with your suggestion directly.</span></span><span class="suggest-option-arrow"><i class="fas fa-arrow-right"></i></span></a>
+        <a class="suggest-option" href="https://discord.gg/HWhBYHjApe" target="_blank" rel="noopener noreferrer"><span class="suggest-option-icon"><i class="fab fa-discord"></i></span><span class="suggest-option-text"><span class="suggest-option-title">Share on Discord</span><span class="suggest-option-desc">Drop your idea in the community and chat with us live.</span></span><span class="suggest-option-arrow"><i class="fas fa-arrow-right"></i></span></a>
       </div>
     </div>
-  </footer>
+  </div>
 
   <script>
-    (function() {
+    (function () {
       'use strict';
 
-      const themeToggle = document.getElementById('themeToggle');
-      const themeIcon = document.getElementById('themeIcon');
-      const themeLabel = document.getElementById('themeLabel');
-
+      /* ---------- THEME ---------- */
       function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('deepbyto-theme', theme);
-        if (theme === 'light') {
-          themeIcon.className = 'fas fa-sun';
-          themeLabel.textContent = 'Light';
-        } else {
-          themeIcon.className = 'fas fa-moon';
-          themeLabel.textContent = 'Dark';
+        const themeIcon = document.getElementById('themeIcon');
+        const themeLabel = document.getElementById('themeLabel');
+        if (themeIcon && themeLabel) {
+          if (theme === 'light') { themeIcon.className = 'fas fa-sun'; themeLabel.textContent = 'Light'; }
+          else { themeIcon.className = 'fas fa-moon'; themeLabel.textContent = 'Dark'; }
         }
         const meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) { meta.content = theme === 'light' ? '#f5f5f5' : '#000000'; }
+        if (meta) meta.content = theme === 'light' ? '#f5f5f5' : '#000000';
       }
-
-      function toggleTheme() {
-        const current = document.documentElement.getAttribute('data-theme');
-        const next = current === 'light' ? 'dark' : 'light';
-        setTheme(next);
-      }
-
       const savedTheme = localStorage.getItem('deepbyto-theme') || 'dark';
       setTheme(savedTheme);
-      themeToggle.addEventListener('click', toggleTheme);
 
+      /* ---------- PARTICLES ---------- */
       const canvas = document.getElementById('particles-canvas');
-      const ctx = canvas.getContext('2d');
-      let particles = [];
-      const particleCount = 60;
-      let mouseX = null, mouseY = null;
-
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
-
-      class Particle {
-        constructor() { this.reset(); }
-        reset() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 1.5 + 0.3;
-          this.speedX = (Math.random() - 0.5) * 0.2;
-          this.speedY = (Math.random() - 0.5) * 0.2;
-          this.opacity = Math.random() * 0.3 + 0.05;
-        }
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          if (this.x < 0 || this.x > canvas.width) { this.speedX *= -1; this.x += this.speedX; }
-          if (this.y < 0 || this.y > canvas.height) { this.speedY *= -1; this.y += this.speedY; }
-          if (mouseX !== null && mouseY !== null) {
-            const dx = this.x - mouseX;
-            const dy = this.y - mouseY;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 100) {
-              const force = (100 - dist) / 100 * 0.01;
-              this.x += dx * force;
-              this.y += dy * force;
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 60;
+        let mouseX = null, mouseY = null;
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resizeCanvas); resizeCanvas();
+        class Particle {
+          constructor() { this.reset(); }
+          reset() {
+            this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 1.5 + 0.3;
+            this.speedX = (Math.random() - 0.5) * 0.2; this.speedY = (Math.random() - 0.5) * 0.2;
+            this.opacity = Math.random() * 0.3 + 0.05;
+          }
+          update() {
+            this.x += this.speedX; this.y += this.speedY;
+            if (this.x < 0 || this.x > canvas.width) { this.speedX *= -1; this.x += this.speedX; }
+            if (this.y < 0 || this.y > canvas.height) { this.speedY *= -1; this.y += this.speedY; }
+            if (mouseX !== null && mouseY !== null) {
+              const dx = this.x - mouseX, dy = this.y - mouseY;
+              const dist = Math.sqrt(dx*dx + dy*dy);
+              if (dist < 100) { const force = (100 - dist) / 100 * 0.01; this.x += dx * force; this.y += dy * force; }
             }
           }
+          draw() {
+            ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            ctx.fillStyle = isLight ? `rgba(0,0,0,${this.opacity*1.5})` : `rgba(255,255,255,${this.opacity})`;
+            ctx.fill();
+          }
         }
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+        function drawLines() {
           const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-          ctx.fillStyle = isLight ? `rgba(0, 0, 0, ${this.opacity * 1.5})` : `rgba(255, 255, 255, ${this.opacity})`;
-          ctx.fill();
-        }
-      }
-
-      function initParticles() {
-        particles = [];
-        for (let i = 0; i < particleCount; i++) {
-          particles.push(new Particle());
-        }
-      }
-      initParticles();
-
-      function drawLines() {
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
+          for (let i = 0; i < particles.length; i++) for (let j = i+1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
             if (dist < 100) {
-              const opacity = (1 - dist / 100) * (isLight ? 0.2 : 0.15);
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = isLight ? `rgba(0, 0, 0, ${opacity})` : `rgba(255, 255, 255, ${opacity})`;
-              ctx.lineWidth = 0.4;
-              ctx.stroke();
+              const opacity = (1 - dist/100) * (isLight ? 0.2 : 0.15);
+              ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = isLight ? `rgba(0,0,0,${opacity})` : `rgba(255,255,255,${opacity})`;
+              ctx.lineWidth = 0.4; ctx.stroke();
             }
           }
         }
+        function animateParticles() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (const p of particles) { p.update(); p.draw(); }
+          drawLines(); requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+        document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+        document.addEventListener('mouseleave', () => { mouseX = null; mouseY = null; });
       }
 
-      function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (const p of particles) { p.update(); p.draw(); }
-        drawLines();
-        requestAnimationFrame(animateParticles);
-      }
-      animateParticles();
-
-      document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
-      document.addEventListener('mouseleave', () => { mouseX = null; mouseY = null; });
-
-      const navbar = document.getElementById('navbar');
-      const navToggle = document.getElementById('navToggle');
-      const navLinks = document.getElementById('navLinks');
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) navbar.classList.add('scrolled');
-        else navbar.classList.remove('scrolled');
-      });
-
-      navToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('open');
-        navToggle.classList.toggle('active');
-        navToggle.setAttribute('aria-expanded', isOpen);
-        if (!isOpen) closeAllDropdowns();
-      });
-
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('open');
-          navToggle.classList.remove('active');
-          navToggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-
-      const navDropdowns = document.querySelectorAll('.nav-dropdown');
-
-      function closeAllDropdowns() {
-        navDropdowns.forEach(dd => {
-          dd.classList.remove('open');
-          const t = dd.querySelector('.nav-dropdown-toggle');
-          if (t) t.setAttribute('aria-expanded', 'false');
-        });
-      }
-
-      navDropdowns.forEach(dd => {
-        const toggle = dd.querySelector('.nav-dropdown-toggle');
-        if (!toggle) return;
-
-        const ddText = toggle.querySelector('.dd-text');
-        const ddArrow = toggle.querySelector('.dd-arrow');
-
-        if (ddText && !ddText.dataset.scroll) {
-          ddText.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const willOpen = !dd.classList.contains('open');
-            closeAllDropdowns();
-            if (willOpen) {
-              dd.classList.add('open');
-              toggle.setAttribute('aria-expanded', 'true');
-            }
-          });
-        }
-
-        if (ddArrow) {
-          ddArrow.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const willOpen = !dd.classList.contains('open');
-            closeAllDropdowns();
-            if (willOpen) {
-              dd.classList.add('open');
-              toggle.setAttribute('aria-expanded', 'true');
-            }
-          });
-        }
-
-        if (!ddText && !ddArrow) {
-          toggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const willOpen = !dd.classList.contains('open');
-            closeAllDropdowns();
-            if (willOpen) {
-              dd.classList.add('open');
-              toggle.setAttribute('aria-expanded', 'true');
-            }
-          });
-        }
-
-        dd.querySelectorAll('.nav-dropdown-menu a').forEach(a => {
-          a.addEventListener('click', () => {
-            closeAllDropdowns();
-          });
-        });
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-dropdown')) closeAllDropdowns();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeAllDropdowns();
-      });
-
-      const servicesToggle = document.getElementById('servicesToggle');
-      if (servicesToggle) servicesToggle.classList.add('active');
-
+      /* ---------- REVEAL ---------- */
       const revealElements = document.querySelectorAll('.reveal');
       function revealOnScroll() {
-        const windowHeight = window.innerHeight;
-        const revealThreshold = 100;
+        const wh = window.innerHeight;
         revealElements.forEach(el => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < windowHeight - revealThreshold) {
-            el.classList.add('visible');
-          }
+          const r = el.getBoundingClientRect();
+          if (r.top < wh - 100) el.classList.add('visible');
         });
       }
-      window.addEventListener('load', () => setTimeout(revealOnScroll, 200));
       window.addEventListener('scroll', revealOnScroll);
       window.addEventListener('resize', revealOnScroll);
+      setTimeout(revealOnScroll, 300);
 
-      console.log('DEEPBYTO | Web Services');
+      /* ---------- SMOOTH ANCHOR ---------- */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const id = this.getAttribute('href');
+          if (id === '#') return;
+          const t = document.querySelector(id);
+          if (t) {
+            e.preventDefault();
+            const top = t.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        });
+      });
+
+      /* ---------- HEADER/FOOTER INJECT (index.html se) ---------- */
+      async function loadComponent(templateId, targetSelector, sourcePage) {
+        const target = document.querySelector(targetSelector);
+        if (!target) return;
+        const tpl = document.getElementById(templateId);
+        if (tpl) { target.innerHTML = tpl.innerHTML; return; }
+        try {
+          const res = await fetch(sourcePage, { cache: 'no-store' });
+          const html = await res.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          const remote = doc.getElementById(templateId);
+          if (remote) target.innerHTML = remote.innerHTML;
+        } catch (e) { console.error('Component load failed:', templateId, e); }
+      }
+
+      function initHeaderEvents() {
+        const navbar = document.getElementById('navbar');
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        const themeToggle = document.getElementById('themeToggle');
+        const navDropdowns = document.querySelectorAll('.nav-dropdown');
+
+        if (themeToggle) {
+          themeToggle.addEventListener('click', () => {
+            const cur = document.documentElement.getAttribute('data-theme');
+            setTheme(cur === 'light' ? 'dark' : 'light');
+          });
+        }
+
+        if (navbar) {
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+          });
+        }
+
+        function closeAllDropdowns() {
+          navDropdowns.forEach(dd => {
+            dd.classList.remove('open');
+            const t = dd.querySelector('.nav-dropdown-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          });
+        }
+
+        if (navToggle && navLinks) {
+          navToggle.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', open);
+            if (!open) closeAllDropdowns();
+          });
+          navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }));
+        }
+
+        navDropdowns.forEach(dd => {
+          const toggle = dd.querySelector('.nav-dropdown-toggle');
+          if (!toggle) return;
+          const ddText = toggle.querySelector('.dd-text');
+          const ddArrow = toggle.querySelector('.dd-arrow');
+
+          if (ddText && ddText.dataset.scroll) {
+            ddText.addEventListener('click', e => {
+              e.preventDefault(); e.stopPropagation();
+              const sec = ddText.dataset.scroll;
+              const t = document.getElementById(sec);
+              if (t) {
+                const top = t.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top, behavior: 'smooth' });
+              } else {
+                window.location.href = '/index.html#' + sec;
+              }
+              closeAllDropdowns();
+            });
+          }
+
+          if (ddArrow) {
+            ddArrow.addEventListener('click', e => {
+              e.preventDefault(); e.stopPropagation();
+              const willOpen = !dd.classList.contains('open');
+              closeAllDropdowns();
+              if (willOpen) { dd.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); }
+            });
+          }
+
+          if (!ddText && !ddArrow) {
+            toggle.addEventListener('click', e => {
+              e.preventDefault(); e.stopPropagation();
+              const willOpen = !dd.classList.contains('open');
+              closeAllDropdowns();
+              if (willOpen) { dd.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); }
+            });
+          }
+
+          dd.querySelectorAll('.nav-dropdown-menu a').forEach(a => a.addEventListener('click', closeAllDropdowns));
+        });
+
+        document.addEventListener('click', e => {
+          if (!e.target.closest('.nav-dropdown')) closeAllDropdowns();
+        });
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape') closeAllDropdowns();
+        });
+
+        /* Active dropdown state */
+        const servicesToggle = document.getElementById('servicesToggle');
+        if (servicesToggle) servicesToggle.classList.add('active');
+
+        /* Suggest modal */
+        const suggestFromMore = document.getElementById('suggestFromMore');
+        const suggestModal = document.getElementById('suggestModal');
+        const suggestModalClose = document.getElementById('suggestModalClose');
+        if (suggestFromMore && suggestModal) {
+          suggestFromMore.addEventListener('click', e => {
+            e.preventDefault(); closeAllDropdowns();
+            suggestModal.classList.add('open');
+            suggestModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+          });
+        }
+        if (suggestModalClose && suggestModal) {
+          suggestModalClose.addEventListener('click', () => {
+            suggestModal.classList.remove('open');
+            suggestModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+          });
+          suggestModal.addEventListener('click', e => {
+            if (e.target === suggestModal) {
+              suggestModal.classList.remove('open');
+              suggestModal.setAttribute('aria-hidden', 'true');
+              document.body.style.overflow = '';
+            }
+          });
+        }
+      }
+
+      /* ---------- BOOT ---------- */
+      (async function boot() {
+        await Promise.all([
+          loadComponent('header-template', '#site-header', '/index.html'),
+          loadComponent('footer-template', '#site-footer', '/index.html')
+        ]);
+        initHeaderEvents();
+        setTimeout(revealOnScroll, 200);
+        console.log('DEEPBYTO | Web Services initialized');
+      })();
     })();
   </script>
 </body>
