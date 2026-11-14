@@ -38,7 +38,7 @@
 
   <style>
     /* =========================================================
-       DEEPBYTO — Global Styles
+       YAHAN AAPKA POORA CSS PASTE KARO (original <style> block)
        ========================================================= */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -344,27 +344,18 @@
     .collaboration-box h3 { font-size: 1.5rem; color: var(--text-primary); margin-bottom: 12px; font-family: var(--font-display); font-weight: 600; letter-spacing: 0.02em; }
     .collaboration-box p { color: var(--text-secondary); max-width: 750px; margin: 0 auto; font-size: 1.05rem; line-height: 1.8; }
 
-    /* ---- Footer (latest multi-column design) ---- */
-    .footer { padding: 64px 0 32px; border-top: 1px solid var(--footer-border); background: var(--bg-primary); transition: background 0.4s ease, border-color 0.3s ease; position: relative; overflow: hidden; }
+    /* ---- Footer ---- */
+    .footer { padding: 48px 0 32px; border-top: 1px solid var(--footer-border); background: var(--bg-primary); transition: background 0.4s ease, border-color 0.3s ease; position: relative; overflow: hidden; }
     .footer .container { position: relative; z-index: 1; }
-    .footer-main { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.4fr; gap: 48px; align-items: start; }
-    .footer-brand .fb-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .footer-brand .fb-logo img { height: 28px; width: auto; filter: var(--wordmark-filter); transition: filter 0.4s ease; }
-    .footer-brand .fb-tagline { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 18px; font-weight: 500; letter-spacing: 0.02em; }
-    .footer-brand .fb-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; max-width: 300px; }
-    .footer-col h4 { font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 18px; opacity: 0.9; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul li a { font-size: 0.88rem; color: var(--text-secondary); display: inline-flex; align-items: center; gap: 8px; transition: color var(--transition), transform var(--transition); }
-    .footer-col ul li a:hover { color: var(--text-primary); transform: translateX(3px); }
-    .footer-col ul li a i { font-size: 0.75rem; width: 16px; text-align: center; color: var(--text-muted); transition: color var(--transition); }
-    .footer-col ul li a:hover i { color: var(--text-primary); }
-    .footer-contact-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 11px 24px; border-radius: 50px; background: var(--btn-primary-bg); color: var(--btn-primary-color) !important; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.03em; transition: all var(--transition); border: none; cursor: pointer; }
-    .footer-contact-cta:hover { background: var(--btn-primary-hover); transform: translateY(-2px); box-shadow: 0 8px 22px var(--accent-glow); color: var(--btn-primary-color) !important; }
-    .footer-contact-cta i { font-size: 0.9rem; }
-    .footer-bottom { margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--footer-border); display: flex; justify-content: center; align-items: center; }
-    .footer-bottom p { font-size: 0.78rem; color: var(--text-muted); text-align: center; }
-    @media (max-width: 1024px) { .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; } }
-    @media (max-width: 600px) { .footer-main { grid-template-columns: 1fr; gap: 32px; } .footer-brand .fb-desc { max-width: 100%; } }
+    .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; }
+    .footer-brand .fb-name { display: flex; align-items: center; }
+    .footer-brand .fb-name img { height: 22px; width: auto; filter: var(--wordmark-filter); transition: filter 0.4s ease; }
+    .footer-brand .fb-tagline { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px 28px; }
+    .footer-links a { font-size: 0.8rem; color: var(--text-secondary); transition: color var(--transition); }
+    .footer-links a:hover { color: var(--text-primary); }
+    .footer-bottom { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--footer-border); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
+    .footer-bottom p { font-size: 0.75rem; color: var(--text-muted); }
 
     /* ---- Reveal ---- */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
@@ -399,6 +390,8 @@
       .hero-buttons .btn-primary, .hero-buttons .btn-secondary { justify-content: center; }
       .about-values { grid-template-columns: 1fr 1fr; }
       .labs-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { flex-direction: column; text-align: center; }
+      .footer-bottom { flex-direction: column; text-align: center; }
       .section-padding { padding: 64px 0 48px; }
       .contact-cards { grid-template-columns: repeat(2,1fr); gap: 12px; }
       .contact-card { padding: 22px 12px 18px; }
@@ -419,6 +412,7 @@
     @media (max-width: 480px) {
       .labs-grid { grid-template-columns: 1fr; }
       .about-values { grid-template-columns: 1fr; }
+      .footer-links { justify-content: center; }
       .hero-title { font-size: 2.2rem; }
       .hero-typing { font-size: 0.9rem; flex-wrap: wrap; }
       .container { padding: 0 16px; }
@@ -461,7 +455,7 @@
   </a>
 
   <!-- ============================================================
-       HEADER TEMPLATE
+       HEADER — YAHAN CHANGE KARO → SAB PAGES UPDATE HO JAYENGE
        ============================================================ -->
   <template id="header-template">
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
@@ -500,8 +494,8 @@
             </ul>
           </li>
 
-          <!-- BUSINESS → direct to business page -->
-          <li role="none"><a href="/business/index.html" role="menuitem">Business</a></li>
+          <!-- BUSINESS -->
+          <li role="none"><a href="/index.html#business-card" role="menuitem">Business</a></li>
 
           <!-- TECHNOLOGIES DROPDOWN -->
           <li class="nav-dropdown" id="techDropdown" role="none" data-section="labs">
@@ -551,6 +545,7 @@
     </nav>
   </template>
 
+  <!-- Header yahan inject hoga -->
   <div id="site-header"></div>
 
   <!-- ============================================================
@@ -577,7 +572,7 @@
   </section>
 
   <!-- ============================================================
-       ABOUT
+       ABOUT (content — aapka original)
        ============================================================ -->
   <section id="about" class="section-padding" aria-label="About DEEPBYTO">
     <div class="about-waves" aria-hidden="true">
@@ -702,7 +697,7 @@
   </section>
 
   <!-- ============================================================
-       SERVICES
+       SERVICES (content — aapka original)
        ============================================================ -->
   <section id="services" aria-label="Services">
     <div class="container section-padding" style="padding-bottom: 0; position: relative; z-index: 2;">
@@ -884,72 +879,35 @@
   </section>
 
   <!-- ============================================================
-       FOOTER TEMPLATE (latest multi-column design)
+       FOOTER — YAHAN CHANGE KARO → SAB PAGES UPDATE HO JAYENGE
        ============================================================ -->
   <template id="footer-template">
     <footer class="footer" role="contentinfo">
       <div class="container">
-        <div class="footer-main">
-          <!-- Brand column -->
+        <div class="footer-grid">
           <div class="footer-brand">
-            <div class="fb-logo">
-              <img src="https://deepbyto.github.io/wordmark.png" alt="DEEPBYTO">
-            </div>
+            <div class="fb-name"><img src="https://deepbyto.github.io/wordmark.png" alt="DEEPBYTO"></div>
             <div class="fb-tagline">AI &amp; Software Innovation</div>
-            <p class="fb-desc">Building intelligent software, automation systems, and open-source technologies for a smarter future.</p>
           </div>
-
-          <!-- Company column -->
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="/index.html#about"><i class="fas fa-info-circle"></i> About</a></li>
-              <li><a href="/index.html#mission"><i class="fas fa-bullseye"></i> Our Mission</a></li>
-              <li><a href="/index.html#vision"><i class="fas fa-eye"></i> Our Vision</a></li>
-              <li><a href="/business/index.html"><i class="fas fa-briefcase"></i> Business</a></li>
-            </ul>
-          </div>
-
-          <!-- Services column -->
-          <div class="footer-col">
-            <h4>Services</h4>
-            <ul>
-              <li><a href="/services/ai-services.html"><i class="fas fa-robot"></i> AI Services</a></li>
-              <li><a href="/services/web-services.html"><i class="fas fa-globe"></i> Web Services</a></li>
-              <li><a href="/services/software-development-services.html"><i class="fas fa-code"></i> Software Development</a></li>
-              <li><a href="/services/mobile-app-development-services.html"><i class="fas fa-mobile-screen"></i> Mobile Apps</a></li>
-              <li><a href="/services/cloud-deployment-services.html"><i class="fas fa-cloud"></i> Cloud &amp; Deployment</a></li>
-              <li><a href="/services/maintenance-support-services.html"><i class="fas fa-screwdriver-wrench"></i> Maintenance</a></li>
-            </ul>
-          </div>
-
-          <!-- Get in Touch column -->
-          <div class="footer-col">
-            <h4>Get in Touch</h4>
-            <ul>
-              <li><a href="mailto:deepbyto@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
-              <li><a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp Channel</a></li>
-              <li><a href="https://github.com/DEEPBYTO" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></li>
-              <li><a href="https://x.com/deepbyto" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> X (Twitter)</a></li>
-              <li><a href="https://discord.gg/HWhBYHjApe" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i> Discord</a></li>
-              <li><a href="https://youtube.com/@DEEPBYTO" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a></li>
-            </ul>
-            <a href="https://wa.me/923047467957?text=Hi%20DEEPBYTO!" target="_blank" rel="noopener noreferrer" class="footer-contact-cta">
-              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-            </a>
+          <div class="footer-links">
+            <a href="/business/index.html">Business</a>
+            <a href="https://github.com/DEEPBYTO" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://x.com/deepbyto" target="_blank" rel="noopener noreferrer">X</a>
+            <a href="https://youtube.com/@DEEPBYTO" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://discord.gg/HWhBYHjApe" target="_blank" rel="noopener noreferrer">Discord</a>
+            <a href="mailto:deepbyto@gmail.com">Email</a>
+            <a href="https://whatsapp.com/channel/0029Vb7amWN89ingvwgz6V0T" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
-
-        <div class="footer-bottom">
-          <p>&copy; 2026 DEEPBYTO. All rights reserved.</p>
-        </div>
+        <div class="footer-bottom"><p>&copy; 2026 DEEPBYTO. All rights reserved.</p></div>
       </div>
     </footer>
   </template>
 
+  <!-- Footer yahan inject hoga -->
   <div id="site-footer"></div>
 
-  <!-- Suggest Modal -->
+  <!-- Suggest Modal (static, page par hi rehta hai) -->
   <div class="suggest-modal" id="suggestModal" role="dialog" aria-modal="true" aria-labelledby="suggestModalTitle" aria-hidden="true">
     <div class="suggest-modal-inner">
       <button class="suggest-modal-close" id="suggestModalClose" aria-label="Close suggestion dialog"><i class="fas fa-times"></i></button>
@@ -965,7 +923,7 @@
   </div>
 
   <!-- ============================================================
-       JAVASCRIPT
+       POORA JS YAHAN HAI (main.js jaisa)
        ============================================================ -->
   <script>
     (function () {
