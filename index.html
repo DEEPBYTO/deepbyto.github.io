@@ -494,13 +494,13 @@
             </ul>
           </li>
 
-          <!-- BUSINESS -->
-          <li role="none"><a href="/index.html#business-card" role="menuitem">Business</a></li>
+          <!-- BUSINESS — direct link to business page -->
+          <li role="none"><a href="https://deepbyto.github.io/business/" role="menuitem">Business</a></li>
 
-          <!-- TECHNOLOGIES DROPDOWN -->
+          <!-- TECHNOLOGIES DROPDOWN — text links to technologies page, arrow opens dropdown -->
           <li class="nav-dropdown" id="techDropdown" role="none" data-section="labs">
             <button class="nav-dropdown-toggle" id="techToggle" aria-haspopup="true" aria-expanded="false" aria-controls="techMenu">
-              <span class="dd-text" data-scroll="labs">Technologies</span>
+              <span class="dd-text" onclick="window.location.href='https://deepbyto.github.io/technologies/'">Technologies</span>
               <span class="dd-arrow" data-toggle="dropdown"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
             </button>
             <ul class="nav-dropdown-menu" id="techMenu" role="menu" aria-label="Technologies">
@@ -781,7 +781,7 @@
         <h2 class="section-title reveal">DEEPBYTO for <span class="highlight">Business</span></h2>
         <p class="section-desc reveal">A separate track from our individual services. Built for companies that want a long term technology partner, not just a one time project.</p>
       </div>
-      <a href="/business/index.html" class="business-full reveal">
+      <a href="https://deepbyto.github.io/business/" class="business-full reveal">
         <div class="business-media">
           <span class="business-flag"><i class="fas fa-briefcase"></i> Enterprise Track</span>
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=85&auto=format&fit=crop" alt="DEEPBYTO for Business office workspace" loading="lazy">
@@ -890,7 +890,7 @@
             <div class="fb-tagline">AI &amp; Software Innovation</div>
           </div>
           <div class="footer-links">
-            <a href="/business/index.html">Business</a>
+            <a href="https://deepbyto.github.io/business/">Business</a>
             <a href="https://github.com/DEEPBYTO" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://x.com/deepbyto" target="_blank" rel="noopener noreferrer">X</a>
             <a href="https://youtube.com/@DEEPBYTO" target="_blank" rel="noopener noreferrer">YouTube</a>
@@ -1202,6 +1202,8 @@
             suggestModal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
           });
+        }
+        if (suggestModal) {
           suggestModal.addEventListener('click', e => {
             if (e.target === suggestModal) {
               suggestModal.classList.remove('open');
@@ -1212,16 +1214,18 @@
         }
       }
 
-      /* ---------- BOOT ---------- */
-      (async function boot() {
-        await Promise.all([
-          loadComponent('header-template', '#site-header', '/index.html'),
-          loadComponent('footer-template', '#site-footer', '/index.html')
-        ]);
+      async function init() {
+        await loadComponent('header-template', '#site-header', '/index.html');
+        await loadComponent('footer-template', '#site-footer', '/index.html');
         initHeaderEvents();
-        setTimeout(revealOnScroll, 200);
-        console.log('DEEPBYTO | initialized');
-      })();
+        revealOnScroll();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
     })();
   </script>
 </body>
