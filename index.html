@@ -37,9 +37,6 @@
   </script>
 
   <style>
-    /* =========================================================
-       YAHAN AAPKA POORA CSS PASTE KARO (original <style> block)
-       ========================================================= */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --bg-primary: #000000; --bg-secondary: #0a0a0a; --bg-card: rgba(20,20,20,0.85);
@@ -455,7 +452,7 @@
   </a>
 
   <!-- ============================================================
-       HEADER — YAHAN CHANGE KARO → SAB PAGES UPDATE HO JAYENGE
+       HEADER TEMPLATE
        ============================================================ -->
   <template id="header-template">
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
@@ -478,7 +475,7 @@
             </ul>
           </li>
 
-          <!-- SERVICES DROPDOWN -->
+          <!-- SERVICES DROPDOWN — Cybersecurity ADDED -->
           <li class="nav-dropdown" id="servicesDropdown" role="none" data-section="services">
             <button class="nav-dropdown-toggle" id="servicesToggle" aria-haspopup="true" aria-expanded="false" aria-controls="servicesMenu">
               <span class="dd-text" data-scroll="services">Services</span>
@@ -491,13 +488,14 @@
               <li role="none"><a href="/services/mobile-app-development-services.html" role="menuitem"><i class="fas fa-mobile-screen" aria-hidden="true"></i> Mobile App Development</a></li>
               <li role="none"><a href="/services/cloud-deployment-services.html" role="menuitem"><i class="fas fa-cloud" aria-hidden="true"></i> Cloud &amp; Deployment</a></li>
               <li role="none"><a href="/services/maintenance-support-services.html" role="menuitem"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Maintenance &amp; Support</a></li>
+              <li role="none"><a href="/services/cybersecurity-services.html" role="menuitem"><i class="fas fa-shield-halved" aria-hidden="true"></i> Cybersecurity</a></li>
             </ul>
           </li>
 
-          <!-- BUSINESS — direct link to business page -->
+          <!-- BUSINESS -->
           <li role="none"><a href="https://deepbyto.github.io/business/" role="menuitem">Business</a></li>
 
-          <!-- TECHNOLOGIES DROPDOWN — text links to technologies page, arrow opens dropdown -->
+          <!-- TECHNOLOGIES DROPDOWN -->
           <li class="nav-dropdown" id="techDropdown" role="none" data-section="labs">
             <button class="nav-dropdown-toggle" id="techToggle" aria-haspopup="true" aria-expanded="false" aria-controls="techMenu">
               <span class="dd-text" onclick="window.location.href='https://deepbyto.github.io/technologies/'">Technologies</span>
@@ -545,7 +543,6 @@
     </nav>
   </template>
 
-  <!-- Header yahan inject hoga -->
   <div id="site-header"></div>
 
   <!-- ============================================================
@@ -572,7 +569,7 @@
   </section>
 
   <!-- ============================================================
-       ABOUT (content — aapka original)
+       ABOUT
        ============================================================ -->
   <section id="about" class="section-padding" aria-label="About DEEPBYTO">
     <div class="about-waves" aria-hidden="true">
@@ -697,7 +694,7 @@
   </section>
 
   <!-- ============================================================
-       SERVICES (content — aapka original)
+       SERVICES — CYBERSECURITY ADDED (07 / 07)
        ============================================================ -->
   <section id="services" aria-label="Services">
     <div class="container section-padding" style="padding-bottom: 0; position: relative; z-index: 2;">
@@ -710,7 +707,7 @@
         <img class="bg-image" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1920&q=85&auto=format&fit=crop" alt="AI Services background" loading="lazy" />
         <div class="bg-overlay"></div>
         <div class="service-inner">
-          <span class="service-num">01 / 06</span>
+          <span class="service-num">01 / 07</span>
           <h3>AI Services</h3>
           <p class="service-desc">Build intelligent AI-powered solutions including AI chatbots, AI agents, automation systems, machine learning applications, and custom AI software.</p>
           <div class="service-bottom"><span class="service-pricing">Starting at $99</span><span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span></div>
@@ -720,7 +717,7 @@
         <img class="bg-image" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&q=85&auto=format&fit=crop" alt="Web Services background" loading="lazy" />
         <div class="bg-overlay"></div>
         <div class="service-inner">
-          <span class="service-num">02 / 06</span>
+          <span class="service-num">02 / 07</span>
           <span class="service-badge"><i class="fas fa-gift"></i> FREE PLAN OFFER</span>
           <h3>Web Services</h3>
           <p class="service-desc">Modern, responsive, and high-performance websites for individuals, startups, businesses, and organizations.</p>
@@ -731,7 +728,7 @@
         <img class="bg-image" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1920&q=85&auto=format&fit=crop" alt="Software Development background" loading="lazy" />
         <div class="bg-overlay"></div>
         <div class="service-inner">
-          <span class="service-num">03 / 06</span>
+          <span class="service-num">03 / 07</span>
           <h3>Software Development Services</h3>
           <p class="service-desc">Custom desktop software, business management systems, enterprise software, automation tools, and professional software solutions.</p>
           <div class="service-bottom"><span class="service-pricing">Starting at $99</span><span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span></div>
@@ -741,7 +738,7 @@
         <img class="bg-image" src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=1920&q=85&auto=format&fit=crop" alt="Mobile App Development background" loading="lazy" />
         <div class="bg-overlay"></div>
         <div class="service-inner">
-          <span class="service-num">04 / 06</span>
+          <span class="service-num">04 / 07</span>
           <h3>Mobile App Development Services</h3>
           <p class="service-desc">Professional Android, iOS, and cross-platform mobile applications built for performance and scalability.</p>
           <div class="service-bottom"><span class="service-pricing">Starting at $199</span><span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span></div>
@@ -751,7 +748,7 @@
         <img class="bg-image" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85&auto=format&fit=crop" alt="Cloud & Deployment background" loading="lazy" />
         <div class="bg-overlay"></div>
         <div class="service-inner">
-          <span class="service-num">05 / 06</span>
+          <span class="service-num">05 / 07</span>
           <h3>Cloud &amp; Deployment Services</h3>
           <p class="service-desc">Professional deployment, cloud configuration, hosting, server setup, infrastructure management, and production deployment services.</p>
           <div class="service-bottom"><span class="service-pricing">Starting at $29</span><span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span></div>
@@ -761,10 +758,21 @@
         <img class="bg-image" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=85&auto=format&fit=crop" alt="Maintenance & Support background" loading="lazy" />
         <div class="bg-overlay"></div>
         <div class="service-inner">
-          <span class="service-num">06 / 06</span>
+          <span class="service-num">06 / 07</span>
           <h3>Maintenance &amp; Support Services</h3>
           <p class="service-desc">Keep your websites, applications, software, and AI solutions secure, updated, optimized, and running smoothly.</p>
           <div class="service-bottom"><span class="service-pricing">Starting at $19/month</span><span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span></div>
+        </div>
+      </a>
+      <!-- ✅ CYBERSECURITY SERVICES (NEW) -->
+      <a href="/services/cybersecurity-services.html" class="service-bg reveal">
+        <img class="bg-image" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&q=85&auto=format&fit=crop" alt="Cybersecurity background" loading="lazy" />
+        <div class="bg-overlay"></div>
+        <div class="service-inner">
+          <span class="service-num">07 / 07</span>
+          <h3>Cybersecurity Services</h3>
+          <p class="service-desc">Security audits, penetration testing, threat monitoring, incident response, and compliance support to protect your business from modern cyber attacks.</p>
+          <div class="service-bottom"><span class="service-pricing">Starting at $149</span><span class="service-cta">View Details <span class="cta-arrow"><i class="fas fa-arrow-right"></i></span></span></div>
         </div>
       </a>
     </div>
@@ -786,7 +794,7 @@
           <span class="business-flag"><i class="fas fa-briefcase"></i> Enterprise Track</span>
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=85&auto=format&fit=crop" alt="DEEPBYTO for Business office workspace" loading="lazy">
           <div class="business-stat">
-            <div class="stat-item"><span class="stat-num">6+</span><span class="stat-label">Service Lines</span></div>
+            <div class="stat-item"><span class="stat-num">7+</span><span class="stat-label">Service Lines</span></div>
             <div class="stat-item"><span class="stat-num">SLA</span><span class="stat-label">Support</span></div>
             <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Ownership</span></div>
           </div>
@@ -879,7 +887,7 @@
   </section>
 
   <!-- ============================================================
-       FOOTER — YAHAN CHANGE KARO → SAB PAGES UPDATE HO JAYENGE
+       FOOTER TEMPLATE
        ============================================================ -->
   <template id="footer-template">
     <footer class="footer" role="contentinfo">
@@ -904,10 +912,9 @@
     </footer>
   </template>
 
-  <!-- Footer yahan inject hoga -->
   <div id="site-footer"></div>
 
-  <!-- Suggest Modal (static, page par hi rehta hai) -->
+  <!-- Suggest Modal -->
   <div class="suggest-modal" id="suggestModal" role="dialog" aria-modal="true" aria-labelledby="suggestModalTitle" aria-hidden="true">
     <div class="suggest-modal-inner">
       <button class="suggest-modal-close" id="suggestModalClose" aria-label="Close suggestion dialog"><i class="fas fa-times"></i></button>
@@ -922,9 +929,6 @@
     </div>
   </div>
 
-  <!-- ============================================================
-       POORA JS YAHAN HAI (main.js jaisa)
-       ============================================================ -->
   <script>
     (function () {
       'use strict';
@@ -1214,18 +1218,16 @@
         }
       }
 
-      async function init() {
-        await loadComponent('header-template', '#site-header', '/index.html');
-        await loadComponent('footer-template', '#site-footer', '/index.html');
+      /* ---------- BOOT ---------- */
+      (async function boot() {
+        await Promise.all([
+          loadComponent('header-template', '#site-header', '/index.html'),
+          loadComponent('footer-template', '#site-footer', '/index.html')
+        ]);
         initHeaderEvents();
-        revealOnScroll();
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
+        setTimeout(revealOnScroll, 200);
+        console.log('DEEPBYTO | Main page initialized');
+      })();
     })();
   </script>
 </body>
