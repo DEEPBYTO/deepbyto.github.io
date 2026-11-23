@@ -14,7 +14,7 @@
   <!-- ===== LINK PREVIEW / OPEN GRAPH ===== -->
   <meta property="og:title" content="Articles & Blogs | DEEPBYTO" />
   <meta property="og:description" content="Insights, tutorials, and articles on AI, software engineering, automation, and modern technology from the DEEPBYTO team." />
-  <meta property="og:image" content="https://github.com/DEEPBYTO/deepbyto.github.io/blob/main/articles/articles-blogs.jpeg?raw=true" />
+  <meta property="og:image" content="https://deepbyto.github.io/Articles%20%26%20Blogs/articles-blogs.jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -26,7 +26,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Articles & Blogs | DEEPBYTO" />
   <meta name="twitter:description" content="Insights, tutorials, and articles on AI, software engineering, automation, and modern technology from the DEEPBYTO team." />
-  <meta name="twitter:image" content="https://github.com/DEEPBYTO/deepbyto.github.io/blob/main/articles/articles-blogs.jpeg?raw=true" />
+  <meta name="twitter:image" content="https://deepbyto.github.io/Articles%20%26%20Blogs/articles-blogs.jpeg" />
   <meta name="twitter:image:alt" content="Articles & Blogs by DEEPBYTO" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -173,7 +173,7 @@
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-top: 40px; }
     .blog-grid:empty { display: none; }
 
-    /* Blog card — sirf icon + title */
+    /* Blog card */
     .blog-card {
       position: relative;
       display: flex;
@@ -290,7 +290,6 @@
 <body>
   <canvas id="particles-canvas"></canvas>
 
-  <!-- HEADER — index.html se auto load -->
   <div id="site-header"></div>
 
   <!-- ===== PAGE HERO ===== -->
@@ -318,7 +317,6 @@
     </div>
   </section>
 
-  <!-- FOOTER — index.html se auto load -->
   <div id="site-footer"></div>
 
   <script>
@@ -567,7 +565,6 @@
             card.target = isHtml ? '_self' : '_blank';
             card.rel = 'noopener noreferrer';
 
-            // ✅ Sirf icon + title — koi extra text nahi
             card.innerHTML = `
               <div class="card-icon">
                 <i class="fas fa-file-lines"></i>
