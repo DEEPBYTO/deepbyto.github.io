@@ -1,1 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers | DEEPBYTO</title>
+  <meta name="description" content="Join DEEPBYTO. Explore open roles, internships, and opportunities to build the future of technology media with us." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://deepbyto.github.io/Careers/index.html" />
+  <link rel="icon" href="https://deepbyto.github.io/favicon.ico" type="image/x-icon" />
+  <meta name="theme-color" content="#000000" />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Careers | DEEPBYTO" />
+  <meta property="og:description" content="Join DEEPBYTO. Explore open roles, internships, and opportunities to build the future of technology media with us." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/DEEPBYTO/deepbyto.github.io/main/Careers/Careers.jpeg" />
+  <meta property="og:image:alt" content="Careers at DEEPBYTO" />
+  <meta property="og:url" content="https://deepbyto.github.io/Careers/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DEEPBYTO" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Careers | DEEPBYTO" />
+  <meta name="twitter:description" content="Join DEEPBYTO. Explore open roles, internships, and opportunities to build the future of technology media with us." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/DEEPBYTO/deepbyto.github.io/main/Careers/Careers.jpeg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-primary: #000000; --bg-secondary: #0a0a0a;
+      --text-primary: #ffffff; --text-secondary: #e0e0e0; --text-muted: #a0a0a0;
+      --border-subtle: rgba(255,255,255,0.08); --glass-border: rgba(255,255,255,0.1);
+      --accent: #ffffff; --accent-dim: rgba(255,255,255,0.1);
+      --radius: 12px;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'Orbitron', 'Inter', sans-serif;
+      --nav-bg: rgba(0,0,0,0.7); --nav-scrolled: rgba(0,0,0,0.95);
+      --wordmark-filter: brightness(0) invert(1);
+    }
+    [data-theme="light"] {
+      --bg-primary: #f5f5f5; --bg-secondary: #eeeeee;
+      --text-primary: #111111; --text-secondary: #333333; --text-muted: #666666;
+      --border-subtle: rgba(0,0,0,0.1); --glass-border: rgba(0,0,0,0.12);
+      --accent: #000000; --accent-dim: rgba(0,0,0,0.08);
+      --nav-bg: rgba(255,255,255,0.85); --nav-scrolled: rgba(255,255,255,0.95);
+      --wordmark-filter: brightness(0) invert(0);
+    }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.8; overflow-x: hidden; transition: background 0.4s ease, color 0.3s ease; }
+    ::selection { background: var(--accent); color: var(--bg-primary); }
+    a { color: var(--text-primary); text-decoration: none; }
+    a:hover { color: var(--text-secondary); }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    /* Navbar */
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 16px 0; background: var(--nav-bg); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--glass-border); transition: background 0.3s ease; }
+    .navbar.scrolled { background: var(--nav-scrolled); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; }
+    .nav-brand .wordmark { height: 24px; width: auto; filter: var(--wordmark-filter); }
+    .theme-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid var(--glass-border); border-radius: 50px; padding: 6px 14px; color: var(--text-secondary); font-size: 0.75rem; cursor: pointer; font-family: var(--font-sans); }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+
+    /* Hero */
+    .hero { padding: 150px 0 60px; text-align: center; position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 600px; background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%); opacity: 0.4; pointer-events: none; z-index: 0; }
+    .hero .container { position: relative; z-index: 1; }
+    .hiring-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border: 1px solid var(--glass-border); border-radius: 50px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-secondary); background: var(--accent-dim); margin-bottom: 24px; }
+    .hiring-badge .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0 rgba(34,197,94,0.7); animation: pulse 2s infinite; }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 .accent-text { background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero .subtitle { color: var(--text-secondary); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
+
+    /* Careers Preview Image */
+    .careers-hero { margin: 0 auto 20px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 16px 50px rgba(0,0,0,0.4); position: relative; }
+    .careers-hero img { width: 100%; height: auto; object-fit: cover; transition: transform 0.6s ease; }
+    .careers-hero:hover img { transform: scale(1.03); }
+    .careers-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 40%); pointer-events: none; }
+    [data-theme="light"] .careers-hero::after { background: linear-gradient(to top, rgba(0,0,0,0.12) 0%, transparent 40%); }
+
+    /* Section headings */
+    .section-heading { text-align: center; margin-bottom: 40px; }
+    .section-heading h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 3.5vw, 1.9rem); font-weight: 700; margin-bottom: 10px; }
+    .section-heading p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* Why join */
+    .why-join { padding: 60px 0; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .why-card { padding: 28px 24px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius); transition: border-color 0.3s ease, transform 0.3s ease; }
+    .why-card:hover { border-color: var(--glass-border); transform: translateY(-3px); }
+    .why-card .icon-wrap { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--accent-dim); border: 1px solid var(--glass-border); margin-bottom: 16px; }
+    .why-card .icon-wrap i { font-size: 1.1rem; color: var(--text-primary); }
+    .why-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .why-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* Open roles */
+    .open-roles { padding: 40px 0 60px; }
+    .roles-list { display: flex; flex-direction: column; gap: 16px; }
+    .role-card { display: block; padding: 28px 30px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius); transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; }
+    .role-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--text-muted); opacity: 0; transition: opacity 0.3s ease; }
+    .role-card:hover { border-color: var(--glass-border); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
+    .role-card:hover::before { opacity: 1; }
+    .role-card .role-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .role-card .role-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--text-primary); }
+    .role-card .role-status { display: inline-flex; align-items: center; gap: 6px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 50px; background: rgba(34,197,94,0.12); color: #22c55e; border: 1px solid rgba(34,197,94,0.25); }
+    .role-card .role-status .dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; }
+    .role-card .role-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; }
+    .role-card .role-meta { display: flex; flex-wrap: wrap; gap: 18px; font-size: 0.8rem; color: var(--text-muted); }
+    .role-card .role-meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .role-card .role-meta i { font-size: 0.75rem; opacity: 0.7; }
+    .role-card .role-arrow { position: absolute; right: 28px; bottom: 28px; font-size: 1rem; color: var(--text-muted); transition: transform 0.3s ease, color 0.3s ease; }
+    .role-card:hover .role-arrow { transform: translateX(4px); color: var(--text-primary); }
+
+    /* No roles fallback */
+    .no-roles { text-align: center; padding: 40px 20px; background: var(--bg-secondary); border: 1px dashed var(--border-subtle); border-radius: var(--radius); }
+    .no-roles i { font-size: 1.8rem; color: var(--text-muted); margin-bottom: 12px; display: block; }
+    .no-roles p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* CTA */
+    .cta-section { margin: 40px 0 80px; padding: 48px 32px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius); text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%); opacity: 0.5; pointer-events: none; }
+    .cta-section > * { position: relative; z-index: 1; }
+    .cta-section h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 800; margin-bottom: 12px; }
+    .cta-section p { color: var(--text-secondary); font-size: 0.95rem; max-width: 520px; margin: 0 auto 28px; }
+    .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: 50px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; border: 1px solid var(--glass-border); }
+    .btn-primary { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg-primary); }
+    .btn-secondary { background: transparent; color: var(--text-primary); }
+    .btn-secondary:hover { border-color: var(--text-primary); transform: translateY(-1px); color: var(--text-primary); }
+
+    /* Footer */
+    .footer { padding: 40px 0 28px; border-top: 1px solid var(--border-subtle); text-align: center; }
+    .footer p { font-size: 0.8rem; color: var(--text-muted); }
+    .footer a { color: var(--text-secondary); }
+    .footer a:hover { color: var(--text-primary); }
+
+    @media (max-width: 480px) {
+      .hero { padding: 120px 0 40px; }
+      .container { padding: 0 16px; }
+      .role-card { padding: 22px 20px; }
+      .role-card .role-arrow { display: none; }
+      .cta-section { padding: 32px 20px; }
+      .cta-buttons { flex-direction: column; }
+      .btn { justify-content: center; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">
+        <img src="https://deepbyto.github.io/wordmark.png" alt="DEEPBYTO" class="wordmark">
+      </a>
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+        <span id="themeLabel">Dark</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hiring-badge">
+        <span class="pulse-dot"></span>
+        Careers at DEEPBYTO
+      </div>
+      <h1>Build the Future <span class="accent-text">With Us</span></h1>
+      <p class="subtitle">We're an emerging technology media brand looking for passionate people to grow with us. Explore open opportunities and become part of something meaningful.</p>
+    </div>
+  </header>
+
+  <!-- Careers Preview Image -->
+  <div class="container">
+    <div class="careers-hero">
+      <img src="https://raw.githubusercontent.com/DEEPBYTO/deepbyto.github.io/main/Careers/Careers.jpeg"
+           alt="Careers at DEEPBYTO — Build the future with us"
+           loading="eager" />
+    </div>
+  </div>
+
+  <!-- Why Join -->
+  <section class="why-join">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Why Join DEEPBYTO?</h2>
+        <p>We're small, ambitious, and building from the ground up.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="icon-wrap"><i class="fas fa-rocket"></i></div>
+          <h3>Grow With Us</h3>
+          <p>Join early and grow alongside an emerging technology brand. Every contribution shapes where we go next.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon-wrap"><i class="fas fa-briefcase"></i></div>
+          <h3>Real-World Experience</h3>
+          <p>Work on real projects, build a portfolio, and earn professional credit for your contribution.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon-wrap"><i class="fas fa-people-group"></i></div>
+          <h3>Creative Collaboration</h3>
+          <p>Collaborate directly with the founder and a small, motivated team that values your ideas.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon-wrap"><i class="fas fa-house-laptop"></i></div>
+          <h3>Fully Remote</h3>
+          <p>Work from anywhere. We care about what you create, not where you create it from.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Roles -->
+  <section class="open-roles">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Open Positions</h2>
+        <p>Current opportunities available at DEEPBYTO.</p>
+      </div>
+
+      <div class="roles-list">
+        <!-- Role: Founding Video Editor Intern -->
+        <a href="founding-video-editor-intern.html" class="role-card">
+          <div class="role-header">
+            <div class="role-title">Founding Video Editor Intern</div>
+            <div class="role-status"><span class="dot"></span>Open</div>
+          </div>
+          <p class="role-desc">We're looking for a creative and motivated Video Editor to help build our growing technology media presence. Edit talking-head videos, produce YouTube content and Shorts, and help establish our video workflow.</p>
+          <div class="role-meta">
+            <span><i class="fas fa-briefcase"></i> Internship</span>
+            <span><i class="fas fa-house-laptop"></i> Remote</span>
+            <span><i class="fas fa-seedling"></i> Beginners Welcome</span>
+            <span><i class="fas fa-hand-holding-heart"></i> Unpaid / Learning-Oriented</span>
+          </div>
+          <i class="fas fa-arrow-right role-arrow"></i>
+        </a>
+
+        <!-- Placeholder: add more role cards here as they open -->
+      </div>
+
+      <div class="no-roles" style="margin-top: 20px;">
+        <i class="fas fa-inbox"></i>
+        <p>Don't see a role that fits? Follow DEEPBYTO on social channels for future openings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="container">
+    <div class="cta-section">
+      <h2>Ready to Build Something Meaningful?</h2>
+      <p>Explore our open role and apply through DEEPBYTO's official social channels.</p>
+      <div class="cta-buttons">
+        <a href="founding-video-editor-intern.html" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i> View Open Role
+        </a>
+        <a href="../index.html" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i> Back to DEEPBYTO
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 <a href="../index.html">DEEPBYTO</a>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('deepbyto-theme', theme);
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+      if (icon && label) {
+        if (theme === 'light') { icon.className = 'fas fa-sun'; label.textContent = 'Light'; }
+        else { icon.className = 'fas fa-moon'; label.textContent = 'Dark'; }
+      }
+    }
+    const savedTheme = localStorage.getItem('deepbyto-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    setTheme(savedTheme);
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme');
+      setTheme(cur === 'light' ? 'dark' : 'light');
+    });
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+  </script>
+</body>
+</html>
