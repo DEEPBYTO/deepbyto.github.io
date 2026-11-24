@@ -1,1 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Founding Video Editor Intern | Careers at DEEPBYTO</title>
+  <meta name="description" content="DEEPBYTO is hiring a Founding Video Editor Intern. Remote, beginner-friendly, portfolio-building opportunity with an emerging technology media brand." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://deepbyto.github.io/Careers/founding-video-editor-intern.html" />
+  <link rel="icon" href="https://deepbyto.github.io/favicon.ico" type="image/x-icon" />
+  <meta name="theme-color" content="#000000" />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Founding Video Editor Intern | Careers at DEEPBYTO" />
+  <meta property="og:description" content="Join DEEPBYTO as a Founding Video Editor Intern. Remote, beginner-friendly, portfolio-building opportunity." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/DEEPBYTO/deepbyto.github.io/main/Careers/Careers.jpeg" />
+  <meta property="og:image:alt" content="Founding Video Editor Intern — Careers at DEEPBYTO" />
+  <meta property="og:url" content="https://deepbyto.github.io/Careers/founding-video-editor-intern.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DEEPBYTO" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Founding Video Editor Intern | Careers at DEEPBYTO" />
+  <meta name="twitter:description" content="Join DEEPBYTO as a Founding Video Editor Intern. Remote, beginner-friendly, portfolio-building opportunity." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/DEEPBYTO/deepbyto.github.io/main/Careers/Careers.jpeg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-primary: #000000; --bg-secondary: #0a0a0a;
+      --text-primary: #ffffff; --text-secondary: #e0e0e0; --text-muted: #a0a0a0;
+      --border-subtle: rgba(255,255,255,0.08); --glass-border: rgba(255,255,255,0.1);
+      --accent: #ffffff; --accent-dim: rgba(255,255,255,0.1);
+      --radius: 12px;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'Orbitron', 'Inter', sans-serif;
+      --nav-bg: rgba(0,0,0,0.7); --nav-scrolled: rgba(0,0,0,0.95);
+      --wordmark-filter: brightness(0) invert(1);
+    }
+    [data-theme="light"] {
+      --bg-primary: #f5f5f5; --bg-secondary: #eeeeee;
+      --text-primary: #111111; --text-secondary: #333333; --text-muted: #666666;
+      --border-subtle: rgba(0,0,0,0.1); --glass-border: rgba(0,0,0,0.12);
+      --accent: #000000; --accent-dim: rgba(0,0,0,0.08);
+      --nav-bg: rgba(255,255,255,0.85); --nav-scrolled: rgba(255,255,255,0.95);
+      --wordmark-filter: brightness(0) invert(0);
+    }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.8; overflow-x: hidden; transition: background 0.4s ease, color 0.3s ease; }
+    ::selection { background: var(--accent); color: var(--bg-primary); }
+    a { color: var(--text-primary); text-decoration: none; }
+    a:hover { color: var(--text-secondary); }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* Navbar */
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 16px 0; background: var(--nav-bg); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--glass-border); transition: background 0.3s ease; }
+    .navbar.scrolled { background: var(--nav-scrolled); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; }
+    .nav-brand .wordmark { height: 24px; width: auto; filter: var(--wordmark-filter); }
+    .theme-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid var(--glass-border); border-radius: 50px; padding: 6px 14px; color: var(--text-secondary); font-size: 0.75rem; cursor: pointer; font-family: var(--font-sans); }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--text-primary); }
+
+    /* Hero */
+    .hero { padding: 140px 0 40px; text-align: center; position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%); opacity: 0.4; pointer-events: none; z-index: 0; }
+    .hero .container { position: relative; z-index: 1; }
+    .hiring-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border: 1px solid var(--glass-border); border-radius: 50px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-secondary); background: var(--accent-dim); margin-bottom: 24px; }
+    .hiring-badge .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0 rgba(34,197,94,0.7); animation: pulse 2s infinite; }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(1.9rem, 5.5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
+    .hero h1 .accent-text { background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero .subtitle { color: var(--text-secondary); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+
+    /* Careers Preview Image */
+    .careers-hero { margin: 36px 0 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 16px 50px rgba(0,0,0,0.4); position: relative; }
+    .careers-hero img { width: 100%; height: auto; object-fit: cover; transition: transform 0.6s ease; }
+    .careers-hero:hover img { transform: scale(1.03); }
+    .careers-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 40%); pointer-events: none; }
+    [data-theme="light"] .careers-hero::after { background: linear-gradient(to top, rgba(0,0,0,0.12) 0%, transparent 40%); }
+
+    /* Quick facts bar */
+    .quick-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 32px 0 0; }
+    .fact-card { padding: 18px 16px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius); text-align: center; transition: border-color 0.3s ease, transform 0.3s ease; }
+    .fact-card:hover { border-color: var(--glass-border); transform: translateY(-2px); }
+    .fact-card i { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 8px; display: block; }
+    .fact-card .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 4px; }
+    .fact-card .value { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
+
+    /* Content sections */
+    .content-section { padding: 20px 0; }
+    .content-section h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin: 36px 0 16px; display: flex; align-items: center; gap: 10px; }
+    .content-section h2 i { font-size: 1rem; color: var(--text-muted); }
+    .content-section p { color: var(--text-secondary); font-size: 1rem; margin-bottom: 18px; }
+
+    /* Lists */
+    .styled-list { list-style: none; margin: 0 0 18px; }
+    .styled-list li { position: relative; padding-left: 28px; margin-bottom: 12px; color: var(--text-secondary); font-size: 1rem; }
+    .styled-list li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; top: 2px; font-size: 0.8rem; color: var(--text-muted); }
+    .styled-list.benefits li::before { content: '\f005'; }
+
+    /* Important notice */
+    .notice-box { margin: 32px 0; padding: 22px 24px; border: 1px solid rgba(245,158,11,0.3); background: rgba(245,158,11,0.06); border-radius: var(--radius); display: flex; gap: 16px; align-items: flex-start; }
+    .notice-box i { color: #f59e0b; font-size: 1.2rem; margin-top: 3px; flex-shrink: 0; }
+    .notice-box .notice-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+    .notice-box .notice-text strong { color: var(--text-primary); }
+
+    /* Application steps */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 20px 0; }
+    .step-card { padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius); transition: border-color 0.3s ease, transform 0.3s ease; }
+    .step-card:hover { border-color: var(--glass-border); transform: translateY(-2px); }
+    .step-card .step-num { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--text-muted); margin-bottom: 8px; }
+    .step-card .step-title { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+    .step-card .step-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* CTA */
+    .cta-section { margin: 48px 0 0; padding: 40px 32px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius); text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 400px; height: 400px; background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%); opacity: 0.5; pointer-events: none; }
+    .cta-section .container { position: relative; z-index: 1; max-width: 100%; padding: 0; }
+    .cta-section h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; justify-content: center; }
+    .cta-section p { color: var(--text-secondary); font-size: 0.95rem; max-width: 500px; margin: 0 auto 24px; }
+    .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: 50px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; border: 1px solid var(--glass-border); }
+    .btn-primary { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); color: var(--bg-primary); }
+    .btn-secondary { background: transparent; color: var(--text-primary); }
+    .btn-secondary:hover { border-color: var(--text-primary); transform: translateY(-1px); color: var(--text-primary); }
+
+    /* Footer */
+    .footer { padding: 40px 0 28px; border-top: 1px solid var(--border-subtle); text-align: center; margin-top: 60px; }
+    .footer p { font-size: 0.8rem; color: var(--text-muted); }
+    .footer a { color: var(--text-secondary); }
+    .footer a:hover { color: var(--text-primary); }
+
+    @media (max-width: 480px) {
+      .hero { padding: 110px 0 30px; }
+      .hero h1 { font-size: 1.6rem; }
+      .container { padding: 0 16px; }
+      .quick-facts { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 30px 20px; }
+      .cta-buttons { flex-direction: column; }
+      .btn { justify-content: center; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">
+        <img src="https://deepbyto.github.io/wordmark.png" alt="DEEPBYTO" class="wordmark">
+      </a>
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+        <span id="themeLabel">Dark</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hiring-badge">
+        <span class="pulse-dot"></span>
+        Now Hiring
+      </div>
+      <h1>Founding Video Editor <span class="accent-text">Intern</span></h1>
+      <p class="subtitle">We are looking for a creative and motivated Video Editor to collaborate with DEEPBYTO and help build our growing technology media presence.</p>
+
+      <!-- Careers Preview Image -->
+      <div class="careers-hero">
+        <img src="https://raw.githubusercontent.com/DEEPBYTO/deepbyto.github.io/main/Careers/Careers.jpeg"
+             alt="Founding Video Editor Intern — Careers at DEEPBYTO"
+             loading="eager" />
+      </div>
+
+      <div class="quick-facts">
+        <div class="fact-card">
+          <i class="fas fa-briefcase"></i>
+          <div class="label">Role</div>
+          <div class="value">Founding Editor</div>
+        </div>
+        <div class="fact-card">
+          <i class="fas fa-house-laptop"></i>
+          <div class="label">Work Mode</div>
+          <div class="value">Remote</div>
+        </div>
+        <div class="fact-card">
+          <i class="fas fa-seedling"></i>
+          <div class="label">Experience</div>
+          <div class="value">Beginners Welcome</div>
+        </div>
+        <div class="fact-card">
+          <i class="fas fa-hand-holding-heart"></i>
+          <div class="label">Type</div>
+          <div class="value">Unpaid Internship</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="content-section">
+    <div class="container">
+
+      <h2><i class="fas fa-list-check"></i> Responsibilities</h2>
+      <ul class="styled-list">
+        <li>Edit professional talking-head videos.</li>
+        <li>Improve audio quality and color grading.</li>
+        <li>Produce YouTube videos and Shorts.</li>
+        <li>Maintain a consistent corporate visual style.</li>
+        <li>Help establish DEEPBYTO's video production workflow.</li>
+      </ul>
+
+      <h2><i class="fas fa-gift"></i> What We Offer</h2>
+      <ul class="styled-list benefits">
+        <li>Real-world brand experience.</li>
+        <li>Portfolio-building opportunities.</li>
+        <li>Creative collaboration and professional credit.</li>
+        <li>An opportunity to grow alongside an emerging technology brand.</li>
+        <li>Consideration for future paid opportunities as funding becomes available.</li>
+      </ul>
+
+      <div class="notice-box">
+        <i class="fas fa-triangle-exclamation"></i>
+        <div class="notice-text">
+          <strong>Important:</strong> This is currently an unpaid, learning-oriented internship. There is no fixed salary or guaranteed future employment. Time commitment and responsibilities will be agreed upon in advance.
+        </div>
+      </div>
+
+      <h2><i class="fas fa-paper-plane"></i> How to Apply</h2>
+      <p>Interested? Send us the following:</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-title">Your Introduction</div>
+          <div class="step-desc">Tell us who you are and why you want to join DEEPBYTO.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-title">Portfolio / Samples</div>
+          <div class="step-desc">Share your editing portfolio or sample videos.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-title">Software &amp; Experience</div>
+          <div class="step-desc">Let us know your editing software and experience level.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <div class="step-title">Weekly Availability</div>
+          <div class="step-desc">Tell us how many hours per week you can commit.</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2>Let's build something meaningful together.</h2>
+        <p>Apply through DEEPBYTO's official social channels.</p>
+        <div class="cta-buttons">
+          <a href="https://deepbyto.github.io" class="btn btn-primary" target="_blank" rel="noopener">
+            <i class="fas fa-globe"></i> Visit DEEPBYTO
+          </a>
+          <a href="../index.html#contact" class="btn btn-secondary">
+            <i class="fas fa-envelope"></i> Contact Us
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 <a href="../index.html">DEEPBYTO</a>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('deepbyto-theme', theme);
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+      if (icon && label) {
+        if (theme === 'light') { icon.className = 'fas fa-sun'; label.textContent = 'Light'; }
+        else { icon.className = 'fas fa-moon'; label.textContent = 'Dark'; }
+      }
+    }
+    const savedTheme = localStorage.getItem('deepbyto-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    setTheme(savedTheme);
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme');
+      setTheme(cur === 'light' ? 'dark' : 'light');
+    });
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+  </script>
+</body>
+</html>
