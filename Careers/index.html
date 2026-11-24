@@ -122,10 +122,23 @@
     .role-card .role-arrow { position: absolute; right: 28px; bottom: 28px; font-size: 1rem; color: var(--text-muted); transition: transform 0.3s ease, color 0.3s ease; }
     .role-card:hover .role-arrow { transform: translateX(4px); color: var(--text-primary); }
 
-    /* No roles fallback */
-    .no-roles { text-align: center; padding: 40px 20px; background: var(--bg-secondary); border: 1px dashed var(--border-subtle); border-radius: var(--radius); }
-    .no-roles i { font-size: 1.8rem; color: var(--text-muted); margin-bottom: 12px; display: block; }
-    .no-roles p { color: var(--text-muted); font-size: 0.9rem; }
+    /* Dynamic careers listings */
+    .no-roles, .roles-loading, .roles-error {
+      text-align: center; padding: 40px 20px; background: var(--bg-secondary);
+      border: 1px dashed var(--border-subtle); border-radius: var(--radius);
+    }
+    .no-roles i, .roles-loading i, .roles-error i {
+      font-size: 1.8rem; color: var(--text-muted); margin-bottom: 12px; display: block;
+    }
+    .no-roles p, .roles-loading p, .roles-error p {
+      color: var(--text-muted); font-size: 0.9rem;
+    }
+    .role-status.closed {
+      background: rgba(160,160,160,.12); color: var(--text-muted);
+      border-color: var(--border-subtle);
+    }
+    .role-status.closed .dot { background: var(--text-muted); }
+    .roles-count { color: var(--text-muted); font-size: .8rem; margin-top: 8px; }
 
     /* CTA */
     .cta-section { margin: 40px 0 80px; padding: 48px 32px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius); text-align: center; position: relative; overflow: hidden; }
@@ -232,29 +245,23 @@
         <p>Current opportunities available at DEEPBYTO.</p>
       </div>
 
-      <div class="roles-list">
-        <!-- Role: Founding Video Editor Intern -->
-        <a href="founding-video-editor-intern.html" class="role-card">
-          <div class="role-header">
-            <div class="role-title">Founding Video Editor Intern</div>
-            <div class="role-status"><span class="dot"></span>Open</div>
-          </div>
-          <p class="role-desc">We're looking for a creative and motivated Video Editor to help build our growing technology media presence. Edit talking-head videos, produce YouTube content and Shorts, and help establish our video workflow.</p>
-          <div class="role-meta">
-            <span><i class="fas fa-briefcase"></i> Internship</span>
-            <span><i class="fas fa-house-laptop"></i> Remote</span>
-            <span><i class="fas fa-seedling"></i> Beginners Welcome</span>
-            <span><i class="fas fa-hand-holding-heart"></i> Unpaid / Learning-Oriented</span>
-          </div>
-          <i class="fas fa-arrow-right role-arrow"></i>
-        </a>
+      <p class="roles-count" id="rolesCount" aria-live="polite">Loading opportunities...</p>
 
-        <!-- Placeholder: add more role cards here as they open -->
+      <div class="roles-list" id="rolesList" aria-live="polite">
+        <div class="roles-loading">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p>Loading current opportunities...</p>
+        </div>
       </div>
 
-      <div class="no-roles" style="margin-top: 20px;">
+      <div class="no-roles" id="noRoles" style="display:none; margin-top:20px;">
         <i class="fas fa-inbox"></i>
-        <p>Don't see a role that fits? Follow DEEPBYTO on social channels for future openings.</p>
+        <p>There are no published opportunities right now. Follow DEEPBYTO for future openings.</p>
+      </div>
+
+      <div class="roles-error" id="rolesError" style="display:none; margin-top:20px;">
+        <i class="fas fa-triangle-exclamation"></i>
+        <p>We couldn't load the latest opportunities. Please refresh the page or visit again shortly.</p>
       </div>
     </div>
   </section>
@@ -265,8 +272,8 @@
       <h2>Ready to Build Something Meaningful?</h2>
       <p>Explore our open role and apply through DEEPBYTO's official social channels.</p>
       <div class="cta-buttons">
-        <a href="founding-video-editor-intern.html" class="btn btn-primary">
-          <i class="fas fa-paper-plane"></i> View Open Role
+        <a href="#open-roles" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i> Explore Open Positions
         </a>
         <a href="../index.html" class="btn btn-secondary">
           <i class="fas fa-arrow-left"></i> Back to DEEPBYTO
@@ -283,6 +290,135 @@
   </footer>
 
   <script>
+    // Automatically discover career pages in the public GitHub Careers folder.
+    // Every HTML file in /Careers except index.html is treated as a job listing.
+    async function loadCareerListings() {
+      const rolesList = document.getElementById('rolesList');
+      const noRoles = document.getElementById('noRoles');
+      const rolesError = document.getElementById('rolesError');
+      const rolesCount = document.getElementById('rolesCount');
+
+      try {
+        const apiURL = 'https://api.github.com/repos/DEEPBYTO/deepbyto.github.io/contents/Careers?ref=main';
+        const response = await fetch(apiURL, {
+          headers: { 'Accept': 'application/vnd.github+json' },
+          cache: 'no-store'
+        });
+
+        if (!response.ok) throw new Error('GitHub API returned ' + response.status);
+
+        const files = await response.json();
+        const jobFiles = files.filter(file =>
+          file.type === 'file' &&
+          file.name.toLowerCase().endsWith('.html') &&
+          file.name.toLowerCase() !== 'index.html'
+        );
+
+        const listings = await Promise.all(jobFiles.map(async file => {
+          try {
+            const pageResponse = await fetch(file.download_url, { cache: 'no-store' });
+            if (!pageResponse.ok) return null;
+
+            const html = await pageResponse.text();
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const meta = name => doc.querySelector('meta[name="' + name + '"]')?.content?.trim() || '';
+
+            const rawTitle = doc.querySelector('title')?.textContent?.trim() || file.name;
+            const title = rawTitle
+              .replace(/\s*\|\s*Careers at DEEPBYTO\s*/i, '')
+              .replace(/\s*\|\s*DEEPBYTO\s*/i, '');
+
+            return {
+              fileName: file.name,
+              title,
+              description: meta('description') || 'Explore this opportunity and learn more about the role at DEEPBYTO.',
+              status: (meta('career:status') || 'open').toLowerCase(),
+              type: meta('career:type') || 'Internship',
+              mode: meta('career:mode') || 'Remote',
+              experience: meta('career:experience') || 'All Experience Levels',
+              compensation: meta('career:compensation') || 'See role details'
+            };
+          } catch (error) {
+            console.warn('Could not read career page:', file.name, error);
+            return null;
+          }
+        }));
+
+        const validListings = listings
+          .filter(Boolean)
+          .sort((a, b) => a.title.localeCompare(b.title));
+
+        rolesList.replaceChildren();
+        rolesError.style.display = 'none';
+
+        if (!validListings.length) {
+          rolesCount.textContent = '0 current opportunities';
+          noRoles.style.display = 'block';
+          return;
+        }
+
+        noRoles.style.display = 'none';
+        rolesCount.textContent = validListings.length + (validListings.length === 1
+          ? ' opportunity published'
+          : ' opportunities published');
+
+        validListings.forEach(job => {
+          const isOpen = !['closed', 'filled', 'paused', 'expired'].includes(job.status);
+          const card = document.createElement('a');
+          card.className = 'role-card';
+          card.href = './' + encodeURIComponent(job.fileName);
+
+          const header = document.createElement('div');
+          header.className = 'role-header';
+
+          const title = document.createElement('div');
+          title.className = 'role-title';
+          title.textContent = job.title;
+
+          const status = document.createElement('div');
+          status.className = 'role-status' + (isOpen ? '' : ' closed');
+          const dot = document.createElement('span');
+          dot.className = 'dot';
+          status.append(dot, document.createTextNode(isOpen ? 'Open' : 'Closed'));
+
+          header.append(title, status);
+
+          const description = document.createElement('p');
+          description.className = 'role-desc';
+          description.textContent = job.description;
+
+          const meta = document.createElement('div');
+          meta.className = 'role-meta';
+
+          [
+            ['fa-briefcase', job.type],
+            ['fa-house-laptop', job.mode],
+            ['fa-seedling', job.experience],
+            ['fa-hand-holding-heart', job.compensation]
+          ].forEach(([iconName, value]) => {
+            const item = document.createElement('span');
+            const icon = document.createElement('i');
+            icon.className = 'fas ' + iconName;
+            item.append(icon, document.createTextNode(' ' + value));
+            meta.append(item);
+          });
+
+          const arrow = document.createElement('i');
+          arrow.className = 'fas fa-arrow-right role-arrow';
+
+          card.append(header, description, meta, arrow);
+          rolesList.append(card);
+        });
+      } catch (error) {
+        console.error('Career listings could not be loaded:', error);
+        rolesList.replaceChildren();
+        rolesCount.textContent = 'Opportunities temporarily unavailable';
+        rolesError.style.display = 'block';
+      }
+    }
+
+    loadCareerListings();
+
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('deepbyto-theme', theme);
